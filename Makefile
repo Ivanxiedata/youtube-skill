@@ -1,4 +1,4 @@
-.PHONY: setup check status structure imports progress new-feature worktree
+.PHONY: setup check status structure imports progress spec new-feature worktree
 
 # Run once per clone or worktree.
 setup:
@@ -7,7 +7,7 @@ setup:
 	go mod download
 
 # The only definition of "done". CI runs it in full; the pre-commit hook adds TESTFLAGS=-short.
-check: structure imports progress
+check: structure imports progress spec
 	@out=$$(gofmt -l .); [ -z "$$out" ] || { echo "$$out"; echo "gofmt: run 'gofmt -w .'"; exit 1; }
 	go vet ./...
 	go test -race $(TESTFLAGS) ./...
@@ -29,6 +29,9 @@ imports:
 
 progress:
 	@scripts/check-progress.sh
+
+spec:
+	@scripts/check-spec.sh
 
 new-feature:
 	@scripts/new-feature.sh "$$NAME" "$$DESC"

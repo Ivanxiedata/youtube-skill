@@ -22,4 +22,5 @@ Episode 0 not made yet: brief fields and words-per-second are guesses until then
 - 2026-11-20: Word limits assume 2.5 words/s (150 words / 60s); replace with the measured TTS rate after Episode 0.
 
 ## Log
+- 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.

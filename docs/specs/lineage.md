@@ -11,6 +11,7 @@ Agents writing a new brief (looking up predecessors and earlier episodes), and t
 The briefs: `episodes/*/brief.json` (`tech` and `predecessor`). No separate database to keep in sync.
 
 ## Acceptance criteria
+`[ ]` = not built yet. `[x]` = built, and must end with the test that proves it (`-> TestName`); `make check` verifies.
 - [ ] `Load(episodesDir)` builds the graph from every brief.
 - [ ] `Chain(id)` returns the predecessors oldest-first, e.g. for c (replaced b, which replaced a): a, b, c.
 - [ ] `Episode(id)` returns the slug of the episode covering that tech, or "not covered yet".
@@ -28,6 +29,12 @@ The briefs: `episodes/*/brief.json` (`tech` and `predecessor`). No separate data
 - Uses from `shared/`: `shared/brief`.
 - Exposes to `cmd/`: `Load`, `Chain`, `Episode`, `Check` (returns problems).
 - Used by: `cmd/yt lineage <tech-id>` and `cmd/yt check` (runs `Check` on all episodes).
+
+## Later
+After v1; probably will build (unlike Non-goals).
+- A tech with two predecessors (e.g. "merged ideas from A and B").
+- A timeline of every covered tech, for the channel's playlist order.
+- Topic suggestions: predecessors mentioned in briefs that have no episode yet.
 
 ## Verification
 `make check-lineage`. Manual: with two example episodes where the second replaces the first,

@@ -28,6 +28,8 @@ Write it for an agent that has never seen your conversation.
 1. New task: `make worktree NAME=<slug>`, then `cd` there and `make setup`. Work only in that worktree.
    One task per feature at a time, so two branches never edit the same `progress.md`.
 2. Spec before code: change `docs/specs/<feature>.md` before changing behavior.
+   When a criterion is built, tick it with its test: `- [x] ... -> TestName` (`make check` verifies).
+   New ideas beyond this version go in the spec's `## Later` section.
 3. Done means `make check` passes. Never commit with `--no-verify`.
 4. Before the PR: `git fetch origin && git rebase origin/develop`, then `make check` again.
 5. PR: `gh pr create --base develop`, using the template.
@@ -45,7 +47,7 @@ Write it for an agent that has never seen your conversation.
 | Command | What |
 |---|---|
 | `make status` | where every feature stands + in-flight branches |
-| `make check` | gofmt, vet, test, structure, import boundaries, progress updated |
+| `make check` | gofmt, vet, test, structure, import boundaries, progress updated, spec ticks have tests |
 | `make check-<feature>` | vet + test one feature |
 | `make new-feature NAME=x DESC="..."` | scaffold dir, spec, AGENTS.md, progress.md, map row |
 | `make worktree NAME=x` | branch from develop + worktree |

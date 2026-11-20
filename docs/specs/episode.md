@@ -36,6 +36,7 @@ One folder per video: `episodes/<slug>/`.
 The `Brief` type and its loader live in `shared/brief/`, because `lineage` and `diagram` read briefs too.
 
 ## Acceptance criteria
+`[ ]` = not built yet. `[x]` = built, and must end with the test that proves it (`-> TestName`); `make check` verifies.
 - [ ] A complete example episode in `episode/testdata/ok/` passes with no problems.
 - [ ] A missing section (brief or script) gives a problem naming the section.
 - [ ] A claim with an empty or non-http(s) source gives a problem quoting the claim.
@@ -55,6 +56,12 @@ The `Brief` type and its loader live in `shared/brief/`, because `lineage` and `
 - Uses from `shared/`: `shared/brief` (`Brief`, `Load(dir)`), created together with this feature.
 - Exposes to `cmd/`: `episode.Check(dir string) []Problem`, where `Problem` has `Section` and `Message`.
 - Used by: `cmd/yt check episodes/<slug>`.
+
+## Later
+After v1; probably will build (unlike Non-goals).
+- Formats other than 60s (e.g. 3-minute deep dives): a time-budget table per length.
+- A jargon check: flag technical words in the script that no earlier sentence explains.
+- Generate a `script.md` skeleton (headings + word budgets) from the brief.
 
 ## Verification
 `make check-episode`. Manual: `go run ./cmd/yt check episode/testdata/ok` prints `ok`;

@@ -21,4 +21,5 @@ Episode 0 must show whether the stickman engine can place an SVG/PNG in a scene.
 - 2026-11-20: Max 8 nodes per side ("one diagram, one idea" principle in docs/product.md).
 
 ## Log
+- 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.

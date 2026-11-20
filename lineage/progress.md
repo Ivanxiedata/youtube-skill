@@ -20,4 +20,5 @@ Needs `shared/brief` (episode feature, step 2).
 - 2026-11-20: One predecessor per tech in v1.
 
 ## Log
+- 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.

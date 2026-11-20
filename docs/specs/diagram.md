@@ -14,6 +14,7 @@ The render step (puts the image into the video) and the owner (checks the diagra
 - Output: `episodes/<slug>/diagram.svg`, 1920x1080.
 
 ## Acceptance criteria
+`[ ]` = not built yet. `[x]` = built, and must end with the test that proves it (`-> TestName`); `make check` verifies.
 - [ ] Renders a valid 1920x1080 SVG for the example brief.
 - [ ] Left half shows `before` titled with the predecessor's name; right half shows `after` titled with the tech's name.
 - [ ] Nodes and edges in `after` that aren't in `before` (by id) use the highlight color.
@@ -32,6 +33,12 @@ The render step (puts the image into the video) and the owner (checks the diagra
 - Uses from `shared/`: `shared/brief`.
 - Exposes to `cmd/`: `diagram.Render(a brief.Architecture, titles Titles) ([]byte, []Problem)`.
 - Used by: `cmd/yt diagram episodes/<slug>`.
+
+## Later
+After v1; probably will build (unlike Non-goals).
+- Animated build-up: the highlighted parts appear one by one, synced to the narration.
+- Other comparison visuals: a side-by-side numbers table (speed, cost, context size).
+- A vertical 1080x1920 layout for Shorts.
 
 ## Verification
 `make check-diagram` (includes a golden-file test against `diagram/testdata/`). Manual: open the SVG

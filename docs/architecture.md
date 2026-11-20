@@ -30,7 +30,7 @@ defined by the consuming feature).
 |---|---|
 | Why are we building this? | `docs/product.md` |
 | Which features exist? | `docs/features.md` |
-| What must feature X do? | `docs/specs/x.md` |
+| What must feature X do, what's built, what's later? | `docs/specs/x.md`: `[ ]` not built, `[x] -> TestName` built and tested, `## Later` future versions |
 | Where does each feature stand? | `make status`, then `<feature>/progress.md` |
 | What's in flight on other branches? | `make status` ("In flight" section) |
 | Repo-level work (harness, `cmd/`, `shared/`, episode runs)? | `docs/progress.md` |
