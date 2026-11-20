@@ -1,3 +1,10 @@
 #!/bin/sh
 # Same gate for every agent and human. Installed by `make setup`.
+# make check runs on the working tree, so refuse when that differs from what is being committed.
+# ponytail: blocks partial staging; CI on the PR is the authoritative gate either way.
+if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard -- '*.go' go.mod go.sum)" ]; then
+	echo "pre-commit: unstaged changes or untracked .go files would make the check differ from the commit."
+	echo "pre-commit: stage them (git add) or stash them (git stash -k -u), then commit again."
+	exit 1
+fi
 exec make check

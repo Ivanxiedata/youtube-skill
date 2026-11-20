@@ -6,7 +6,9 @@ set -eu
 cd "$(git rev-parse --show-toplevel)"
 mod=$(go list -m)
 
-bad=$(go list -f '{{.ImportPath}} {{join .Imports " "}} {{join .TestImports " "}} {{join .XTestImports " "}}' ./... |
+# Separate step so set -e catches a go list failure (sh has no pipefail).
+list=$(go list -f '{{.ImportPath}} {{join .Imports " "}} {{join .TestImports " "}} {{join .XTestImports " "}}' ./...)
+bad=$(echo "$list" |
 	while read -r pkg imports; do
 		own=${pkg#"$mod"/}
 		own=${own%%/*}

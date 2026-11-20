@@ -1,0 +1,2 @@
+# Append-only list of rows: union merge lets parallel branches each add a row without conflicts.
+docs/features.md merge=union

@@ -10,7 +10,7 @@ setup:
 check: structure imports
 	@out=$$(gofmt -l .); [ -z "$$out" ] || { echo "$$out"; echo "gofmt: run 'gofmt -w .'"; exit 1; }
 	go vet ./...
-	go test ./...
+	go test -race ./...
 
 # Fast loop while working inside one feature: make check-anomaly
 check-%:
@@ -24,7 +24,7 @@ imports:
 	@scripts/check-imports.sh
 
 new-feature:
-	@scripts/new-feature.sh $(NAME)
+	@scripts/new-feature.sh "$$NAME"
 
 worktree:
-	@scripts/worktree.sh $(NAME)
+	@scripts/worktree.sh "$$NAME"
