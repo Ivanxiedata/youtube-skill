@@ -31,8 +31,8 @@ defined by the consuming feature).
 A deep module: one small interface over every structural rule of an episode folder, so features
 can't disagree about what a valid brief is.
 - `Load(dir)` returns a validated `Brief` plus `[]Problem`; `LoadAll(episodesDir)` does it for every episode.
-- It owns the structural rules: six sections (hook, before, new, why, how, outro); predecessor id != tech id;
-  tech ids lowercase-with-dashes; every edge references a known node; at most 8 nodes per side; labels at most 40 characters.
+- It owns the structural rules: six sections (hook, before, new, why, how, outro); a predecessor is required and its id != tech id;
+  tech ids lowercase-with-dashes; every edge references a known node; at least 1 and at most 8 nodes per side; labels at most 40 characters.
 - It owns the section list and time budgets as one Go table mirroring the format table in `docs/product.md`,
   the episode folder's file names, and the single `Problem` type.
 - Features keep only their own rules: `episode` (word counts, budgets, claim sources),

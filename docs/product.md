@@ -43,7 +43,8 @@ Captions: upload `script.md` as the video's captions (packaging step).
 | Stickman | github.com/krishnagoswami52/stickman-skill | Render the video and free voiceover |
 | YouTube agent | github.com/jakeschincariol/youtube-agent-skill | Hook, title, thumbnail, SEO, chapters |
 
-Installed repo-locally from pinned commits by `make skills`.
+Installed repo-locally from pinned, reviewed commits by `make skills` (`skills.lock` records each commit and its review notes).
+Codex gets the skills but not Deep-Research's web-search subagent (upstream's Codex agent file is incomplete).
 
 Gap none of them covers: architecture diagrams inside the stickman video. That's ours to build.
 

@@ -1,4 +1,4 @@
-.PHONY: setup check status new-feature new-episode worktree
+.PHONY: setup check status new-feature new-episode worktree skills
 
 # Run once per clone or worktree.
 setup:
@@ -32,3 +32,7 @@ new-episode:
 
 worktree:
 	@scripts/worktree.sh "$$NAME"
+
+# Pinned third-party agent skills from skills.lock (needs git + network). Per worktree; not part of setup or check.
+skills:
+	@scripts/skills.sh

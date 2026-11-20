@@ -9,7 +9,7 @@ Product: 1-minute stickman videos explaining new AI tech, side by side with what
 3. Route your task. Continue from the "Next" of the progress file you land on; don't ask the owner what the previous agent did.
    - **Feature work** (a row in `docs/features.md`): read `<feature>/AGENTS.md`, `docs/specs/<feature>.md`, `<feature>/progress.md`.
    - **Fits no feature:** it's a new feature. `make new-feature NAME=<name> DESC="<one line>"`, then write the spec.
-   - **Making an episode:** `make new-episode NAME=<slug>`, then work in `episodes/<slug>/` and its `progress.md`.
+   - **Making an episode:** `make new-episode NAME=<slug>` and `make skills`, then work in `episodes/<slug>/` and its `progress.md`.
    - **Repo-level** (harness, `shared/`, `cmd/`, `scripts/`): `docs/progress.md`. One repo-level task at a time.
 4. **Claim before you start.** If "In flight" in `make status` shows someone on your feature or episode, pick other work.
    Right after `make worktree`, set Status in the progress.md you'll own to `in progress: <branch>`, commit,
@@ -39,7 +39,9 @@ and one Log line appended at the bottom (oldest first). Write it for an agent th
 4. Before the PR: `git fetch origin && git rebase origin/develop`, then `make check` again.
 5. PR: `git push -u origin HEAD`, then `gh pr create --base develop`, using the template.
 6. Roles: when asked to review or judge, follow `docs/roles/reviewer.md` or `docs/roles/judge.md`.
-7. Third-party skills: `make skills` installs the pinned ones repo-locally.
+7. Third-party skills: `make skills` installs the pinned ones into this worktree (`.claude/skills`, `.agents/skills`);
+   each worktree runs it itself. Never install skills globally. Run the stickman scripts inside the venv `make skills` prints.
+   Bumping a pin: read the upstream diff first (`skills.lock` header).
 
 ## Rules
 - Go. Tests sit next to code as `*_test.go`.
@@ -55,7 +57,7 @@ and one Log line appended at the bottom (oldest first). Write it for an agent th
 | `make status` | where every feature and episode stands + in-flight branches |
 | `make check` | gofmt, vet, test, structure, import boundaries, progress updated, spec ticks have tests |
 | `make check-<feature>` | vet + test one feature |
-| `make new-feature NAME=x DESC="..."` | scaffold dir, spec, AGENTS.md, progress.md, map row |
+| `make new-feature NAME=x DESC="..."` | scaffold dir, spec, AGENTS.md, progress.md, map row (write a literal `$` as `$$`) |
 | `make new-episode NAME=x` | scaffold `episodes/x/` with its progress.md |
 | `make worktree NAME=x` | branch from develop + worktree |
 | `make skills` | install the pinned third-party skills repo-locally |

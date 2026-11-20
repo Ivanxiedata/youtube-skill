@@ -13,5 +13,5 @@ if git fetch -q origin develop 2>/dev/null; then base=origin/develop; fi
 git worktree add --no-track -b "$s" "$dir" "$base"
 [ ! -f "$main/.env" ] || cp "$main/.env" "$dir/.env"
 
-echo "worktree ready: cd $dir && make setup && make status"
+echo "worktree ready: cd $dir && make setup && make status   (making an episode? also: make skills)"
 echo "then claim your task: set Status to 'in progress: $s' in its progress.md, commit, git push -u origin HEAD (see AGENTS.md)"
