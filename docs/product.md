@@ -34,12 +34,16 @@ actually understand it: how it works, not just its name.
 | 45-57s | How to use it | One concrete starting point |
 | 57-60s | Outro | What to watch next (the predecessor's or successor's video) |
 
+Captions: upload `script.md` as the video's captions (packaging step).
+
 ## Skills used
 | Skill | Repo | Role |
 |---|---|---|
 | Deep research | github.com/Weizhena/Deep-Research-skills | Research the new tech and its predecessor, with sources |
 | Stickman | github.com/krishnagoswami52/stickman-skill | Render the video and free voiceover |
 | YouTube agent | github.com/jakeschincariol/youtube-agent-skill | Hook, title, thumbnail, SEO, chapters |
+
+Installed repo-locally from pinned commits by `make skills`.
 
 Gap none of them covers: architecture diagrams inside the stickman video. That's ours to build.
 

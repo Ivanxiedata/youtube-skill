@@ -2,17 +2,10 @@
 
 Draws the side-by-side architecture diagram (old vs new, changed parts highlighted) in the stickman style for the What's-new section.
 
-## Read first
-1. `docs/specs/diagram.md`: what it must do (acceptance criteria).
-2. `diagram/progress.md`: where it stands and what's next. Update it before you stop.
-
-## Boundaries
-- Public API: the root package `diagram` only. Everything else goes in `diagram/internal/`.
-- May import: `diagram/...` and `shared/...`. Never another feature.
-
-## Commands
-- `make check-diagram`: vet + test this feature only.
+Spec: `docs/specs/diagram.md` · Progress: `diagram/progress.md` (update before you stop) · Check: `make check-diagram`
 
 ## Notes
 - Stdlib only for SVG (text/template or fmt). No graph-layout dependency.
-- Deterministic output: sort nodes and edges by id before layout.
+- Escape labels with `encoding/xml` (`xml.EscapeText`).
+- Style constants (palette, font, line weight) live in code; the golden test covers them.
+- Deterministic output: sort nodes by id and edges by `(from, to)` before layout.

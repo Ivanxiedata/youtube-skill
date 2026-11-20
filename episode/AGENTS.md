@@ -1,18 +1,10 @@
 # episode
 
-One episode's content: the four-part brief (before / new / why / how) with sources, and the 60-second script; checks both are ready to render.
+Checks that an episode's brief and script are ready to render (structure via shared/brief, sources, word budgets). Making an episode is not this feature: `make new-episode`.
 
-## Read first
-1. `docs/specs/episode.md`: what it must do (acceptance criteria).
-2. `episode/progress.md`: where it stands and what's next. Update it before you stop.
-
-## Boundaries
-- Public API: the root package `episode` only. Everything else goes in `episode/internal/`.
-- May import: `episode/...` and `shared/...`. Never another feature.
-
-## Commands
-- `make check-episode`: vet + test this feature only.
+Spec: `docs/specs/episode.md` · Progress: `episode/progress.md` (update before you stop) · Check: `make check-episode`
 
 ## Notes
 - This feature checks; it never writes briefs or scripts.
-- Section names and time budgets come from the format table in `docs/product.md`. Change them there first.
+- `Check` returns `shared/brief`'s structural problems plus its own (script word counts, section budgets, claim sources).
+- Section names and time budgets live in `shared/brief`, mirroring the format table in `docs/product.md`. Format and budget changes go through the owner (`docs/product.md`), then `shared/brief`.

@@ -1,24 +1,22 @@
 # lineage progress
 
-Update before you stop, written for an agent that has never seen your conversation.
-`make status` shows the Status and first Next line of every feature.
-
 ## Status
-spec drafted, no code yet. Waits for `shared/brief` (see episode).
+spec drafted, no code yet. Waits for `shared/brief` (lands as its own PR first).
 
 ## Next
-1. Wait for `shared/brief/` from the episode feature.
-2. Add `lineage/testdata/` with 3 small briefs (a <- b <- c) plus one cycle case.
-3. Implement `Load`, `Chain`, `Episode`, `Check` test-first.
-4. Add `cmd/yt lineage <tech-id>`.
+1. Wait for `shared/brief` (see `docs/progress.md`).
+2. Implement `New(briefs []brief.Brief)`, `Chain`, `Episode`, `Check` test-first; tests build briefs in memory (a <- b <- c, plus a cycle), no testdata folders.
+3. Implement `cmd/yt/lineage.go` (the stub is registered already).
 
 ## Blockers
-Needs `shared/brief` (episode feature, step 2).
+`shared/brief` has not landed: see `docs/progress.md` (Next, build order).
 
 ## Decisions
-- 2026-11-20: No separate database; the briefs are the source of truth, so there's nothing to keep in sync.
-- 2026-11-20: One predecessor per tech in v1.
+- 2026-11-20: No separate database; the briefs are the source of truth, because then there's nothing to keep in sync.
+- 2026-11-20: One predecessor per tech in v1, because `Chain` stays a simple list; two predecessors are in the spec's Later.
+- 2026-11-20: `New(briefs []brief.Brief)` instead of `Load(episodesDir)`, because `cmd/yt` loads with `brief.LoadAll`, so lineage does no file reading and tests need no testdata.
 
 ## Log
-- 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.
+- 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
+- 2026-11-20 product-doc: review fixes (spec wording, shared/brief owns structural rules, cmd/yt stubs).
