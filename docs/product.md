@@ -51,13 +51,13 @@ Gap none of them covers: architecture diagrams inside the stickman video. That's
 - Opinions, predictions, rankings or investment advice.
 
 ## Roadmap
-| Order | Feature | What it does | Status |
-|---|---|---|---|
-| 0 | Episode 0 (no code) | Make one 60s video end to end by hand with the three skills, to learn the real flow | next |
-| 1 | `lineage` | Record of every technology covered: what it replaced, the key difference, sources, episode | planned |
-| 2 | `brief` | Research output into the four-part brief (before / new / why / how), every claim sourced | planned |
-| 3 | `script` | 60s narration from the brief; lint word count, section timing, unexplained jargon | planned |
-| 4 | `diagram` | Side-by-side architecture graph (old vs new) in the stickman style, placed into the video | planned |
-| 5 | `render` | One command from brief to MP4 + title + thumbnail | planned |
+| Order | Work | What it does |
+|---|---|---|
+| 0 | Episode 0 (no code) | Make one 60s video end to end by hand with the three skills, to learn the real flow |
+| 1 | `episode` | Checks an episode's four-part brief (every claim sourced) and 60s script before render |
+| 2 | `lineage` | Which tech replaced which, from the briefs, so videos reference their predecessor |
+| 3 | `diagram` | Side-by-side architecture graph (old vs new) in the stickman style |
+| 4 | `cmd/yt` | One CLI wiring them together: `yt check`, `yt lineage`, `yt diagram` |
 
-Features 1-5 get specced after Episode 0 shows which steps actually need code.
+Research, rendering and packaging are done by the external skills, not our code.
+Status of each: `make status` (from each feature's `progress.md`). Specs are drafts until Episode 0 answers their open questions.

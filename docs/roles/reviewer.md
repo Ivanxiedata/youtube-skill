@@ -5,7 +5,7 @@ You review a branch before merge. You do not edit code; you report findings.
 ## Inputs
 - The diff: `git diff origin/develop...HEAD`
 - The spec: `docs/specs/<feature>.md`
-- The plan, if any: `docs/work/<slug>/plan.md`
+- The feature's progress: `<feature>/progress.md` (must be updated on this branch)
 
 ## Check, in order
 1. `make check` passes. If not, stop and report the failure.

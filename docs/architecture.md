@@ -6,7 +6,8 @@
 | `<feature>/` | One product feature. Root package = its public API; the rest in `<feature>/internal/` | itself, `shared/` |
 | `shared/<concept>/` | One package per concept used by 2+ features (e.g. `shared/youtube`). No code directly in `shared/` | `shared/` only |
 | `cmd/<app>/` | Binaries; the only place features are wired together | features' root packages, `shared/` |
-| `docs/` | Product, architecture, specs, in-flight work, roles | — |
+| `episodes/<slug>/` | Content for one video: brief, script, diagram, render outputs | — (data, no code) |
+| `docs/` | Product, architecture, specs, repo-level progress, roles | — |
 | `scripts/` | The checks and scaffolds behind `make` | — |
 
 Boundaries are enforced by `scripts/check-imports.sh` (via `make check`) and by Go's own
@@ -30,7 +31,9 @@ defined by the consuming feature).
 | Why are we building this? | `docs/product.md` |
 | Which features exist? | `docs/features.md` |
 | What must feature X do? | `docs/specs/x.md` |
-| What's in flight and where did it stop? | `docs/work/<slug>/progress.md` on that branch; `git worktree list` |
+| Where does each feature stand? | `make status`, then `<feature>/progress.md` |
+| What's in flight on other branches? | `make status` ("In flight" section) |
+| Repo-level work (harness, `cmd/`, `shared/`, episode runs)? | `docs/progress.md` |
 | Is it done? | `make check` |
 
 ## Enforcement layers
