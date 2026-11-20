@@ -16,3 +16,6 @@
 # What the stickman skill's scripts install next to a film (node deps, voice models).
 node_modules/
 .voice-models/
+# Google credentials belong in ~/.config/youtube-skill/, never here; this is a safety net.
+client_secret*.json
+token.json

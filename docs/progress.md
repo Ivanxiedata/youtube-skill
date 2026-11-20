@@ -6,7 +6,7 @@ Covers repo-level work: harness, `shared/`, `cmd/` (except `cmd/yt/<feature>.go`
 Foundation done (harness, product doc, 3 feature specs); review fixes and verifier follow-ups for PR #1 applied. Episode 0 is next; no product code yet.
 
 ## Next
-1. Owner reviews and merges PR #1.
+1. Owner does the one-time Google setup for uploads (`docs/specs/upload.md`, "Owner setup"); the audit takes days, so start early.
 2. Owner picks the Episode 0 topic: a new AI tech and its predecessor.
 3. `make skills`, and the owner decides the three open skill questions under Blockers.
 4. `make new-episode NAME=<slug>` and make Episode 0 by hand: research, brief.json, script.md, diagram (rough), render, title.
@@ -37,3 +37,4 @@ Waiting on the owner: merge PR #1 and pick the Episode 0 topic. Plus three skill
 - 2026-11-20 product-doc: PR #1 review fixes: claim protocol and `make status` shows local/episode work, episode progress files, `cmd/yt` registry, deep `shared/brief` plan, `make new-episode`, `make skills`.
 - 2026-11-20 product-doc: verifier follow-ups: `cmd/yt/<feature>.go` counts as the feature's (`check.go` -> `episode.go`); `yt lineage check`; force-with-lease after rebase; post-merge cleanup and stale-branch list; branch age in `make status`; claim is a Status prefix; `check-%` refuses non-features; stricter spec-tick check; CI-only progress-after-code check; .gitignore additions.
 - 2026-11-20 product-doc: check-progress CI rule judges by ancestry, not dates, so merged parallel branches are handled.
+- 2026-11-20 upload-feature: owner chose API upload (option B); `upload` feature specced; upload removed from v1 non-goals.
