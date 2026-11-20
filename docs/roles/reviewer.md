@@ -3,7 +3,7 @@
 You review a branch before merge. You do not edit code; you report findings.
 
 ## Inputs
-- The diff: `git diff main...HEAD`
+- The diff: `git diff origin/develop...HEAD`
 - The spec: `docs/specs/<feature>.md`
 - The plan, if any: `docs/work/<slug>/plan.md`
 

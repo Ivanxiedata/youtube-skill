@@ -7,14 +7,20 @@ Map for any coding agent (Codex, Claude Code, Copilot, Cursor, ...). Keep it sho
 2. Resuming work? Read `docs/work/<slug>/progress.md` first.
 3. Which features exist: `docs/features.md`. Background when needed: `docs/product.md` (why), `docs/architecture.md` (how features connect).
 
+## Branches
+- `develop` is the integration branch. Every task branches from `develop`, and every PR targets `develop`.
+- `main` only moves by fast-forward to `develop`, and only when the owner says develop is done:
+  `git fetch origin && git push origin origin/develop:refs/heads/main` (git rejects it if it isn't a fast-forward).
+- Never commit or open a PR directly against `main`. No branch protection; these rules are on you.
+
 ## Workflow
 1. New task: `make worktree NAME=<slug>`, then `cd` there and `make setup`. Work only in that worktree.
    One slug names the branch, the worktree dir and `docs/work/<slug>/`.
 2. New feature: `make new-feature NAME=<name>`. Write the spec before any code.
 3. Multi-session task: update `docs/work/<slug>/progress.md` (Status / Done / Next / Blockers) before you stop.
 4. Done means `make check` passes. Never commit with `--no-verify`.
-5. Before the PR: `git fetch origin && git rebase origin/main`, then `make check` again.
-6. Finishing: open a PR using the template; in the last commit, move `docs/work/<slug>/` to `docs/work/_archive/<slug>/`.
+5. Before the PR: `git fetch origin && git rebase origin/develop`, then `make check` again.
+6. Finishing: `gh pr create --base develop` using the template; in the last commit, move `docs/work/<slug>/` to `docs/work/_archive/<slug>/`.
 7. Roles: when asked to review or judge, follow `docs/roles/reviewer.md` or `docs/roles/judge.md`.
 
 ## Rules

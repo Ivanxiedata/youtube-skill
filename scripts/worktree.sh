@@ -7,9 +7,9 @@ case $s in '' | *[!abcdefghijklmnopqrstuvwxyz0123456789-]*) echo "usage: make wo
 main=$(dirname "$(git rev-parse --path-format=absolute --git-common-dir)")
 dir="$(dirname "$main")/$(basename "$main")-$s"
 
-# Branch from the latest origin/main; fall back to local main when there is no remote yet.
-base=main
-if git fetch -q origin main 2>/dev/null; then base=origin/main; fi
+# Branch from the latest origin/develop (the integration branch); fall back to local develop offline.
+base=develop
+if git fetch -q origin develop 2>/dev/null; then base=origin/develop; fi
 git worktree add -b "$s" "$dir" "$base"
 [ ! -f "$main/.env" ] || cp "$main/.env" "$dir/.env"
 
