@@ -7,7 +7,7 @@ cd "$(git rev-parse --show-toplevel)"
 git rev-parse -q --verify origin/develop >/dev/null || { echo "progress: no origin/develop yet, skipped"; exit 0; }
 base=$(git merge-base HEAD origin/develop)
 # Index vs base = this branch's commits plus what is staged for the commit in progress.
-changed=$(git diff --cached --name-only "$base")
+changed=$(git diff --cached --no-renames --name-only "$base")
 fail=0
 for f in $(printf '%s\n' "$changed" | sed -n 's|^docs/specs/\(.*\)\.md$|\1|p; s|/.*||p' | sort -u); do
 	if reserved "$f" || [ ! -f "$f/progress.md" ]; then continue; fi
