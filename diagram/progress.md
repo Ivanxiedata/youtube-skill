@@ -23,3 +23,4 @@ Episode 0 (can the engine place an SVG/PNG in a scene?): see `docs/progress.md` 
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.
 - 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: review fixes (spec wording, shared/brief owns structural rules, cmd/yt stubs).
+- 2026-11-20 product-doc: `cmd/yt/diagram.go` stub (registers `diagram`) arrived in a parallel branch; this entry records it.

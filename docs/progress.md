@@ -36,3 +36,4 @@ Waiting on the owner: merge PR #1 and pick the Episode 0 topic. Plus three skill
 - 2026-11-20 product-doc: product doc, per-feature progress files, `make status`, progress check, 3 feature specs.
 - 2026-11-20 product-doc: PR #1 review fixes: claim protocol and `make status` shows local/episode work, episode progress files, `cmd/yt` registry, deep `shared/brief` plan, `make new-episode`, `make skills`.
 - 2026-11-20 product-doc: verifier follow-ups: `cmd/yt/<feature>.go` counts as the feature's (`check.go` -> `episode.go`); `yt lineage check`; force-with-lease after rebase; post-merge cleanup and stale-branch list; branch age in `make status`; claim is a Status prefix; `check-%` refuses non-features; stricter spec-tick check; CI-only progress-after-code check; .gitignore additions.
+- 2026-11-20 product-doc: check-progress CI rule judges by ancestry, not dates, so merged parallel branches are handled.

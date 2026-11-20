@@ -39,7 +39,8 @@ for n in $need; do
 		{ echo "progress: this branch changes what $n covers, but not $n. Update Status/Next/Log."; fail=1; }
 done
 
-# CI only: the newest commit touching a feature's code/spec or an episode must not be newer than the newest touching its progress.md.
+# CI only: no change to a feature's code/spec or an episode may come after (be missing from) the latest update of its progress.md.
+# Ancestry, not dates, so parallel branches merged together are judged correctly.
 # Locally (the hook) "touched at least once" above stays the rule: the commit in progress isn't in the log yet, and commits stay cheap.
 # ponytail: feature and episode progress files only; the repo-level docs/progress.md keeps the touched-once rule.
 if [ -n "${CI:-}" ]; then
@@ -49,10 +50,8 @@ if [ -n "${CI:-}" ]; then
 		(episodes/*) set -- "${n%progress.md}" ;;
 		(*) f=${n%/progress.md}; set -- "$f/" "docs/specs/$f.md" "cmd/yt/$f.go" "cmd/yt/${f}_test.go" ;;
 		esac
-		code=$(git log -1 --format=%H "$base"..HEAD -- "$@" ":(exclude)$n")
-		[ -n "$code" ] || continue
 		prog=$(git log -1 --format=%H "$base"..HEAD -- "$n")
-		{ [ -n "$prog" ] && git merge-base --is-ancestor "$code" "$prog"; } ||
+		[ -z "$(git rev-list -1 "${prog:-$base}"..HEAD -- "$@" ":(exclude)$n")" ] ||
 			{ echo "progress: $n is older than the last change to what it covers. Update it after your last code change."; fail=1; }
 	done
 fi
