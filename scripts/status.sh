@@ -18,7 +18,9 @@ echo "In flight on other branches (progress.md changed vs develop):"
 for b in $(git for-each-ref --format='%(refname:short)' refs/remotes/origin); do
 	case $b in origin | origin/HEAD | origin/develop | origin/main) continue ;; esac
 	for p in $(git diff --name-only "origin/develop...$b" -- '*progress.md' 2>/dev/null); do
-		printf '  %-28s %-10s %s\n' "${b#origin/}" "${p%/progress.md}" "$(git show "$b:$p" | field Status)"
+		n=${p%/progress.md}
+		[ "$n" != docs ] || n=repo
+		printf '  %-28s %-10s %s\n' "${b#origin/}" "$n" "$(git show "$b:$p" | field Status)"
 	done
 done
 
