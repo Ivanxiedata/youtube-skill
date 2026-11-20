@@ -19,6 +19,7 @@ Map for any coding agent (Codex, Claude Code, Copilot, Cursor, ...). Keep it sho
 
 ## Rules
 - Go. Tests sit next to code as `*_test.go`.
+- Slow tests (network, DB, >1s) start with `if testing.Short() { t.Skip("slow") }`. The commit hook skips them; CI runs them.
 - A feature imports only itself and `shared/`. `shared/` imports no feature. `cmd/` wires features together.
   Enforced by `scripts/check-imports.sh`. Details and the type-sharing rule: `docs/architecture.md`.
 - A feature's root package is its only public API; everything else goes in `<feature>/internal/`.

@@ -6,11 +6,11 @@ setup:
 	@[ -f .env ] || [ ! -f .env.example ] || cp .env.example .env
 	go mod download
 
-# The only definition of "done". CI and the pre-commit hook run exactly this.
+# The only definition of "done". CI runs it in full; the pre-commit hook adds TESTFLAGS=-short.
 check: structure imports
 	@out=$$(gofmt -l .); [ -z "$$out" ] || { echo "$$out"; echo "gofmt: run 'gofmt -w .'"; exit 1; }
 	go vet ./...
-	go test -race ./...
+	go test -race $(TESTFLAGS) ./...
 
 # Fast loop while working inside one feature: make check-anomaly
 check-%:

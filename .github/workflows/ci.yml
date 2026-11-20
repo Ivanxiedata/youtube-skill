@@ -13,4 +13,6 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
+          # No go.sum until the first dependency; key the build/test cache on go.mod instead.
+          cache-dependency-path: go.mod
       - run: make check

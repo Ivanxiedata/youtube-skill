@@ -35,7 +35,7 @@ defined by the consuming feature).
 
 ## Enforcement layers
 Same gate everywhere, so no agent-specific setup is required:
-1. `.githooks/pre-commit` runs `make check` (installed by `make setup`). Fast feedback only.
+1. `.githooks/pre-commit` runs `make check TESTFLAGS=-short` (installed by `make setup`). Fast feedback only.
 2. CI (`.github/workflows/ci.yml`) runs `make check` on pushes to main and on PRs. This is the real
    gate once branch protection requires it.
 3. `.github/CODEOWNERS` marks `shared/` for owner review. Agents commit as the owner's account, so this
