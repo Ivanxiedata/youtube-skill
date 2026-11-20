@@ -1,3 +1,18 @@
 .env*
 !.env.example
 /bin/
+# Render outputs: commit sources (brief, script, specs), never the media. Force-add a tiny test fixture if one is needed.
+*.mp4
+*.wav
+*.webm
+*.mp3
+*.m4a
+# Vendored third-party skills (.skills/) and the copies installed for agents.
+/.skills/
+/.claude/skills/
+/.claude/agents/
+/.agents/skills/
+/.codex/
+# What the stickman skill's scripts install next to a film (node deps, voice models).
+node_modules/
+.voice-models/

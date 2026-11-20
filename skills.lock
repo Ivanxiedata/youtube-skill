@@ -1,0 +1,60 @@
+# Third-party agent skills, pinned to exact commits. Installed by `make skills` (scripts/skills.sh).
+# Whitespace-separated fields, no quotes, no spaces inside a field. '#' starts a comment.
+#
+#   source  <name> <https-repo-url> <40-hex-commit-sha>
+#       Fetched into .skills/<name> (git-ignored). The script fails if HEAD is not exactly that sha.
+#   copy    <name> <subpath-in-repo> <dest-dir>
+#       Copies every path matching <subpath> (a trailing * is allowed) into <dest-dir>/<basename>.
+#       <dest-dir> must be under .claude/, .agents/ or .codex/. Copied, never symlinked.
+#   rewrite <name> <from> <to>
+#       After copying, replaces the literal text <from> with <to> in every installed text file of <name>.
+#       Used because the upstream docs hard-code per-user paths under ~ and we never write into $HOME.
+#   `source` lines come first. Anything installed is tracked in .skills/manifest and replaced on the next run.
+#
+# Where the agents look for project-level skills/agents (checked 2026-11-20):
+#   Claude Code  .claude/skills/<name>/SKILL.md, .claude/agents/*.md  https://code.claude.com/docs/en/skills
+#                                                                      https://code.claude.com/docs/en/sub-agents
+#   Codex        .agents/skills/<name>/SKILL.md (scanned from cwd up to the repo root)
+#                                                                      https://learn.chatgpt.com/docs/build-skills
+#                .codex/agents/*.toml exists, but upstream's web-researcher.toml lacks the required name and
+#                description fields and needs config.toml edits, so it is NOT installed (see deep-research below).
+#
+# HOW TO BUMP A PIN (never edit a sha without reading the diff):
+#   1. Clone the repo, then `git diff <old-sha> <new-sha> --stat` and read every changed file, above all
+#      SKILL.md, *.py, *.js, *.sh, *.json, *.toml. Look for: network calls, pip/npm/curl installs at runtime,
+#      writes outside the skill folder (~, $HOME, /tmp), env or credential reads, new allowed-tools or hooks,
+#      obfuscated code, and changed licence.
+#   2. Put the new full 40-char sha below and update the "vetted" comment (date, licence, anything new).
+#   3. `make skills`, then check the skills still load and the printed runtime deps still match docs.
+#   4. Commit the lock together with any doc change in one PR.
+#
+# Vetted 2026-11-20 by reading every script; none of the third-party code was executed.
+# Runtime installs these skills do on their own (pip, playwright, model download) are listed by `make skills`.
+
+# deep-research: MIT. Markdown prompts + one stdlib+pyyaml script (validate_json.py). No network code.
+# Claude Code gets skills/research-en and the web-search-agent subagent with its modules.
+# Codex gets only the skills (research-codex-en): its agent is not installed, so the fan-out step is untested there.
+# Known upstream caveat: agents/web-search-agent.md sets model: opus and no tools: line (inherits every tool).
+source  deep-research  https://github.com/Weizhena/Deep-Research-skills  6ce38f60e3f8b22502c29873f96503a4e0c5addb
+copy    deep-research  skills/research-en/*                  .claude/skills
+copy    deep-research  agents/web-search-agent.md            .claude/agents
+copy    deep-research  agents/web-search-modules             .claude/agents
+copy    deep-research  skills/research-codex-en/*            .agents/skills
+rewrite deep-research  ~/.claude/skills/   .claude/skills/
+rewrite deep-research  ~/.claude/agents/   .claude/agents/
+rewrite deep-research  ~/.codex/skills/    .agents/skills/
+
+# stickman: MIT (sound effects CC0, Kenney). Young repo (created 2026-11-10, 20 stars): re-read on every bump.
+# Its doctor.py/tts.py/align.py pip-install unpinned packages and tts.py downloads a ~350 MB model into
+# ~/.cache/stickman-voice unless STICKMAN_VOICE_DIR is set. See the deps block printed by `make skills`.
+source  stickman  https://github.com/krishnagoswami52/stickman-skill  d3f9321971f81c36de1834503eb1e3c1747a61d8
+copy    stickman  skills/stickman  .claude/skills
+copy    stickman  skills/stickman  .agents/skills
+
+# youtube-agent: MIT. Python stdlib only, no network code. The skills read (and, if missing, tell the agent to
+# write) ~/.claude/youtube/voice.md, so that path is redirected to docs/voice.md in the repo.
+# The yt-* folders must stay siblings: yt-viral reads ../yt-script/hooks.json, yt-chapters and yt-retention import ../yt-edit.
+source  youtube-agent  https://github.com/jakeschincariol/youtube-agent-skill  a2feb2104981a375ffd4f87ee04f4f5344ac43c6
+copy    youtube-agent  skills/yt-*  .claude/skills
+copy    youtube-agent  skills/yt-*  .agents/skills
+rewrite youtube-agent  ~/.claude/youtube/voice.md  docs/voice.md

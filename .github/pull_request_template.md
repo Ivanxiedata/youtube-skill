@@ -1,11 +1,7 @@
 ## Plan
-Spec: `docs/specs/<feature>.md` · Work log: `docs/work/<slug>/` (archived in this PR)
+Spec: `docs/specs/<feature>.md` (or none) · Progress: the `progress.md` this PR updates
 
 What changed and why, in 1–3 lines.
 
-## Acceptance criteria covered
-- [ ] Criterion → test name
-
-## Verification
-- [ ] `make check` passes
-- [ ] Manual step from the spec (command + result):
+## Manual verification
+Command from the spec and its result (or "none in spec"):
