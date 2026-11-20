@@ -59,7 +59,7 @@ Gap none of them covers: architecture diagrams inside the stickman video. That's
 | Order | Work | What it does |
 |---|---|---|
 | 0 | Episode 0 (no code) | Make one 60s video end to end by hand with the three skills, to learn the real flow |
-| 1 | `episode` | Checks an episode's brief (four questions plus hook and outro) (every claim sourced) and 60s script before render |
+| 1 | `episode` | Checks an episode's brief (four questions plus hook and outro, every claim sourced) and 60s script before render |
 | 2 | `lineage` | Which tech replaced which, from the briefs, so videos reference their predecessor |
 | 3 | `diagram` | Side-by-side architecture graph (old vs new) in the stickman style |
 | 4 | `cmd/yt` | One CLI wiring them together: `yt check`, `yt lineage`, `yt diagram` |
