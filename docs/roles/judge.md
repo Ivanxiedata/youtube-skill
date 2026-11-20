@@ -9,7 +9,8 @@ When there are competing implementations (different branches), you pick one.
 
 ## Steps
 1. Run `make check` on each branch. A failing branch loses.
-2. For each acceptance criterion, find the test that covers it and confirm it runs and passes.
+2. For each `[x]` criterion, run `go test -run '^TestName$' ./<feature>/...` (the name after `->`) and show the output.
+   `[no tests to run]` means the test doesn't exist. A `[ ]` criterion is not built.
    Run the spec's manual verification step if it has one.
 3. Mark each criterion `MET`, `NOT MET`, or `UNTESTED` (behavior may work but no test proves it).
 
