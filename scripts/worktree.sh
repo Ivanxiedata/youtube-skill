@@ -14,4 +14,4 @@ git worktree add --no-track -b "$s" "$dir" "$base"
 [ ! -f "$main/.env" ] || cp "$main/.env" "$dir/.env"
 
 echo "worktree ready: cd $dir && make setup && make status   (making an episode? also: make skills)"
-echo "then claim your task: set Status to 'in progress: $s' in its progress.md, commit, git push -u origin HEAD (see AGENTS.md)"
+echo "then claim your task: prefix Status in its progress.md with 'in progress ($s): ', commit, git push -u origin HEAD (see AGENTS.md; an episode: make new-episode first)"

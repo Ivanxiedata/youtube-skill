@@ -12,3 +12,7 @@
 /.claude/skills/
 /.claude/agents/
 /.agents/skills/
+/.codex/
+# What the stickman skill's scripts install next to a film (node deps, voice models).
+node_modules/
+.voice-models/

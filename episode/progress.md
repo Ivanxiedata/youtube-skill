@@ -8,7 +8,7 @@ spec drafted, no code yet. Blocked on Episode 0.
 2. Land `shared/brief` as its own PR first, before any feature code (what it owns: spec Interfaces).
 3. Add `episode/testdata/ok/` (copy of Episode 0's real brief + script) and `episode/testdata/bad/`.
 4. Implement `episode.Check` test-first, one acceptance criterion at a time: `shared/brief`'s problems plus word counts, budgets, claim sources.
-5. Implement `cmd/yt/check.go` (the stub is registered already).
+5. Implement `cmd/yt/episode.go` (the stub is registered already).
 
 ## Blockers
 Episode 0: see `docs/progress.md` (Blockers).
@@ -23,3 +23,4 @@ Episode 0: see `docs/progress.md` (Blockers).
 - 2026-11-20 product-doc: feature scaffolded, spec drafted.
 - 2026-11-20 product-doc: spec got a Later section; ticked criteria must name their test.
 - 2026-11-20 product-doc: review fixes (spec wording, shared/brief owns structural rules, cmd/yt stubs).
+- 2026-11-20 product-doc: verifier follow-up: the `yt check` wiring file is `cmd/yt/episode.go` (was `check.go`), so `make check` counts it as this feature's.

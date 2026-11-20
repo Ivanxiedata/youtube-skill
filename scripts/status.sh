@@ -27,12 +27,15 @@ base=origin/develop
 git rev-parse -q --verify "$base" >/dev/null 2>&1 || base=develop
 cur=$(git branch --show-current)
 # <ref> <name shown> <suffix>: progress files this branch changed, unless develop already has the same content.
+# Shows the age of the branch's last commit, so a stale claim is visible.
 inflight() {
 	for p in $(git diff --name-only --diff-filter=d "$base...$1" -- '*/progress.md' 2>/dev/null); do
 		git diff --quiet "$base" "$1" -- "$p" && continue
-		printf '  %-28s %-14s %s\n' "$2$3" "$(label "$p")" "$(git show "$1:$p" 2>/dev/null | field Status)"
+		printf '  %-28s %-14s %-16s %s\n' "$2$3" "$(label "$p")" "$(git log -1 --format=%cr "$1" --)" "$(git show "$1:$p" 2>/dev/null | field Status)"
 	done
 }
+# Local branches whose upstream branch is gone (merged and deleted on origin): not work in flight.
+gone=$(git for-each-ref --format='%(upstream:track) %(refname:strip=2)' refs/heads | sed -n 's/^\[gone\] //p')
 
 echo "In flight on other branches (progress.md changed vs develop):"
 if git rev-parse -q --verify "$base" >/dev/null 2>&1; then
@@ -43,12 +46,14 @@ if git rev-parse -q --verify "$base" >/dev/null 2>&1; then
 	done
 	for b in $(git for-each-ref --format='%(refname:strip=2)' refs/heads); do
 		case $b in develop | main | "$cur") continue ;; esac
+		! printf '%s\n' "$gone" | grep -Fxq -- "$b" || continue
 		! git rev-parse -q --verify "refs/remotes/origin/$b" >/dev/null 2>&1 || continue
 		inflight "$b" "$b" " (local)"
 	done
 else
 	echo "  (no develop branch to compare against)"
 fi
+[ -z "$gone" ] || { echo "Stale local branches (merged or deleted upstream; delete them):"; printf '%s\n' "$gone" | sed 's/^/  /'; }
 
 echo "Local worktrees:"
 git worktree list | sed 's/^/  /'

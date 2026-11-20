@@ -22,8 +22,10 @@ defined by the consuming feature).
 
 - **Shared types:** a value type used by 2+ features (e.g. `Brief`) lives in `shared/<domain>/`.
   Features define behavior interfaces themselves; they don't copy each other's structs.
-- **Wiring:** `cmd/yt/main.go` holds only a command registry. Each feature registers its subcommand in
-  `cmd/yt/<feature>.go` via `init()`, so adding a command never edits `main.go`.
+- **Wiring:** `cmd/yt/main.go` holds only a command registry. Each feature registers its subcommands in
+  `cmd/yt/<feature>.go` via `init()`, so adding a command never edits `main.go`. That file and its `_test.go` belong to the
+  feature: `make check` asks for `<feature>/progress.md` (not `docs/progress.md`), so parallel feature PRs don't conflict.
+  Everything a feature wires lives in its own file, e.g. `yt check` is `episode`'s and `yt lineage check` is `lineage`'s; no feature's command calls another feature.
 - **Connections:** record what a feature consumes in its spec's `Interfaces` section.
 - **Changing `shared/`:** land it as its own small PR first; feature branches then rebase onto it.
 

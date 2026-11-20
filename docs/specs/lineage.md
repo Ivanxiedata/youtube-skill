@@ -27,7 +27,7 @@ The briefs: `episodes/*/brief.json` (`tech` and `predecessor`). `cmd/yt` loads t
 ## Interfaces
 - Uses from `shared/`: `shared/brief` (`Brief`, `Problem`), which lands as its own PR first, before any feature code.
 - Exposes to `cmd/`: `lineage.New(briefs []brief.Brief)`, then `Chain`, `Episode`, `Check` (returns `[]brief.Problem`).
-- Used by: `cmd/yt lineage <tech-id>` and `cmd/yt check` (both call `brief.LoadAll`, pass the briefs to `New`; `check` also runs `Check`).
+- Used by: `yt lineage <tech-id>` and `yt lineage check`, both in `cmd/yt/lineage.go`. Both call `brief.LoadAll` and pass the briefs to `New`; `lineage check` prints `Check`'s problems and exits 1 if there are any. `yt check` (the `episode` feature) does not run lineage.
 
 ## Later
 - A tech with two predecessors (e.g. "merged ideas from A and B").
@@ -36,4 +36,4 @@ The briefs: `episodes/*/brief.json` (`tech` and `predecessor`). `cmd/yt` loads t
 
 ## Verification
 `make check-lineage`; tests build `[]brief.Brief` in memory, so no testdata folders. Manual: with two example episodes where the second replaces the first,
-`go run ./cmd/yt lineage <second-id>` prints both, oldest first, with their episode slugs.
+`go run ./cmd/yt lineage <second-id>` prints both, oldest first, with their episode slugs; `go run ./cmd/yt lineage check` prints `ok`, and one line per problem (exit 1) when two episodes claim the same tech.
