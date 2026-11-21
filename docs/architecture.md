@@ -8,7 +8,7 @@ Routing, workflow and gates: `AGENTS.md`.
 | `<feature>/` | One product feature. Root package = its public API; the rest in `<feature>/internal/` | itself, `shared/` |
 | `shared/<concept>/` | One package per concept used by 2+ features (e.g. `shared/brief`). No code directly in `shared/` | `shared/` only |
 | `cmd/<app>/` | Binaries; the only place features are wired together | features' root packages, `shared/` |
-| `episodes/<slug>/` | Content for one video: `brief.json`, `script.md`, `diagram.svg`, `progress.md`. Render outputs (mp4, wav, webm, mp3) are gitignored, never committed | — (data, no code) |
+| `episodes/<slug>/` | Content for one video: `brief.json`, `script.md`, `diagram.svg`, `progress.md`, plus `upload.json` and `published.json` for publishing. Render outputs (mp4, wav, webm, mp3) are gitignored, never committed | — (data, no code) |
 | `docs/` | Product, architecture, specs, repo-level progress, roles | — |
 | `scripts/` | The checks and scaffolds behind `make` | — |
 
