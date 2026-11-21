@@ -4,175 +4,167 @@
   "beat": 0,
   "voice": "am_michael",
   "start": 0.0,
-  "end": 2.793,
-  "text": "Napoleon led more than a hundred thousand soldiers."
+  "end": 4.028,
+  "text": "You can only babysit five AI agents before you are the bottleneck."
  },
  {
   "n": 1,
   "beat": 0,
   "voice": "am_michael",
-  "start": 3.093,
-  "end": 4.894,
-  "text": "He could not shout orders at each one."
+  "start": 4.328,
+  "end": 7.006,
+  "text": "That estimate comes from DeepSeek's Super-agent team."
  },
  {
   "n": 2,
   "beat": 0,
   "voice": "am_michael",
-  "start": 5.394,
-  "end": 6.78,
-  "text": "Today, you are the general."
+  "start": 7.506,
+  "end": 10.551,
+  "text": "You are a general, and your soldiers are AI agents."
  },
  {
   "n": 3,
   "beat": 0,
   "voice": "am_michael",
-  "start": 7.08,
-  "end": 9.238,
-  "text": "Your soldiers are AI coding agents."
+  "start": 10.851,
+  "end": 12.539,
+  "text": "Napoleon had the same problem."
  },
  {
   "n": 4,
   "beat": 0,
   "voice": "am_michael",
-  "start": 9.538,
-  "end": 11.866,
-  "text": "You still shout at each one, step by step."
+  "start": 12.839,
+  "end": 15.898,
+  "text": "He could not shout orders at a hundred thousand soldiers."
  },
  {
   "n": 5,
-  "beat": 0,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 12.166,
-  "end": 15.681,
-  "text": "DeepSeek's team says one person can follow only three to five."
+  "start": 16.848,
+  "end": 20.158,
+  "text": "Napoleon's fix was one man: Bairtyay, his chief of staff."
  },
  {
   "n": 6,
   "beat": 1,
   "voice": "am_michael",
-  "start": 16.631,
-  "end": 19.942,
-  "text": "Napoleon's fix was one man: Bairtyay, his chief of staff."
+  "start": 20.458,
+  "end": 21.954,
+  "text": "Napoleon said what he wanted."
  },
  {
   "n": 7,
   "beat": 1,
   "voice": "am_michael",
-  "start": 20.242,
-  "end": 21.737,
-  "text": "Napoleon said what he wanted."
+  "start": 22.254,
+  "end": 27.097,
+  "text": "Bairtyay wrote the orders and sent them to the corps: small armies that could each fight alone."
  },
  {
   "n": 8,
   "beat": 1,
   "voice": "am_michael",
-  "start": 22.037,
-  "end": 26.88,
-  "text": "Bairtyay wrote the orders and sent them to the corps: small armies that could each fight alone."
+  "start": 27.397,
+  "end": 29.711,
+  "text": "DeepSeek's Super-agent works the same way."
  },
  {
   "n": 9,
   "beat": 1,
   "voice": "am_michael",
-  "start": 27.18,
-  "end": 29.495,
-  "text": "DeepSeek's Super-agent works the same way."
+  "start": 30.011,
+  "end": 33.38,
+  "text": "One router agent listens on GitHub and in your team chat."
  },
  {
   "n": 10,
   "beat": 1,
   "voice": "am_michael",
-  "start": 29.795,
-  "end": 33.164,
-  "text": "One router agent listens on GitHub and in your team chat."
+  "start": 33.68,
+  "end": 34.37,
+  "text": "Ask once."
  },
  {
   "n": 11,
   "beat": 1,
   "voice": "am_michael",
-  "start": 33.464,
-  "end": 34.154,
-  "text": "Ask once."
+  "start": 34.67,
+  "end": 39.833,
+  "text": "It opens a ticket and hands it to a worker agent, with its own session and its own folder."
  },
  {
   "n": 12,
   "beat": 1,
   "voice": "am_michael",
-  "start": 34.454,
-  "end": 39.617,
-  "text": "It opens a ticket and hands it to a worker agent, with its own session and its own folder."
+  "start": 40.133,
+  "end": 41.646,
+  "text": "Many workers march at once."
  },
  {
   "n": 13,
   "beat": 1,
   "voice": "am_michael",
-  "start": 39.917,
-  "end": 41.429,
-  "text": "Many workers march at once."
+  "start": 42.146,
+  "end": 43.312,
+  "text": "The router stays quiet."
  },
  {
   "n": 14,
   "beat": 1,
   "voice": "am_michael",
-  "start": 41.929,
-  "end": 43.096,
-  "text": "The router stays quiet."
+  "start": 43.612,
+  "end": 47.021,
+  "text": "It speaks up only when you must decide, or can use a result."
  },
  {
   "n": 15,
   "beat": 1,
   "voice": "am_michael",
-  "start": 43.396,
-  "end": 46.805,
-  "text": "It speaks up only when you must decide, or can use a result."
+  "start": 47.521,
+  "end": 49.14,
+  "text": "It is still a research prototype."
  },
  {
   "n": 16,
   "beat": 1,
   "voice": "am_michael",
-  "start": 47.305,
-  "end": 48.924,
-  "text": "It is still a research prototype."
+  "start": 49.44,
+  "end": 51.435,
+  "text": "But the lesson is two hundred years old."
  },
  {
   "n": 17,
   "beat": 1,
   "voice": "am_michael",
-  "start": 49.224,
-  "end": 51.219,
-  "text": "But the lesson is two hundred years old."
+  "start": 51.735,
+  "end": 53.497,
+  "text": "The limit was never the soldiers."
  },
  {
   "n": 18,
   "beat": 1,
   "voice": "am_michael",
-  "start": 51.519,
-  "end": 53.281,
-  "text": "The limit was never the soldiers."
+  "start": 53.797,
+  "end": 55.393,
+  "text": "It was the general's attention."
  },
  {
   "n": 19,
   "beat": 1,
   "voice": "am_michael",
-  "start": 53.581,
-  "end": 55.177,
-  "text": "It was the general's attention."
+  "start": 55.693,
+  "end": 57.096,
+  "text": "And now, that general is you."
  },
  {
   "n": 20,
   "beat": 1,
   "voice": "am_michael",
-  "start": 55.477,
-  "end": 56.879,
-  "text": "And now, that general is you."
- },
- {
-  "n": 21,
-  "beat": 1,
-  "voice": "am_michael",
-  "start": 57.379,
-  "end": 58.781,
+  "start": 57.596,
+  "end": 58.998,
   "text": "Subscribe for the next one."
  }
 ]

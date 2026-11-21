@@ -22,6 +22,6 @@ if SFX:
 if MUSIC:
     m.music(mood="hopeful", bpm=96, gain=MUSIC_GAIN)   # code-made, no lyrics; the owner asked for music
 if VOICE:
-    m.voice(VOICE, at=.3)
+    m.voice(VOICE, at=.08)
 # ---- TO HERE ----
 m.write("audio.wav")

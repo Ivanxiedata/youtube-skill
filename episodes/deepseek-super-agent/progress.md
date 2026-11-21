@@ -1,13 +1,13 @@
 # deepseek-super-agent progress
 
 ## Status
-Uploaded as private (`published.json`), then evaluated (`evaluation.md`): 3 must-fix (weak hook, topic not named in the first 15 s, no brand element). Waiting for the owner's go on a cut 5.
+Cut 5 uploaded as private with captions on 2026-11-21 (`published.json`); evaluated (`evaluation.md`): 1 must-fix left, for the owner (thumbnail not set: channel unverified).
 
 ## Next
-1. Owner decides on cut 5, which fixes the three must-fix rows in `evaluation.md`: a "you" hook, a corner tag naming the topic from frame 0, the brand end card. It means a new voice line and a full re-render, then uploading again.
-2. Owner looks at `thumbnail.png` (v3: "LEARN DEEPSEEK'S SUPER-AGENT IN 60 SECONDS") and picks a title from `evaluation.md`.
-3. `upload.json` (description, hashtags, tags) and `captions.srt` are newer than the copy on YouTube: re-upload with cut 5, or paste them in YouTube Studio.
-4. The video can't go public through the API until Google's API audit passes (see `upload/progress.md` on `upload-feature`); uploading `video.mp4` by hand in Studio is the other way.
+1. Owner: verify the channel at https://www.youtube.com/verify, then set `thumbnail.png` on the video in YouTube Studio (the API refused it).
+2. Owner: delete the first upload in YouTube Studio (cut 4, video id `CYSE9zRA4Xg`, private); the current video is in `published.json`.
+3. Owner: listen to the music and voice; confirm or change the title the agent picked ("Why You Can Only Run 5 AI Agents (Napoleon's Fix)").
+4. Going public: the API project is unaudited, so this upload may be locked private (see `upload/progress.md` on `upload-feature`); uploading `video.mp4` by hand in Studio is the other way.
 5. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
    `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder; thumbnail: `python film/thumb.py thumbnail.png`.
 6. Owner merges PR #3.
@@ -44,6 +44,11 @@ none
 - 2026-11-21: Thumbnail v3, because the owner found v2 (topic headline + YOU -> ROUTER -> AI WORKERS chain) not attractive: it must sell a promise, e.g. "learn Super Agent under 60 seconds",
   and the channel must be a brand, not generic videos. v3 follows the brand thumbnail template (`docs/brand.md`, PR #4): "LEARN <TOPIC> IN 60 SECONDS" with the red sticker, the mascot in the episode's costume, one picture of the lesson.
 - 2026-11-21: Evaluated by hand with the youtube-agent tools (`evaluation.md`), because the owner asked for evaluation and feedback and nothing had been scored before upload. The `evaluate` and `feedback` features are specced from this run (PR #4).
+- 2026-11-21: Cut 5, on the owner's go, fixes the three must-fix rows of the first evaluation: (1) the hook speaks to the viewer ("You can only babysit five AI agents before you are the bottleneck."),
+  (2) the topic is spoken by 7 s and a corner tag "DeepSeek Super-agent · 60s" sits on every frame, (3) the brand elements of `docs/brand.md` are in the video.
+  The film now opens in the studio (the viewer's problem) and then goes to Napoleon; only the first 16.6 s were re-voiced, by laying the voice in at 0.08 s so every later line keeps its time.
+- 2026-11-21: Title changed by the agent to "Why You Can Only Run 5 AI Agents (Napoleon's Fix)" (84/100 next to the thumbnail), because the thumbnail now carries the topic and the old title was cut off in search; the owner can overrule it in Studio.
+- 2026-11-21: Uploaded a second time (`--again`) instead of editing the first upload, because `yt upload` can't replace a video's file; the first upload (`CYSE9zRA4Xg`) is left for the owner to delete.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -70,3 +75,4 @@ none
 - 2026-11-21 ep-super-agent: uploaded as private with `yt upload --confirm` (video id in `published.json`).
 - 2026-11-21 ep-super-agent: thumbnail made (`thumbnail.png`, 1280x720) from `film/thumb.js`; v2 names the topic and shows YOU -> ROUTER -> AI WORKERS; not yet set on the video.
 - 2026-11-21 ep-super-agent: thumbnail v3 (promise + brand sticker), `evaluation.md` scorecard, `captions.srt`, description first lines, hashtags and tags fixed in `upload.json`.
+- 2026-11-21 ep-super-agent: cut 5 (new hook and opening, corner tag, brand ending) rendered, audit 0 issues; uploaded as private with captions; thumbnail refused by YouTube (channel not verified); `evaluation.md` redone.
