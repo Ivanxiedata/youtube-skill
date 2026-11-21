@@ -10,3 +10,4 @@ Find the feature your task belongs to by "What it does". Status lives in each fe
 | diagram | Draws the side-by-side architecture diagram (old vs new, changed parts highlighted) in the stickman style for the What's-new section. |
 | evaluate | Scores a finished episode before publishing (hook, title, thumbnail, description, brand) and says what to fix first. |
 | feedback | Turns owner comments, evaluations and YouTube numbers into lessons the next episode must follow. |
+| upload | Publishes a finished episode to the owner's YouTube channel (private by default) and records the video id. |

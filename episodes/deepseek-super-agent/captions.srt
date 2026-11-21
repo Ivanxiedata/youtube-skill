@@ -1,0 +1,83 @@
+1
+00:00:00,080 --> 00:00:04,108
+You can only babysit five AI agents before you are the bottleneck.
+
+2
+00:00:04,408 --> 00:00:07,086
+That estimate comes from DeepSeek's Super-agent team.
+
+3
+00:00:07,586 --> 00:00:10,631
+You are a general, and your soldiers are AI agents.
+
+4
+00:00:10,931 --> 00:00:12,619
+Napoleon had the same problem.
+
+5
+00:00:12,919 --> 00:00:15,978
+He could not shout orders at a hundred thousand soldiers.
+
+6
+00:00:16,928 --> 00:00:20,238
+Napoleon's fix was one man: Berthier, his chief of staff.
+
+7
+00:00:20,538 --> 00:00:22,034
+Napoleon said what he wanted.
+
+8
+00:00:22,334 --> 00:00:27,177
+Berthier wrote the orders and sent them to the corps: small armies that could each fight alone.
+
+9
+00:00:27,477 --> 00:00:29,791
+DeepSeek's Super-agent works the same way.
+
+10
+00:00:30,091 --> 00:00:33,460
+One router agent listens on GitHub and in your team chat.
+
+11
+00:00:33,760 --> 00:00:34,450
+Ask once.
+
+12
+00:00:34,750 --> 00:00:39,913
+It opens a ticket and hands it to a worker agent, with its own session and its own folder.
+
+13
+00:00:40,213 --> 00:00:41,726
+Many workers march at once.
+
+14
+00:00:42,226 --> 00:00:43,392
+The router stays quiet.
+
+15
+00:00:43,692 --> 00:00:47,101
+It speaks up only when you must decide, or can use a result.
+
+16
+00:00:47,601 --> 00:00:49,220
+It is still a research prototype.
+
+17
+00:00:49,520 --> 00:00:51,515
+But the lesson is two hundred years old.
+
+18
+00:00:51,815 --> 00:00:53,577
+The limit was never the soldiers.
+
+19
+00:00:53,877 --> 00:00:55,473
+It was the general's attention.
+
+20
+00:00:55,773 --> 00:00:57,176
+And now, that general is you.
+
+21
+00:00:57,676 --> 00:00:59,078
+Subscribe for the next one.
