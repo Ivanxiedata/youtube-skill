@@ -9,7 +9,7 @@
    (app name and emails are set, so it probably wants a home page and privacy policy link). Until then the app is in Testing and the sign-in expires after 7 days:
    when uploads fail with a sign-in error, run `go run ./cmd/yt upload <episode-dir> --login`.
 3. Check in YouTube Studio whether Episode 0 shows "private (locked)", and whether the lock lifts after the audit (spec open question 3).
-4. Build the unticked criteria in the spec: `yt check` gate (needs `episode`), resume across runs, thumbnail and captions, the remaining error one-liners.
+4. Build the unticked criteria in the spec: `yt check` gate (needs `episode`), resume across runs, the remaining error one-liners.
 5. Owner merges PR #2.
 
 ## Blockers
@@ -28,8 +28,11 @@ API audit approval before any API-uploaded video can be public (owner files the 
   YouTube Data API v3 enabled, OAuth app "youtube-skill uploader" (External, Testing, the owner as the only test user), Desktop client "yt upload CLI".
   Credentials are in `~/.config/youtube-skill/` (0600), not in the repo. The owner clicked the Google sign-in themselves.
 - 2026-11-21: The app stays in Testing for now, because the console refused "Publish app" (see Next 2); the owner had chosen production.
+- 2026-11-21: Captions are an SRT file (`captions.srt`) sent with `captions.insert` as the English track, because Episode 0 has exact line timings from the voice; this answers the spec's open question 2.
+- 2026-11-21: Thumbnail and captions go up after `published.json` is written, and their failures only print, because the video is the part that can't be redone cheaply.
 
 ## Log
 - 2026-11-20 upload-feature: feature scaffolded, spec drafted with owner setup steps.
 - 2026-11-20 upload-feature: `upload.Run`, `yt upload`, 8 tests against an `httptest` fake (OAuth loopback + PKCE, dry run, privacy, published.json); `govulncheck` clean and added to CI.
 - 2026-11-21 upload-feature: first real run: dry run showed the right channel, `--confirm` uploaded Episode 0 (13.8 MB) as private; `published.json` written in the episode folder.
+- 2026-11-21 upload-feature: `yt upload` also sets `thumbnail.png` and uploads `captions.srt`; 10 tests against the fake.

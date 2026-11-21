@@ -6,6 +6,8 @@ import (
 	"encoding/json"
 	"errors"
 	"io"
+	"mime"
+	"mime/multipart"
 	"net/http"
 	"net/http/httptest"
 	"net/url"
@@ -24,6 +26,11 @@ type fake struct {
 	gotMeta    map[string]map[string]any
 	gotBytes   int64
 	failUpload bool
+	thumbFor   string // video id the thumbnail was set on
+	thumbBytes int64
+	failThumb  bool
+	capMeta    map[string]map[string]any
+	capText    string
 }
 
 func newFake(t *testing.T) *fake {
@@ -54,6 +61,27 @@ func newFake(t *testing.T) *fake {
 			return
 		}
 		json.NewEncoder(w).Encode(map[string]any{"id": "vid123", "status": map[string]any{"privacyStatus": f.gotMeta["status"]["privacyStatus"]}})
+	})
+	mux.HandleFunc("POST /upload/youtube/v3/thumbnails/set", func(w http.ResponseWriter, r *http.Request) {
+		if f.failThumb {
+			http.Error(w, `{"error":{"message":"The authenticated user doesn't have permissions to upload and set custom video thumbnails.","errors":[{"reason":"forbidden"}]}}`, http.StatusForbidden)
+			return
+		}
+		f.thumbFor = r.URL.Query().Get("videoId")
+		f.thumbBytes, _ = io.Copy(io.Discard, r.Body)
+		io.WriteString(w, `{}`)
+	})
+	mux.HandleFunc("POST /upload/youtube/v3/captions", func(w http.ResponseWriter, r *http.Request) {
+		_, params, _ := mime.ParseMediaType(r.Header.Get("Content-Type"))
+		mr := multipart.NewReader(r.Body, params["boundary"])
+		if part, err := mr.NextPart(); err == nil {
+			_ = json.NewDecoder(part).Decode(&f.capMeta)
+		}
+		if part, err := mr.NextPart(); err == nil {
+			raw, _ := io.ReadAll(part)
+			f.capText = string(raw)
+		}
+		io.WriteString(w, `{}`)
 	})
 	f.srv = httptest.NewServer(mux)
 	t.Cleanup(f.srv.Close)
@@ -211,5 +239,41 @@ func TestWritesPublishedOnlyAfterUpload(t *testing.T) {
 	raw, _ := os.ReadFile(filepath.Join(dir, publishedFile))
 	if json.Unmarshal(raw, &p) != nil || p.VideoID != "vid123" || p.UploadedAt.IsZero() {
 		t.Fatalf("published.json = %s", raw)
+	}
+}
+
+func TestSendsThumbnailAndCaptionsAfterUpload(t *testing.T) {
+	dir, f, o, out := setup(t, true)
+	o.Confirm = true
+	os.WriteFile(filepath.Join(dir, thumbFile), []byte("png bytes"), 0o644)
+	os.WriteFile(filepath.Join(dir, captionsFile), []byte("1\n00:00:00,000 --> 00:00:02,000\nHello.\n"), 0o644)
+	if _, err := Run(context.Background(), dir, o); err != nil {
+		t.Fatal(err)
+	}
+	if f.thumbFor != "vid123" || f.thumbBytes != int64(len("png bytes")) {
+		t.Fatalf("thumbnail: videoId=%q bytes=%d", f.thumbFor, f.thumbBytes)
+	}
+	if sn := f.capMeta["snippet"]; sn["videoId"] != "vid123" || sn["language"] != "en" || !strings.Contains(f.capText, "Hello.") {
+		t.Fatalf("captions: snippet=%v text=%q", sn, f.capText)
+	}
+	if !strings.Contains(out.String(), "thumbnail uploaded") || !strings.Contains(out.String(), "captions uploaded") {
+		t.Fatalf("report:\n%s", out)
+	}
+}
+
+func TestThumbnailFailureIsReportedNotFatal(t *testing.T) {
+	dir, f, o, out := setup(t, true)
+	o.Confirm = true
+	f.failThumb = true
+	os.WriteFile(filepath.Join(dir, thumbFile), []byte("png bytes"), 0o644)
+	p, err := Run(context.Background(), dir, o)
+	if err != nil || p.VideoID != "vid123" {
+		t.Fatalf("err=%v published=%+v, want the upload to succeed", err, p)
+	}
+	if _, err := os.Stat(filepath.Join(dir, publishedFile)); err != nil {
+		t.Fatal("published.json missing although the video uploaded")
+	}
+	if !strings.Contains(out.String(), "thumbnail NOT uploaded") || !strings.Contains(out.String(), "custom video thumbnails") {
+		t.Fatalf("report lacks the thumbnail failure and its cause:\n%s", out)
 	}
 }

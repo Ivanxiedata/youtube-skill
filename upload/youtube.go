@@ -6,12 +6,15 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"mime/multipart"
 	"net/http"
+	"net/textproto"
+	"net/url"
 	"os"
 	"strconv"
 )
 
-// The two YouTube Data API v3 calls this feature needs, by hand: channels.list and videos.insert.
+// The YouTube Data API v3 calls this feature needs, by hand: channels.list, videos.insert, thumbnails.set, captions.insert.
 // ponytail: plain net/http instead of google.golang.org/api, which brings dozens of modules for two calls.
 
 func channelTitle(ctx context.Context, c *http.Client, base string) (string, error) {
@@ -83,6 +86,37 @@ func insertVideo(ctx context.Context, c *http.Client, base, path string, size in
 		return "", "", fmt.Errorf("youtube: upload finished without a video id")
 	}
 	return out.ID, out.Status.PrivacyStatus, nil
+}
+
+// setThumbnail sends the PNG as the video's custom thumbnail. YouTube refuses it for channels without the feature (phone verification).
+func setThumbnail(ctx context.Context, c *http.Client, base, id, path string) error {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	req, _ := http.NewRequestWithContext(ctx, http.MethodPost, base+"/upload/youtube/v3/thumbnails/set?uploadType=media&videoId="+url.QueryEscape(id), bytes.NewReader(raw))
+	req.Header.Set("Content-Type", "image/png")
+	var out struct{}
+	return do(c, req, &out)
+}
+
+// insertCaptions uploads the SRT as the video's English caption track: one multipart/related request, metadata then file.
+func insertCaptions(ctx context.Context, c *http.Client, base, id, path string) error {
+	raw, err := os.ReadFile(path)
+	if err != nil {
+		return err
+	}
+	var body bytes.Buffer
+	w := multipart.NewWriter(&body)
+	meta, _ := w.CreatePart(textproto.MIMEHeader{"Content-Type": {"application/json; charset=UTF-8"}})
+	json.NewEncoder(meta).Encode(map[string]any{"snippet": map[string]any{"videoId": id, "language": "en", "name": "English"}})
+	file, _ := w.CreatePart(textproto.MIMEHeader{"Content-Type": {"application/octet-stream"}})
+	file.Write(raw)
+	w.Close()
+	req, _ := http.NewRequestWithContext(ctx, http.MethodPost, base+"/upload/youtube/v3/captions?uploadType=multipart&part=snippet", &body)
+	req.Header.Set("Content-Type", "multipart/related; boundary="+w.Boundary())
+	var out struct{}
+	return do(c, req, &out)
 }
 
 func do(c *http.Client, req *http.Request, out any) error {

@@ -16,6 +16,8 @@ const (
 	videoFile     = "video.mp4"
 	metaFile      = "upload.json"
 	publishedFile = "published.json"
+	thumbFile     = "thumbnail.png" // optional
+	captionsFile  = "captions.srt"  // optional
 )
 
 // Options controls Run. The zero value is a dry run with privacy "private".
@@ -99,6 +101,20 @@ func Run(ctx context.Context, dir string, o Options) (Published, error) {
 		return Published{}, err
 	}
 	fmt.Fprintf(o.Out, "channel: %s\ntitle:   %s\nprivacy: %s\nfile:    %s (%.1f MB)\n", channel, m.Title, o.Privacy, video, float64(st.Size())/1e6)
+	extras := []struct {
+		what, path string
+		send       func(path, id string) error
+	}{
+		{"thumbnail", filepath.Join(dir, thumbFile), func(path, id string) error { return setThumbnail(ctx, client, o.apiBase, id, path) }},
+		{"captions", filepath.Join(dir, captionsFile), func(path, id string) error { return insertCaptions(ctx, client, o.apiBase, id, path) }},
+	}
+	for _, e := range extras {
+		if _, err := os.Stat(e.path); err == nil {
+			fmt.Fprintf(o.Out, "%s: %s\n", e.what, e.path)
+		} else {
+			fmt.Fprintf(o.Out, "%s: none\n", e.what)
+		}
+	}
 	if !o.Confirm {
 		return Published{}, ErrNotConfirmed
 	}
@@ -111,6 +127,17 @@ func Run(ctx context.Context, dir string, o Options) (Published, error) {
 	raw, _ := json.MarshalIndent(p, "", "  ")
 	if err := os.WriteFile(pubPath, append(raw, '\n'), 0o644); err != nil {
 		return p, fmt.Errorf("uploaded as %s but could not record it: %w", p.URL, err)
+	}
+	// The video is up and recorded. A failed thumbnail or captions upload is reported, not fatal: both can be redone in YouTube Studio.
+	for _, e := range extras {
+		if _, err := os.Stat(e.path); err != nil {
+			continue
+		}
+		if err := e.send(e.path, id); err != nil {
+			fmt.Fprintf(o.Out, "%s NOT uploaded: %v\n", e.what, err)
+		} else {
+			fmt.Fprintf(o.Out, "%s uploaded\n", e.what)
+		}
 	}
 	return p, nil
 }

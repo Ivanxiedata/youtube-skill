@@ -12,7 +12,7 @@ and run the upload only when the owner says to, for that video.
 In `episodes/<slug>/` (file names owned by `shared/brief`):
 - `video.mp4`: the rendered video (gitignored).
 - `upload.json`: `title`, `description`, `tags`, `category_id` (default 28, Science & Technology), `made_for_kids` (false).
-- `thumbnail.png` (optional) and the captions file (format settled by Episode 0).
+- `thumbnail.png` (optional, 1280x720) and `captions.srt` (optional; Episode 0 builds it from the voice line timings).
 - Written after a successful upload, and committed: `published.json` with `video_id`, `url`, `privacy`, `uploaded_at`.
 
 Secrets live outside the repo, in `~/.config/youtube-skill/` (mode 0600): `client_secret.json` (from the owner's
@@ -27,7 +27,8 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
 - [x] A missing `client_secret.json` prints the path to put it in and points to "Owner setup" below. -> TestMissingClientSecretPointsToSetup
 - [ ] The upload is resumable: an interrupted run resumes from the last confirmed byte when rerun on the same file.
 - [x] An episode with `published.json` is refused unless `--again` is given. -> TestRefusesPublishedEpisodeWithoutAgain
-- [ ] After the video uploads it sets the thumbnail if `thumbnail.png` exists and uploads the captions file; failures there are reported, not fatal.
+- [x] After the video uploads it sets the thumbnail if `thumbnail.png` exists and uploads `captions.srt` as the English caption track. -> TestSendsThumbnailAndCaptionsAfterUpload
+- [x] A thumbnail or captions failure is reported with its cause, not fatal: the video stays uploaded and recorded. -> TestThumbnailFailureIsReportedNotFatal
 - [x] It writes `published.json` only after the video upload succeeded. -> TestWritesPublishedOnlyAfterUpload
 - [ ] Quota exceeded, an expired or revoked token, and an unaudited project's private lock each print a one-line cause and fix.
 - [x] Tests run against a fake API (`net/http/httptest`); no test touches the network or real credentials. -> TestRunUploadsToFakeAPI
@@ -70,6 +71,5 @@ appears as private in YouTube Studio, and `episodes/<slug>/published.json` has i
 ## Open questions (answer before code)
 1. Quota cost of one upload: Google's docs disagree (1600 units of 10,000/day vs a separate per-call limit).
    Check the current videos.insert reference page and record the number in `upload/progress.md` Decisions.
-2. Captions: does the API accept the untimed `script.md` (auto-synced), or does it need SRT/VTT
-   (stickman's `align.py` can produce timings)? Settled by Episode 0.
+2. Answered: captions are uploaded as an SRT file (`captions.srt`), built from the voice line timings.
 3. Is the private lock lifted for videos already uploaded once the audit passes, or only for new uploads?
