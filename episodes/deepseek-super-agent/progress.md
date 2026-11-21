@@ -1,15 +1,15 @@
 # deepseek-super-agent progress
 
 ## Status
-Cut 4 rendered (Napoleon/Berthier story, 60 s, 26 shots, music, insight ending, spoken call to action; audit 0 issues); owner approved the content; upload is next.
+Uploaded to the owner's channel as private on 2026-11-21 (`published.json`); it can't go public through the API until Google's API audit passes.
 
 ## Next
-1. Owner watches `episodes/deepseek-super-agent/deepseek-super-agent.mp4` (not in git: rebuild with step 4) and listens to the mix (nobody has heard it).
-2. Packaging so far: `upload.json` (title, description with repo link, chapters and sources, tags). Not done: thumbnail, captions; the youtube-agent `yt-package` skill was not run.
-3. Upload with `yt upload` from the `upload-feature` worktree (PR #2) once the owner's Google setup is done; steps in `upload/progress.md` there. `video.mp4` here is the final cut (not in git).
-4. Rebuild from git: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
+1. Owner decides how this video goes public: wait for the API audit (see `upload/progress.md` on the `upload-feature` branch), or upload `video.mp4` once by hand in YouTube Studio.
+2. Not done: thumbnail, captions; the youtube-agent `yt-package` skill was not run (title, description and tags in `upload.json` were written by hand).
+3. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
    `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
-5. After PR #2 merges, a repo-level follow-up: `docs/progress.md` (Episode 0 done) and the `docs/product.md` non-goal "research proposes a ranked shortlist, the owner picks".
+4. After PR #2 merges, a repo-level follow-up: `docs/progress.md` (Episode 0 done) and the `docs/product.md` non-goal "research proposes a ranked shortlist, the owner picks".
+5. Owner merges PR #3.
 
 ## Blockers
 none
@@ -58,3 +58,4 @@ none
 - 2026-11-20 ep-super-agent: cut 3 after owner feedback: instrumental music, how-to ending replaced by the insight ending, caption timing fixed; `docs/product.md` format table updated; audit 0 issues.
 - 2026-11-20 ep-super-agent: cut 4: call to action at the end (voice + Subscribe button); audit 0 issues.
 - 2026-11-20 ep-super-agent: `upload.json` written; final cut copied to `video.mp4` for `yt upload`.
+- 2026-11-21 ep-super-agent: uploaded as private with `yt upload --confirm` (video id in `published.json`).
