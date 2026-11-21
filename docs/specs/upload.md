@@ -20,7 +20,7 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
 
 ## Acceptance criteria
 - [ ] `yt upload episodes/<slug>` refuses to run unless `yt check` passes for that episode (waits for the `episode` feature).
-- [x] Without `--confirm` it only prints what it would upload (title, privacy, file size, channel name) and exits 1. -> TestDryRunReportsAndUploadsNothing
+- [x] Without `--confirm` it only prints what it would upload (title, privacy, file size, channel name and @handle) and exits 1. -> TestDryRunReportsAndUploadsNothing
 - [x] Privacy is `private` unless `--privacy unlisted` or `--privacy public` is given. -> TestPrivacyDefaultsToPrivate
 - [x] First run signs in through the browser (installed-app OAuth with loopback redirect and PKCE) and saves `token.json` with mode 0600. -> TestFirstRunSignsInAndSavesToken
 - [x] It requests only the `youtube.upload` and `youtube.force-ssl` scopes. -> TestRequestsOnlyUploadScopes
@@ -52,7 +52,8 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
    add your own Google account as a test user.
 4. Clients: create an OAuth client of type **Desktop app**, download the JSON, save it as
    `~/.config/youtube-skill/client_secret.json`, then `chmod 600` it.
-5. Audience: **Publish app**, so sign-in doesn't expire every 7 days (it does while in Testing).
+5. Audience: **Publish app**, so sign-in doesn't expire every 7 days (it does while in Testing). On 2026-11-21 the console greyed this out until
+   the Branding page is "complete"; while in Testing, add your own account under Test users instead.
    Google may warn that the app is unverified when you sign in; for your own account you can continue.
 6. Apply for the API audit (https://support.google.com/youtube/contact/yt_api_form). Until it's approved,
    videos uploaded through the API are locked to private.

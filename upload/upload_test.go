@@ -40,7 +40,7 @@ func newFake(t *testing.T) *fake {
 			http.Error(w, `{"error":{"message":"no token"}}`, http.StatusUnauthorized)
 			return
 		}
-		io.WriteString(w, `{"items":[{"snippet":{"title":"Test Channel"}}]}`)
+		io.WriteString(w, `{"items":[{"snippet":{"title":"Test Channel","customUrl":"@test-handle"}}]}`)
 	})
 	mux.HandleFunc("POST /upload/youtube/v3/videos", func(w http.ResponseWriter, r *http.Request) {
 		f.inserts++
@@ -117,7 +117,7 @@ func TestDryRunReportsAndUploadsNothing(t *testing.T) {
 	if !errors.Is(err, ErrNotConfirmed) {
 		t.Fatalf("err = %v, want ErrNotConfirmed", err)
 	}
-	for _, want := range []string{"Test Channel", "My video", "private", "MB"} {
+	for _, want := range []string{"Test Channel (@test-handle)", "My video", "private", "MB"} {
 		if !strings.Contains(out.String(), want) {
 			t.Errorf("report lacks %q:\n%s", want, out)
 		}

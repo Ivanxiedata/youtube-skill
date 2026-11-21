@@ -19,7 +19,8 @@ func channelTitle(ctx context.Context, c *http.Client, base string) (string, err
 	var out struct {
 		Items []struct {
 			Snippet struct {
-				Title string `json:"title"`
+				Title     string `json:"title"`
+				CustomURL string `json:"customUrl"` // the channel's @handle
 			} `json:"snippet"`
 		} `json:"items"`
 	}
@@ -29,7 +30,11 @@ func channelTitle(ctx context.Context, c *http.Client, base string) (string, err
 	if len(out.Items) == 0 {
 		return "", fmt.Errorf("the signed-in Google account has no YouTube channel; run again with --login and pick the channel's account")
 	}
-	return out.Items[0].Snippet.Title, nil
+	s := out.Items[0].Snippet
+	if s.CustomURL != "" {
+		return s.Title + " (" + s.CustomURL + ")", nil
+	}
+	return s.Title, nil
 }
 
 // insertVideo uploads with the resumable protocol: one request opens a session, one sends the bytes.
