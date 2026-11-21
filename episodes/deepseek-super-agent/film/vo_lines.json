@@ -1,0 +1,122 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 2.01,
+  "text": "Watching one AI helper is easy."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 2.31,
+  "end": 3.623,
+  "text": "Watching ten is not."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 3.923,
+  "end": 6.276,
+  "text": "DeepSeek's Super-agent tries to fix that."
+ },
+ {
+  "n": 3,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 7.226,
+  "end": 11.519,
+  "text": "Before, you sat with each AI coding session and told it every step."
+ },
+ {
+  "n": 4,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 11.819,
+  "end": 16.39,
+  "text": "DeepSeek's team says one person can keep track of only three to five at once."
+ },
+ {
+  "n": 5,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 17.34,
+  "end": 19.394,
+  "text": "Super-agent splits the job in two."
+ },
+ {
+  "n": 6,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 19.694,
+  "end": 22.971,
+  "text": "One router agent stays in your team chat and on Git-Hub."
+ },
+ {
+  "n": 7,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 23.271,
+  "end": 31.794,
+  "text": "When an allowed teammate asks for something, it opens a ticket and hands it to a worker: a separate agent with its own session and its own folder."
+ },
+ {
+  "n": 8,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 32.094,
+  "end": 34.021,
+  "text": "Many workers run at the same time."
+ },
+ {
+  "n": 9,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 34.321,
+  "end": 37.154,
+  "text": "The router stays quiet until a result is ready."
+ },
+ {
+  "n": 10,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 38.104,
+  "end": 39.923,
+  "text": "Your attention is the bottleneck."
+ },
+ {
+  "n": 11,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 40.223,
+  "end": 45.137,
+  "text": "Super-agent asks for it only when a person must decide, or can use a result."
+ },
+ {
+  "n": 12,
+  "beat": 4,
+  "voice": "am_michael",
+  "start": 46.087,
+  "end": 50.07,
+  "text": "It is an open-source research prototype for one Git-Hub repo."
+ },
+ {
+  "n": 13,
+  "beat": 4,
+  "voice": "am_michael",
+  "start": 50.37,
+  "end": 54.145,
+  "text": "Ask your coding agent to read its setup file and set it up with you."
+ },
+ {
+  "n": 14,
+  "beat": 5,
+  "voice": "am_michael",
+  "start": 55.095,
+  "end": 58.219,
+  "text": "Next time: what a coding agent session really is."
+ }
+]

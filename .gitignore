@@ -16,3 +16,9 @@
 # What the stickman skill's scripts install next to a film (node deps, voice models).
 node_modules/
 .voice-models/
+# stickman film folders: commit only what we wrote; the engine copy comes from `make skills` + new_film.py
+/episodes/*/film/*
+!/episodes/*/film/film.js
+!/episodes/*/film/audio_mix.py
+!/episodes/*/film/script.txt
+!/episodes/*/film/vo_lines.json
