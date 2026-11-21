@@ -30,6 +30,7 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
 - [x] After the video uploads it sets the thumbnail if `thumbnail.png` exists and uploads `captions.srt` as the English caption track. -> TestSendsThumbnailAndCaptionsAfterUpload
 - [x] A thumbnail or captions failure is reported with its cause, not fatal: the video stays uploaded and recorded. -> TestThumbnailFailureIsReportedNotFatal
 - [x] It writes `published.json` only after the video upload succeeded. -> TestWritesPublishedOnlyAfterUpload
+- [x] `yt upload <dir> --thumbnail` sets `thumbnail.png` on the video named in `published.json` without uploading again (for when YouTube refused it at upload time). -> TestThumbnailOnlySetsItOnThePublishedVideo
 - [ ] Quota exceeded, an expired or revoked token, and an unaudited project's private lock each print a one-line cause and fix.
 - [x] Tests run against a fake API (`net/http/httptest`); no test touches the network or real credentials. -> TestRunUploadsToFakeAPI
 

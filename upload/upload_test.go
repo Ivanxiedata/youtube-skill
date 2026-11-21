@@ -277,3 +277,19 @@ func TestThumbnailFailureIsReportedNotFatal(t *testing.T) {
 		t.Fatalf("report lacks the thumbnail failure and its cause:\n%s", out)
 	}
 }
+
+func TestThumbnailOnlySetsItOnThePublishedVideo(t *testing.T) {
+	dir, f, o, out := setup(t, true)
+	o.Thumbnail = true
+	if _, err := Run(context.Background(), dir, o); err == nil {
+		t.Fatal("want an error when nothing was uploaded yet")
+	}
+	os.WriteFile(filepath.Join(dir, publishedFile), []byte(`{"video_id":"old42","url":"https://youtu.be/old42"}`), 0o644)
+	os.WriteFile(filepath.Join(dir, thumbFile), []byte("png bytes"), 0o644)
+	if _, err := Run(context.Background(), dir, o); err != nil {
+		t.Fatal(err)
+	}
+	if f.thumbFor != "old42" || f.inserts != 0 || !strings.Contains(out.String(), "thumbnail set on https://youtu.be/old42") {
+		t.Fatalf("thumbFor=%q inserts=%d report=%q, want the thumbnail on old42 and no new upload", f.thumbFor, f.inserts, out)
+	}
+}

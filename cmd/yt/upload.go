@@ -20,6 +20,7 @@ func init() {
 		fs.StringVar(&o.Privacy, "privacy", "private", "private, unlisted or public")
 		fs.BoolVar(&o.Again, "again", false, "upload even if published.json says it was uploaded before")
 		fs.BoolVar(&o.Login, "login", false, "sign in again, e.g. to switch account")
+		fs.BoolVar(&o.Thumbnail, "thumbnail", false, "only set thumbnail.png on the video already uploaded (published.json)")
 		// flags may come before or after the episode folder
 		var dirs []string
 		for rest := args; ; rest = fs.Args()[1:] {
@@ -32,7 +33,7 @@ func init() {
 			dirs = append(dirs, fs.Arg(0))
 		}
 		if len(dirs) != 1 {
-			fmt.Fprintln(os.Stderr, "usage: yt upload <episode-dir> [--confirm] [--privacy private|unlisted|public] [--again] [--login]")
+			fmt.Fprintln(os.Stderr, "usage: yt upload <episode-dir> [--confirm] [--privacy private|unlisted|public] [--again] [--login] [--thumbnail]")
 			return 2
 		}
 		ctx, stop := signal.NotifyContext(context.Background(), os.Interrupt)
@@ -41,6 +42,9 @@ func init() {
 		if err != nil { // includes the dry run's ErrNotConfirmed: exit 1 until --confirm
 			fmt.Fprintln(os.Stderr, "yt upload:", err)
 			return 1
+		}
+		if o.Thumbnail {
+			return 0
 		}
 		fmt.Printf("uploaded: %s (%s)\n", p.URL, p.Privacy)
 		return 0

@@ -26,6 +26,7 @@ type Options struct {
 	Privacy     string                 // private (default), unlisted or public
 	Again       bool                   // upload even though published.json exists
 	Login       bool                   // sign in again even if a token is saved
+	Thumbnail   bool                   // only set thumbnail.png on the video already recorded in published.json
 	ConfigDir   string                 // holds client_secret.json and token.json; default ~/.config/youtube-skill
 	Out         io.Writer              // the report and sign-in prompt; default os.Stdout
 	OpenBrowser func(url string) error // default: the system browser
@@ -78,6 +79,9 @@ func Run(ctx context.Context, dir string, o Options) (Published, error) {
 		o.ConfigDir = filepath.Join(home, ".config", "youtube-skill")
 	}
 
+	if o.Thumbnail {
+		return thumbnailOnly(ctx, dir, o)
+	}
 	m, err := readMeta(filepath.Join(dir, metaFile))
 	if err != nil {
 		return Published{}, err
@@ -139,6 +143,27 @@ func Run(ctx context.Context, dir string, o Options) (Published, error) {
 			fmt.Fprintf(o.Out, "%s uploaded\n", e.what)
 		}
 	}
+	return p, nil
+}
+
+// thumbnailOnly sets thumbnail.png on the video that published.json names, e.g. after YouTube refused it at upload time.
+func thumbnailOnly(ctx context.Context, dir string, o Options) (Published, error) {
+	var p Published
+	raw, err := os.ReadFile(filepath.Join(dir, publishedFile))
+	if err != nil {
+		return p, fmt.Errorf("no uploaded video to put a thumbnail on: %w", err)
+	}
+	if err := json.Unmarshal(raw, &p); err != nil || p.VideoID == "" {
+		return p, fmt.Errorf("%s has no video_id", filepath.Join(dir, publishedFile))
+	}
+	client, err := signIn(ctx, o)
+	if err != nil {
+		return p, err
+	}
+	if err := setThumbnail(ctx, client, o.apiBase, p.VideoID, filepath.Join(dir, thumbFile)); err != nil {
+		return p, err
+	}
+	fmt.Fprintf(o.Out, "thumbnail set on %s\n", p.URL)
 	return p, nil
 }
 

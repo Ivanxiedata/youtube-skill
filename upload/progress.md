@@ -1,7 +1,7 @@
 # upload progress
 
 ## Status
-`yt upload` works against real YouTube: Episode 0 cut 5 uploaded as private with captions on 2026-11-21. Open: API audit, app still in Testing, channel not verified for thumbnails, 3 unbuilt criteria.
+`yt upload` works against real YouTube: Episode 0 is uploaded with captions and thumbnail, and the owner made it public in Studio on 2026-11-21. Open: app still in Testing (7-day sign-in), 3 unbuilt criteria.
 
 ## Next
 1. Owner: apply for the API audit (https://support.google.com/youtube/contact/yt_api_form). Until it passes, API uploads can't be made public.
@@ -31,6 +31,8 @@ API audit approval before any API-uploaded video can be public (owner files the 
 - 2026-11-21: The app stays in Testing for now, because the console refused "Publish app" (see Next 2); the owner had chosen production.
 - 2026-11-21: Captions are an SRT file (`captions.srt`) sent with `captions.insert` as the English track, because Episode 0 has exact line timings from the voice; this answers the spec's open question 2.
 - 2026-11-21: Thumbnail and captions go up after `published.json` is written, and their failures only print, because the video is the part that can't be redone cheaply.
+- 2026-11-21: `--thumbnail` sets the thumbnail on the already-uploaded video, because YouTube refused it at upload time (channel unverified) and a re-upload would have made a fourth video.
+- 2026-11-21: Observed: the owner could switch the API-uploaded video from private to public in YouTube Studio although the API project is unaudited. So the "locked private" rule did not block this video; whether YouTube locks it later is unknown (spec open question 3).
 
 ## Log
 - 2026-11-20 upload-feature: feature scaffolded, spec drafted with owner setup steps.
@@ -38,3 +40,4 @@ API audit approval before any API-uploaded video can be public (owner files the 
 - 2026-11-21 upload-feature: first real run: dry run showed the right channel, `--confirm` uploaded Episode 0 (13.8 MB) as private; `published.json` written in the episode folder.
 - 2026-11-21 upload-feature: `yt upload` also sets `thumbnail.png` and uploads `captions.srt`; 10 tests against the fake.
 - 2026-11-21 upload-feature: second real run (`--again`): video and captions uploaded; the thumbnail was refused (403, channel not verified for custom thumbnails) and reported without failing the run; the error now says how to fix it.
+- 2026-11-21 upload-feature: `yt upload <dir> --thumbnail` added (11 tests) and used: thumbnail set on Episode 0 after the owner verified the channel.
