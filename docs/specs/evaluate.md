@@ -17,7 +17,8 @@ The first hand-made scorecard is the model: `episodes/deepseek-super-agent/evalu
 Two kinds of rows:
 - **Measured** rows are computed by `yt evaluate`. They are the acceptance criteria below.
 - **Judged** rows are filled by an agent in the evaluator role (`docs/roles/evaluator.md`) with the youtube-agent
-  tools (`hookscore.py`, `title.py`) and its own reading: hook strength, story, brand fit, thumbnail appeal.
+  tools (`hookscore.py`, `title.py`), earshot for the sound (levels, noise, voice against music) and its own reading:
+  hook strength, story, brand fit, thumbnail appeal.
   `yt evaluate` leaves them as `TODO (evaluator)` and fails while any is left.
 
 ## Acceptance criteria

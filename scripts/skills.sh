@@ -139,10 +139,14 @@ Runtime deps (not installed, not checked):
                files from github.com/thewh1teagle/kokoro-onnx releases (no checksum check upstream)
                3D films only: node + npm (new_film.py --3d runs `npm i three@0.169.0`)
   youtube-agent  nothing (stdlib only); yt-dlp and whisper are optional extras it mentions
+  earshot      pip install ".skills/earshot[listen,measure,images]"   (the pinned checkout; brings torch and transformers)
+               the first listening call downloads two models (about 1.1 GB, 2.2 GB on disk) from huggingface.co
+               at pinned revisions into EARSHOT_HOME; ffmpeg and ffprobe on PATH to read video
 Keep installs out of $HOME and the system Python, because stickman's doctor.py and tts.py pip-install
 by themselves (retrying with --user and --break-system-packages) when something is missing. Start the agent from:
   python3 -m venv .skills/venv && . .skills/venv/bin/activate
-  export PLAYWRIGHT_BROWSERS_PATH="$PWD/.skills/browsers" STICKMAN_VOICE_DIR="$PWD/.skills/voice-models"
+  export PLAYWRIGHT_BROWSERS_PATH="$PWD/.skills/browsers" STICKMAN_VOICE_DIR="$PWD/.skills/voice-models" EARSHOT_HOME="$PWD/.skills/earshot-home"
   pip install pyyaml numpy scipy pillow playwright imageio-ffmpeg kokoro-onnx pocketsphinx && playwright install chromium
+  pip install ".skills/earshot[listen,measure,images]"
 youtube-agent skills read docs/voice.md if it exists (seed it from .skills/youtube-agent/templates/voice.md).
 EOF

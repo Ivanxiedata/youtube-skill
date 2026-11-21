@@ -51,6 +51,21 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
    each worktree runs it itself. Never install skills globally. Run the stickman scripts inside the venv `make skills` prints.
    Bumping a pin: read the upstream diff first (`skills.lock` header).
 
+## Skills: which one for which step
+`make skills` installs these, pinned in `skills.lock`. Use the skill for its step; don't improvise what a skill already does.
+| Step of an episode | Skill | What it does here |
+|---|---|---|
+| 1. Research | `research` family (Deep-Research) | The new tech and its predecessor, every claim with a source. For one or two items, read the maker's own docs directly |
+| 2. Script | `yt-script` | Five hooks scored with `hookscore.py`, the best one kept; the 60-second script |
+| 3. Render | `stickman` | `film.js`, the free voice (`tts.py`), `build.py` and its audit, the thumbnail from the same rig |
+| 4. Sound | `earshot`, `real-sound`, `scripts/music.py` | Sound effects made in code; music found through Openverse (CC0 or CC BY only, credit recorded) |
+| 5. Listen | `earshot` | Hear the finished video before judging it: `measure`, `describe`, `timeline`, `sheet`. It hears levels, voice against music, noise and timing; it does not transcribe words |
+| 6. Package | `yt-package`, `yt-seo`, `yt-chapters` | Title and thumbnail text as one pair (`title.py`), description, tags, hashtags, chapters |
+| 7. Evaluate | `docs/roles/evaluator.md` | The scorecard `evaluation.md`, from the tools of steps 2, 5 and 6, before any upload |
+| 8. After publishing | `yt-retention`, `yt-viral` | Where viewers leave; what works for similar videos (patterns only, never a copy). Findings go to `docs/lessons.md` |
+
+Installed but not used here: `yt-audit`, `yt-comment`, `yt-edit`, `yt-plan`, `yt-shorts`.
+
 ## Rules
 - Go. Tests sit next to code as `*_test.go`.
 - Slow tests (network, DB, >1s) start with `if testing.Short() { t.Skip("slow") }`. The commit hook skips them; CI runs them.

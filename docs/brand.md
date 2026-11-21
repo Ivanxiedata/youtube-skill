@@ -17,7 +17,7 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Takeaway card | The last line on screen in two lines: plain statement, then the amber punchline |
 | Call to action | Spoken "Subscribe for the next one." with the red Subscribe button; the next episode's name under it |
 | Voice | Kokoro `am_michael`, speed 1.2; plain words; "you" in the first sentence |
-| Music | The same quiet instrumental bed every episode (`m.music(mood="hopeful", bpm=96)`, 16 dB under the voice) |
+| Music | One signature instrumental track, the same every episode, 16 dB under the voice: "Blue Sky" by Sergmusic (CC0, found through Openverse with `scripts/music.py`). A new track must be CC0 or CC BY, have no vocals (checked with earshot) and be credited in the description |
 
 ## Colours and type
 | Use | Value |
