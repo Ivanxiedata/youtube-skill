@@ -1,87 +1,87 @@
 1
-00:00:00,080 --> 00:00:07,528
-Coding agents, explained: you would never fix your car with the mechanic on the phone, but that is how you use an AI chatbot.
+00:00:00,080 --> 00:00:08,479
+Coding agents, 60 seconds: why do you lose hours, never stop pasting your code, but how can 1 agent loop 4 steps until you're done?
 
 2
-00:00:08,028 --> 00:00:10,392
+00:00:08,979 --> 00:00:11,344
 A chat assistant is the mechanic on the phone.
 
 3
-00:00:10,692 --> 00:00:11,787
+00:00:11,644 --> 00:00:12,738
 He can only talk.
 
 4
-00:00:12,087 --> 00:00:16,295
-So you paste his fix into your code, run it, and carry the error back to him.
+00:00:13,038 --> 00:00:16,487
+So you paste his fix, run it, and carry the error back to him.
 
 5
-00:00:16,595 --> 00:00:17,490
+00:00:16,787 --> 00:00:17,682
 Again and again.
 
 6
-00:00:18,440 --> 00:00:22,208
-A coding agent is the mechanic standing in your garage, with tools.
+00:00:18,632 --> 00:00:21,903
+A coding agent is the mechanic in your garage, with tools.
 
 7
-00:00:22,508 --> 00:00:25,274
+00:00:22,203 --> 00:00:24,969
 You give it one job, in your terminal or your editor.
 
 8
-00:00:25,574 --> 00:00:26,660
+00:00:25,269 --> 00:00:26,355
 Then it works in a loop.
 
 9
-00:00:26,960 --> 00:00:28,097
+00:00:26,655 --> 00:00:27,792
 It reads your files.
 
 10
-00:00:28,397 --> 00:00:29,371
+00:00:28,092 --> 00:00:29,066
 It edits the code.
 
 11
-00:00:29,671 --> 00:00:31,519
+00:00:29,366 --> 00:00:31,214
 It runs a command, and checks the result.
 
 12
-00:00:31,819 --> 00:00:32,682
+00:00:31,514 --> 00:00:32,377
 Still broken?
 
 13
-00:00:32,982 --> 00:00:35,457
+00:00:32,677 --> 00:00:35,152
 It goes around again, until the job is done.
 
 14
-00:00:35,757 --> 00:00:39,127
+00:00:35,452 --> 00:00:38,822
 That whole visit, every step and every result, is one session.
 
 15
-00:00:39,627 --> 00:00:41,050
+00:00:39,322 --> 00:00:40,746
 You stop being the messenger.
 
 16
-00:00:41,350 --> 00:00:43,428
+00:00:41,046 --> 00:00:43,123
 You watch, and you can stop it at any moment.
 
 17
-00:00:44,378 --> 00:00:46,806
+00:00:44,073 --> 00:00:46,501
 It can still be wrong, so give it a test to run.
 
 18
-00:00:47,106 --> 00:00:48,343
+00:00:46,801 --> 00:00:48,038
 But notice what changed.
 
 19
-00:00:48,643 --> 00:00:50,523
+00:00:48,338 --> 00:00:50,218
 The mechanic did not get a bigger brain.
 
 20
-00:00:50,823 --> 00:00:53,196
+00:00:50,518 --> 00:00:52,891
 He got hands, and a way to check his own work.
 
 21
-00:00:53,496 --> 00:00:55,060
+00:00:53,191 --> 00:00:54,755
 That is what makes it an agent.
 
 22
-00:00:55,560 --> 00:00:56,962
+00:00:55,255 --> 00:00:56,657
 Subscribe for the next one.

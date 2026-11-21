@@ -4,175 +4,175 @@
   "beat": 0,
   "voice": "am_michael",
   "start": 0.0,
-  "end": 7.448,
-  "text": "Coding agents, explained: you would never fix your car with the mechanic on the phone, but that is how you use an AI chatbot."
+  "end": 8.399,
+  "text": "Coding agents, in sixty seconds: why do you lose hours, never stop pasting your code, but how can one agent loop four steps until you're done?"
  },
  {
   "n": 1,
   "beat": 0,
   "voice": "am_michael",
-  "start": 7.948,
-  "end": 10.312,
+  "start": 8.899,
+  "end": 11.264,
   "text": "A chat assistant is the mechanic on the phone."
  },
  {
   "n": 2,
   "beat": 0,
   "voice": "am_michael",
-  "start": 10.612,
-  "end": 11.707,
+  "start": 11.564,
+  "end": 12.658,
   "text": "He can only talk."
  },
  {
   "n": 3,
   "beat": 0,
   "voice": "am_michael",
-  "start": 12.007,
-  "end": 16.215,
-  "text": "So you paste his fix into your code, run it, and carry the error back to him."
+  "start": 12.958,
+  "end": 16.407,
+  "text": "So you paste his fix, run it, and carry the error back to him."
  },
  {
   "n": 4,
   "beat": 0,
   "voice": "am_michael",
-  "start": 16.515,
-  "end": 17.41,
+  "start": 16.707,
+  "end": 17.602,
   "text": "Again and again."
  },
  {
   "n": 5,
   "beat": 1,
   "voice": "am_michael",
-  "start": 18.36,
-  "end": 22.128,
-  "text": "A coding agent is the mechanic standing in your garage, with tools."
+  "start": 18.552,
+  "end": 21.823,
+  "text": "A coding agent is the mechanic in your garage, with tools."
  },
  {
   "n": 6,
   "beat": 1,
   "voice": "am_michael",
-  "start": 22.428,
-  "end": 25.194,
+  "start": 22.123,
+  "end": 24.889,
   "text": "You give it one job, in your terminal or your editor."
  },
  {
   "n": 7,
   "beat": 1,
   "voice": "am_michael",
-  "start": 25.494,
-  "end": 26.58,
+  "start": 25.189,
+  "end": 26.275,
   "text": "Then it works in a loop."
  },
  {
   "n": 8,
   "beat": 1,
   "voice": "am_michael",
-  "start": 26.88,
-  "end": 28.017,
+  "start": 26.575,
+  "end": 27.712,
   "text": "It reads your files."
  },
  {
   "n": 9,
   "beat": 1,
   "voice": "am_michael",
-  "start": 28.317,
-  "end": 29.291,
+  "start": 28.012,
+  "end": 28.986,
   "text": "It edits the code."
  },
  {
   "n": 10,
   "beat": 1,
   "voice": "am_michael",
-  "start": 29.591,
-  "end": 31.439,
+  "start": 29.286,
+  "end": 31.134,
   "text": "It runs a command, and checks the result."
  },
  {
   "n": 11,
   "beat": 1,
   "voice": "am_michael",
-  "start": 31.739,
-  "end": 32.602,
+  "start": 31.434,
+  "end": 32.297,
   "text": "Still broken?"
  },
  {
   "n": 12,
   "beat": 1,
   "voice": "am_michael",
-  "start": 32.902,
-  "end": 35.377,
+  "start": 32.597,
+  "end": 35.072,
   "text": "It goes around again, until the job is done."
  },
  {
   "n": 13,
   "beat": 1,
   "voice": "am_michael",
-  "start": 35.677,
-  "end": 39.047,
+  "start": 35.372,
+  "end": 38.742,
   "text": "That whole visit, every step and every result, is one session."
  },
  {
   "n": 14,
   "beat": 1,
   "voice": "am_michael",
-  "start": 39.547,
-  "end": 40.97,
+  "start": 39.242,
+  "end": 40.666,
   "text": "You stop being the messenger."
  },
  {
   "n": 15,
   "beat": 1,
   "voice": "am_michael",
-  "start": 41.27,
-  "end": 43.348,
+  "start": 40.966,
+  "end": 43.043,
   "text": "You watch, and you can stop it at any moment."
  },
  {
   "n": 16,
   "beat": 2,
   "voice": "am_michael",
-  "start": 44.298,
-  "end": 46.726,
+  "start": 43.993,
+  "end": 46.421,
   "text": "It can still be wrong, so give it a test to run."
  },
  {
   "n": 17,
   "beat": 2,
   "voice": "am_michael",
-  "start": 47.026,
-  "end": 48.263,
+  "start": 46.721,
+  "end": 47.958,
   "text": "But notice what changed."
  },
  {
   "n": 18,
   "beat": 2,
   "voice": "am_michael",
-  "start": 48.563,
-  "end": 50.443,
+  "start": 48.258,
+  "end": 50.138,
   "text": "The mechanic did not get a bigger brain."
  },
  {
   "n": 19,
   "beat": 2,
   "voice": "am_michael",
-  "start": 50.743,
-  "end": 53.116,
+  "start": 50.438,
+  "end": 52.811,
   "text": "He got hands, and a way to check his own work."
  },
  {
   "n": 20,
   "beat": 2,
   "voice": "am_michael",
-  "start": 53.416,
-  "end": 54.98,
+  "start": 53.111,
+  "end": 54.675,
   "text": "That is what makes it an agent."
  },
  {
   "n": 21,
   "beat": 2,
   "voice": "am_michael",
-  "start": 55.48,
-  "end": 56.882,
+  "start": 55.175,
+  "end": 56.577,
   "text": "Subscribe for the next one."
  }
 ]
