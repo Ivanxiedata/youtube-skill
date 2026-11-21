@@ -1,17 +1,17 @@
 ## hook
-MCP just stopped remembering you. You would lose your whole order if your waiter went home, and that is how MCP worked until July.
+MCP before July 28, 2026: your server quit, you lost your order; now any server takes it, but how, and why, in 60 seconds?
 
 ## before
-MCP is how AI apps reach their tools. An app first shook hands with one server, and could be given a session ID, like a table number. Only that server knew the order. On a busy night, the others could not simply step in.
+Here's how, in one diner. Your AI app is the customer; an MCP server is the waiter bringing its tools. Old MCP: shake hands, maybe get a table number, a session ID, and your order lives in his head. Other waiters: not my table.
 
 ## new
-The MCP specification that shipped that day removes both. No handshake. No session ID. Every request is now a complete order slip, so any server can take it. Need something remembered, like a shopping basket? The server hands back a ticket, and the app shows it next time.
+The new MCP drops both. Every request is now a complete order slip, so any waiter can take it. Need a basket kept? The server hands back a ticket; your AI shows it next time.
 
 ## why
-So a busy restaurant just adds servers. Any request can land on any of them. And if one goes home, the next one takes your order.
+For you, AI tools can stop hanging on one machine: busy day, add servers; one quits, the next takes your next order. And the ticket stays in your chat for tomorrow.
 
 ## takeaway
-The fix was never a better waiter. It was moving the memory out of his head and onto the slip. A server that remembers nothing is a server anyone can replace.
+How? The order moved onto the slip. Why? Any waiter can take it. That's stateless: a server that remembers nothing is a server anyone can replace.
 
 ## outro
 Subscribe for the next one.

@@ -13,82 +13,94 @@
  },
  "sections": {
   "hook": {
-   "text": "You lose your whole order when your waiter goes home. That is how MCP worked until July 28, 2026.",
+   "text": "MCP before July 28, 2026: your server quit, you lost your order; now any server takes it, but how, and why, in 60 seconds?",
    "claims": [
     {
-     "text": "In stateful MCP, if the server instance holding a session fails, the session state is lost and the client must reconnect and redo the handshake.",
+     "text": "In stateful (pre-2026-07-28) MCP, if the server instance handling a client session fails, that session state is lost and the client must reconnect and redo the handshake.",
      "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
     },
     {
      "text": "The 2026-07-28 specification was released on July 28, 2026.",
      "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    },
+    {
+     "text": "Under 2026-07-28, any request can land on any server instance behind a plain round-robin load balancer.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
     }
    ]
   },
   "before": {
-   "text": "MCP is how AI apps reach their tools. An app first shook hands with one server and could be given a session ID, like a table number. Only that server knew the order; on a busy night the others could not simply step in.",
+   "text": "Here's how, in one diner. Your AI app is the customer; an MCP server is the waiter bringing its tools. Old MCP: shake hands, maybe get a table number, a session ID, and your order lives in his head. Other waiters: not my table.",
    "claims": [
     {
      "text": "MCP is an open protocol connecting LLM applications to external data sources and tools.",
      "source": "https://modelcontextprotocol.io/specification/2026-07-28"
     },
     {
-     "text": "The initialize request and initialized notification must be the first interaction between client and server.",
+     "text": "In 2025-11-25 the initialize request and initialized notification must be the first interaction between client and server.",
      "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle"
     },
     {
-     "text": "A server MAY assign a session ID at initialization in the MCP-Session-Id header; clients MUST include it on all later requests.",
+     "text": "In 2025-11-25 a Streamable HTTP server MAY assign a session ID at initialization in the MCP-Session-Id header; clients MUST then include it on all later requests.",
      "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
     },
     {
-     "text": "A plain load balancer can't route a session's requests to other instances, which lack its state; operators fall back to sticky sessions.",
+     "text": "Session state lives on one server instance: a plain round-robin load balancer would route requests to servers without that state, so operators use sticky sessions.",
      "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
     }
    ]
   },
   "new": {
-   "text": "The MCP specification that shipped on July 28, 2026 removes both: no handshake, no session ID. Every request is a complete order slip that any server can take. State that must be remembered is a ticket (a handle) the server hands back and the app passes in again.",
+   "text": "The new MCP drops both. Every request is now a complete order slip, so any waiter can take it. Need a basket kept? The server hands back a ticket; your AI shows it next time.",
    "claims": [
     {
-     "text": "The initialize/initialized handshake is removed; every request carries its protocol version and client capabilities in _meta (SEP-2575).",
+     "text": "2026-07-28 removes the initialize/initialized handshake; every request carries its protocol version and client capabilities in _meta (SEP-2575).",
      "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
     },
     {
-     "text": "Protocol-level sessions and the Mcp-Session-Id header are removed from Streamable HTTP (SEP-2567).",
+     "text": "2026-07-28 removes protocol-level sessions and the Mcp-Session-Id header from Streamable HTTP (SEP-2567).",
      "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
     },
     {
-     "text": "Servers that need cross-call state mint an explicit handle from a tool, e.g. create_basket() returns basket_id, passed back as an ordinary argument.",
+     "text": "Stateless by default: any request can be handled by any server instance.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "Servers that need cross-call state mint an explicit handle from a tool (create_basket() returns basket_id) and the model threads it through later calls as an ordinary argument.",
      "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
     },
     {
      "text": "2026-07-28 is the current protocol version.",
      "source": "https://modelcontextprotocol.io/specification/versioning"
-    },
-    {
-     "text": "SEP-2575 and SEP-2567 have Final status.",
-     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
     }
    ]
   },
   "why": {
-   "text": "A busy service just adds servers: any request can land on any of them, and if one goes away the next request goes to another.",
+   "text": "For you, AI tools can stop hanging on one machine: busy day, add servers; one quits, the next takes your next order. And the ticket stays in your chat for tomorrow.",
    "claims": [
     {
-     "text": "Any request can land on any server instance behind a plain round-robin load balancer without shared storage.",
+     "text": "Any request can now land on any server instance behind a plain round-robin load balancer without needing shared storage.",
      "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
     },
     {
-     "text": "Stateless by default enables horizontal scaling and improves resilience, as any request can be handled by any server instance.",
+     "text": "Stateless by default enables straightforward horizontal scaling and improves resilience, as any request can be handled by any server instance.",
      "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "Handles appear in tool results and so in the chat transcript; clients that persist chats (most) persist them, and reopening a conversation after a restart, a reload or on another device puts the handle back in front of the model.",
+     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
     }
    ]
   },
   "takeaway": {
-   "text": "The fix was never a better waiter; it was moving the memory out of his head and onto the slip. A server that remembers nothing is a server anyone can replace.",
+   "text": "How? The order moved onto the slip. Why? Any waiter can take it. That's stateless: a server that remembers nothing is a server anyone can replace.",
    "claims": [
     {
-     "text": "The protocol no longer manages session state; applications that need state carry it in explicit handles visible to the model.",
+     "text": "Every request is self-contained (version and capabilities per request), so any server instance can handle it.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "The protocol no longer manages session state; applications that need state carry it in explicit handles.",
      "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"
     }
    ]
