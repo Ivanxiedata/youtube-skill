@@ -5,7 +5,7 @@ Owner-maintained. Agents read this; they don't edit it without being asked.
 ## What it is
 Turns a new AI technology into a 1-minute stickman video that explains it as if to a five-year-old,
 always side by side with the technology it builds on. Every video answers four questions:
-what came before, what's new, why we need it, and how to use it, with an architecture diagram
+what came before, what's new, why we need it, and what to take away, with an architecture diagram
 comparing old and new. AI moves fast, so the product remembers what it has already covered and
 each new video builds on the last ("remember v2? here's what changed").
 
@@ -16,6 +16,9 @@ actually understand it: how it works, not just its name.
 ## Principles
 - **Simple words, real depth.** Talk like you're explaining to a five-year-old, but the explanation must match
   how the technology actually works. An analogy that's wrong underneath is a bug.
+- **Start from what everyone knows.** Tell the new tech through a story the viewer already has (history, a war, everyday life),
+  so they get it at once: Napoleon's chief of staff for a router agent. The story must map onto how the tech works,
+  and its facts are sourced like any other claim.
 - **Always relative.** Every video names the predecessor and shows the difference side by side.
   A technology with no "before" isn't explained yet.
 - **Accurate over exciting.** Every claim traces to a source from the research step. No hype,
@@ -27,14 +30,18 @@ actually understand it: how it works, not just its name.
 ## Video format (v1: 60 seconds, ~150 spoken words)
 | Time | Section | Shows |
 |---|---|---|
-| 0-5s | Hook | The one-line promise: what you'll understand in a minute |
+| 0-5s | Hook | A surprising fact or image from the story, not a statement about AI |
 | 5-15s | Before | The previous technology and its limit |
 | 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
 | 35-45s | Why we need it | The problem the old one couldn't solve |
-| 45-57s | How to use it | One concrete starting point |
-| 57-60s | Outro | What to watch next (the predecessor's or successor's video) |
+| 45-57s | Takeaway | The insight the viewer keeps, tied back to the story. How to try it goes in the description, not on screen |
+| 57-60s | Outro | The takeaway as one line on screen, a spoken call to action (subscribe) with a button, and what to watch next |
 
+Pace: a new shot about every 2-3 seconds (Episode 0's first cut averaged 6 and felt slow).
+Sound: voice, quiet instrumental music (no lyrics, about 16 dB under the voice) and a few sampled effects; no room tone or other noise bed.
 Captions: upload `script.md` as the video's captions (packaging step).
+Thumbnail: the headline names the topic and the picture shows the lesson (Episode 0: YOU -> ROUTER -> AI WORKERS), so a viewer knows
+what they will learn before clicking. A hook that could sit on any video is too generic. Drawn from code with the film's characters.
 
 ## Skills used
 | Skill | Repo | Role |

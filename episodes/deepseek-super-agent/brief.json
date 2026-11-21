@@ -1,0 +1,196 @@
+{
+  "slug": "deepseek-super-agent",
+  "tech": {
+    "id": "deepseek-super-agent",
+    "name": "DeepSeek Super-agent (dsh-superagent)",
+    "released": "2026-10",
+    "one_line": "One router agent takes requests from team chat and GitHub and hands each to its own worker agent, running many at once."
+  },
+  "predecessor": {
+    "id": "single-session-agent",
+    "name": "One coding-agent session per person"
+  },
+  "sections": {
+    "hook": {
+      "text": "You can only babysit about five AI agents before you are the bottleneck; that estimate is from DeepSeek's Super-agent team.",
+      "claims": [
+        {
+          "text": "DeepSeek's team estimates a person can supervise only 3-5 active agent sessions at once.",
+          "source": "https://letsdatascience.com/news/deepseek-proposes-experimental-super-agent-to-coordinate-mul-cc3cd380"
+        }
+      ]
+    },
+    "before": {
+      "text": "You are a general and your soldiers are AI agents. Napoleon had the same problem: he could not shout orders at a hundred thousand soldiers.",
+      "claims": [
+        {
+          "text": "In the 1805 campaign the Grande Armée coordinated more than 150,000-200,000 soldiers.",
+          "source": "https://www.worldhistory.org/image/21911/la-grande-armee-napoleons-army-1804-1805/"
+        }
+      ]
+    },
+    "new": {
+      "text": "Napoleon's fix was a chief of staff, Berthier, who turned what Napoleon wanted into written orders for the corps, each a small army able to fight alone. Super-agent works the same way: a router (main Session) listens to GitHub and team chat, turns an allowed request into a ticket, and gives each ticket its own worker session and directory; tickets run concurrently.",
+      "claims": [
+        {
+          "text": "Berthier, Napoleon's chief of staff, turned Napoleon's instructions into orders and dispatched them to the marshals commanding the corps.",
+          "source": "https://www.britannica.com/EBchecked/topic/62795/Louis-Alexandre-Berthier-prince-de-Wagram"
+        },
+        {
+          "text": "Each corps was a self-contained small army (infantry, cavalry, artillery) that could act independently.",
+          "source": "https://en.wikipedia.org/wiki/Grande_Arm%C3%A9e"
+        },
+        {
+          "text": "Listens to GitHub and optionally Feishu; answers in the original conversation, e.g. with a pull request.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        },
+        {
+          "text": "The main Session evaluates events, accepts and dispatches Tickets, and replies (orchestrator, preset dsh-superagent-router).",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/001-domain.md"
+        },
+        {
+          "text": "Each Ticket gets its own Executor Session worker-<id> and its own directory; launches run concurrently up to a slot limit.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/003-execution.md"
+        },
+        {
+          "text": "It stays quiet while it works and writes again when a result is ready.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md"
+        }
+      ]
+    },
+    "why": {
+      "text": "The router stays quiet and speaks up only when a person must decide or can use a result.",
+      "claims": [
+        {
+          "text": "Core principle: take as little human attention as possible; speak only when a person must act or can use a result.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md"
+        }
+      ]
+    },
+    "takeaway": {
+      "text": "Still a research prototype, but the lesson is two hundred years old: the limit was never the soldiers, it was the general's attention, and with AI agents that general is you.",
+      "claims": [
+        {
+          "text": "Research prototype, not an official DeepSeek product; MIT; for one GitHub repository; setup by asking a coding agent to read SETUP.md.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        },
+        {
+          "text": "DeepSeek's stated principle: take as little human attention as possible, and give as much value as possible.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md"
+        }
+      ]
+    },
+    "outro": {
+      "text": "Spoken call to action: subscribe for the next one. On screen: a Subscribe button and 'Next: what is a coding-agent session?'",
+      "claims": []
+    }
+  },
+  "architecture": {
+    "before": {
+      "nodes": [
+        {
+          "id": "you",
+          "label": "You"
+        },
+        {
+          "id": "s1",
+          "label": "Agent session 1"
+        },
+        {
+          "id": "s2",
+          "label": "Agent session 2"
+        },
+        {
+          "id": "s3",
+          "label": "Agent session 3"
+        }
+      ],
+      "edges": [
+        {
+          "from": "you",
+          "to": "s1",
+          "label": "every step"
+        },
+        {
+          "from": "you",
+          "to": "s2",
+          "label": "every step"
+        },
+        {
+          "from": "you",
+          "to": "s3",
+          "label": "every step"
+        }
+      ]
+    },
+    "after": {
+      "nodes": [
+        {
+          "id": "team",
+          "label": "Team"
+        },
+        {
+          "id": "chat",
+          "label": "Chat + GitHub"
+        },
+        {
+          "id": "router",
+          "label": "Router agent"
+        },
+        {
+          "id": "w1",
+          "label": "Worker 1"
+        },
+        {
+          "id": "w2",
+          "label": "Worker 2"
+        },
+        {
+          "id": "w3",
+          "label": "Worker 3"
+        },
+        {
+          "id": "pr",
+          "label": "Result (pull request)"
+        }
+      ],
+      "edges": [
+        {
+          "from": "team",
+          "to": "chat",
+          "label": "ask"
+        },
+        {
+          "from": "chat",
+          "to": "router",
+          "label": "events"
+        },
+        {
+          "from": "router",
+          "to": "w1",
+          "label": "ticket"
+        },
+        {
+          "from": "router",
+          "to": "w2",
+          "label": "ticket"
+        },
+        {
+          "from": "router",
+          "to": "w3",
+          "label": "ticket"
+        },
+        {
+          "from": "w3",
+          "to": "pr",
+          "label": ""
+        },
+        {
+          "from": "pr",
+          "to": "chat",
+          "label": "only when ready"
+        }
+      ]
+    }
+  }
+}
