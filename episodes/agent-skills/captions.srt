@@ -1,0 +1,83 @@
+1
+00:00:00,080 --> 00:00:05,431
+You would never make a cook reread a 500-page recipe binder before frying one egg.
+
+2
+00:00:05,731 --> 00:00:07,734
+But that is how you prompt your AI agent.
+
+3
+00:00:08,034 --> 00:00:09,291
+Agent Skills fix that.
+
+4
+00:00:09,791 --> 00:00:14,679
+In your kitchen, every rule you wrote sits in one giant binder: the one big prompt.
+
+5
+00:00:14,979 --> 00:00:17,205
+Your cook reads all of it before every order.
+
+6
+00:00:17,705 --> 00:00:19,314
+The fix is a recipe box.
+
+7
+00:00:19,614 --> 00:00:23,464
+Every recipe is a card with a tab: its name, and when to use it.
+
+8
+00:00:23,764 --> 00:00:25,328
+Your cook reads only the tabs.
+
+9
+00:00:25,628 --> 00:00:26,556
+Soup is ordered.
+
+10
+00:00:26,856 --> 00:00:28,914
+He pulls the soup card, and nothing else.
+
+11
+00:00:29,414 --> 00:00:31,100
+Agent Skills work the same way.
+
+12
+00:00:31,400 --> 00:00:34,820
+A skill is a folder with one file: SKILL.md.
+
+13
+00:00:35,300 --> 00:00:38,986
+At startup, your agent loads only each skill's name and description.
+
+14
+00:00:39,286 --> 00:00:42,080
+When a task matches, it reads the full instructions.
+
+15
+00:00:42,380 --> 00:00:44,390
+Extra files load only if needed.
+
+16
+00:00:44,890 --> 00:00:48,172
+So it keeps many skills on hand, and a clear head for the job.
+
+17
+00:00:48,672 --> 00:00:51,468
+It is an open standard, started by Anthropic.
+
+18
+00:00:51,768 --> 00:00:53,893
+But the lesson is as old as the kitchen.
+
+19
+00:00:54,193 --> 00:00:55,729
+Don't tell your agent everything.
+
+20
+00:00:56,029 --> 00:00:56,917
+Tell it where to look.
+
+21
+00:00:57,417 --> 00:00:58,819
+Subscribe for the next one.

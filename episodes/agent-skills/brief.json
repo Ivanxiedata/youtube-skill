@@ -1,0 +1,176 @@
+{
+  "slug": "agent-skills",
+  "tech": {
+    "id": "agent-skills",
+    "name": "Agent Skills (SKILL.md)",
+    "released": "2025-10",
+    "one_line": "A skill is a folder with a SKILL.md; an agent loads only each skill's name and description at startup, and the full instructions only when a task matches."
+  },
+  "predecessor": {
+    "id": "one-big-prompt",
+    "name": "Every instruction in one always-loaded prompt, or pasted again each time"
+  },
+  "sections": {
+    "hook": {
+      "text": "You would never make a cook reread a 500-page recipe binder before frying one egg, but that is how you prompt your AI agent; Agent Skills fix that.",
+      "claims": [
+        {
+          "text": "Unlike prompts, Skills load on demand, so you don't have to repeat the same guidance across conversations.",
+          "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    "before": {
+      "text": "Every rule you wrote sits in one big prompt, and the agent takes all of it in before every task.",
+      "claims": [
+        {
+          "text": "Instructions in CLAUDE.md are always loaded; a skill's body loads only when it's used. Create a skill when you keep pasting the same instructions into chat.",
+          "source": "https://code.claude.com/docs/en/skills"
+        },
+        {
+          "text": "Prompts are conversation-level instructions; skills remove the need to repeat the same guidance.",
+          "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    "new": {
+      "text": "A recipe box: the cook reads only the tabs and pulls the one card an order needs. A skill is a folder with SKILL.md; at startup the agent loads only each skill's name and description; when a task matches, it reads the full instructions; extra files load only if needed.",
+      "claims": [
+        {
+          "text": "Recipe boxes held recipe cards, some hundreds, a kitchen staple before recipe apps.",
+          "source": "https://clickamericana.com/recipes/vintage-recipe-boxes"
+        },
+        {
+          "text": "Recipe boxes used tabbed dividers to find recipes.",
+          "source": "https://emuseum.tempe.gov/objects/11827/recipe-card-divider--sandwiches"
+        },
+        {
+          "text": "A skill is a directory containing at minimum a SKILL.md file, with required name and description frontmatter.",
+          "source": "https://agentskills.io/specification"
+        },
+        {
+          "text": "Metadata (~100 tokens) is loaded at startup for all skills; the SKILL.md body when the skill is activated; other files only when required.",
+          "source": "https://agentskills.io/specification"
+        },
+        {
+          "text": "Discovery, activation when a task matches the description, execution loading referenced files as needed.",
+          "source": "https://agentskills.io/what-are-skills"
+        },
+        {
+          "text": "At startup the agent pre-loads the name and description of every installed skill into its system prompt.",
+          "source": "https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills"
+        }
+      ]
+    },
+    "why": {
+      "text": "So the agent keeps many skills on hand and its context stays free for the job.",
+      "claims": [
+        {
+          "text": "Agents can keep many skills on hand with only a small context footprint.",
+          "source": "https://agentskills.io/what-are-skills"
+        },
+        {
+          "text": "You can install many Skills without context penalty; bundled files cost no tokens until accessed.",
+          "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        }
+      ]
+    },
+    "takeaway": {
+      "text": "An open standard started by Anthropic; the lesson is as old as the kitchen: don't tell your agent everything, tell it where to look.",
+      "claims": [
+        {
+          "text": "The Agent Skills format was originally developed by Anthropic and released as an open standard.",
+          "source": "https://agentskills.io/what-are-skills"
+        },
+        {
+          "text": "Agent Skills published as an open standard on December 18, 2025.",
+          "source": "https://claude.com/blog/skills"
+        }
+      ]
+    },
+    "outro": {
+      "text": "Spoken call to action: subscribe for the next one. On screen: a Subscribe button and 'Next in 60 seconds: why MCP went stateless'",
+      "claims": []
+    }
+  },
+  "architecture": {
+    "before": {
+      "nodes": [
+        {
+          "id": "prompt",
+          "label": "One big prompt (every rule)"
+        },
+        {
+          "id": "agent",
+          "label": "Agent"
+        },
+        {
+          "id": "ctx",
+          "label": "Context window: full"
+        }
+      ],
+      "edges": [
+        {
+          "from": "prompt",
+          "to": "ctx",
+          "label": "all of it, every task"
+        },
+        {
+          "from": "ctx",
+          "to": "agent",
+          "label": ""
+        }
+      ]
+    },
+    "after": {
+      "nodes": [
+        {
+          "id": "folder",
+          "label": "Skill folder (pdf-processing/)"
+        },
+        {
+          "id": "meta",
+          "label": "SKILL.md: name + description"
+        },
+        {
+          "id": "body",
+          "label": "SKILL.md: full instructions"
+        },
+        {
+          "id": "files",
+          "label": "Extra files (FORMS.md, scripts/)"
+        },
+        {
+          "id": "agent",
+          "label": "Agent"
+        },
+        {
+          "id": "ctx",
+          "label": "Context window"
+        }
+      ],
+      "edges": [
+        {
+          "from": "meta",
+          "to": "ctx",
+          "label": "at startup"
+        },
+        {
+          "from": "body",
+          "to": "ctx",
+          "label": "task matches"
+        },
+        {
+          "from": "files",
+          "to": "ctx",
+          "label": "if needed"
+        },
+        {
+          "from": "ctx",
+          "to": "agent",
+          "label": ""
+        }
+      ]
+    }
+  }
+}

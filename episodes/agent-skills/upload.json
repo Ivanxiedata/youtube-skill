@@ -1,0 +1,21 @@
+{
+  "title": "Stop Making Your AI Agent Read 500 Pages",
+  "description": "Agent Skills explained in 60 seconds: a skill is a folder with a SKILL.md file, and your AI agent loads its full instructions only when a task needs them.\nBefore skills, every rule sat in one big prompt the agent read on every task, or you pasted the same instructions again and again.\n\nChapters\n0:00 Your cook and the 500-page binder\n0:17 The recipe box\n0:29 How Agent Skills load\n0:48 The takeaway\n\nThe story: a cook who rereads a 500-page binder of every rule before frying one egg is your AI agent with one big prompt. A recipe box fixes it: the cook reads only the tabs and pulls the one card an order needs. Agent Skills work the same way. At startup the agent loads only each skill's name and description (about 100 tokens each). When a task matches a description, it reads that skill's full SKILL.md. Extra files, such as references and scripts, load only if needed. So the agent keeps many skills on hand and its context stays free for the job.\n\nThe takeaway: don't tell your agent everything. Tell it where to look.\n\nTry it: make a folder with a SKILL.md whose frontmatter has a name and a description that says what the skill does and when to use it, then put the steps below it. Install skills only from sources you trust: a skill can tell an agent to run code.\n\nSources\nAgent Skills specification: https://agentskills.io/specification\nWhat are skills (discovery, activation, execution; open standard): https://agentskills.io/what-are-skills\nClaude docs, Agent Skills overview (loading levels and token costs; skills vs prompts): https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview\nClaude Code docs, skills (vs pasting the same instructions, vs CLAUDE.md): https://code.claude.com/docs/en/skills\nAnthropic engineering, \"Equipping agents for the real world with Agent Skills\" (2025-10-16): https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills\nOpen standard announcement (2025-12-18): https://claude.com/blog/skills\nRecipe boxes: https://clickamericana.com/recipes/vintage-recipe-boxes\n\n\"500 pages\", the egg, the soup and the rule names on screen are invented examples, not figures from a source.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#AgentSkills #AIAgents #AIExplained",
+  "tags": [
+    "Agent Skills",
+    "SKILL.md",
+    "AI agents",
+    "Claude skills",
+    "Anthropic",
+    "progressive disclosure",
+    "context window",
+    "prompt engineering",
+    "system prompt",
+    "AI explained",
+    "Claude Code",
+    "agent skills open standard",
+    "AI agent instructions"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

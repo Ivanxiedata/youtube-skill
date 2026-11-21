@@ -1,0 +1,162 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 5.351,
+  "text": "You would never make a cook reread a five-hundred-page recipe binder before frying one egg."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 5.651,
+  "end": 7.654,
+  "text": "But that is how you prompt your AI agent."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 7.954,
+  "end": 9.211,
+  "text": "Agent Skills fix that."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.711,
+  "end": 14.599,
+  "text": "In your kitchen, every rule you wrote sits in one giant binder: the one big prompt."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 14.899,
+  "end": 17.125,
+  "text": "Your cook reads all of it before every order."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.625,
+  "end": 19.234,
+  "text": "The fix is a recipe box."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 19.534,
+  "end": 23.384,
+  "text": "Every recipe is a card with a tab: its name, and when to use it."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 23.684,
+  "end": 25.248,
+  "text": "Your cook reads only the tabs."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 25.548,
+  "end": 26.476,
+  "text": "Soup is ordered."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 26.776,
+  "end": 28.834,
+  "text": "He pulls the soup card, and nothing else."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 29.334,
+  "end": 31.02,
+  "text": "Agent Skills work the same way."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.32,
+  "end": 38.906,
+  "text": "A skill is a folder with one file: skill dot M D. At startup, your agent loads only each skill's name and description."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 39.206,
+  "end": 42.0,
+  "text": "When a task matches, it reads the full instructions."
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 42.3,
+  "end": 44.31,
+  "text": "Extra files load only if needed."
+ },
+ {
+  "n": 14,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.81,
+  "end": 48.092,
+  "text": "So it keeps many skills on hand, and a clear head for the job."
+ },
+ {
+  "n": 15,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 48.592,
+  "end": 51.388,
+  "text": "It is an open standard, started by Anthropic."
+ },
+ {
+  "n": 16,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.688,
+  "end": 53.813,
+  "text": "But the lesson is as old as the kitchen."
+ },
+ {
+  "n": 17,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 54.113,
+  "end": 55.649,
+  "text": "Don't tell your agent everything."
+ },
+ {
+  "n": 18,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 55.949,
+  "end": 56.837,
+  "text": "Tell it where to look."
+ },
+ {
+  "n": 19,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 57.337,
+  "end": 58.739,
+  "text": "Subscribe for the next one."
+ }
+]
