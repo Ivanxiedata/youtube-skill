@@ -16,7 +16,8 @@ if SFX:
     for e in info["events"]:
         t, k = e["t"], e["k"]
         if k == "paper": m.sfx("bookplace1", t, 1.2, 5000, .16, .2, .1)
-        elif k == "cut": m.sfx("impactsoft-medium-001", t, .85, 2000, .55, 0, .12)   # a soft sound on each cut that changes place
+        elif k == "cut": m.sfx("impactsoft-medium-001", t, .85, 2000, .5, 0, .12)   # a soft sound on each cut that changes place
+        elif k == "cutl": m.sfx("impactsoft-medium-001", t, 1.0, 1700, .4, 0, .08)   # a quieter one on the cuts inside a place
         elif k == "thud": m.sfx("impactwood-medium-002", t, .9, 2400, .3, 0, .15)
         elif k == "bell": m.sfx("impactbell-heavy-001", t, 1.3, 5200, .12, .3, .3)
         elif k == "tick": m.tick(t, g=.05, pan=.2)
