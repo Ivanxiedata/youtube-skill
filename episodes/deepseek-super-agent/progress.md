@@ -1,9 +1,10 @@
 # deepseek-super-agent progress
 
 ## Status
-Cut 5 uploaded as private with captions on 2026-11-21 (`published.json`); evaluated (`evaluation.md`): 1 must-fix left, for the owner (thumbnail not set: channel unverified).
+Cut 5 is on YouTube as private with captions (`published.json`). The local `video.mp4` is newer: same picture, new music ("Blue Sky", CC0); not uploaded. 1 must-fix left, for the owner (thumbnail: channel unverified).
 
 ## Next
+0. Owner decides whether to upload the newer `video.mp4` (new music) again; it would be a third video on the channel, so the two older ones should be deleted in Studio.
 1. Owner: verify the channel at https://www.youtube.com/verify, then set `thumbnail.png` on the video in YouTube Studio (the API refused it).
 2. Owner: delete the first upload in YouTube Studio (cut 4, video id `CYSE9zRA4Xg`, private); the current video is in `published.json`.
 3. Owner: listen to the music and voice; confirm or change the title the agent picked ("Why You Can Only Run 5 AI Agents (Napoleon's Fix)").
@@ -49,6 +50,10 @@ none
   The film now opens in the studio (the viewer's problem) and then goes to Napoleon; only the first 16.6 s were re-voiced, by laying the voice in at 0.08 s so every later line keeps its time.
 - 2026-11-21: Title changed by the agent to "Why You Can Only Run 5 AI Agents (Napoleon's Fix)" (84/100 next to the thumbnail), because the thumbnail now carries the topic and the old title was cut off in search; the owner can overrule it in Studio.
 - 2026-11-21: Uploaded a second time (`--again`) instead of editing the first upload, because `yt upload` can't replace a video's file; the first upload (`CYSE9zRA4Xg`) is left for the owner to delete.
+- 2026-11-21: Music changed from the stickman code-made bed to a real track, because the owner asked for music chosen through Openverse and earshot found no beat in the old bed.
+  `python scripts/music.py search` (PR #4) gave 7 CC0 / CC BY candidates; earshot ranked them and checked none has vocals; "Blue Sky" by Sergmusic was picked over the slightly better-fitting "Upbeat Corporate" (CC BY 3.0, Jamendo) because CC0 needs no credit and carries no claim risk. Source, licence and sha256: `music.json`; the mp3 is not in git (`python scripts/music.py get <id> film/music.mp3`).
+  Openverse's API exposes no play counts, so "most popular" could not be measured: candidates came from the top of its own ranking.
+- 2026-11-21: The sound was judged by listening with earshot (installed in the `brand-evaluate-feedback` worktree, PR #4), not only by loudness numbers.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -76,3 +81,4 @@ none
 - 2026-11-21 ep-super-agent: thumbnail made (`thumbnail.png`, 1280x720) from `film/thumb.js`; v2 names the topic and shows YOU -> ROUTER -> AI WORKERS; not yet set on the video.
 - 2026-11-21 ep-super-agent: thumbnail v3 (promise + brand sticker), `evaluation.md` scorecard, `captions.srt`, description first lines, hashtags and tags fixed in `upload.json`.
 - 2026-11-21 ep-super-agent: cut 5 (new hook and opening, corner tag, brand ending) rendered, audit 0 issues; uploaded as private with captions; thumbnail refused by YouTube (channel not verified); `evaluation.md` redone.
+- 2026-11-21 ep-super-agent: music replaced with "Blue Sky" (CC0, via Openverse), mixed 16 dB under the voice (audio-only rebuild, audit 0 issues); sound rows of `evaluation.md` redone with earshot; credit added to `upload.json`. Not uploaded.

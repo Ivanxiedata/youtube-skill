@@ -10,7 +10,7 @@ m = Mix(info["dur"], seed=9)
 # ---- EDIT FROM HERE: set this from the sound brief ----
 SFX, MUSIC, VOICE = True, True, "vo.wav"
 
-MUSIC_GAIN = 1.4   # measured: music sits 16 dB under the voice
+MUSIC_DB = -13.5   # track gain; measured: the music sits 16 dB under the voice
 # No room tone, drone or other noise beds: the owner heard them as white noise under the voice. Sampled effects only.
 if SFX:
     for e in info["events"]:
@@ -20,7 +20,7 @@ if SFX:
         elif k == "march": m.step(t, pan=.3, g=.05 if e.get("soft") else .1, surface="grass")
         elif k == "tick": m.tick(t, g=.05, pan=.2)
 if MUSIC:
-    m.music(mood="hopeful", bpm=96, gain=MUSIC_GAIN)   # code-made, no lyrics; the owner asked for music
+    m.music_file("music.mp3", gain_db=MUSIC_DB)   # "Blue Sky" by Sergmusic, CC0, found through Openverse: ../music.json
 if VOICE:
     m.voice(VOICE, at=.08)
 # ---- TO HERE ----
