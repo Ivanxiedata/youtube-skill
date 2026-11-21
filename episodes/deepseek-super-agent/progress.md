@@ -50,7 +50,7 @@ none
   The film now opens in the studio (the viewer's problem) and then goes to Napoleon; only the first 16.6 s were re-voiced, by laying the voice in at 0.08 s so every later line keeps its time.
 - 2026-11-21: Title changed by the agent to "Why You Can Only Run 5 AI Agents (Napoleon's Fix)" (84/100 next to the thumbnail), because the thumbnail now carries the topic and the old title was cut off in search; the owner can overrule it in Studio.
 - 2026-11-21: Uploaded a second time (`--again`) instead of editing the first upload, because `yt upload` can't replace a video's file; the first upload (`CYSE9zRA4Xg`) is left for the owner to delete.
-- 2026-11-21: Music changed from the stickman code-made bed to a real track, because the owner asked for music chosen through Openverse and earshot found no beat in the old bed.
+- 2026-11-21: Music changed from the stickman code-made bed to a real track, because the owner asked for music chosen through Openverse.
   `python scripts/music.py search` (PR #4) gave 7 CC0 / CC BY candidates; earshot ranked them and checked none has vocals; "Blue Sky" by Sergmusic was picked over the slightly better-fitting "Upbeat Corporate" (CC BY 3.0, Jamendo) because CC0 needs no credit and carries no claim risk. Source, licence and sha256: `music.json`; the mp3 is not in git (`python scripts/music.py get <id> film/music.mp3`).
   Openverse's API exposes no play counts, so "most popular" could not be measured: candidates came from the top of its own ranking.
 - 2026-11-21: The sound was judged by listening with earshot (installed in the `brand-evaluate-feedback` worktree, PR #4), not only by loudness numbers.

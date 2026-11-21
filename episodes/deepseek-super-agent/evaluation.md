@@ -33,7 +33,7 @@ The three must-fix rows found on cut 4 are fixed. The scores are the tools' own;
 | Pace | pass | 26 shots in 60 s, 2.3 s average |
 | Call to action | pass | one ask, spoken and on screen, at 57.7 s |
 | Accuracy | pass | every claim in `brief.json` has a source; "five" in the hook is the top of DeepSeek's "3 to 5", shown on screen at 4.6 s; the figure comes from press, not DeepSeek's repo |
-| Music | pass | "Blue Sky" by Sergmusic, CC0 1.0 (licence read on the Freesound page), found through Openverse. earshot ranked 7 candidates: this one z +3.6 "strong" for "upbeat instrumental background music, no vocals"; none of the 7 matched "a person singing". In the mix it sits 16.0 dB under the voice; earshot hears "inspirational corporate background music", AudioSet Music 0.72 (the code-made bed before: 0.61, no beat found) |
+| Music | pass | "Blue Sky" by Sergmusic, CC0 1.0 (licence read on the Freesound page), found through Openverse. earshot ranked 7 candidates: this one z +3.6 "strong" for "upbeat instrumental background music, no vocals"; none of the 7 matched "a person singing". In the mix it sits 16.0 dB under the voice; earshot hears "inspirational corporate background music", AudioSet Music 0.72 (the code-made bed before: 0.61). earshot finds no steady beat grid in either mix, with the voice on top |
 | Loudness and noise | pass | earshot `measure`: -17.1 LUFS, true peak -4.6 dBTP, loudness range 1.7 LU, noise floor -42.6 dBFS; no noise or hum tag |
 | Technical | pass | stickman audit 0 issues; 1920x1080, 60.0 s |
 
