@@ -1,7 +1,7 @@
 # mcp-stateless progress
 
 ## Status
-v2 steps 4-5 done; step 6 (judge) next
+Published: public on the owner's channel since 2026-11-21 (https://youtu.be/qcfywtP6iXM), with captions and thumbnail (`published.json`).
 
 ## Next
 v2 follows `docs/workflow.md` (branch `workflow-v2`, PR #11). Steps 1-5 are done: `research.md`, `brief.json`, `package.md`, `beats.md`, `script.md`, `film/script.txt`, the voice, and now `film/film.js` (28 shots), `video.mp4` (60.000 s), `thumbnail.png`, `captions.srt`, `upload.json`.
@@ -87,3 +87,4 @@ none
 - 2026-11-21 ep-mcp-stateless: v2 steps 4-5 per docs/workflow.md: film.js rebuilt (28 shots), audit ISSUES 0, video.mp4 60.000 s, -17.1 LUFS / -4.4 dBTP, 71% of cuts with a sound within 1 frame, thumbnail checked at 160 px, captions.srt, chapters, upload.json; step 6 (judge) next.
 - 2026-11-21 ep-mcp-stateless: step 6 judge (independent agent, docs/roles/evaluator.md): `evaluation.md` rewritten for v2: ready to publish, 0 must-fix, 4 should-fix (title lacks the "stateless"/"removed"/"spec changes" search words; no "Next" line under Subscribe; shot 10 "TABLE 12 = SESSION ID" label readable ~0.5 s; spoken "drops both" unclear by ear). Hook 100, title+thumb 88, -17.1 LUFS / -4.4 dBTP, 71% of 28 cuts with a sound within 1 frame, audit re-run ISSUES 0, all protocol claims match the live changelog and SEPs.
 - 2026-11-21 ep-mcp-stateless: judge Should-fix 3 (shot 10 label readable ~0.5 s) fixed in 45fb4af: `film.js` line 142, "TABLE 12 = SESSION ID" now fades in at 18.55 s (was 19.95) and "(optional)" at 18.9 s, fully readable 18.80-20.44 s (~1.6 s), fade-out still ends before the cut at 20.73 s; no spoken word or cut time changed. Shot 10 rebuilt alone (`build.py film --out mcp-stateless.mp4 --shots 10`), audit ISSUES 0, 60.000 s, -17.1 LUFS / -4.4 dBTP unchanged, stills checked, copied to `video.mp4`; `evaluation.md` row moved to Passed (9b). Still open: Should fix 1 (title search words, optional), 2 (no "Next" line), 3 ("drops both" wording).
+- 2026-11-21 ep-mcp-stateless: owner said publish all; uploaded v2 as public with `yt upload --privacy public --confirm`.
