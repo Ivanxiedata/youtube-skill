@@ -1,5 +1,7 @@
 // Episode 1: what is a coding-agent session? Told through a mechanic: on the phone (a chat assistant) or in your garage (a coding agent).
-// 60 s. Voice from tts.py (vo.wav laid in at .08 s), so every time below is voice time + .08.
+// 59.8 s. Voice from tts.py (vo.wav laid in at .08 s), so every time below is voice time + .08.
+// Cut 2 (the opening re-cut so the topic is known in the first second): a title card first (0-1.5 s), then the picture of cut 1.
+// Every time written in this file is still CUT 1's picture time; oldT() maps film time to it and newT() maps the sound events back (see MAP below).
 // Three places on one clock: the garage (the story), the studio (today's screen), the board (BEFORE vs CODING-AGENT SESSION).
 // The mascot is the mechanic (teal cap): on the phone until 18.5 s, in the garage after. "You" is the car's owner.
 const hash=(a,b)=>{const s=Math.sin(a*12.9898+b*78.233)*43758.5453;return s-Math.floor(s)};
@@ -200,13 +202,13 @@ function drawBoard(t,cam){const x=layer('board',cam);let g=x.createLinearGradien
 
 // ---------- words on screen (screen space) ----------
 function card(t,a,b,y,w,s,col,size){const v=fin(t,a,.25)*(b?1-fin(t,b,.25):1);if(v<=0)return;pill(ctx,W/2,y,w,size*2.2,'rgba(27,20,48,.84)',v);txt(ctx,s,W/2,y+2,size,col,'center','800',v)}
+function cornerTag(){const x=ctx;x.save();x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.font='800 32px Arial';const tw=x.measureText('Coding-agent session').width;pill(x,32+(tw+138)/2,52,tw+138,62,'rgba(27,20,48,.88)');
+  txt(x,'Coding-agent session',58,54,32,'#FFC66E','left','800');pill(x,58+tw+50,52,78,42,'#E4493F');txt(x,'60s',58+tw+50,54,26,'#FFF6E6','center','800');x.restore()}
 function overlay(t,s){ctx.setTransform(1,0,0,1,0,0);
  // the brand's corner tag: the topic and the 60 s promise, on every frame, so a viewer always knows what this is
- {const x=ctx;x.font='800 32px Arial';const tw=x.measureText('Coding-agent session').width;pill(x,32+(tw+138)/2,52,tw+138,62,'rgba(27,20,48,.88)');
-  txt(x,'Coding-agent session',58,54,32,'#FFC66E','left','800');pill(x,58+tw+50,52,78,42,'#E4493F');txt(x,'60s',58+tw+50,54,26,'#FFF6E6','center','800')}
+ cornerTag();
  card(t,.3,1.85,960,620,'the mechanic · on the phone','#F8E9CC',38);
  card(t,4.0,5.6,960,640,'coding with an AI chatbot','#F8E9CC',38);
- card(t,6.05,7.75,960,900,'What is a coding-agent session?','#FFC66E',48);
  card(t,8.3,10.45,130,940,'chat assistant = the mechanic on the phone','#F8E9CC',36);
  card(t,10.95,12.0,960,480,'he can only talk','#FFC66E',44);
  card(t,12.4,13.75,130,520,'you paste his fix','#F8E9CC',40);
@@ -239,9 +241,35 @@ function overlay(t,s){ctx.setTransform(1,0,0,1,0,0);
   pill(x,0,0,400,96,'#E4493F');x.fillStyle='#F8E9CC';x.beginPath();x.moveTo(-150,-22);x.lineTo(-150,22);x.lineTo(-112,0);x.closePath();x.fill();txt(x,'Subscribe',22,3,50,'#F8E9CC','center','800');x.restore()}
  card(t,56.5,0,1010,820,'Next in 60 seconds: what are Agent Skills?','#C9B8E0',30)}
 
+// ---------- MAP: cut 1's picture time <-> this cut's film time ----------
+// Film 0-1.5 s is the title card (shot 0). Cut 1's shots 0-2 (its first 5.9 s, the hook sentence) follow, 62 frames later; the new hook sentence is a little shorter, so shot 2 is
+// squeezed from 60 to 58 frames. Cut 1's shot 3 (5.9-8.1 s: the dropped line "A coding-agent session fixes that.") is gone; everything from cut 1's 8.1 s on is 6 frames (.2 s) earlier,
+// the delta of the new voice (-.21 s). Shot k of cut 1 is shot k+1 here for k<3, and the same shot number for k>=4.
+const OLD_CUTS=[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,855,894,960,993,1077,1128,1191,1242,1317,1368,1416,1461,1527,1566,1608,1668,1800];
+const NEW_CUTS=[0,45,128,179,...OLD_CUTS.slice(4).map(c=>c-6)];
+const oldS=s=>s<4?s-1:s;
+const oldT=t=>{const f=Math.round(t*FPS),g=t*FPS;return f<179?(g-62)/FPS:f<237?(117+(g-179)*60/58)/FPS:(g+6)/FPS};
+const newT=x=>x<117/FPS?x+62/FPS:x<177/FPS?179/FPS+(x-117/FPS)*58/60:x-.2;
+
+// ---------- title card: the topic in the first frame, in the thumbnail's style (film/thumb.js) ----------
+function title(t){const x=ctx;x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.filter='none';x.globalCompositeOperation='source-over';
+ let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#120C22');g.addColorStop(.5,'#2A1C46');g.addColorStop(.62,'#56305E');g.addColorStop(1,'#170F2B');x.fillStyle=g;x.fillRect(0,0,W,H);
+ g=x.createRadialGradient(W/2,680,60,W/2,680,1000);g.addColorStop(0,'rgba(255,196,120,.8)');g.addColorStop(.4,'rgba(238,110,104,.42)');g.addColorStop(1,'rgba(228,90,110,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.save();const z=1+.03*clamp(t/1.5);x.translate(W/2,H/2);x.scale(z,z);x.translate(-W/2,-H/2);
+ x.textAlign='center';x.textBaseline='alphabetic';x.lineJoin='round';
+ const font=n=>`${n}px Impact, "Arial Black", sans-serif`,TOPIC='CODING AGENTS';
+ x.font=font(100);const size=Math.min(330,100*1560/x.measureText(TOPIC).width);
+ const put=(str,Y,sz,col)=>{x.font=font(sz);x.lineWidth=sz*.17;x.strokeStyle='#120A1C';x.strokeText(str,W/2,Y);x.fillStyle=col;x.fillText(str,W/2,Y)};
+ const Y0=440;put(TOPIC,Y0,size,'#FFC66E');put('EXPLAINED',Y0+size*.62,size*.5,'#F8E9CC');
+ // the sticker is the brand mark: same red, same tilt, same words as the thumbnail
+ x.save();x.translate(W/2,Y0+size*.62+190);x.rotate(-.035);x.font=font(104);const sw=x.measureText('IN 60 SECONDS').width+76;
+ x.fillStyle='#120A1C';x.beginPath();x.roundRect(-sw/2-10,-76,sw+20,152,30);x.fill();x.fillStyle='#E4493F';x.beginPath();x.roundRect(-sw/2,-66,sw,132,22);x.fill();
+ x.fillStyle='#FFF6E6';x.textAlign='left';x.textBaseline='middle';x.fillText('IN 60 SECONDS',-sw/2+38,6);x.restore();x.restore();
+ cornerTag()}
+
 const GARAGE=[0,1,4,5,9,10,11,12,15,16,17,18,23,27,28,29,30,31],BOARD=[14,19,21,22,26];
-FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,855,894,960,993,1077,1128,1191,1242,1317,1368,1416,1461,1527,1566,1608,1668,1800],fadeIn:.15,fadeOut:.45,
- cam(s,u,t){const e=ease(u);return [
+FILM={dur:59.8,cuts:NEW_CUTS,fadeIn:0,fadeOut:.45,
+ cam(s,u,t){if(!s)return {x:W/2,y:H/2,z:1};s=oldS(s);const e=ease(u);return [
   {x:lerp(820,860,e),y:lerp(530,515,e),z:lerp(1.22,1.34,e),b:[2]},        // 0 garage: you at the hood, the mechanic on the phone
   {x:lerp(650,625,e),y:lerp(440,425,e),z:lerp(2.2,2.5,e),b:[5]},          // 1 the phone: there he is
   {x:lerp(760,810,e),y:lerp(510,500,e),z:lerp(1.3,1.42,e),b:[2,0,0]},     // 2 studio: you and an AI chat window
@@ -275,7 +303,7 @@ FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,
   {x:lerp(940,975,e),y:lerp(505,495,e),z:lerp(1,1.09,e),b:[1]},           // 30 the garage, the job done
   {x:lerp(850,862,e),y:lerp(480,470,e),z:lerp(1.3,1.42,e),b:[3]}          // 31 the mechanic looks at you
  ][s]},
- draw(t,cam,s){if(GARAGE.includes(s))drawGarage(t,cam);else if(BOARD.includes(s))drawBoard(t,cam);else drawStudio(t,cam);overlay(t,s)},
+ draw(t,cam,s){if(!s){title(t);return}s=oldS(s);t=oldT(t);if(GARAGE.includes(s))drawGarage(t,cam);else if(BOARD.includes(s))drawBoard(t,cam);else drawStudio(t,cam);overlay(t,s)},
  plants(){return {}}};
 // sound events on the picture's clock (audio_mix.py turns them into sampled effects)
 for(const t of [.3,1,1.7,16.9,17.3,17.7,18.1])say(t,'clink');
@@ -284,3 +312,5 @@ for(let t=24.2;t<25.3;t+=.12)say(t,'key');
 say(14.6,'bad');say(31.15,'bad');say(18.5,'box');for(const t of [28.7,29,29.3])say(t,'ratchet');
 for(let t=29.9;t<30.8;t+=.13)say(t,'engine');say(30.9,'cough');say(35.2,'good');say(52.4,'good');
 for(const f of [117,243,366,501,555,720,771,813,993,1077,1128,1242,1317,1416,1461,1608])say(f/30,'cut'); // a soft sound where the place changes
+EVENTS.forEach(e=>e.t=newT(e.t)); // the events above are cut 1's picture times
+say(1.5,'cut'); // the title card to the first shot

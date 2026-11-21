@@ -1,7 +1,7 @@
 # coding-agent-session progress
 
 ## Status
-Cut 1 rendered (60.0 s, 32 shots, audit ISSUES 0), packaged and self-evaluated (`evaluation.md`: ready, no must-fix); not uploaded, waiting for the owner.
+Cut 2 rendered (59.8 s, 33 shots, title card 0-1.5 s, topic spoken first; audit ISSUES 0), packaged and self-evaluated (`evaluation.md`: ready, no must-fix); not uploaded, waiting for the owner.
 
 ## Next
 1. Owner watches `video.mp4` and listens once (the agent cannot hear; earshot only measures), and looks at `thumbnail.png`.
@@ -24,6 +24,8 @@ none
 - 2026-11-21: Music gain the same as Episode 0 (`-13.5 dB`) so the brand track sits where the owner approved it. Measured by integrated loudness of the stems at their mix gains it is 12 dB under the voice, not 16; recorded as a should-fix for the owner's ears rather than changed blind.
 - 2026-11-21: Two camera moves were slowed (shot 7, the error zoom; shot 21, a pan across the dense board, now a zoom) because the audit flagged them as pops; a raised hand target was brought inside arm's reach. Audit then ISSUES 0.
 - 2026-11-21: Title "Your AI Chatbot Is a Mechanic on the Phone (4-Step Fix)" (84/100 with the thumbnail), because it carries the hook and shares no word with the thumbnail; two higher-scoring titles repeated "coding" from the thumbnail and scored 48-66 as a pair.
+- 2026-11-21: Opening re-cut (cut 2), because the owner said the opening was unclear: viewers must know the topic in the first second. The film opens on a title card ("CODING AGENTS / EXPLAINED / IN 60 SECONDS" in the thumbnail's style, corner tag, no fade-in) for 1.5 s, until "Coding agents, explained" has been spoken (voice 1.44 s + .08); the first spoken words are now the topic: "Coding agents, explained: you would never fix your car with the mechanic on the phone, but that is how you use an AI chatbot." (hook score 58, WORKABLE, same as before). "A coding-agent session fixes that." was cut as a repeat; with it gone every later line is .21 s earlier.
+- 2026-11-21: How cut 2 is timed: `film.js` keeps cut 1's picture times as written and maps them (`oldT`/`newT`/`NEW_CUTS` under MAP) instead of editing ~300 literals: film 1.5-4.25 s plays cut 1's shot 0 62 frames late, shot 2 is squeezed 60 to 58 frames, cut 1's shot 3 (the dropped line) is gone, from cut 1's 8.1 s on everything is 6 frames (.2 s) earlier; sound events are remapped with `newT`. `audio_mix.py` unchanged (voice at .08).
 - 2026-11-21: Evaluation written by the maker (the brief asked for it); the role prefers another agent, said at the top of `evaluation.md`.
 
 ## Log
@@ -31,3 +33,4 @@ none
 - 2026-11-20 ep-coding-agent-session: claimed; research from the makers' docs; hooks scored; script.md; voice (am_michael 1.2, --no-align); music fetched.
 - 2026-11-21 ep-coding-agent-session: film.js (garage, studio, board; 32 shots), three rounds of stills, full build; audit fixes (two camera moves, one reach); ISSUES 0.
 - 2026-11-21 ep-coding-agent-session: research.md, brief.json, thumbnail (160 px checked), captions.srt, upload.json (title 84/100), earshot measure/describe/timeline/sheet, evaluation.md (ready, no must-fix). Not uploaded.
+- 2026-11-21 ep-coding-agent-session: cut 2, topic in the first second: new first line, title card, re-voice (22 lines), film.js time map, full rebuild (audit ISSUES 0), captions.srt, evaluation.md (hook, new passed row, loudness), PR #8 updated.

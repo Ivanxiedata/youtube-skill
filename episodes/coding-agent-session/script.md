@@ -1,5 +1,5 @@
 ## hook
-You would never fix your car with the mechanic on the phone, but that is how you code with an AI chatbot. A coding-agent session fixes that.
+Coding agents, explained: you would never fix your car with the mechanic on the phone, but that is how you use an AI chatbot.
 
 ## before
 A chat assistant is the mechanic on the phone. He can only talk. So you paste his fix into your code, run it, and carry the error back to him. Again and again.
