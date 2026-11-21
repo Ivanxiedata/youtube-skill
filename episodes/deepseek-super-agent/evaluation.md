@@ -1,14 +1,12 @@
 # Evaluation: deepseek-super-agent (cut 5 with the Openverse music, thumbnail v3)
 
 Done by hand on 2026-11-21 with the youtube-agent skill's tools, as the dry run for the `evaluate` feature.
-Verdict: **not ready: 1 must-fix, and it needs the owner** (the thumbnail can't be set until the channel is verified).
+Verdict: **published.** The last must-fix (thumbnail) was closed on 2026-11-21 after the owner verified the channel; the owner then made the video public.
 The sound rows were re-done on 2026-11-21 by listening with earshot (`measure`, `describe`, `timeline`, `sheet`); this is the version now on YouTube.
 The three must-fix rows found on cut 4 are fixed. The scores are the tools' own; a low score is a reason to look again, not proof.
 
 ## Must fix
-| # | Area | Result | Evidence | Fix |
-|---|---|---|---|---|
-| 1 | Thumbnail on the video | NOT SET | `yt upload`: "The authenticated user doesn't have permissions to upload and set custom video thumbnails" (HTTP 403) | Owner verifies the channel's phone number at https://www.youtube.com/verify, then sets `thumbnail.png` in YouTube Studio |
+None open. Closed: the thumbnail was refused at upload (HTTP 403, channel unverified); set with `yt upload --thumbnail` after verification and seen in YouTube Studio.
 
 ## Should fix
 | Area | Result | Evidence | Fix |

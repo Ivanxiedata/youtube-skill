@@ -1,16 +1,15 @@
 # deepseek-super-agent progress
 
 ## Status
-The final cut (cut 5 picture, "Blue Sky" music) is on YouTube as private with captions since 2026-11-21 (`published.json`). 1 must-fix left, for the owner (thumbnail: channel unverified).
+Published: public on the owner's channel since 2026-11-21 with captions and the v3 thumbnail (`published.json`).
 
 ## Next
-1. Owner: verify the channel at https://www.youtube.com/verify, then set `thumbnail.png` on the video in YouTube Studio (the API refused it).
-2. Done 2026-11-21: the two older uploads (`CYSE9zRA4Xg`, `jnJN0d45uy4`) were deleted in YouTube Studio at the owner's request; only the video in `published.json` remains.
-3. Owner: listen to the music and voice; confirm or change the title the agent picked ("Why You Can Only Run 5 AI Agents (Napoleon's Fix)").
-4. Going public: the API project is unaudited, so this upload may be locked private (see `upload/progress.md` on `upload-feature`); uploading `video.mp4` by hand in Studio is the other way.
-5. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
-   `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder; thumbnail: `python film/thumb.py thumbnail.png`.
-6. Owner merges PR #3.
+1. Owner exports the audience-retention CSV from YouTube Studio once there are views, to `retention.csv` here (input for the `feedback` feature, PR #4).
+2. Next cut or next episode: the two should-fix rows in `evaluation.md` (sounds on the picture cuts; the voice reads as synthetic).
+3. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
+   `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, `python scripts/music.py get efa007f6-a5fe-420c-a1a6-8d5dafa95005 film/music.mp3` (script in PR #4),
+   then `build.py film --out deepseek-super-agent.mp4` from this folder; thumbnail: `python film/thumb.py thumbnail.png`.
+4. Owner merges PR #3.
 
 ## Blockers
 none
@@ -83,3 +82,4 @@ none
 - 2026-11-21 ep-super-agent: music replaced with "Blue Sky" (CC0, via Openverse), mixed 16 dB under the voice (audio-only rebuild, audit 0 issues); sound rows of `evaluation.md` redone with earshot; credit added to `upload.json`. Not uploaded.
 - 2026-11-21 ep-super-agent: owner approved the new music ("this is perfect"); uploaded as private with captions (third upload); the thumbnail was refused again (channel unverified).
 - 2026-11-21 ep-super-agent: deleted the two older private uploads in YouTube Studio (owner asked and confirmed); the channel now holds only the final cut and the owner's unrelated video.
+- 2026-11-21 ep-super-agent: owner verified the channel; thumbnail set through the API (`yt upload --thumbnail`); the owner made the video public in Studio (seen: Public, 1 view). `published.json` privacy updated by hand to match.
