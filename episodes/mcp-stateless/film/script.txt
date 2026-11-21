@@ -1,4 +1,4 @@
-You lose your whole order when your waiter goes home. That is how MCP worked until July twenty-eighth, twenty twenty-six.
+MCP just stopped remembering you. You would lose your whole order if your waiter went home, and that is how MCP worked until July.
 MCP is how AI apps reach their tools. An app first shook hands with one server, and could be given a session ID, like a table number. Only that server knew the order. On a busy night, the others could not simply step in.
 
 The MCP specification that shipped that day removes both. No handshake. No session ID. Every request is now a complete order slip, so any server can take it. Need something remembered, like a shopping basket? The server hands back a ticket, and the app shows it next time.

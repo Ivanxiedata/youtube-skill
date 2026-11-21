@@ -1,5 +1,5 @@
 ## hook
-You lose your whole order when your waiter goes home. That is how MCP worked until July 28, 2026.
+MCP just stopped remembering you. You would lose your whole order if your waiter went home, and that is how MCP worked until July.
 
 ## before
 MCP is how AI apps reach their tools. An app first shook hands with one server, and could be given a session ID, like a table number. Only that server knew the order. On a busy night, the others could not simply step in.

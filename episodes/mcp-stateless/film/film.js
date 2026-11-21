@@ -7,7 +7,11 @@ function txt(x,s,X,Y,size,col,al='left',wt='700',a=1){if(a<=0)return;x.save();x.
 function pill(x,X,Y,w,h,fill,a=1){x.save();x.globalAlpha*=a;x.fillStyle=fill;x.beginPath();x.roundRect(X-w/2,Y-h/2,w,h,h/2);x.fill();x.restore()}
 function bubble(x,X,Y,s,col,a,size=18){if(a<=0)return;x.save();x.globalAlpha*=a;x.font=`800 ${size}px Arial`;pill(x,X,Y,x.measureText(s).width+size*1.6,size*1.9,col);txt(x,s,X,Y+1,size,'#1B1430','center','800');x.restore()}
 const fin=(t,a,d=.4)=>ease(seg(t,a,a+d));
+/* CUTS = the diner/studio/board shots on their OLD clock (state changes sit on these frames). The film is one title-card shot longer:
+   draw() gets the old clock back as t-OFS(s), so every time below stays as it was; only the real cut list (NEWC) and the sound events move. */
 const CUTS=[0,44,87,150,221,261,303,374,422,471,528,576,627,690,753,789,833,897,962,1041,1094,1155,1226,1289,1331,1380,1443,1491,1544,1602,1664,1770];
+const HK=86/30,D=28/30,OFS=s=>s<4?HK:s==4?2:D, /* hook shots 1-3 run 1:1 from -.6 s; the calendar shot starts at old 5.0 s; shots 5+ are the old film moved by D (the longer hook) */
+ NEWC=[0,68,130,173,210,...CUTS.slice(4).map(c=>c+28)];NEWC[NEWC.length-1]=1800;
 const CT=i=>CUTS[i]/30,inS=(t,a,b)=>t>=CT(a)&&t<CT(b); // state changes sit on cut frames, so nothing pops inside a shot
 const pick=(t,rows)=>{let r=rows[0];for(const q of rows)if(t>=q[0])r=q;return r};
 
@@ -185,12 +189,29 @@ function drawBoard(t,cam){const x=layer('board',cam);let g=x.createLinearGradien
 
 // ---------- words on screen (screen space) ----------
 function card(t,a,b,y,w,s,col,size){const v=fin(t,a,.25)*(b?1-fin(t,b,.25):1);if(v<=0)return;pill(ctx,W/2,y,w,size*2.2,'rgba(27,20,48,.84)',v);txt(ctx,s,W/2,y+2,size,col,'center','800',v)}
-function overlay(t){ctx.setTransform(1,0,0,1,0,0);
- // the brand's corner tag: the topic and the 60 s promise, on every frame
+function tag(){/* the brand's corner tag: the topic and the 60 s promise, on every frame */
  {const x=ctx;x.font='800 32px Arial';const tw=x.measureText('Stateless MCP').width;pill(x,32+(tw+138)/2,52,tw+138,62,'rgba(27,20,48,.88)');
-  txt(x,'Stateless MCP',58,54,32,'#FFC66E','left','800');pill(x,58+tw+50,52,78,42,'#E4493F');txt(x,'60s',58+tw+50,54,26,'#FFF6E6','center','800')}
- card(t,3.1,4.7,960,640,'this is how MCP worked…','#F8E9CC',40);
- card(t,5.1,7.05,960,620,'until July 28, 2026','#FFC66E',52);
+  txt(x,'Stateless MCP',58,54,32,'#FFC66E','left','800');pill(x,58+tw+50,52,78,42,'#E4493F');txt(x,'60s',58+tw+50,54,26,'#FFF6E6','center','800')}}
+// ---------- shot 0: the title card. The topic is on screen from frame 0, in the thumbnail's style (thumb.js); it is cut, not faded, at its end ----------
+function drawTitle(t){const x=ctx;x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.filter='none';x.globalCompositeOperation='source-over';
+ let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#120C22');g.addColorStop(.5,'#2A1C46');g.addColorStop(.58,'#56305E');g.addColorStop(1,'#170F2B');x.fillStyle=g;x.fillRect(0,0,W,H);
+ g=x.createRadialGradient(W/2,620,60,W/2,620,980);g.addColorStop(0,'rgba(255,196,120,.55)');g.addColorStop(.4,'rgba(238,110,104,.28)');g.addColorStop(1,'rgba(228,90,110,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.save();x.translate(W/2,H/2);const z=1+.025*Math.min(1,t/2.27);x.scale(z,z);x.translate(-W/2,-H/2);
+ x.textAlign='center';x.textBaseline='alphabetic';x.lineJoin='round';
+ const font=q=>`${q}px Impact, "Arial Black", sans-serif`,TOPIC='STATELESS MCP';
+ x.font=font(100);const sz=Math.min(320,100*1560/x.measureText(TOPIC).width),k=sz/230;
+ const put=(s,X,Y,q,col)=>{x.font=font(q);x.lineWidth=q*.17;x.strokeStyle='#120A1C';x.strokeText(s,X,Y);x.fillStyle=col;x.fillText(s,X,Y)};
+ const Yt=H/2-20;put('LEARN',W/2,Yt-sz*.9,sz*.34,'#F8E9CC');put(TOPIC,W/2,Yt+sz*.2,sz,'#FFC66E');
+ x.save();x.translate(W/2,Yt+sz*.2+150*k);x.rotate(-.035);x.scale(k,k);x.font=font(104);const sw=x.measureText('IN 60 SECONDS').width+76;
+ x.fillStyle='#120A1C';x.beginPath();x.roundRect(-sw/2-10,-76,sw+20,152,30);x.fill();x.fillStyle='#E4493F';x.beginPath();x.roundRect(-sw/2,-66,sw,132,22);x.fill();
+ x.fillStyle='#FFF6E6';x.textBaseline='middle';x.textAlign='left';x.fillText('IN 60 SECONDS',-sw/2+38,6);x.restore();
+ x.restore();
+ g=x.createRadialGradient(W/2,H/2,H*.5,W/2,H/2,H*1.1);g.addColorStop(0,'rgba(12,6,20,0)');g.addColorStop(1,'rgba(12,6,20,.4)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ tag()}
+function overlay(t){ctx.setTransform(1,0,0,1,0,0);
+ tag();
+ card(t,3.1,3.85,960,640,'this is how MCP worked…','#F8E9CC',40);
+ card(t,5.1,6.0,960,620,'until July 28, 2026','#FFC66E',52);
  card(t,7.6,9.8,960,1180,'MCP = Model Context Protocol · how AI apps reach their tools','#F8E9CC',34);
  card(t,10.5,12.15,960,560,'first: a handshake','#F8E9CC',40);
  card(t,13.0,15.4,960,760,'session ID  =  table number','#FFC66E',44);
@@ -210,8 +231,9 @@ function overlay(t){ctx.setTransform(1,0,0,1,0,0);
   pill(x,0,0,400,96,'#E4493F');x.fillStyle='#F8E9CC';x.beginPath();x.moveTo(-150,-22);x.lineTo(-150,22);x.lineTo(-112,0);x.closePath();x.fill();txt(x,'Subscribe',22,3,50,'#F8E9CC','center','800');x.restore()}}
 
 const PLACE='ddddssdddddd'+'bbbb'+'dd'+'s'+'bb'+'ddddddd'+'b'+'ss';
-FILM={dur:59,cuts:CUTS,fadeIn:.15,fadeOut:.45,
- cam(s,u,t){const e=ease(u);return [
+FILM={dur:60,cuts:NEWC,fadeIn:0,fadeOut:.45,
+ cam(s,u,t){return s?this.camOld(s-1,u,t):{}},
+ camOld(s,u,t){const e=ease(u);return [
   {x:lerp(1440,1470,e),y:500,z:lerp(1.12,1.18,e),b:[3,.6,0]},                    // 0 diner: your waiter holds your order in his head
   {x:lerp(1760,1960,e),y:520,z:lerp(1,1.06,e),b:[3,.6,0]},                       // 1 he goes home, and the order goes with him
   {x:lerp(1270,1230,e),y:lerp(560,550,e),z:lerp(1.5,1.72,e),b:[4,1,0]},          // 2 you, with nothing
@@ -244,9 +266,9 @@ FILM={dur:59,cuts:CUTS,fadeIn:.15,fadeOut:.45,
   {x:lerp(1100,1060,e),y:540,z:lerp(.86,.92,e),b:[2,0,0]},                       // 29 studio: any server will do
   {x:lerp(640,700,e),y:lerp(462,478,e),z:lerp(1.38,1.26,e),b:[2,0,0]}            // 30 subscribe
  ][s]},
- draw(t,cam,s){({d:drawDiner,s:drawStudio,b:drawBoard})[PLACE[s]](t,cam);overlay(t)},
+ draw(t,cam,s){if(!s){drawTitle(t);return}const o=t-OFS(s)+1e-6; /* the epsilon keeps a cut frame on its side of the old CT() frames */({d:drawDiner,s:drawStudio,b:drawBoard})[PLACE[s-1]](o,cam);overlay(o)},
  plants(){return {hero:outW.plants()}}};
-for(const t of outW.plants())say(t,'step');say(CT(2),'door');
-for(const t of [3.0,12.65,25.2,26.4,28.0,28.6,29.2,38.9,39.5,50.0,55.6])say(t,'tick');
-for(const t of [29.95,41.0,41.35,41.7,44.8])say(t,'paper');for(const t of [31.0,42.6])say(t,'bell');
-for(const i of [4,6,12,16,18,19,21,28,29])say(CT(i),'cut');
+for(const t of outW.plants())say(t+HK,'step');say(CT(2)+HK,'door');
+say(3.0+HK,'tick');for(const t of [12.65,25.2,26.4,28.0,28.6,29.2,38.9,39.5,50.0,55.6])say(t+D,'tick');
+for(const t of [29.95,41.0,41.35,41.7,44.8])say(t+D,'paper');for(const t of [31.0,42.6])say(t+D,'bell');
+for(const i of [4,6,12,16,18,19,21,28,29])say(CT(i)+D,'cut');

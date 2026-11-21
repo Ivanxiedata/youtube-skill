@@ -1,75 +1,75 @@
 1
-00:00:00,300 --> 00:00:02,649
-You lose your whole order when your waiter goes home.
+00:00:00,300 --> 00:00:02,249
+MCP just stopped remembering you.
 
 2
-00:00:02,949 --> 00:00:06,929
-That is how MCP worked until July 28, 2026.
+00:00:02,549 --> 00:00:07,856
+You would lose your whole order if your waiter went home, and that is how MCP worked until July.
 
 3
-00:00:07,429 --> 00:00:09,892
+00:00:08,356 --> 00:00:10,819
 MCP is how AI apps reach their tools.
 
 4
-00:00:10,192 --> 00:00:15,492
+00:00:11,119 --> 00:00:16,419
 An app first shook hands with one server, and could be given a session ID, like a table number.
 
 5
-00:00:15,792 --> 00:00:17,383
+00:00:16,719 --> 00:00:18,309
 Only that server knew the order.
 
 6
-00:00:17,683 --> 00:00:20,317
+00:00:18,609 --> 00:00:21,244
 On a busy night, the others could not simply step in.
 
 7
-00:00:21,267 --> 00:00:24,885
+00:00:22,194 --> 00:00:25,811
 The MCP specification that shipped that day removes both.
 
 8
-00:00:25,185 --> 00:00:26,096
+00:00:26,111 --> 00:00:27,023
 No handshake.
 
 9
-00:00:26,396 --> 00:00:27,537
+00:00:27,323 --> 00:00:28,463
 No session ID.
 
 10
-00:00:27,837 --> 00:00:31,806
+00:00:28,763 --> 00:00:32,733
 Every request is now a complete order slip, so any server can take it.
 
 11
-00:00:32,106 --> 00:00:34,523
+00:00:33,033 --> 00:00:35,450
 Need something remembered, like a shopping basket?
 
 12
-00:00:34,823 --> 00:00:38,178
+00:00:35,750 --> 00:00:39,104
 The server hands back a ticket, and the app shows it next time.
 
 13
-00:00:38,678 --> 00:00:40,657
+00:00:39,604 --> 00:00:41,584
 So a busy restaurant just adds servers.
 
 14
-00:00:40,957 --> 00:00:42,709
+00:00:41,884 --> 00:00:43,636
 Any request can land on any of them.
 
 15
-00:00:43,009 --> 00:00:45,586
+00:00:43,936 --> 00:00:46,512
 And if one goes home, the next one takes your order.
 
 16
-00:00:46,086 --> 00:00:47,884
+00:00:47,012 --> 00:00:48,810
 The fix was never a better waiter.
 
 17
-00:00:48,184 --> 00:00:51,210
+00:00:49,110 --> 00:00:52,137
 It was moving the memory out of his head and onto the slip.
 
 18
-00:00:51,510 --> 00:00:55,050
+00:00:52,437 --> 00:00:55,976
 A server that remembers nothing is a server anyone can replace.
 
 19
-00:00:55,550 --> 00:00:56,951
+00:00:56,476 --> 00:00:57,878
 Subscribe for the next one.
