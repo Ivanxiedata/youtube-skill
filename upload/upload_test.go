@@ -273,7 +273,7 @@ func TestThumbnailFailureIsReportedNotFatal(t *testing.T) {
 	if _, err := os.Stat(filepath.Join(dir, publishedFile)); err != nil {
 		t.Fatal("published.json missing although the video uploaded")
 	}
-	if !strings.Contains(out.String(), "thumbnail NOT uploaded") || !strings.Contains(out.String(), "custom video thumbnails") {
+	if !strings.Contains(out.String(), "thumbnail NOT uploaded") || !strings.Contains(out.String(), "youtube.com/verify") {
 		t.Fatalf("report lacks the thumbnail failure and its cause:\n%s", out)
 	}
 }

@@ -12,6 +12,7 @@ import (
 	"net/url"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // The YouTube Data API v3 calls this feature needs, by hand: channels.list, videos.insert, thumbnails.set, captions.insert.
@@ -155,6 +156,9 @@ func apiError(resp *http.Response) error {
 		hint = ": enable \"YouTube Data API v3\" in the Google Cloud project (docs/specs/upload.md, Owner setup step 2)"
 	case "youtubeSignupRequired":
 		hint = ": this Google account has no YouTube channel"
+	}
+	if strings.Contains(e.Error.Message, "custom video thumbnails") {
+		hint = ": verify the channel's phone number at https://www.youtube.com/verify, then set the thumbnail in YouTube Studio"
 	}
 	if e.Error.Message == "" {
 		return fmt.Errorf("youtube: HTTP %d", resp.StatusCode)

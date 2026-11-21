@@ -1,7 +1,7 @@
 # upload progress
 
 ## Status
-`yt upload` works against real YouTube: Episode 0 uploaded as private on 2026-11-21. Open: API audit, app still in Testing, 4 unbuilt criteria.
+`yt upload` works against real YouTube: Episode 0 cut 5 uploaded as private with captions on 2026-11-21. Open: API audit, app still in Testing, channel not verified for thumbnails, 3 unbuilt criteria.
 
 ## Next
 1. Owner: apply for the API audit (https://support.google.com/youtube/contact/yt_api_form). Until it passes, API uploads can't be made public.
@@ -11,6 +11,7 @@
 3. Check in YouTube Studio whether Episode 0 shows "private (locked)", and whether the lock lifts after the audit (spec open question 3).
 4. Build the unticked criteria in the spec: `yt check` gate (needs `episode`), resume across runs, the remaining error one-liners.
 5. Owner merges PR #2.
+6. Owner: verify the channel's phone number (https://www.youtube.com/verify). Until then `thumbnails.set` answers 403 and the thumbnail must be set by hand in Studio.
 
 ## Blockers
 API audit approval before any API-uploaded video can be public (owner files the form).
@@ -36,3 +37,4 @@ API audit approval before any API-uploaded video can be public (owner files the 
 - 2026-11-20 upload-feature: `upload.Run`, `yt upload`, 8 tests against an `httptest` fake (OAuth loopback + PKCE, dry run, privacy, published.json); `govulncheck` clean and added to CI.
 - 2026-11-21 upload-feature: first real run: dry run showed the right channel, `--confirm` uploaded Episode 0 (13.8 MB) as private; `published.json` written in the episode folder.
 - 2026-11-21 upload-feature: `yt upload` also sets `thumbnail.png` and uploads `captions.srt`; 10 tests against the fake.
+- 2026-11-21 upload-feature: second real run (`--again`): video and captions uploaded; the thumbnail was refused (403, channel not verified for custom thumbnails) and reported without failing the run; the error now says how to fix it.
