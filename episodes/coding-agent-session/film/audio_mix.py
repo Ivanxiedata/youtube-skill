@@ -24,7 +24,8 @@ if SFX:
         elif k == "ratchet": m.sfx("metallatch", t, 1.3, 5000, .14, .2, .1)
         elif k == "engine": m.sfx("impactsoft-medium-002", t, .5, 300, .22, .1, .1)               # the engine turns over
         elif k == "cough": m.sfx("impactsoft-heavy-003", t, .55, 400, .45, .1, .3)               # and dies
-        elif k == "cut": m.sfx("cloth2", t, .9, 2600, .06, 0, .15)                                 # a soft sound where the place changes
+        elif k == "cut": m.sfx(f"impactsoft-medium-00{int(t * 7) % 5}", t, 1.0, 2200, .2, 0, .2)    # a soft thump where the picture cuts to a new place or angle
+    for t in info["plants"].get("mech", []): m.step(t, pan=-.1, g=.22, surface="concrete")      # the mechanic walks in (20.7-22.5 s)
 if MUSIC:
     m.music_file("music.mp3", gain_db=MUSIC_DB)   # "Blue Sky" by Sergmusic, CC0, found through Openverse: ../music.json
 if VOICE:

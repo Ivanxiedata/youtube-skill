@@ -1,26 +1,16 @@
 # coding-agent-session progress
 
 ## Status
-v2 steps 1-3 done; steps 4-5 next
+v2 steps 4-5 done; step 6 (judge) next
 
 ## Next
-v2 follows `docs/workflow.md` (PR #11, worktree `youtube-skill-workflow-v2`). Steps 1-3 are done: `research.md` + `brief.json` (re-checked), `package.md` (title, thumbnail text, searches), `beats.md` (27 shots, every ON SCREEN), `script.md`, `film/script.txt`.
-The voice is already made (`film/vo.wav`, `vo.mp3`, `vo_lines.json`, `align_est.json`; 58.21 s file, last word ends 57.91 s; lay it in at .08 s). The v1 video is kept at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
-1. Step 4, the film (renderer): rebuild `film/film.js` from `beats.md`, shot by shot, with times in film time (voice + .08) written directly. Drop v1's MAP (`KH`, `KL`, `oldT`, `newT`): it maps cut 1's picture to cut 3's voice and no longer applies. What changes from v1:
-   - S0 title card: unchanged ("LEARN / CODING AGENTS / IN 60 SECONDS", 0-2.1 s). Corner tag text "Coding-agent session" -> "Coding agents" (`cornerTag()`), every frame.
-   - S1-S3 hook (2.1-9.15 s): new. v1 showed the garage phone under the hook; v2 shows the studio paste loop (BEFORE: CHATBOT), then a split screen with "vs" and the 4-step ring (1 AGENT, READ/EDIT/RUN/CHECK lit one per word), then CHECK ticks and an amber "?". Build it from v1's `win()`, `token()` and the board's ring `node()`s.
-   - S4 turn (9.15-11.9 s): new line "Here's how, in one story: a mechanic." over a garage wide shot (v1's wide garage framing).
-   - S5-S8 before: as v1 (phone close-up, bubbles, studio chat -> code -> error back), retimed; chips say "chatbot", not "chat assistant"; "line 42" removed; v1's "Again and again." beat (the "again" bubbles) is cut.
-   - S9-S16 new: as v1 (mechanic walks in, toolbox, one terminal job, the READ/EDIT/RUN/CHECK chip bar in the garage, the failed check, the loop again, the tick), retimed to the new lines; no "3 files" or "1 failed" on screen.
-   - S17-S20 payoff: v1's board relabelled: left "BEFORE: CHATBOT" (node "Chatbot"), right "NOW: CODING AGENT"; a "THE ANSWER" chip; the badges "1 AGENT", "1 LOOP", "4 STEPS" pop on their words; ring nodes light on "Read, edit, run, check."; the ONE SESSION box draws on "The whole visit is one session." (in v1 it was always there).
-   - S21 new (board: the BEFORE "You", "the messenger", fades). S22 as v1 (the raised hand, "wait!").
-   - S23 the terminal test row red "failed" -> teal "passed" (no count). S24-S25 the takeaway card, same two lines as v1. v1's "But notice what changed." and "That is what makes it an agent." are cut.
-   - S26 outro: as v1 (red Subscribe button, "Next in 60 seconds: what are Agent Skills?"), held to 59.9 s.
-   - A sound on every cut (v1 had 5 cuts without one). Music, audio_mix gains and the voice offset as v1.
-   - `build.py` until the audit says `ISSUES 0`, at most 60 s; copy to `video.mp4`; earshot `measure`, `describe`, `timeline --video`, `sheet`.
-2. Step 4, the thumbnail: `film/thumb.js` text "LEARN THE / CODING-AGENT SESSION / IN 60 SECONDS" -> "LEARN / CODING AGENTS / IN 60 SECONDS" (`package.md`); same mascot and picture; check at 160 px wide.
-3. Step 5: `captions.srt` from the new `film/vo_lines.json` (+.08 s); `/yt-chapters`; `upload.json`: title "Coding Agent vs Chatbot: 1 Loop, 4 Steps", the description's first two lines from `package.md`, the invented-examples line updated to "fix the failing test", "Error: it still fails", "passed".
-4. Step 6: a fresh judge (`docs/roles/evaluator.md`) writes `evaluation.md`. Score the hook on `script.md`'s first sentence as written (digits): 100. The spoken form scores 63 only because hookscore counts digits, not number words.
+Steps 1-5 of `docs/workflow.md` are done for v2: `research.md`, `brief.json`, `package.md`, `beats.md` (27 shots), `script.md`, the voice, `film/film.js`, `video.mp4`, `thumbnail.png`, `captions.srt`, `upload.json`. The v1 video stays at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
+1. Step 6, the judge: a fresh agent that did not make the episode follows `docs/roles/evaluator.md` and writes `evaluation.md` (the file there is v1's and is out of date: replace it). Score the hook on `script.md`'s first sentence as written (digits): 100; the spoken form scores 63 only because `hookscore.py` counts digits, not number words. Facts the judge needs, measured on this `video.mp4`:
+   - 59.9 s, 27 shots, build audit `ISSUES 0` (1797/1797 frames, max hand step 38.1 of the 40 limit, foot skate .19 px), `earshot measure` -17.1 LUFS, true peak -3.8 dBTP, noise floor -40.7 dBFS; `describe` has no noise or hum tag (only weak sfx guesses: dry leaves, keys, a knock, which are the footsteps, typing and thumps); `timeline --video`: 25 cuts detected, 64% with an onset within 1 frame (chance 42%), 88% within 100 ms, two without a hit (5.27 s and 51.40 s, where the long ring of the "bad" and "good" effects masks the cut sound).
+   - Chapters 0:00, 0:20, 0:32, 0:44 (the shortest is 12 s). Title "Coding Agent vs Chatbot: 1 Loop, 4 Steps" (40 characters).
+   - Deviations from `beats.md` are listed in Decisions below ("v2 make").
+2. If the judge finds must-fix rows: picture and sound go back to step 4 (`film.js`; `build.py film --shots N ...` redoes single shots, `--audio-only` only the mix), words go back to step 3.
+3. Step 7: the owner watches and listens, then says "ship it"; only then `yt upload` (dry run first).
 
 ## Blockers
 none
@@ -50,6 +40,24 @@ none
 - 2026-11-21 (v2): Length. The first draft's voice was 60.02 s, so I cut "Again and again.", "But notice what changed." and "That is what makes it an agent." and shortened the turn. Now 179 words, last word 57.91 s (57.99 s in the film), which leaves about 1.9 s of end card after the voice.
 - 2026-11-21 (v2): No number on screen except the sourced counts (1 agent, 1 loop, 4 steps): v1's "3 files", "1 failed" and "line 42" are dropped. The invented example words stay and are named in the description.
 
+- 2026-11-21 (v2 make): `film.js` rebuilt on film time (voice + .08 s) with v1's sets, characters, cap, garage, studio and board; MAP/KH/KL/oldT/newT removed. Cuts are `CUTS` in the file (27 shots, last frame 1797 = 59.9 s); a state change on a cut uses `C(shot)`.
+- 2026-11-21 (v2 make): The board's right column puts the Coding agent in the middle of the ring (READ top, EDIT right, RUN bottom, CHECK left) and You at the top left with a diagonal "one job" arrow, because a "down" arrow from the top would cross the ring's top arrow. The hook (S2, S3) shows only that new half, and the BEFORE half appears at S17.
+- 2026-11-21 (v2 make): S2 is a real split screen: the studio loop on the left (grey, dimmed, still looping), the board's ring on the right, an amber "vs" between; S3 pushes in on the ring.
+- 2026-11-21 (v2 make): S9-S10: the mechanic walks in from the left in front of you (a nearer floor line), carrying the toolbox in his left hand and the wrench hanging in his right. The rig's hand cannot reach the floor (reach 199 units), so he crouches (p.y lowered before `walkPose`, feet stay planted), lets go and the box drops the last 20 px (`box` sound). "Picks up the wrench" is drawn as raising the wrench he already holds (23.4-23.9 s), not lifting it from the box: the closest thing the rig draws.
+- 2026-11-21 (v2 make): S24 taps the cap's brim with one finger (the wrench hangs from the other hand); S25 holds the wrench up; S26 is the same wide shot punched in a little, so the cut is visible and the Subscribe button and "Next in 60 seconds" sit in clear picture.
+- 2026-11-21 (v2 make): Sound: a soft sampled thump (`impactsoft-medium`, low-passed at 2200 Hz, gain .2) on every cut from 2.1 s to 56.47 s, exactly on the cut frame; footsteps from `plants` (concrete) while he walks in; v1's effects kept. Music and gains unchanged (`MUSIC_DB` -13.5 dB, voice at .08 s).
+- 2026-11-21 (v2 make): `captions.srt` has 23 cues: the 21 voice lines in `script.md`'s wording, the 8.6 s hook split in three at estimated word times (`align_est.json`) so no caption is 124 characters long. Chapters retitled: "Why You Keep Pasting Code", "What a Coding Agent Does", "One Loop, Four Steps", "You Stop Being the Messenger".
+- 2026-11-21 (v2 make): `upload.json`: title from `package.md`; first two lines are `package.md`'s; a "Try it:" line (Claude Code docs, Codex repo) is the link; then chapters; then the story, the takeaway, a note that "4 steps" is this video's drawing of Anthropic's loop, the sources and the music credit. On-screen invented examples named: "fix the failing test", "Error: it still fails", "passed". 3 hashtags, 15 tags.
+- 2026-11-21 (v2 make): Thumbnail text now LEARN / CODING AGENTS / IN 60 SECONDS (two huge amber lines "CODING" and "AGENTS"); same mascot, car and tick; checked at 160 px wide: topic and promise readable.
+
+## Engine lessons (v2 make)
+- `drawPerson` sets `globalAlpha=1` inside (the hoodie shading line), so a figure drawn inside a faded box does not fade. Draw it on an offscreen `layer()` and blit with the alpha. Wrap that layer's clip in `save()/restore()`: `clr()` clears with `clearRect`, which is clipped, so a leaked clip makes every later clear partial.
+- A split screen: draw scene A with its own `comp`, then dim its half with a `saturation` blend (grey) plus a dark overlay, then clip to the other half and `drawImage` scene B's layer (give the draw function a `nocomp` flag so it fills its layer without painting the screen).
+- A crouch without touching the rig: lower `p.y` before `walkPose`; the world-planted feet then bend the legs. A held prop that follows a hand: draw it after `actor()` with `globalCompositeOperation='destination-over'` so it sits behind everyone and stays a pure function of `t` (a module-level variable written during one frame breaks the audit's determinism check).
+- A push-in on a board throws its header text under the corner tag or the top chip; fade the headers while the camera is in close.
+- Two long effects ("bad", "good") ringing over a cut hide the cut's own thump from earshot's matcher; keep an effect's tail away from a cut or put the effect right on it.
+- The cut thump (`impactsoft-medium-00N`, 2200 Hz low-pass) gets 64% of cuts within one frame; v1's `cloth2` at gain .06 got 38%.
+
 ## Log
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-20 ep-coding-agent-session: claimed; research from the makers' docs; hooks scored; script.md; voice (am_michael 1.2, --no-align); music fetched.
@@ -58,3 +66,4 @@ none
 - 2026-11-21 ep-coding-agent-session: cut 2, topic in the first second: new first line, title card, re-voice (22 lines), film.js time map, full rebuild (audit ISSUES 0), captions.srt, evaluation.md (hook, new passed row, loudness), PR #8 updated.
 - 2026-11-21 ep-coding-agent-session: cut 3: owner's new hook (hookscore 100), title card LEARN / CODING AGENTS / IN 60 SECONDS to 2.1 s, re-voice (hook + 2 trimmed lines), film.js knot map, full rebuild (59.5 s, audit ISSUES 0), captions.srt, upload.json chapter 0:00 text, evaluation.md.
 - 2026-11-21 ep-coding-agent-session: v2 steps 1-3: research re-checked (Codex quotes fixed, numbers table), package.md (10 titles, chosen "Coding Agent vs Chatbot: 1 Loop, 4 Steps"), hooks scored (new hook 100), beats.md (27 shots), script.md, film/script.txt, voice re-made (57.91 s); film.js not touched.
+- 2026-11-21 ep-coding-agent-session: v2 steps 4-5: film.js rebuilt on beats.md (27 shots), full build (59.9 s, audit ISSUES 0), earshot measure/describe/timeline/sheet, thumbnail (LEARN / CODING AGENTS / IN 60 SECONDS), captions.srt, chapters, upload.json. Step 6 (judge) next.

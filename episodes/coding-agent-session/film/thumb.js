@@ -1,10 +1,10 @@
 // Episode thumbnail, drawn with the film's own rig (loaded after film.js; render with thumb.py).
 // The channel's template (docs/brand.md), as in Episode 0:
-//   promise  LEARN <TOPIC> IN 60 SECONDS: small "LEARN THE", the topic huge in amber, the red "IN 60 SECONDS" sticker
+//   promise  LEARN <TOPIC> IN 60 SECONDS: small "LEARN", the topic huge in amber, the red "IN 60 SECONDS" sticker
 //   mascot   the hero on the left in this episode's costume (the mechanic's cap, a wrench in hand), confident, looking at the viewer
 //   picture  one image of the lesson: your car with the hood up, fixed by the mechanic in your garage (a green check over the engine)
 // Readable at 160 px wide; nothing that matters in the bottom-right corner (the duration badge covers it).
-const TOPIC = ['CODING-AGENT', 'SESSION'];
+const TOPIC = ['CODING', 'AGENTS'];
 
 function drawThumb() {
   const x = ctx; x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.filter = 'none'; x.globalCompositeOperation = 'source-over';
@@ -23,13 +23,13 @@ function drawThumb() {
   personRim(x, HERO, p, 'rgba(255,206,150,1)', 10, -4);
   cap(x, p); const h = h2w(p, 'r'); wrench(x, h[0] - 6, h[1] + 6, -1.15, 2.2);
 
-  // the promise: LEARN THE CODING-AGENT SESSION IN 60 SECONDS
+  // the promise: LEARN / CODING AGENTS / IN 60 SECONDS
   x.textAlign = 'left'; x.textBaseline = 'alphabetic'; x.lineJoin = 'round';
   const font = s => `${s}px Impact, "Arial Black", sans-serif`;
   x.font = font(100); const size = Math.min(230, 100 * 1000 / x.measureText(TOPIC[0]).width);
   const put = (s, X, Y, sz, col) => { x.font = font(sz); x.lineWidth = sz * .17; x.strokeStyle = '#120A1C'; x.strokeText(s, X, Y); x.fillStyle = col; x.fillText(s, X, Y) };
   const X0 = 860, Y0 = 140;
-  put('LEARN THE', X0, Y0, size * .56, '#F8E9CC'); put(TOPIC[0], X0, Y0 + size * .98, size, '#FFC66E'); put(TOPIC[1], X0, Y0 + size * 1.93, size, '#FFC66E');
+  put('LEARN', X0, Y0, size * .56, '#F8E9CC'); put(TOPIC[0], X0, Y0 + size * .98, size, '#FFC66E'); put(TOPIC[1], X0, Y0 + size * 1.93, size, '#FFC66E');
   // the sticker is the brand mark: same red, same tilt, same words on every thumbnail
   x.save(); x.translate(X0, Y0 + size * 1.93 + 122); x.rotate(-.035);
   x.font = font(104); const sw = x.measureText('IN 60 SECONDS').width + 76;
