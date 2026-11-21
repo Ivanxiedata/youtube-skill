@@ -11,6 +11,9 @@ function bubble(x,X,Y,s,col,a,size=18){if(a<=0)return;x.save();x.globalAlpha*=a;
 function rr(x,l,t,w,h,r,fill,stroke,lw=3){x.beginPath();x.roundRect(l,t,w,h,r);if(fill){x.fillStyle=fill;x.fill()}if(stroke){x.strokeStyle=stroke;x.lineWidth=lw;x.stroke()}}
 const fin=(t,a,d=.4)=>ease(seg(t,a,a+d));
 const F=f=>f/30; // a state change is timed on a cut frame, so it never shows as a one-frame pop
+// Cut 2 opens on a title card and has a shorter hook (the topic is spoken first), so everything from the end of the hook on
+// is 29 frames earlier than cut 1. The scenes below keep cut 1's clock: TO() maps the film's clock onto it from HK on.
+const S=29/30,HK=262/30,TO=t=>{if(t<HK-1e-6)return t;const f=Math.round(t*30);return Math.abs(t*30-f)<1e-6?(f+29)/30:t+S}; // on a cut frame the result is exactly F(n), as in cut 1
 
 // ---------- costumes: drawn after actor(), in the head's own transform, so the engine file stays untouched ----------
 function headT(x,p){x.translate(p.x,p.y);x.scale(p.s,p.s);if(p.bend){x.translate(0,TH-14);x.rotate(p.bend);x.translate(0,-(TH-14))}
@@ -111,7 +114,7 @@ function agentScreen(x,t){const {cx,w,h}=SCR,by=DESK_Y,top=by-30-h,l=cx-w/2,old=
   SKILLS.forEach((s,i)=>{const y=sy+82+i*56;pill(x,sx+129,y,210,34,'#FFC66E');txt(x,s,sx+129,y+1,18,'#1B1430','center','800');x.fillStyle='rgba(201,184,224,.45)';x.fillRect(sx+252,y-5,(sw-390)*(.6+.4*hash(i,7)),10)})}
  const mh=sh-112,f=old?1:.14+.02*Math.sin(t*2);x.fillStyle='rgba(201,184,224,.18)';x.fillRect(mx,sy+62,40,mh);x.fillStyle=old?'#FF6B5E':'#2DB2AE';x.fillRect(mx,sy+62+mh*(1-f),40,mh*f);
  txt(x,'context',mx+20,sy+36,16,'#C9B8E0','center','700');txt(x,old?'FULL':'free',mx+20,sy+sh-26,18,old?'#FF8F7A':'#2DB2AE','center','800');x.restore()}
-function heroPose(t){const late=t>=T_NEW,turn=t>=F(240);
+function heroPose(t){const late=t>=T_NEW,turn=false;
  return {x:430,y:560,s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[6.6,8.9,45.6,47.4]),
   look:late?.85:turn?.12:.9,lookY:late?.2:turn?.05:.25,brow:late?.1:turn?.3:.7,sad:late?0:turn?.1:.55,mouth:late?.75:turn?.5:-.3,tilt:late?.04:-.05}}
 function drawStudio(t,cam){let x=layer('wall',cam,1);studioWall(x);
@@ -167,15 +170,33 @@ function drawBoard(t,cam){const x=layer('board',cam);let g=x.createLinearGradien
  txt(x,'AGENT SKILLS',990,156,40,'#FFC66E');txt(x,'load only what the task needs',990,204,26,'#FFC66E','left','600',fin(t,35.3));
  boardBefore(x,t);boardFolder(x,t);boardContext(x,t);comp([['board',0]])}
 
+// ---------- title card: the topic in the thumbnail's style, on screen until "Agent Skills, explained" has been spoken ----------
+function drawTitle(t){const x=ctx;x.setTransform(1,0,0,1,0,0);x.globalAlpha=1;x.filter='none';x.globalCompositeOperation='source-over';
+ let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#120C22');g.addColorStop(.5,'#2A1C46');g.addColorStop(.58,'#56305E');g.addColorStop(1,'#170F2B');x.fillStyle=g;x.fillRect(0,0,W,H);
+ g=x.createRadialGradient(W/2,560,60,W/2,560,980);g.addColorStop(0,'rgba(255,196,120,.85)');g.addColorStop(.4,'rgba(238,110,104,.45)');g.addColorStop(1,'rgba(228,90,110,0)');x.fillStyle=g;x.fillRect(0,0,W,H);
+ x.save();const z=1+.035*t/1.77;x.translate(W/2,H/2);x.scale(z,z);x.translate(-W/2,-H/2);
+ x.textAlign='center';x.textBaseline='alphabetic';x.lineJoin='round';
+ const font=s=>`${s}px Impact, "Arial Black", sans-serif`,TOPIC='AGENT SKILLS';
+ x.font=font(100);const size=Math.min(300,100*1560/x.measureText(TOPIC).width);
+ const put=(s,X,Y,sz,col)=>{x.font=font(sz);x.lineWidth=sz*.17;x.strokeStyle='#120A1C';x.strokeText(s,X,Y);x.fillStyle=col;x.fillText(s,X,Y)};
+ put('EXPLAINED',W/2,282,size*.4,'#F8E9CC');put(TOPIC,W/2,282+size*.98,size,'#FFC66E');
+ // the sticker is the brand mark: same red, same tilt, same words as the thumbnail
+ x.save();x.translate(W/2,282+size*.98+190);x.rotate(-.035);
+ x.font=font(104);const sw=x.measureText('IN 60 SECONDS').width+76;
+ x.fillStyle='#120A1C';x.beginPath();x.roundRect(-sw/2-10,-76,sw+20,152,30);x.fill();
+ x.fillStyle='#E4493F';x.beginPath();x.roundRect(-sw/2,-66,sw,132,22);x.fill();
+ x.fillStyle='#FFF6E6';x.textBaseline='middle';x.fillText('IN 60 SECONDS',0,6);x.restore();x.restore();
+ g=x.createRadialGradient(W/2,H/2,H*.5,W/2,H/2,H*1.1);g.addColorStop(0,'rgba(12,6,20,0)');g.addColorStop(1,'rgba(12,6,20,.4)');x.fillStyle=g;x.fillRect(0,0,W,H)}
+
 // ---------- words on screen (screen space) ----------
 function card(t,a,b,y,w,s,col,size){const v=fin(t,a,.25)*(b?1-fin(t,b,.25):1);if(v<=0)return;pill(ctx,W/2,y,w,size*2.2,'rgba(27,20,48,.84)',v);txt(ctx,s,W/2,y+2,size,col,'center','800',v)}
 function overlay(t){ctx.setTransform(1,0,0,1,0,0);
  // the brand's corner tag: the topic and the 60 s promise, on every frame, so a viewer always knows what this is
  {const x=ctx;x.font='800 32px Arial';const tw=x.measureText('Agent Skills').width;pill(x,32+(tw+138)/2,52,tw+138,62,'rgba(27,20,48,.88)');
   txt(x,'Agent Skills',58,54,32,'#FFC66E','left','800');pill(x,58+tw+50,52,78,42,'#E4493F');txt(x,'60s',58+tw+50,54,26,'#FFF6E6','center','800')}
- card(t,4.15,5.3,960,620,'…to fry one egg','#F8E9CC',40);
- card(t,5.9,7.65,960,820,'your prompt: every rule, every time','#F8E9CC',36);
- card(t,8.15,9.4,960,560,'Agent Skills','#FFC66E',52);
+ card(t,4.8,5.7,960,620,'…to fry one egg','#F8E9CC',40);
+ card(t,6.35,8.4,960,820,'your prompt: every rule, every time','#F8E9CC',36);
+ t=TO(t); // from here on, cut 1's clock
  card(t,12.4,14.6,130,620,'the one big prompt','#FFC66E',44);
  card(t,16.35,17.3,960,560,'orders pile up','#F8E9CC',38);
  card(t,17.85,19.2,960,620,'the fix: a recipe box','#FFC66E',40);
@@ -197,8 +218,9 @@ function overlay(t){ctx.setTransform(1,0,0,1,0,0);
   pill(x,0,0,400,96,'#E4493F');x.fillStyle='#F8E9CC';x.beginPath();x.moveTo(-150,-22);x.lineTo(-150,22);x.lineTo(-112,0);x.closePath();x.fill();txt(x,'Subscribe',22,3,50,'#F8E9CC','center','800');x.restore()}
  card(t,57.95,0,1010,900,'Next in 60 seconds: why MCP went stateless','#C9B8E0',28)}
 
-const KIT=[0,1,2,5,6,7,8,9,10,11,12,13,14,26,27,28,29],STU=[3,4,23,24];
-FILM={dur:60,cuts:[0,69,120,168,240,291,366,447,486,528,585,648,711,765,804,879,939,996,1056,1116,1176,1221,1269,1344,1395,1458,1551,1623,1680,1720,1800],fadeIn:.15,fadeOut:.45,
+// shot 0 is the title card; shots 1-4 are cut 1's 0-3 (retimed); cut 1's "Agent Skills fix that" shot is gone; shots 5-29 are cut 1's 5-29
+const KIT=[1,2,3,5,6,7,8,9,10,11,12,13,14,26,27,28,29],STU=[4,23,24];
+FILM={dur:1771/30,cuts:[0,53,95,140,181,262,337,418,457,499,556,619,682,736,775,850,910,967,1027,1087,1147,1192,1240,1315,1366,1429,1522,1594,1651,1691,1771],fadeIn:0,fadeOut:.45,
  cam(s,u,t){const e=ease(u);return [
   {x:lerp(1170,1200,e),y:lerp(600,590,e),z:lerp(1.5,1.62,e),b:[3,0]},            // 0 the cook rereads 500 pages
   {x:lerp(840,880,e),y:560,z:lerp(1.1,1.17,e)},                                  // 1 you watch him do it
@@ -230,12 +252,15 @@ FILM={dur:60,cuts:[0,69,120,168,240,291,366,447,486,528,585,648,711,765,804,879,
   {x:lerp(770,790,e),y:lerp(250,235,e),z:lerp(1.9,2.15,e),b:[0,3]},              // 27 the binder, retired
   {x:lerp(890,910,e),y:lerp(688,672,e),z:lerp(2,2.2,e),b:[5,0]},                 // 28 where to look
   {x:lerp(700,690,e),y:lerp(390,380,e),z:lerp(1.04,1.12,e),b:[3,0]}              // 29 you, and the ask
- ][s]},
- draw(t,cam,s){if(KIT.includes(s))drawKitchen(t,cam);else if(STU.includes(s))drawStudio(t,cam);else drawBoard(t,cam);overlay(t)},
+ ][s<5?Math.max(s-1,0):s]},
+ draw(t,cam,s){const T=TO(t);if(s==0)drawTitle(t);else if(KIT.includes(s))drawKitchen(T,cam);else if(STU.includes(s))drawStudio(T,cam);else drawBoard(T,cam);overlay(t)},
  plants(){return {}}};
 // sound events on the picture's clock; 'cut' is a soft thud on every cut that changes place
-for(const t of [.45,1.1,1.7,12.5,13.1,15.1,15.7])say(t,'paper');
-for(const f of [168,291,879,1344,1458,1551])say(F(f),'cut');
-for(const t of [16.3,16.7,17.1])say(t,'tick');say(25.65,'bell');say(T_FIX+.36,'thud');
-for(let i=0;i<5;i++)say(19.7+i*.3,'tick');say(26.95,'paper');
-for(const t of [36.2,36.6,37,39.35,43.9,57.5])say(t,'tick');say(40,'bell');say(41.9,'paper');
+// cut 1's events after the hook are all shifted by S; the hook's are new
+for(const t of [2.325,2.95,3.575])say(t,'paper');
+for(const t of [12.5,13.1,15.1,15.7])say(t-S,'paper');
+for(const f of [53,181,262])say(F(f),'cut');
+for(const f of [879,1344,1458,1551])say(F(f-29),'cut');
+for(const t of [16.3,16.7,17.1])say(t-S,'tick');say(25.65-S,'bell');say(T_FIX+.36-S,'thud');
+for(let i=0;i<5;i++)say(19.7+i*.3-S,'tick');say(26.95-S,'paper');
+for(const t of [36.2,36.6,37,39.35,43.9,57.5])say(t-S,'tick');say(40-S,'bell');say(41.9-S,'paper');

@@ -1,5 +1,5 @@
 ## hook
-You would never make a cook reread a 500-page recipe binder before frying one egg. But that is how you prompt your AI agent. Agent Skills fix that.
+Agent Skills, explained: you would never make a cook reread 500 pages to fry one egg, but that is how you prompt your AI agent.
 
 ## before
 In your kitchen, every rule you wrote sits in one giant binder: the one big prompt. Your cook reads all of it before every order.
