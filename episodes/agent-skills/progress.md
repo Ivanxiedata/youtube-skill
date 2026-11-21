@@ -1,7 +1,7 @@
 # agent-skills progress
 
 ## Status
-v2 steps 4-6 done: the judge's must-fix (unsourced "FULL") and four picture/sound items are fixed in 5454b75; `evaluation.md` says `ready to publish` (video.mp4 58.6 s, audit ISSUES 0, -17.0 LUFS, -3.4 dBTP, 59% of cuts with a sound); the owner watches and listens, decides the 2 should-fix rows, then "ship it"
+Published: public since 2026-11-21 (https://youtu.be/i8nD4QiKH2M), with captions and thumbnail (`published.json`).
 
 ## Next
 1. Owner: watch and listen. Things earshot cannot judge: pronunciation ("skill dot M D", the hook), the new screen-headed cook (does the AI read as an AI, and as friendly?), and 17.5-24.9 s (the music's highs are softened at 17.6-19.6 s; the tab sounds are now soft card flips).
@@ -67,3 +67,4 @@ none
 - 2026-11-21 ep-agent-skills: v2 steps 4-5: film.js rebuilt from beats.md (27 shots, 58.6 s, audit ISSUES 0 after fixing 57 pops and 3 hand jumps), -17.0 LUFS, -3.4 dBTP, earshot describe: no noise or hum tag, 57% of cuts with a sound; thumbnail re-checked; captions.srt (19 cues), upload.json (chapters 0:00 0:18 0:28 0:42); `evaluation.md` is stale until step 6.
 - 2026-11-21 ep-agent-skills: step 6 judge (a fresh agent): `evaluation.md` replaced, verdict "not ready: 1 must-fix": the "FULL" context labels (4.7-5.2 s, board 28.5-46 s) are unsourced, so step 4 relabels them. Hook 100, title 100 (80 with the thumbnail), -17.0 LUFS, -3.4 dBTP, 57% of cuts with a sound, audit re-run ISSUES 0, chapters valid. 5 should-fix rows: searches, L14 clause, a drill-like window at 17.5-22.5 s, picture polish, and the cook's design (owner's call).
 - 2026-11-21 ep-agent-skills: after the judge (fix commit 5454b75): "FULL" relabelled "EVERY RULE, EVERY TASK" (picture, beats.md, brief.json); the cook is a screen-headed AI with steel hands; end-card button and pill moved under the recipe box; shots 4, 6, 7, 11-13, 15, 17-20, 25, 26 reframed; tab ticks are card flips and the music's highs are softened at 17.6-19.6 s (the real source of earshot's drill reading); rebuilt 23 shots, audit ISSUES 0, 58.6 s, -17.0 LUFS, -3.4 dBTP, 59% of cuts with a sound; `evaluation.md` moves the 4 rows to Passed and says `ready to publish`; 2 should-fix rows left for the owner.
+- 2026-11-21 ep-agent-skills: owner said publish all; uploaded v2 as public.
