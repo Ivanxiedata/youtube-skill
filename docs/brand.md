@@ -11,6 +11,7 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Element | Rule |
 |---|---|
 | Format | 60 seconds; one new AI technology; told through one story everyone knows (history, a war, everyday life) |
+| AI characters | An AI agent, model or worker is drawn as visibly AI (a screen for a head), never as a person of a given skin tone taking orders. Human roles in a story must not line up with skin tone (boss vs worker) |
 | Mascot | The hero from the stickman engine: round cream face, coral hoodie. Each episode he wears the story's costume (Episode 0: Napoleon's hat). Same face, new hat |
 | Corner tag | From the first frame to the last: "<Topic> · 60s", top-left, so a viewer who joins at any second knows the topic (Episode 0: `overlay()` in `film.js`) |
 | Opening | Frame 0 to the end of the first spoken phrase (about 1.5 s): a full-screen title card in the thumbnail's style, the topic huge in amber and the red "IN 60 SECONDS" sticker. The first spoken words name the topic ("Agent Skills, explained: ..."). "<X> just dropped ..." only when X is about a month old or less |
