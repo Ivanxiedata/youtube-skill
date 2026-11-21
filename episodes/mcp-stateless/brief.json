@@ -1,0 +1,187 @@
+{
+ "slug": "mcp-stateless",
+ "tech": {
+  "id": "mcp-2026-07-28-stateless",
+  "name": "Stateless MCP (Model Context Protocol, spec 2026-07-28)",
+  "released": "2026-07-28",
+  "status": "shipped: 2026-07-28 is the current MCP protocol version",
+  "one_line": "MCP drops the initialize handshake and the session ID: every request carries what it needs, so any server instance can answer it."
+ },
+ "predecessor": {
+  "id": "mcp-2025-11-25-sessions",
+  "name": "Session-based MCP (spec 2025-11-25): initialize handshake and Mcp-Session-Id"
+ },
+ "sections": {
+  "hook": {
+   "text": "You lose your whole order when your waiter goes home. That is how MCP worked until July 28, 2026.",
+   "claims": [
+    {
+     "text": "In stateful MCP, if the server instance holding a session fails, the session state is lost and the client must reconnect and redo the handshake.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "The 2026-07-28 specification was released on July 28, 2026.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    }
+   ]
+  },
+  "before": {
+   "text": "MCP is how AI apps reach their tools. An app first shook hands with one server and could be given a session ID, like a table number. Only that server knew the order; on a busy night the others could not simply step in.",
+   "claims": [
+    {
+     "text": "MCP is an open protocol connecting LLM applications to external data sources and tools.",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28"
+    },
+    {
+     "text": "The initialize request and initialized notification must be the first interaction between client and server.",
+     "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle"
+    },
+    {
+     "text": "A server MAY assign a session ID at initialization in the MCP-Session-Id header; clients MUST include it on all later requests.",
+     "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+    },
+    {
+     "text": "A plain load balancer can't route a session's requests to other instances, which lack its state; operators fall back to sticky sessions.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    }
+   ]
+  },
+  "new": {
+   "text": "The MCP specification that shipped on July 28, 2026 removes both: no handshake, no session ID. Every request is a complete order slip that any server can take. State that must be remembered is a ticket (a handle) the server hands back and the app passes in again.",
+   "claims": [
+    {
+     "text": "The initialize/initialized handshake is removed; every request carries its protocol version and client capabilities in _meta (SEP-2575).",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
+    },
+    {
+     "text": "Protocol-level sessions and the Mcp-Session-Id header are removed from Streamable HTTP (SEP-2567).",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
+    },
+    {
+     "text": "Servers that need cross-call state mint an explicit handle from a tool, e.g. create_basket() returns basket_id, passed back as an ordinary argument.",
+     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
+    },
+    {
+     "text": "2026-07-28 is the current protocol version.",
+     "source": "https://modelcontextprotocol.io/specification/versioning"
+    },
+    {
+     "text": "SEP-2575 and SEP-2567 have Final status.",
+     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
+    }
+   ]
+  },
+  "why": {
+   "text": "A busy service just adds servers: any request can land on any of them, and if one goes away the next request goes to another.",
+   "claims": [
+    {
+     "text": "Any request can land on any server instance behind a plain round-robin load balancer without shared storage.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    },
+    {
+     "text": "Stateless by default enables horizontal scaling and improves resilience, as any request can be handled by any server instance.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "The fix was never a better waiter; it was moving the memory out of his head and onto the slip. A server that remembers nothing is a server anyone can replace.",
+   "claims": [
+    {
+     "text": "The protocol no longer manages session state; applications that need state carry it in explicit handles visible to the model.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Spoken call to action: subscribe for the next one. On screen: the takeaway card and a Subscribe button. No 'Next' line: the next episode is not decided.",
+   "claims": []
+  }
+ },
+ "architecture": {
+  "before": {
+   "nodes": [
+    {
+     "id": "app",
+     "label": "AI app"
+    },
+    {
+     "id": "sA",
+     "label": "Server A (holds your session)"
+    },
+    {
+     "id": "sB",
+     "label": "Server B"
+    },
+    {
+     "id": "sC",
+     "label": "Server C"
+    }
+   ],
+   "edges": [
+    {
+     "from": "app",
+     "to": "sA",
+     "label": "1 handshake, 2 session ID, then every request"
+    }
+   ]
+  },
+  "after": {
+   "nodes": [
+    {
+     "id": "app",
+     "label": "AI app"
+    },
+    {
+     "id": "req",
+     "label": "Request (version, client info, capabilities)",
+     "new": true
+    },
+    {
+     "id": "s1",
+     "label": "Server A"
+    },
+    {
+     "id": "s2",
+     "label": "Server B"
+    },
+    {
+     "id": "s3",
+     "label": "Server C"
+    }
+   ],
+   "edges": [
+    {
+     "from": "app",
+     "to": "req",
+     "label": ""
+    },
+    {
+     "from": "req",
+     "to": "s1",
+     "label": "any"
+    },
+    {
+     "from": "req",
+     "to": "s2",
+     "label": "any"
+    },
+    {
+     "from": "req",
+     "to": "s3",
+     "label": "any"
+    },
+    {
+     "from": "s1",
+     "to": "app",
+     "label": "ticket (state handle)"
+    },
+    {
+     "from": "app",
+     "to": "s3",
+     "label": "request + ticket"
+    }
+   ]
+  }
+ }
+}

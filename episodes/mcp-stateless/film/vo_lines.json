@@ -1,0 +1,154 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 2.349,
+  "text": "You lose your whole order when your waiter goes home."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 2.649,
+  "end": 6.629,
+  "text": "That is how MCP worked until July twenty-eighth, twenty twenty-six."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 7.129,
+  "end": 9.592,
+  "text": "MCP is how AI apps reach their tools."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.892,
+  "end": 15.192,
+  "text": "An app first shook hands with one server, and could be given a session ID, like a table number."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 15.492,
+  "end": 17.083,
+  "text": "Only that server knew the order."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.383,
+  "end": 20.017,
+  "text": "On a busy night, the others could not simply step in."
+ },
+ {
+  "n": 6,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 20.967,
+  "end": 24.585,
+  "text": "The MCP specification that shipped that day removes both."
+ },
+ {
+  "n": 7,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 24.885,
+  "end": 25.796,
+  "text": "No handshake."
+ },
+ {
+  "n": 8,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 26.096,
+  "end": 27.237,
+  "text": "No session ID."
+ },
+ {
+  "n": 9,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 27.537,
+  "end": 31.506,
+  "text": "Every request is now a complete order slip, so any server can take it."
+ },
+ {
+  "n": 10,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 31.806,
+  "end": 34.223,
+  "text": "Need something remembered, like a shopping basket?"
+ },
+ {
+  "n": 11,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 34.523,
+  "end": 37.878,
+  "text": "The server hands back a ticket, and the app shows it next time."
+ },
+ {
+  "n": 12,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 38.378,
+  "end": 40.357,
+  "text": "So a busy restaurant just adds servers."
+ },
+ {
+  "n": 13,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 40.657,
+  "end": 42.409,
+  "text": "Any request can land on any of them."
+ },
+ {
+  "n": 14,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 42.709,
+  "end": 45.286,
+  "text": "And if one goes home, the next one takes your order."
+ },
+ {
+  "n": 15,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 45.786,
+  "end": 47.584,
+  "text": "The fix was never a better waiter."
+ },
+ {
+  "n": 16,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 47.884,
+  "end": 50.91,
+  "text": "It was moving the memory out of his head and onto the slip."
+ },
+ {
+  "n": 17,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 51.21,
+  "end": 54.75,
+  "text": "A server that remembers nothing is a server anyone can replace."
+ },
+ {
+  "n": 18,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 55.25,
+  "end": 56.651,
+  "text": "Subscribe for the next one."
+ }
+]

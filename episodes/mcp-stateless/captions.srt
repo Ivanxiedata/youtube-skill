@@ -1,0 +1,75 @@
+1
+00:00:00,300 --> 00:00:02,649
+You lose your whole order when your waiter goes home.
+
+2
+00:00:02,949 --> 00:00:06,929
+That is how MCP worked until July 28, 2026.
+
+3
+00:00:07,429 --> 00:00:09,892
+MCP is how AI apps reach their tools.
+
+4
+00:00:10,192 --> 00:00:15,492
+An app first shook hands with one server, and could be given a session ID, like a table number.
+
+5
+00:00:15,792 --> 00:00:17,383
+Only that server knew the order.
+
+6
+00:00:17,683 --> 00:00:20,317
+On a busy night, the others could not simply step in.
+
+7
+00:00:21,267 --> 00:00:24,885
+The MCP specification that shipped that day removes both.
+
+8
+00:00:25,185 --> 00:00:26,096
+No handshake.
+
+9
+00:00:26,396 --> 00:00:27,537
+No session ID.
+
+10
+00:00:27,837 --> 00:00:31,806
+Every request is now a complete order slip, so any server can take it.
+
+11
+00:00:32,106 --> 00:00:34,523
+Need something remembered, like a shopping basket?
+
+12
+00:00:34,823 --> 00:00:38,178
+The server hands back a ticket, and the app shows it next time.
+
+13
+00:00:38,678 --> 00:00:40,657
+So a busy restaurant just adds servers.
+
+14
+00:00:40,957 --> 00:00:42,709
+Any request can land on any of them.
+
+15
+00:00:43,009 --> 00:00:45,586
+And if one goes home, the next one takes your order.
+
+16
+00:00:46,086 --> 00:00:47,884
+The fix was never a better waiter.
+
+17
+00:00:48,184 --> 00:00:51,210
+It was moving the memory out of his head and onto the slip.
+
+18
+00:00:51,510 --> 00:00:55,050
+A server that remembers nothing is a server anyone can replace.
+
+19
+00:00:55,550 --> 00:00:56,951
+Subscribe for the next one.
