@@ -44,3 +44,4 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-21 sonnet-subagents: AGENTS.md Workflow 9: easy tasks on a cheaper model, with what counts as easy and hard.
 - 2026-11-21 workflow-v2: `docs/workflow.md` (goal, map, steps 1-7 with skill, tool, output, gate and model; weekly; after publishing; deviations), evaluator role rewritten as a 20-row checklist from the skills' rules, `AGENTS.md` points to it, `make new-episode` starts with the steps. Includes the topic-first rule (PR #10).
 - 2026-11-21 workflow-v2: first weekly `/yt-viral` study (`docs/studies/2026-11-21-yt-viral.md`): 681 videos from 10 channels; top titles name one plain subject first, then bound the promise.
+- 2026-11-21 workflow-v2: lesson L15 and a workflow rule: one scratch folder per agent, no deletes outside it.

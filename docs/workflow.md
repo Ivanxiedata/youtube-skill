@@ -53,6 +53,7 @@ AFTER PUBLISHING                                                            │
 Episode folder: `episodes/<slug>/` (`make new-episode NAME=<slug>`). Each step names its model, per `AGENTS.md` Workflow 9:
 **strong** = the expensive model (judgment), **Sonnet** = a subagent on the cheaper model (checkable work).
 Before step 1 read `docs/brand.md`, `docs/lessons.md` and `docs/voice.md` (who we talk to; every youtube-agent skill reads it).
+When several agents run at once, each works only in its own worktree and its own scratch folder named after its step and episode (e.g. `judge-<slug>/`); never write into, or delete, a folder another agent may use.
 The finished example of every file is `episodes/deepseek-super-agent/`.
 
 ### 1 Research (strong)
