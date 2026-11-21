@@ -12,7 +12,7 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 |---|---|
 | Format | 60 seconds; one new AI technology; told through one story everyone knows (history, a war, everyday life) |
 | Mascot | The hero from the stickman engine: round cream face, coral hoodie. Each episode he wears the story's costume (Episode 0: Napoleon's hat). Same face, new hat |
-| Corner tag | From the first frame to the last: "<Topic> · 60s", top-left, so a viewer who joins at any second knows the topic. Not built yet |
+| Corner tag | From the first frame to the last: "<Topic> · 60s", top-left, so a viewer who joins at any second knows the topic (Episode 0: `overlay()` in `film.js`) |
 | Structure | Hook to the viewer, today's problem, the story, the side-by-side diagram, the takeaway, one call to action |
 | Takeaway card | The last line on screen in two lines: plain statement, then the amber punchline |
 | Call to action | Spoken "Subscribe for the next one." with the red Subscribe button; the next episode's name under it |
