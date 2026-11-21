@@ -5,8 +5,8 @@ Cut 4 rendered (Napoleon/Berthier story, 60 s, 26 shots, music, insight ending, 
 
 ## Next
 1. Owner watches `episodes/deepseek-super-agent/deepseek-super-agent.mp4` (not in git: rebuild with step 4) and listens to the mix (nobody has heard it).
-2. Packaging: title, description with the repo link, the setup line ("Read SETUP.md in this repository and set up dsh-superagent with me.") and the sources from `research.md`; captions from `script.md`; thumbnail (youtube-agent `yt-package`).
-3. Upload by hand in YouTube Studio as private until the `upload` feature exists (PR #2).
+2. Packaging so far: `upload.json` (title, description with repo link, chapters and sources, tags). Not done: thumbnail, captions; the youtube-agent `yt-package` skill was not run.
+3. Upload with `yt upload` from the `upload-feature` worktree (PR #2) once the owner's Google setup is done; steps in `upload/progress.md` there. `video.mp4` here is the final cut (not in git).
 4. Rebuild from git: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
    `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
 5. After PR #2 merges, a repo-level follow-up: `docs/progress.md` (Episode 0 done) and the `docs/product.md` non-goal "research proposes a ranked shortlist, the owner picks".
@@ -57,3 +57,4 @@ none
 - 2026-11-20 ep-super-agent: cut 2 after owner feedback: new script (Napoleon and Berthier), 24 shots, battlefield set, noise beds removed, `docs/product.md` gets the story/hook/pace/sound rules; audit 0 issues.
 - 2026-11-20 ep-super-agent: cut 3 after owner feedback: instrumental music, how-to ending replaced by the insight ending, caption timing fixed; `docs/product.md` format table updated; audit 0 issues.
 - 2026-11-20 ep-super-agent: cut 4: call to action at the end (voice + Subscribe button); audit 0 issues.
+- 2026-11-20 ep-super-agent: `upload.json` written; final cut copied to `video.mp4` for `yt upload`.
