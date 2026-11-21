@@ -1,22 +1,22 @@
 {
-  "title": "Why MCP Threw Away Sessions in 2026",
-  "description": "Stateless MCP explained in 60 seconds: the Model Context Protocol specification 2026-07-28 removed the initialize handshake and the session ID (Mcp-Session-Id).\nNow every MCP request carries what it needs, so any MCP server can answer it. Told with a diner: one waiter with your order in his head, or an order slip any waiter can take.\n\nStatus: shipped. 2026-07-28 is the current MCP protocol version (released July 28, 2026). Before it, revision 2025-11-25 started with a handshake and could pin you to one server with a session ID.\n\nChapters\n0:00 Old MCP: one waiter, one table number\n0:22 MCP 2026-07-28: no handshake, no session ID\n0:47 The takeaway\n\nThe takeaway: a server that remembers nothing is a server anyone can replace. If a server must remember something (a shopping basket), it hands back a ticket, an explicit handle, and the app passes it in again.\n\nTry it: the TypeScript, Python, Go and C# MCP SDKs support 2026-07-28. Read the changelog first: https://modelcontextprotocol.io/specification/2026-07-28/changelog\n\nSources\nMCP 2026-07-28 changelog: https://modelcontextprotocol.io/specification/2026-07-28/changelog\nSEP-2575, Make MCP Stateless: https://modelcontextprotocol.io/seps/2575-stateless-mcp\nSEP-2567, Sessionless MCP via Explicit State Handles: https://modelcontextprotocol.io/seps/2567-sessionless-mcp\nRelease post by the MCP lead maintainers: https://blog.modelcontextprotocol.io/posts/2026-07-28/\nCurrent version: https://modelcontextprotocol.io/specification/versioning\nBefore (2025-11-25): https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle and https://modelcontextprotocol.io/specification/2025-11-25/basic/transports\n\nThe diner is an analogy: \"table 12\", \"ticket #42\" and the order on screen are invented examples.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#MCP #ModelContextProtocol #AIExplained",
+  "title": "Does MCP Still Need Sessions in 2026?",
+  "description": "Stateless MCP in 60 seconds: the MCP 2026 spec changes (version 2026-07-28) removed sessions, the session ID and the initialize handshake.\nNow every MCP request carries what it needs, so any server can answer it, and state lives in a ticket (a handle) your AI passes back. Told with a diner.\n\nRead the changelog first: https://modelcontextprotocol.io/specification/2026-07-28/changelog\n\nChapters\n0:00 Why old MCP lost orders\n0:11 How old MCP pinned you\n0:25 New MCP: the order slip\n0:37 Why it matters to you\n0:47 How, why, and stateless\n\nStatus: shipped. 2026-07-28 is the current MCP protocol version (released July 28, 2026). Before it, revision 2025-11-25 started with a handshake and could give you a session ID (optional) that pinned you to one server.\n\nThe story: a diner. Your AI app is the customer; an MCP server is the waiter bringing its tools. In the old way the waiter kept your order in his head (the session), so another waiter could not take it. In the new way every request is a complete order slip (the protocol version and what the app can handle travel with it), so any waiter can take it. If a server must remember something, like a shopping basket, it hands back a ticket, an explicit handle, and your AI shows it next time. The ticket lives in your chat, so in apps that save chats it also survives a closed app or another device.\n\nThe takeaway: a server that remembers nothing is a server anyone can replace.\n\nSources\nMCP 2026-07-28 changelog: https://modelcontextprotocol.io/specification/2026-07-28/changelog\nSEP-2575, Make MCP Stateless: https://modelcontextprotocol.io/seps/2575-stateless-mcp\nSEP-2567, Sessionless MCP via Explicit State Handles: https://modelcontextprotocol.io/seps/2567-sessionless-mcp\nRelease post by the MCP lead maintainers: https://blog.modelcontextprotocol.io/posts/2026-07-28/\nCurrent version: https://modelcontextprotocol.io/specification/versioning\nBefore (2025-11-25): https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle and https://modelcontextprotocol.io/specification/2025-11-25/basic/transports\n\nThe diner is an analogy: table 12, ticket number 42, the burger and fries, and the basket's 2 items are invented examples.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#MCP #ModelContextProtocol #AIExplained",
   "tags": [
     "MCP",
     "Model Context Protocol",
     "stateless MCP",
     "MCP 2026-07-28",
+    "MCP 2026",
     "MCP sessions",
+    "MCP session ID",
     "Mcp-Session-Id",
     "MCP server",
+    "MCP spec changes",
     "AI agents",
     "AI tools",
     "AI explained",
     "SEP-2575",
-    "SEP-2567",
-    "MCP specification",
-    "load balancing",
-    "stateless protocol"
+    "SEP-2567"
   ],
   "category_id": "28",
   "made_for_kids": false

@@ -1,75 +1,103 @@
 1
-00:00:00,300 --> 00:00:02,249
-MCP just stopped remembering you.
+00:00:00,300 --> 00:00:03,319
+MCP before July 28, 2026:
 
 2
-00:00:02,549 --> 00:00:07,856
-You would lose your whole order if your waiter went home, and that is how MCP worked until July.
+00:00:03,319 --> 00:00:05,674
+your server quit, you lost your order;
 
 3
-00:00:08,356 --> 00:00:10,819
-MCP is how AI apps reach their tools.
+00:00:05,674 --> 00:00:09,357
+now any server takes it, but how, and why, in 60 seconds?
 
 4
-00:00:11,119 --> 00:00:16,419
-An app first shook hands with one server, and could be given a session ID, like a table number.
+00:00:09,857 --> 00:00:11,259
+Here's how, in one diner.
 
 5
-00:00:16,719 --> 00:00:18,309
-Only that server knew the order.
+00:00:11,559 --> 00:00:13,410
+Your AI app is the customer;
 
 6
-00:00:18,609 --> 00:00:21,244
-On a busy night, the others could not simply step in.
+00:00:13,410 --> 00:00:16,475
+an MCP server is the waiter bringing its tools.
 
 7
-00:00:22,194 --> 00:00:25,811
-The MCP specification that shipped that day removes both.
+00:00:16,775 --> 00:00:18,180
+Old MCP: shake hands,
 
 8
-00:00:26,111 --> 00:00:27,023
-No handshake.
+00:00:18,180 --> 00:00:20,733
+maybe get a table number, a session ID,
 
 9
-00:00:27,323 --> 00:00:28,463
-No session ID.
+00:00:20,733 --> 00:00:22,904
+and your order lives in his head.
 
 10
-00:00:28,763 --> 00:00:32,733
-Every request is now a complete order slip, so any server can take it.
+00:00:23,204 --> 00:00:24,777
+Other waiters: not my table.
 
 11
-00:00:33,033 --> 00:00:35,450
-Need something remembered, like a shopping basket?
+00:00:25,727 --> 00:00:27,436
+The new MCP drops both.
 
 12
-00:00:35,750 --> 00:00:39,104
-The server hands back a ticket, and the app shows it next time.
+00:00:27,736 --> 00:00:30,165
+Every request is now a complete order slip,
 
 13
-00:00:39,604 --> 00:00:41,584
-So a busy restaurant just adds servers.
+00:00:30,165 --> 00:00:31,655
+so any waiter can take it.
 
 14
-00:00:41,884 --> 00:00:43,636
-Any request can land on any of them.
+00:00:31,955 --> 00:00:32,976
+Need a basket kept?
 
 15
-00:00:43,936 --> 00:00:46,512
-And if one goes home, the next one takes your order.
+00:00:33,276 --> 00:00:35,067
+The server hands back a ticket;
 
 16
-00:00:47,012 --> 00:00:48,810
-The fix was never a better waiter.
+00:00:35,067 --> 00:00:36,634
+your AI shows it next time.
 
 17
-00:00:49,110 --> 00:00:52,137
-It was moving the memory out of his head and onto the slip.
+00:00:37,134 --> 00:00:40,261
+For you, AI tools can stop hanging on one machine:
 
 18
-00:00:52,437 --> 00:00:55,976
-A server that remembers nothing is a server anyone can replace.
+00:00:40,261 --> 00:00:41,671
+busy day, add servers;
 
 19
-00:00:56,476 --> 00:00:57,878
+00:00:41,671 --> 00:00:44,307
+one quits, the next takes your next order.
+
+20
+00:00:44,606 --> 00:00:46,687
+And the ticket stays in your chat for tomorrow.
+
+21
+00:00:47,187 --> 00:00:49,419
+How? The order moved onto the slip.
+
+22
+00:00:49,719 --> 00:00:51,635
+Why? Any waiter can take it.
+
+23
+00:00:51,935 --> 00:00:52,925
+That's stateless:
+
+24
+00:00:52,925 --> 00:00:54,686
+a server that remembers nothing
+
+25
+00:00:54,686 --> 00:00:56,446
+is a server anyone can replace.
+
+26
+00:00:56,946 --> 00:00:58,348
 Subscribe for the next one.
