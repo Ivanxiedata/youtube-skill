@@ -27,6 +27,7 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-20: `shared/brief` owns all structural brief rules, because otherwise they scatter across features and `yt check` passes briefs that fail later.
 - 2026-11-20: Each feature's `cmd/yt/<feature>.go` (and `_test.go`) maps to `<feature>/progress.md`, because three parallel feature PRs would otherwise all edit `docs/progress.md` and conflict.
 - 2026-11-20: A claim is an `in progress (<branch>): ` prefix on the existing Status line, and CI fails a feature or episode whose progress.md is older than its newest code, because overwriting Status lost information and one touch at claim time proved nothing.
+- 2026-11-21: Easy tasks go to a subagent on a cheaper model (Sonnet in Claude Code), the expensive model keeps planning, judging and hard work, because the owner asked to stop spending the expensive model on easy work (AGENTS.md Workflow 9).
 
 ## Log
 - 2026-11-20 develop: harness built and reviewed (5 lenses); CI green; develop/main branch model.
@@ -39,3 +40,4 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-21 brand-evaluate-feedback: `docs/brand.md`, `docs/voice.md`, `docs/lessons.md` and the evaluator role added; `AGENTS.md` routes episode work through them; two new features specced (`evaluate`, `feedback`).
 - 2026-11-21 brand-evaluate-feedback: earshot pinned in `skills.lock` (its two skills installed; the package and listening models install into `.skills/`); `scripts/music.py` finds CC0 / CC BY music through Openverse; `AGENTS.md` gets a skills-by-step table.
 - 2026-11-21 brand-evaluate-feedback: PRs #2 (upload) and #3 (Episode 0) merged; Status and Next rewritten for after Episode 0.
+- 2026-11-21 sonnet-subagents: AGENTS.md Workflow 9: easy tasks on a cheaper model, with what counts as easy and hard.
