@@ -139,7 +139,7 @@ function drawDiner(t,cam){const door=1.75*ease(seg(t,ST(2),ST(2)+.3))*(1-ease(se
  bubble(f,1240,400,'?','#FFC66E',inS(t,3,4)?fin(t,ST(3)+.4,.25)*(1-fin(t,out(4),.25)):0,54);
  if(inS(t,4,5))bubble(f,STAFF[2].x,SY-215,'any server','#2DB2AE',fin(t,TA0+.6,.25)*(1-fin(t,out(5),.25)),26);
  if(inS(t,12,13))STAFF.slice(0,2).forEach((w,i)=>bubble(f,w.x+10,SY-205-i*62,'NOT MY TABLE','#F8E9CC',fin(t,ST(12)+.25+i*.4,.25)*(1-fin(t,out(13),.25)),26));
- if(inS(t,10,13)){const L=fin(t,19.95,.25)*(1-fin(t,out(11),.2)),O=fin(t,20.3,.25)*(1-fin(t,out(11),.2));bubble(f,1500,676,'TABLE 12 = SESSION ID','#FFC66E',L,26);txt(f,'(optional)',1500,720,22,'#C9B8E0','center','700',O)}
+ if(inS(t,10,13)){const L=fin(t,18.55,.25)*(1-fin(t,out(11),.2)),O=fin(t,18.9,.25)*(1-fin(t,out(11),.2));bubble(f,1500,676,'TABLE 12 = SESSION ID','#FFC66E',L,26);txt(f,'(optional)',1500,720,22,'#C9B8E0','center','700',O)}
  if(inS(t,20,22))STAFF.slice(3).forEach(w=>bubble(f,w.x,SY-215,'+1','#2DB2AE',fin(t,w.in+.35,.2)*(1-fin(t,out(21),.25)),28));
  if(inS(t,21,22))bubble(f,STAFF[2].x+30,SY-170,'bye!','#F8E9CC',fin(t,ST(21)+.1,.2)*(1-fin(t,out(22),.2)),24);
  comp([['out',cam.b[0]],['wall',cam.b[1]],['door',cam.b[1]],['act',0],['fg',cam.b[2]||0]])}
