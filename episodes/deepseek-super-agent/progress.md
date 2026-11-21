@@ -5,7 +5,9 @@ Uploaded to the owner's channel as private on 2026-11-21 (`published.json`); it 
 
 ## Next
 1. Owner decides how this video goes public: wait for the API audit (see `upload/progress.md` on the `upload-feature` branch), or upload `video.mp4` once by hand in YouTube Studio.
-2. Not done: thumbnail, captions; the youtube-agent `yt-package` skill was not run (title, description and tags in `upload.json` were written by hand).
+2. Owner looks at `thumbnail.png`; if approved, set it on the video (YouTube Studio > Details > Thumbnail, or build the spec's thumbnail step in `yt upload`).
+   Rebuild it with `python film/thumb.py thumbnail.png` (same venv as the film).
+   Still not done: captions. The title is 65 characters, so desktop search cuts it near 60 (`yt-package/title.py` score 80/100); a shorter title is the owner's call.
 3. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
    `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
 4. After PR #2 merges, a repo-level follow-up: `docs/progress.md` (Episode 0 done) and the `docs/product.md` non-goal "research proposes a ranked shortlist, the owner picks".
@@ -35,6 +37,10 @@ none
 - 2026-11-20: Music is the stickman skill's code-made bed (`m.music(mood="hopeful", bpm=96)`, gain 1.4), because stock tracks can't be licence-checked here; measured 16 dB under the voice. A supplied MP3 would go through `m.music_file`.
 - 2026-11-20: Cut 4, because the owner asked for a call to action at the end: spoken "Subscribe for the next one." plus a Subscribe button on screen.
   To stay at 60 s, the pause before the takeaway is a line break (0.5 s) instead of a paragraph break (0.95 s); only the last five shots were retimed.
+- 2026-11-21: Thumbnail drawn from code with the film's rig (`film/thumb.js`), not an AI image generator, because the product renders visuals from code.
+  Idea: the general, shocked, in front of an army whose heads are screens asking "?". Text "YOU'RE THE BOTTLENECK." (3 words, a verdict about the viewer, different words from the title).
+  Rules applied (stickman packaging playbook + `yt-package`): one idea, three elements, big face with an exaggerated expression, dark ground with one light,
+  text top-right in heavy caps with one accent colour, nothing important bottom-right (duration badge), checked readable at 160 px wide.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -59,3 +65,4 @@ none
 - 2026-11-20 ep-super-agent: cut 4: call to action at the end (voice + Subscribe button); audit 0 issues.
 - 2026-11-20 ep-super-agent: `upload.json` written; final cut copied to `video.mp4` for `yt upload`.
 - 2026-11-21 ep-super-agent: uploaded as private with `yt upload --confirm` (video id in `published.json`).
+- 2026-11-21 ep-super-agent: thumbnail made (`thumbnail.png`, 1280x720, 614 KB) from `film/thumb.js`; not yet set on the video.

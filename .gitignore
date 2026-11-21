@@ -22,3 +22,5 @@ node_modules/
 !/episodes/*/film/audio_mix.py
 !/episodes/*/film/script.txt
 !/episodes/*/film/vo_lines.json
+!/episodes/*/film/thumb.js
+!/episodes/*/film/thumb.py
