@@ -13,7 +13,8 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Format | 60 seconds; one new AI technology; told through one story everyone knows (history, a war, everyday life) |
 | Mascot | The hero from the stickman engine: round cream face, coral hoodie. Each episode he wears the story's costume (Episode 0: Napoleon's hat). Same face, new hat |
 | Corner tag | From the first frame to the last: "<Topic> · 60s", top-left, so a viewer who joins at any second knows the topic (Episode 0: `overlay()` in `film.js`) |
-| Structure | Hook to the viewer, today's problem, the story, the side-by-side diagram, the takeaway, one call to action |
+| Opening | Frame 0 to the end of the first spoken phrase (about 1.5 s): a full-screen title card in the thumbnail's style, the topic huge in amber and the red "IN 60 SECONDS" sticker. The first spoken words name the topic ("Agent Skills, explained: ..."). "<X> just dropped ..." only when X is about a month old or less |
+| Structure | Title card, hook to the viewer, today's problem, the story, the side-by-side diagram, the takeaway, one call to action |
 | Takeaway card | The last line on screen in two lines: plain statement, then the amber punchline |
 | Call to action | Spoken "Subscribe for the next one." with the red Subscribe button; the next episode's name under it |
 | Voice | Kokoro `am_michael`, speed 1.2; plain words; "you" in the first sentence |
@@ -51,4 +52,4 @@ The description's first two lines name the topic in the words people search for.
 ## Open (owner decides)
 1. A name for the series or the channel. Today the channel is "ivan data" and nothing on screen names the series.
 2. A name for the mascot.
-3. A fixed 1-2 second opening sting, or straight into the hook (the hook guides say no intro).
+3. A sound on the title card (a short sting), or the voice alone.
