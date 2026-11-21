@@ -50,4 +50,4 @@ Pair score (`title.py --title "Coding Agent vs Chatbot: 1 Loop, 4 Steps" --thumb
 
 First two description lines for step 5 (they carry every word above):
 > What is a coding agent, and how is it different from an AI chatbot? Learn how AI coding agents work in 60 seconds.
-> A chatbot only gives you text to paste and run yourself; a coding agent (Claude Code, Codex CLI, Copilot agent mode) works in 1 loop of 4 steps, read, edit, run, check, until the job is done.
+> A chatbot only gives you text to paste and run yourself; a coding agent (Claude Code, Codex CLI, Copilot agent mode) reads your files, edits the code, runs commands and checks the result, in a loop until the job is done.

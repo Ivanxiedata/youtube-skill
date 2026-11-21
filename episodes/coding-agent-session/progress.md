@@ -1,15 +1,12 @@
 # coding-agent-session progress
 
 ## Status
-v2 steps 4-5 done; step 6 (judge) next
+v2 judged (ready, 0 must-fix); judge's should-fix S1, S3, S4, S5 fixed; S2 (hook "never stop") and the owner's step 7 next
 
 ## Next
-Steps 1-5 of `docs/workflow.md` are done for v2: `research.md`, `brief.json`, `package.md`, `beats.md` (27 shots), `script.md`, the voice, `film/film.js`, `video.mp4`, `thumbnail.png`, `captions.srt`, `upload.json`. The v1 video stays at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
-1. Step 6, the judge: a fresh agent that did not make the episode follows `docs/roles/evaluator.md` and writes `evaluation.md` (the file there is v1's and is out of date: replace it). Score the hook on `script.md`'s first sentence as written (digits): 100; the spoken form scores 63 only because `hookscore.py` counts digits, not number words. Facts the judge needs, measured on this `video.mp4`:
-   - 59.9 s, 27 shots, build audit `ISSUES 0` (1797/1797 frames, max hand step 38.1 of the 40 limit, foot skate .19 px), `earshot measure` -17.1 LUFS, true peak -3.8 dBTP, noise floor -40.7 dBFS; `describe` has no noise or hum tag (only weak sfx guesses: dry leaves, keys, a knock, which are the footsteps, typing and thumps); `timeline --video`: 25 cuts detected, 64% with an onset within 1 frame (chance 42%), 88% within 100 ms, two without a hit (5.27 s and 51.40 s, where the long ring of the "bad" and "good" effects masks the cut sound).
-   - Chapters 0:00, 0:20, 0:32, 0:44 (the shortest is 12 s). Title "Coding Agent vs Chatbot: 1 Loop, 4 Steps" (40 characters).
-   - Deviations from `beats.md` are listed in Decisions below ("v2 make").
-2. If the judge finds must-fix rows: picture and sound go back to step 4 (`film.js`; `build.py film --shots N ...` redoes single shots, `--audio-only` only the mix), words go back to step 3.
+Steps 1-6 of `docs/workflow.md` are done for v2 (`evaluation.md`: ready to publish, 0 must-fix; the judge's should-fix S1, S3, S4, S5 are fixed and sit under Passed). The v1 video stays at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
+1. Open should-fix S2 (`evaluation.md`): the hook says "and never stop", which no source supports (it is a figure of speech). Either the owner accepts it, or reword `script.md` line 1 and re-score it with `hookscore.py` to 100 (two tries without it scored 80 and 79), then re-voice line 0 only (`beats.md` has the runner-up hook), shift nothing else, rebuild shots 0-3 and the audio, update `captions.srt` cues 1-3.
+2. Not fixed, outside the four: the "now tighten it" bubble sits over the phone mechanic's mouth at about 15.3 s (S6, `gBubbles`, `oy` 62). Move it clear of the phone if the owner wants it.
 3. Step 7: the owner watches and listens, then says "ship it"; only then `yt upload` (dry run first).
 
 ## Blockers
@@ -49,12 +46,13 @@ none
 - 2026-11-21 (v2 make): `captions.srt` has 23 cues: the 21 voice lines in `script.md`'s wording, the 8.6 s hook split in three at estimated word times (`align_est.json`) so no caption is 124 characters long. Chapters retitled: "Why You Keep Pasting Code", "What a Coding Agent Does", "One Loop, Four Steps", "You Stop Being the Messenger".
 - 2026-11-21 (v2 make): `upload.json`: title from `package.md`; first two lines are `package.md`'s; a "Try it:" line (Claude Code docs, Codex repo) is the link; then chapters; then the story, the takeaway, a note that "4 steps" is this video's drawing of Anthropic's loop, the sources and the music credit. On-screen invented examples named: "fix the failing test", "Error: it still fails", "passed". 3 hashtags, 15 tags.
 - 2026-11-21 (v2 make): Thumbnail text now LEARN / CODING AGENTS / IN 60 SECONDS (two huge amber lines "CODING" and "AGENTS"); same mascot, car and tick; checked at 160 px wide: topic and promise readable.
+- 2026-11-21 (judge fixes): Hook chips show "?" until S17 (36.3 s) and the labels READ / EDIT / RUN / CHECK first appear in the garage (27.4 s) and on the board from S17, because the judge found the answer on screen at 7 s. "In your garage" under the agent is hidden in the hook too. Board: S17 + S18 (36.3-40.3 s) stay on the full board (zoom .97-1.03) for 4 s; S19-S20 show only the NOW half and S21 only the BEFORE half (the other half is hidden on the cut with `showL`/`showR`, because fading it to .3 left text hanging at the edge); S21 zoom 1.15-1.3 so the whole BEFORE column fits. Description line 2 lists what the tools do (reads, edits, runs, checks) and no longer says "4 steps"; the 4 steps stay the video's own drawing, said in the disclaimer. Caption 1 is "in 60 seconds" as the voice says it. No voice or cut time changed, so only shots 2, 3 and 17-21 were rebuilt (audit ISSUES 0, -17.1 LUFS, 59.9 s).
 
 ## Engine lessons (v2 make)
 - `drawPerson` sets `globalAlpha=1` inside (the hoodie shading line), so a figure drawn inside a faded box does not fade. Draw it on an offscreen `layer()` and blit with the alpha. Wrap that layer's clip in `save()/restore()`: `clr()` clears with `clearRect`, which is clipped, so a leaked clip makes every later clear partial.
 - A split screen: draw scene A with its own `comp`, then dim its half with a `saturation` blend (grey) plus a dark overlay, then clip to the other half and `drawImage` scene B's layer (give the draw function a `nocomp` flag so it fills its layer without painting the screen).
 - A crouch without touching the rig: lower `p.y` before `walkPose`; the world-planted feet then bend the legs. A held prop that follows a hand: draw it after `actor()` with `globalCompositeOperation='destination-over'` so it sits behind everyone and stays a pure function of `t` (a module-level variable written during one frame breaks the audit's determinism check).
-- A push-in on a board throws its header text under the corner tag or the top chip; fade the headers while the camera is in close.
+- A push-in on a board throws its header text under the corner tag or the top chip; hide the headers while the camera is in close. A column that is only dimmed still hangs cut off at the frame edge: hide whichever half the camera is not on (on the cut, so the change is not seen).
 - Two long effects ("bad", "good") ringing over a cut hide the cut's own thump from earshot's matcher; keep an effect's tail away from a cut or put the effect right on it.
 - The cut thump (`impactsoft-medium-00N`, 2200 Hz low-pass) gets 64% of cuts within one frame; v1's `cloth2` at gain .06 got 38%.
 
@@ -68,3 +66,4 @@ none
 - 2026-11-21 ep-coding-agent-session: v2 steps 1-3: research re-checked (Codex quotes fixed, numbers table), package.md (10 titles, chosen "Coding Agent vs Chatbot: 1 Loop, 4 Steps"), hooks scored (new hook 100), beats.md (27 shots), script.md, film/script.txt, voice re-made (57.91 s); film.js not touched.
 - 2026-11-21 ep-coding-agent-session: v2 steps 4-5: film.js rebuilt on beats.md (27 shots), full build (59.9 s, audit ISSUES 0), earshot measure/describe/timeline/sheet, thumbnail (LEARN / CODING AGENTS / IN 60 SECONDS), captions.srt, chapters, upload.json. Step 6 (judge) next.
 - 2026-11-21 ep-coding-agent-session: step 6, independent judge (did not make the episode): evaluation.md replaced, verdict ready to publish, 0 must-fix, 5 should-fix (hook picture labels the 4 steps before the payoff; "never stop" unsourced; description line 2 credits the 4-step drawing to named products; board framing; caption cue 1). Hook 100, title 80 with the thumbnail (100 alone), audit ISSUES 0 re-run, -17.1 LUFS, cut sync 64%. Not uploaded.
+- 2026-11-21 ep-coding-agent-session: judge fixes S1, S3, S4, S5 (hook chips "?", full board held 4 s and one half at a time, description line 2, caption 1); `film.js`, `captions.srt`, `upload.json`, `package.md`, `evaluation.md`; rebuilt shots 2, 3, 17-21, audit ISSUES 0, 59.9 s, -17.1 LUFS. Not uploaded. S2 still open.

@@ -202,7 +202,8 @@ const nodeIn={agent:5.3,read:5.4,edit:5.55,run:5.7,check:5.85};     // the ring 
 const LIT=[[6.95,0],[7.12,1],[7.28,2],[7.42,3],[7.65,0],[7.9,1],[8.12,2],[8.35,3],[40.38,0],[40.7,1],[41.0,2],[41.28,3]]; // chips lit in turn: "four steps", the ring once more, "Read, edit, run, check."
 const litChip=t=>{let c=-1;for(const [a,i] of LIT)if(t>=a&&t<a+.3)c=i;return c};
 const sz=id=>[BN[id][3]||270,BN[id][4]||96];
-const LEFTCOL={chat:1,you:1,code:1},ldim=t=>1-.7*fin(t,38.2,.4)*(1-fin(t,43.9,.3));const LD=(id,t)=>LEFTCOL[id]?ldim(t):1;
+// the camera is on one half at a time: wide (S17-S18) both, S19-S20 the right half only, S21 the left half only; the other half is hidden on the cut
+const showL=t=>t<C(19)||t>=C(21),showR=t=>t<C(21);
 function edgePt(a,b,off=[0,0]){const A=BN[a],B=BN[b],[aw,ah]=sz(a),[bw,bh]=sz(b),dx=B[0]-A[0],dy=B[1]-A[1],
   ka=Math.min(Math.abs(dx)>1?(aw/2+8)/Math.abs(dx):9,Math.abs(dy)>1?(ah/2+8)/Math.abs(dy):9),kb=Math.min(Math.abs(dx)>1?(bw/2+8)/Math.abs(dx):9,Math.abs(dy)>1?(bh/2+8)/Math.abs(dy):9);
  return [[A[0]+dx*ka+off[0],A[1]+dy*ka+off[1]],[B[0]-dx*kb+off[0],B[1]-dy*kb+off[1]]]}
@@ -212,48 +213,51 @@ function arrow(x,a,b,p,lab,col='#C9B8E0',wd=4,off=[0,0],side=1,al=1){if(p<=0||al
  if(lab)txt(x,lab,(P[0]+Q[0])/2+14*side,(P[1]+Q[1])/2,21,col,side>0?'left':'right','600',ease(seg(p,.6,1))*al)}
 function token(x,a,b,u,lab,col,off=[0,0],al=1){if(u<=0||u>=1||al<=0)return;const [P,Q]=edgePt(a,b,off),e=easeIO(u),X=lerp(P[0],Q[0],e),Y=lerp(P[1],Q[1],e),A=Math.min(1,u*6,(1-u)*6)*al;
  if(lab)bubble(x,X,Y,lab,col,A,19);else{x.save();x.globalAlpha=A;x.fillStyle=col;x.beginPath();x.arc(X,Y,11,0,7);x.fill();x.restore()}}
-function node(x,id,t){const a=nodeIn[id]?fin(t,nodeIn[id],.35):1;if(a<=0)return;const [X,Y,lab]=BN[id],[w,h]=sz(id),nw=NEW[id],chip=RING.indexOf(id),on=chip>=0&&litChip(t)==chip;
- let al=a*LD(id,t);if(id=='you')al*=1-fin(t,44.7,.5);
+function node(x,id,t){const a=nodeIn[id]?fin(t,nodeIn[id],.35):1;if(a<=0)return;const [X,Y,lab]=BN[id],[w,h]=sz(id),nw=NEW[id],chip=RING.indexOf(id),on=chip>=0&&litChip(t)==chip,q=chip>=0&&t<C(17);   // q: the hook's chips say '?', the answer comes later
+ let al=a;if(id=='you')al*=1-fin(t,44.7,.5);
  const red=id=='you'?fin(t,44.1,.15)*(1-fin(t,44.55,.15)):0;
  x.save();x.globalAlpha*=al;const sc=lerp(.85,1,a);x.translate(X,Y);x.scale(sc,sc);
  x.fillStyle=on?'#1F5F6A':red>.3?'#7A2E3A':'#2A1F42';x.beginPath();x.roundRect(-w/2,-h/2,w,h,16);x.fill();x.strokeStyle=on?'#2DB2AE':red>.3?'#E4493F':nw?'#FFC66E':'#6E5D8E';x.lineWidth=nw?(chip>=0?5:7):3;x.stroke();
  const c=CH[id];let tx=0;if(c){const a2=layer('av',null);a2.save();a2.setTransform(x.getTransform());a2.beginPath();a2.roundRect(-w/2,-h/2,w,h,16);a2.clip();const p={x:-w/2+50,y:-h/2+46,s:.16,face:1,noLegs:true,breath:t*2+X,blink:blinkAt(t,[X%7+1,X%5+19,X%9+30]),mouth:.6,look:.5,lookY:.4};drawPerson(a2,c,p);if(c==HERO)cap(a2,p);a2.restore();
   const g=x.globalAlpha;x.save();x.setTransform(1,0,0,1,0,0);x.globalAlpha=g;x.drawImage(L.av,0,0);x.restore();tx=30}
- txt(x,lab,tx,2,chip>=0?23:27,'#F8E9CC','center','700');
+ if(q)txt(x,'?',tx,3,40,'#FFC66E','center','800');else txt(x,lab,tx,2,chip>=0?23:27,'#F8E9CC','center','700');
  if(nw){pill(x,w/2-30,-h/2,64,28,'#FFC66E');txt(x,'NEW',w/2-30,-h/2+1,16,'#1B1430','center','900')}
- if(LIKE[id])txt(x,LIKE[id][0],LIKE[id][1],LIKE[id][2],22,'#C9B8E0','left','600',id=='you'?al:1);
+ if(LIKE[id]&&!(id=='agent'&&t<C(17)))txt(x,LIKE[id][0],LIKE[id][1],LIKE[id][2],22,'#C9B8E0','left','600',id=='you'?al:1);
  x.restore()}
 // a badge that pops (scale overshoot) at time t0
-function badge(x,X,Y,s,t,t0,a=1){const u=seg(t,t0,t0+.3);if(u<=0)return;const k=lerp(.4,1,easeIO(u))+.1*Math.sin(u*Math.PI);x.save();x.globalAlpha*=Math.min(1,u*4)*a;x.translate(X,Y);x.scale(k,k);pill(x,0,0,s.length*20+44,46,'#FFC66E');x.strokeStyle='#1B1430';x.lineWidth=3;x.beginPath();x.roundRect(-(s.length*20+44)/2,-23,s.length*20+44,46,23);x.stroke();txt(x,s,0,2,26,'#1B1430','center','900');x.restore()}
+function badge(x,X,Y,s,t,t0,a=1,sc=1){const u=seg(t,t0,t0+.3);if(u<=0)return;const k=sc*(lerp(.4,1,easeIO(u))+.1*Math.sin(u*Math.PI));x.save();x.globalAlpha*=Math.min(1,u*4)*a;x.translate(X,Y);x.scale(k,k);pill(x,0,0,s.length*20+44,46,'#FFC66E');x.strokeStyle='#1B1430';x.lineWidth=3;x.beginPath();x.roundRect(-(s.length*20+44)/2,-23,s.length*20+44,46,23);x.stroke();txt(x,s,0,2,26,'#1B1430','center','900');x.restore()}
 function drawBoard(t,cam,nocomp){const x=layer('board',cam);let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1F1636');g.addColorStop(1,'#2E1F4A');x.fillStyle=g;x.fillRect(-900,-600,W+1800,H+1200);
  g=x.createRadialGradient(1440,560,40,1440,560,900);g.addColorStop(0,'rgba(255,196,130,.10)');g.addColorStop(1,'rgba(255,170,110,0)');x.fillStyle=g;x.fillRect(-900,-600,W+1800,H+1200);
  const left=t>=C(17),hook=t<C(17);   // the hook shows only the new half (S2, S3); the payoff shows BEFORE and NOW side by side
- const ld=ldim(t);
- if(left){x.fillStyle=`rgba(201,184,224,${.25*ld})`;for(let y=120;y<960;y+=28)x.fillRect(888,y,4,14); // not setLineDash: its anti-aliasing differs between renders
-  const tt=1-fin(t,38.2,.3)*(1-fin(t,43.9,.3));txt(x,'BEFORE: CHATBOT',90,156,40,'#C9B8E0','left','700',tt);txt(x,'you carry everything by hand',90,204,28,'#C9B8E0','left','600',tt);txt(x,'NOW: CODING AGENT',960,156,40,'#FFC66E','left','700',tt)}
+ const L=left&&showL(t),R=showR(t);
+ if(L&&R){x.fillStyle='rgba(201,184,224,.25)';for(let y=120;y<960;y+=28)x.fillRect(888,y,4,14); // not setLineDash: its anti-aliasing differs between renders
+  }
+ if(L){txt(x,'BEFORE: CHATBOT',90,156,40,'#C9B8E0','left','700');txt(x,'you carry everything by hand',90,204,28,'#C9B8E0','left','600')}
+ if(left&&t<C(19))txt(x,'NOW: CODING AGENT',960,156,40,'#FFC66E','left','700');
  // one session: the box draws on from the left on "The whole visit is one session." (S20)
- const sb=ease(seg(t,42.0,42.9));if(sb>0){x.save();x.beginPath();x.rect(930,200,sb*990,640);x.clip();x.fillStyle='rgba(255,198,110,.06)';x.strokeStyle='#FFC66E';x.lineWidth=4;x.beginPath();x.roundRect(940,226,972,578,28);x.fill();x.stroke();x.restore();
+ const sb=ease(seg(t,42.0,42.9));if(sb>0&&R){x.save();x.beginPath();x.rect(930,200,sb*990,640);x.clip();x.fillStyle='rgba(255,198,110,.06)';x.strokeStyle='#FFC66E';x.lineWidth=4;x.beginPath();x.roundRect(940,226,972,578,28);x.fill();x.stroke();x.restore();
   const pl=fin(t,42.8,.3);if(pl>0){x.save();x.globalAlpha=pl;pill(x,1740,226,250,44,'#FFC66E');txt(x,'ONE SESSION',1740,228,24,'#1B1430','center','900');x.restore()}
   const ts=fin(t,43.0,.4);if(ts>0){x.save();x.globalAlpha=ts;x.fillStyle='rgba(255,198,110,.14)';x.beginPath();x.roundRect(1096,830,660,40,20);x.fill();for(let k=0;k<9;k++){x.fillStyle=k%3?'#2DB2AE':'#FF8F7A';x.fillRect(1116+k*14,846,10,8)}x.restore();txt(x,'every step · every result',1450,851,24,'#FFC66E','left','700',ts)}}
- if(left){ // before: he can only send text, so you are the messenger, down with the fix and up with the error
-  const yo=(1-fin(t,44.7,.5)),yl=yo*ld;
+ if(L){ // before: he can only send text, so you are the messenger, down with the fix and up with the error
+  const yl=1-fin(t,44.7,.5);
   arrow(x,'chat','you',1,'only text','#C9B8E0',4,[42,0],1,yl);arrow(x,'you','code',1,'paste, run','#C9B8E0',4,[42,0],1,yl);arrow(x,'code','you',1,'error','#FF8F7A',4,[-42,0],-1,yl);arrow(x,'you','chat',1,'ask again','#FF8F7A',4,[-42,0],-1,yl);
   const al=yl,cyc=(t*.62)%4,ci=Math.floor(cyc),cu=cyc-ci;
   if(ci==0)token(x,'chat','you',cu,'fix','#F8E9CC',[42,0],al);if(ci==1)token(x,'you','code',cu,'fix','#F8E9CC',[42,0],al);if(ci==2)token(x,'code','you',cu,'error','#FF8F7A',[-42,0],al);if(ci==3)token(x,'you','chat',cu,'error','#FF8F7A',[-42,0],al)}
  // now: one job in, then the agent goes round the loop itself
+ for(const id of ['chat','you','code'])if(L)node(x,id,t);
+ if(R){
  if(left){arrow(x,'you2','agent',1,'','#FFC66E',5);txt(x,'one job',1162,378,22,'#FFC66E','right','700');for(const id of ['you2'])node(x,id,t)}
  RING.forEach((id,i)=>arrow(x,id,RING[(i+1)%4],fin(t,6.6+i*.1,.3),i==3?'until done':'','#2DB2AE',5,[0,0],-1));
  for(const [t0,i] of LIT)token(x,RING[i],RING[(i+1)%4],seg(t,t0,t0+.3),'','#2DB2AE');
  for(const [t0,i] of [[38.9,0],[39.0,1],[39.1,2],[39.2,3]])token(x,RING[i],RING[(i+1)%4],seg(t,t0,t0+.35),'','#FFC66E');
  const lp=(t*.5)%4,li=Math.floor(lp);if(t>=C(17))token(x,RING[li],RING[(li+1)%4],lp-li,'','#2DB2AE',[0,0],.45);
- for(const id of ['chat','you','code'])if(left)node(x,id,t);
  for(const id of ['agent','read','edit','run','check'])node(x,id,t);
  // the loop closes: CHECK becomes a tick the second time round (S3), and a big amber "?" stays beside the ring
  if(hook)mark(x,1150-102+2,560-37+2,17,true,fin(t,8.35,.25));
  const qa=fin(t,8.55,.3);if(qa>0&&hook){x.save();x.globalAlpha=qa;x.translate(1865,395);x.scale(lerp(.5,1,qa),lerp(.5,1,qa));x.font='200px Impact, "Arial Black", sans-serif';x.textAlign='center';x.textBaseline='middle';x.lineJoin='round';x.lineWidth=34;x.strokeStyle='#120A1C';x.strokeText('?',0,0);x.fillStyle='#FFC66E';x.fillText('?',0,0);x.restore()}
  // the hook's numbers, said again in the payoff: 1 AGENT, 1 LOOP, 4 STEPS
- const bt=hook?6.03:38.22;if((hook&&t>=6.03)||t>=38.22){badge(x,1440,470,'1 AGENT',t,bt)}
- if(t>=38.85)badge(x,1700,690,'1 LOOP',t,38.85);if(t>=39.45)badge(x,1180,690,'4 STEPS',t,39.45);
+ const bt=hook?6.03:38.22;if((hook&&t>=6.03)||t>=38.22){badge(x,1440,470,'1 AGENT',t,bt,1,hook?1:1.25)}
+ if(t>=38.85)badge(x,1700,690,'1 LOOP',t,38.85,1,1.25);if(t>=39.45)badge(x,1180,690,'4 STEPS',t,39.45,1,1.25)}
  if(!nocomp)comp([['board',0]])}
 // S2: the studio on the left (dimmed, grey, still looping), the board's new half on the right, an amber "vs" between
 function drawSplit(t,cam){drawStudio(t,cam,false,HOOK);const x=ctx;x.save();x.setTransform(1,0,0,1,0,0);x.beginPath();x.rect(0,0,960,H);x.clip();
@@ -344,11 +348,11 @@ FILM={dur:59.9,cuts:CUTS,fadeIn:0,fadeOut:.45,
   {x:lerp(1130,1180,e),y:lerp(590,570,e),z:lerp(1.3,1.16,e),b:[2]},          // 14 it runs, and checks
   {x:lerp(930,960,e),y:lerp(455,445,e),z:lerp(2.3,2.55,e),b:[5]},            // 15 still broken?
   {x:lerp(940,975,e),y:lerp(505,495,e),z:lerp(1,1.09,e),b:[1]},              // 16 around again, until done
-  {x:lerp(960,1000,e),y:540,z:lerp(1,1.04,e)},                                // 17 board: the answer
-  {x:lerp(1470,1510,e),y:lerp(522,516,e),z:lerp(1.3,1.4,e)},                 // 18 board: one agent, one loop, four steps
+  {x:lerp(960,985,e),y:540,z:lerp(1,1.03,e)},                                 // 17 board: the answer (S17 + S18 keep both columns whole in frame for 4 s)
+  {x:lerp(950,985,e),y:540,z:lerp(.97,1.02,e)},                               // 18 board: one agent, one loop, four steps (still the full board)
   {x:lerp(1510,1500,e),y:516,z:lerp(1.4,1.36,e)},                            // 19 board: read, edit, run, check
-  {x:lerp(1500,1440,e),y:lerp(530,540,e),z:lerp(1.3,1.04,e)},                // 20 board: one session
-  {x:lerp(560,500,e),y:lerp(430,450,e),z:lerp(1.2,1.4,e)},                   // 21 board: you stop being the messenger
+  {x:lerp(1480,1440,e),y:lerp(530,540,e),z:lerp(1.3,1.18,e)},                // 20 board: one session (the right half only; the BEFORE half is hidden)
+  {x:lerp(500,470,e),y:lerp(480,500,e),z:lerp(1.15,1.3,e)},                  // 21 board: you stop being the messenger (the BEFORE half only, whole column in frame)
   {x:lerp(820,770,e),y:lerp(545,530,e),z:lerp(1.06,1.16,e),b:[2]},           // 22 you watch, and can stop it
   {x:lerp(1270,1280,e),y:lerp(480,490,e),z:lerp(1.62,1.72,e),b:[4,0,0]},     // 23 the test
   {x:lerp(850,862,e),y:lerp(480,470,e),z:lerp(1.3,1.42,e),b:[3]},            // 24 not a bigger brain

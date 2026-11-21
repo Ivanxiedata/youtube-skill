@@ -1,6 +1,6 @@
 1
 00:00:00,080 --> 00:00:02,043
-Coding agents, 60s:
+Coding agents, in 60 seconds:
 
 2
 00:00:02,043 --> 00:00:05,254
