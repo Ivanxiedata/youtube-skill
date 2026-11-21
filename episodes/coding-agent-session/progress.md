@@ -1,7 +1,7 @@
 # coding-agent-session progress
 
 ## Status
-v2 judged (ready, 0 must-fix); judge's should-fix S1, S3, S4, S5 fixed; S2 (hook "never stop") and the owner's step 7 next
+Published: public on the owner's channel since 2026-11-21 (https://youtu.be/4Oo6bGtOt7c), with captions and thumbnail (`published.json`).
 
 ## Next
 Steps 1-6 of `docs/workflow.md` are done for v2 (`evaluation.md`: ready to publish, 0 must-fix; the judge's should-fix S1, S3, S4, S5 are fixed and sit under Passed). The v1 video stays at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
@@ -67,3 +67,4 @@ none
 - 2026-11-21 ep-coding-agent-session: v2 steps 4-5: film.js rebuilt on beats.md (27 shots), full build (59.9 s, audit ISSUES 0), earshot measure/describe/timeline/sheet, thumbnail (LEARN / CODING AGENTS / IN 60 SECONDS), captions.srt, chapters, upload.json. Step 6 (judge) next.
 - 2026-11-21 ep-coding-agent-session: step 6, independent judge (did not make the episode): evaluation.md replaced, verdict ready to publish, 0 must-fix, 5 should-fix (hook picture labels the 4 steps before the payoff; "never stop" unsourced; description line 2 credits the 4-step drawing to named products; board framing; caption cue 1). Hook 100, title 80 with the thumbnail (100 alone), audit ISSUES 0 re-run, -17.1 LUFS, cut sync 64%. Not uploaded.
 - 2026-11-21 ep-coding-agent-session: judge fixes S1, S3, S4, S5 (hook chips "?", full board held 4 s and one half at a time, description line 2, caption 1); `film.js`, `captions.srt`, `upload.json`, `package.md`, `evaluation.md`; rebuilt shots 2, 3, 17-21, audit ISSUES 0, 59.9 s, -17.1 LUFS. Not uploaded. S2 still open. Fix commit `b00869f`.
+- 2026-11-21 ep-coding-agent-session: owner said publish all; uploaded v2 as public with `yt upload --privacy public --confirm`; thumbnail and captions accepted; plays publicly.
