@@ -1,15 +1,26 @@
 # coding-agent-session progress
 
 ## Status
-Cut 3 rendered (59.5 s, 33 shots, title card 0-2.1 s "LEARN / CODING AGENTS / IN 60 SECONDS"; owner-approved hook, hookscore 100; audit ISSUES 0), packaged and self-evaluated; not uploaded, waiting for the owner.
+v2 steps 1-3 done; steps 4-5 next
 
 ## Next
-1. Owner watches `video.mp4` and listens once (the agent cannot hear; earshot only measures), and looks at `thumbnail.png`.
-2. Owner merges the PR into develop, then uploads with `yt upload` (private) when happy; this branch never uploads.
-3. Optional should-fix rows in `evaluation.md`: soft sounds on the 5 cuts without a hit; music 4 dB lower if it competes (`MUSIC_DB = -17.5`, `build.py --audio-only`).
-4. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
-   `python scripts/music.py get efa007f6-a5fe-420c-a1a6-8d5dafa95005 film/music.mp3`, `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`,
-   then `build.py film --out coding-agent-session.mp4` from this folder; thumbnail: `python film/thumb.py thumbnail.png`.
+v2 follows `docs/workflow.md` (PR #11, worktree `youtube-skill-workflow-v2`). Steps 1-3 are done: `research.md` + `brief.json` (re-checked), `package.md` (title, thumbnail text, searches), `beats.md` (27 shots, every ON SCREEN), `script.md`, `film/script.txt`.
+The voice is already made (`film/vo.wav`, `vo.mp3`, `vo_lines.json`, `align_est.json`; 58.21 s file, last word ends 57.91 s; lay it in at .08 s). The v1 video is kept at `/Users/ivanxie/orca/youtube-skill-originals/coding-agent-session/` and tag `ep-coding-agent-session-v1`.
+1. Step 4, the film (renderer): rebuild `film/film.js` from `beats.md`, shot by shot, with times in film time (voice + .08) written directly. Drop v1's MAP (`KH`, `KL`, `oldT`, `newT`): it maps cut 1's picture to cut 3's voice and no longer applies. What changes from v1:
+   - S0 title card: unchanged ("LEARN / CODING AGENTS / IN 60 SECONDS", 0-2.1 s). Corner tag text "Coding-agent session" -> "Coding agents" (`cornerTag()`), every frame.
+   - S1-S3 hook (2.1-9.15 s): new. v1 showed the garage phone under the hook; v2 shows the studio paste loop (BEFORE: CHATBOT), then a split screen with "vs" and the 4-step ring (1 AGENT, READ/EDIT/RUN/CHECK lit one per word), then CHECK ticks and an amber "?". Build it from v1's `win()`, `token()` and the board's ring `node()`s.
+   - S4 turn (9.15-11.9 s): new line "Here's how, in one story: a mechanic." over a garage wide shot (v1's wide garage framing).
+   - S5-S8 before: as v1 (phone close-up, bubbles, studio chat -> code -> error back), retimed; chips say "chatbot", not "chat assistant"; "line 42" removed; v1's "Again and again." beat (the "again" bubbles) is cut.
+   - S9-S16 new: as v1 (mechanic walks in, toolbox, one terminal job, the READ/EDIT/RUN/CHECK chip bar in the garage, the failed check, the loop again, the tick), retimed to the new lines; no "3 files" or "1 failed" on screen.
+   - S17-S20 payoff: v1's board relabelled: left "BEFORE: CHATBOT" (node "Chatbot"), right "NOW: CODING AGENT"; a "THE ANSWER" chip; the badges "1 AGENT", "1 LOOP", "4 STEPS" pop on their words; ring nodes light on "Read, edit, run, check."; the ONE SESSION box draws on "The whole visit is one session." (in v1 it was always there).
+   - S21 new (board: the BEFORE "You", "the messenger", fades). S22 as v1 (the raised hand, "wait!").
+   - S23 the terminal test row red "failed" -> teal "passed" (no count). S24-S25 the takeaway card, same two lines as v1. v1's "But notice what changed." and "That is what makes it an agent." are cut.
+   - S26 outro: as v1 (red Subscribe button, "Next in 60 seconds: what are Agent Skills?"), held to 59.9 s.
+   - A sound on every cut (v1 had 5 cuts without one). Music, audio_mix gains and the voice offset as v1.
+   - `build.py` until the audit says `ISSUES 0`, at most 60 s; copy to `video.mp4`; earshot `measure`, `describe`, `timeline --video`, `sheet`.
+2. Step 4, the thumbnail: `film/thumb.js` text "LEARN THE / CODING-AGENT SESSION / IN 60 SECONDS" -> "LEARN / CODING AGENTS / IN 60 SECONDS" (`package.md`); same mascot and picture; check at 160 px wide.
+3. Step 5: `captions.srt` from the new `film/vo_lines.json` (+.08 s); `/yt-chapters`; `upload.json`: title "Coding Agent vs Chatbot: 1 Loop, 4 Steps", the description's first two lines from `package.md`, the invented-examples line updated to "fix the failing test", "Error: it still fails", "passed".
+4. Step 6: a fresh judge (`docs/roles/evaluator.md`) writes `evaluation.md`. Score the hook on `script.md`'s first sentence as written (digits): 100. The spoken form scores 63 only because hookscore counts digits, not number words.
 
 ## Blockers
 none
@@ -30,6 +41,15 @@ none
 - 2026-11-21: Cut 3 timing: the new hook is 0.95 s longer, so two later lines lost words (not the hook): "paste his fix into your code, run it" -> "paste his fix, run it" and "mechanic standing in your garage" -> "mechanic in your garage" (-1.26 s), net -0.3 s, film 59.5 s. `film.js` MAP is now two knot tables (KH hook region, KL one knot per line start, generated from the old and new `vo_lines.json`, picture frame = (old start + .28) * 30, film frame = (new start + .08) * 30); cut frames come from KL, the shortened lines squeeze their shots 1.1-1.2x. The title "Your AI Chatbot Is a Mechanic on the Phone" and its upload.json first chapter were written for the old hook; the title is unchanged (owner's call), the chapter 0:00 text was reworded.
 - 2026-11-21: Evaluation written by the maker (the brief asked for it); the role prefers another agent, said at the top of `evaluation.md`.
 
+- 2026-11-21 (v2): Research re-checked against the makers' pages (glossary, How Claude Code works, Codex README and docs, VS Code blog): every fact still holds. Fixed: the Codex quotes were not the pages' words, so they now quote the pages exactly. Added a "Numbers said in the video" table: "4 steps" is our drawing of the loop, and every step word comes from the makers. Anthropic itself names three phases, and `research.md` says so.
+- 2026-11-21 (v2): Story kept: the mechanic on the phone vs in your garage. Everyone knows it, it maps one to one onto the docs (talk only = text only; tools = hands; look, turn, start, listen = read, edit, run, check), and the garage is already built. I found no clearly stronger one: remote IT support is too close to the tech to be a story, and the kitchen is Agent Skills' story.
+- 2026-11-21 (v2): Title "Coding Agent vs Chatbot: 1 Loop, 4 Steps" (100 alone, 80 with the brand card; the only issues are the topic's name and the card length, both allowed). Top of 10 on patterns A, B, E, F. v1's title scored 84 as a pair but never named the topic.
+- 2026-11-21 (v2): Topic wording "Coding agents" everywhere (title card, thumbnail, corner tag, hook), because that is what people search and what cut 3's card already said. "Session" stays as one spoken line and the ONE SESSION box: it is the episode's subject, but too unknown a word to sell it.
+- 2026-11-21 (v2): Hook changed from the owner's v1 hook (both score 100) to "Coding agents, 60s: before, you paste your chatbot's code and never stop, but how does 1 agent loop 4 steps until you're done?". It names the chatbot, which is the title's before, says "before" outright, and drops "you lose hours", a claim with no source. The owner's hook is the runner-up in `beats.md`. To swap it back, re-voice line 1 only.
+- 2026-11-21 (v2): Added what v1 lacked under the workflow: a turn by about 10 s ("Here's how, in one story: a mechanic.", 9.2-11.4 s), a hook that shows the payoff exists (the split-screen ring, shot 2), and a payoff said out loud ("That's the answer I promised: one agent, one loop, four steps. Read, edit, run, check."), shown on the board.
+- 2026-11-21 (v2): Length. The first draft's voice was 60.02 s, so I cut "Again and again.", "But notice what changed." and "That is what makes it an agent." and shortened the turn. Now 179 words, last word 57.91 s (57.99 s in the film), which leaves about 1.9 s of end card after the voice.
+- 2026-11-21 (v2): No number on screen except the sourced counts (1 agent, 1 loop, 4 steps): v1's "3 files", "1 failed" and "line 42" are dropped. The invented example words stay and are named in the description.
+
 ## Log
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-20 ep-coding-agent-session: claimed; research from the makers' docs; hooks scored; script.md; voice (am_michael 1.2, --no-align); music fetched.
@@ -37,3 +57,4 @@ none
 - 2026-11-21 ep-coding-agent-session: research.md, brief.json, thumbnail (160 px checked), captions.srt, upload.json (title 84/100), earshot measure/describe/timeline/sheet, evaluation.md (ready, no must-fix). Not uploaded.
 - 2026-11-21 ep-coding-agent-session: cut 2, topic in the first second: new first line, title card, re-voice (22 lines), film.js time map, full rebuild (audit ISSUES 0), captions.srt, evaluation.md (hook, new passed row, loudness), PR #8 updated.
 - 2026-11-21 ep-coding-agent-session: cut 3: owner's new hook (hookscore 100), title card LEARN / CODING AGENTS / IN 60 SECONDS to 2.1 s, re-voice (hook + 2 trimmed lines), film.js knot map, full rebuild (59.5 s, audit ISSUES 0), captions.srt, upload.json chapter 0:00 text, evaluation.md.
+- 2026-11-21 ep-coding-agent-session: v2 steps 1-3: research re-checked (Codex quotes fixed, numbers table), package.md (10 titles, chosen "Coding Agent vs Chatbot: 1 Loop, 4 Steps"), hooks scored (new hook 100), beats.md (27 shots), script.md, film/script.txt, voice re-made (57.91 s); film.js not touched.

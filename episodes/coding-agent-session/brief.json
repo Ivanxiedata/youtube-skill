@@ -8,20 +8,32 @@
   },
   "predecessor": {
     "id": "chat-assistant",
-    "name": "Chat assistant (and autocomplete): you copy code back and forth"
+    "name": "Chatbot (chat assistant), and before it autocomplete: you copy code back and forth"
   },
   "sections": {
     "hook": {
-      "text": "You would never fix your car with the mechanic on the phone, but that is how you code with an AI chatbot. A coding-agent session fixes that.",
+      "text": "Coding agents, 60s: before, you paste your chatbot's code and never stop, but how does 1 agent loop 4 steps until you're done? Here's how, in one story: a mechanic.",
       "claims": [
         {
           "text": "Chat-based assistants only respond with text you must apply yourself.",
           "source": "https://code.claude.com/docs/en/glossary"
+        },
+        {
+          "text": "One agent works in one loop (gather context, take action, verify results, repeat until done).",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "text": "The video's 4 steps (read, edit, run, check) are the makers' own words for what the loop does: read your code, edit files, run commands, verify results.",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "text": "Copilot agent mode reads relevant files, proposes file edits, runs terminal commands and tests, and auto-corrects in a loop until the task is completed.",
+          "source": "https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode"
         }
       ]
     },
     "before": {
-      "text": "A chat assistant is the mechanic on the phone: it can only talk, so you paste its fix, run it, and carry the error back.",
+      "text": "A chatbot is the mechanic on the phone. He can only talk. So you paste his fix, run it, and carry the error back to him.",
       "claims": [
         {
           "text": "Without tools, the model can only respond with text.",
@@ -34,26 +46,26 @@
       ]
     },
     "new": {
-      "text": "A coding agent is the mechanic in your garage, with tools. You give it one job in your terminal or editor; it reads files, edits code, runs a command and checks the result, and goes around again until done. The whole visit, every step and result, is one session.",
+      "text": "A coding agent is the same mechanic, in your garage, with tools. You give it one job, in your terminal or editor. It reads your files, edits the code, runs a command and checks the result; still broken, it goes around again until the job is done. That's the answer: one agent, one loop, four steps (read, edit, run, check). The whole visit is one session.",
       "claims": [
         {
-          "text": "The agentic loop: gather context, take action, verify results, repeat until done; tools read code, edit files, run commands.",
+          "text": "The agentic loop: gather context, take action, verify results, repeat until done; tools read your code, edit files, run commands.",
           "source": "https://code.claude.com/docs/en/how-claude-code-works"
         },
         {
-          "text": "Claude Code runs in the terminal, IDE extensions, desktop and web; the loop is the same everywhere.",
+          "text": "Claude Code runs in the terminal, IDE extensions, the desktop app and the web; the agentic loop is identical everywhere.",
           "source": "https://code.claude.com/docs/en/how-claude-code-works"
         },
         {
-          "text": "A session is a conversation tied to your directory; each message, tool use and result is written to its transcript.",
+          "text": "A session is a conversation tied to your current directory; each message, tool use and result is written to its transcript.",
           "source": "https://code.claude.com/docs/en/glossary"
         },
         {
-          "text": "Codex CLI: inspect files, make edits, run tools in one focused loop, in your terminal.",
+          "text": "Codex CLI: inspect files, make edits, and run the tools already installed on your machine; one focused terminal loop.",
           "source": "https://learn.chatgpt.com/docs/codex/cli"
         },
         {
-          "text": "Copilot agent mode reads files, edits, runs terminal commands and tests, and auto-corrects in a loop until the task is completed.",
+          "text": "Copilot agent mode auto-corrects in a loop until the task is completed.",
           "source": "https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode"
         }
       ]
@@ -72,14 +84,14 @@
       ]
     },
     "takeaway": {
-      "text": "It can still be wrong, so give it a test to run. The model did not get a bigger brain: it got tools (hands) and a way to check its own work.",
+      "text": "It can still be wrong, so give it a test to run. The mechanic did not get a bigger brain: he got hands (tools) and a way to check his own work.",
       "claims": [
         {
           "text": "The agentic loop is powered by models that reason and tools that act; the harness provides the tools.",
           "source": "https://code.claude.com/docs/en/how-claude-code-works"
         },
         {
-          "text": "Verification loop: give it a check it can run so it iterates until the check passes.",
+          "text": "Verification loop: without a check it can run, the agent may accept a result that only looks plausible; with one, it iterates until the check passes.",
           "source": "https://code.claude.com/docs/en/glossary"
         }
       ]
@@ -94,7 +106,7 @@
       "nodes": [
         {
           "id": "chat",
-          "label": "Chat assistant"
+          "label": "Chatbot"
         },
         {
           "id": "you",
