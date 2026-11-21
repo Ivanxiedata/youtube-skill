@@ -43,3 +43,4 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-21 brand-evaluate-feedback: PRs #2 (upload) and #3 (Episode 0) merged; Status and Next rewritten for after Episode 0.
 - 2026-11-21 sonnet-subagents: AGENTS.md Workflow 9: easy tasks on a cheaper model, with what counts as easy and hard.
 - 2026-11-21 workflow-v2: `docs/workflow.md` (goal, map, steps 1-7 with skill, tool, output, gate and model; weekly; after publishing; deviations), evaluator role rewritten as a 20-row checklist from the skills' rules, `AGENTS.md` points to it, `make new-episode` starts with the steps. Includes the topic-first rule (PR #10).
+- 2026-11-21 workflow-v2: first weekly `/yt-viral` study (`docs/studies/2026-11-21-yt-viral.md`): 681 videos from 10 channels; top titles name one plain subject first, then bound the promise.
