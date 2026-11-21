@@ -4,17 +4,16 @@
 `yt upload` works against real YouTube: Episode 0 is uploaded with captions and thumbnail, and the owner made it public in Studio on 2026-11-21. Open: app still in Testing (7-day sign-in), 3 unbuilt criteria.
 
 ## Next
-1. Owner: apply for the API audit (https://support.google.com/youtube/contact/yt_api_form). Until it passes, API uploads can't be made public.
-2. Owner or agent: publish the OAuth app. In Google Auth Platform > Audience, "Publish app" is greyed out with "complete your configuration on the Branding page"
-   (app name and emails are set, so it probably wants a home page and privacy policy link). Until then the app is in Testing and the sign-in expires after 7 days:
-   when uploads fail with a sign-in error, run `go run ./cmd/yt upload <episode-dir> --login`.
-3. Check in YouTube Studio whether Episode 0 shows "private (locked)", and whether the lock lifts after the audit (spec open question 3).
-4. Build the unticked criteria in the spec: `yt check` gate (needs `episode`), resume across runs, the remaining error one-liners.
-5. Owner merges PR #2.
-6. Owner: verify the channel's phone number (https://www.youtube.com/verify). Until then `thumbnails.set` answers 403 and the thumbnail must be set by hand in Studio.
+1. Optional, owner's call: publish the OAuth app so the sign-in stops expiring every 7 days. In Google Auth Platform > Audience, "Publish app" stays greyed out with
+   "complete your configuration on the Branding page". Checked 2026-11-21: app name and both emails are set; the empty fields are Application home page, privacy policy link,
+   terms of service link and Authorized domains, so it probably wants a home page and a privacy policy on a domain the owner lists. Not tried.
+   Until then, when an upload fails with a sign-in error, run `go run ./cmd/yt upload <episode-dir> --login` and click through the sign-in (about 30 seconds).
+2. The API audit form (https://support.google.com/youtube/contact/yt_api_form) is NOT needed today: Episode 0 was uploaded through the unaudited project and the owner made it public;
+   it plays publicly without sign-in (checked 2026-11-21). File the form only if a later upload gets locked private or the daily quota runs out.
+3. Build the unticked criteria in the spec: `yt check` gate (needs `episode`), resume across runs, the remaining error one-liners.
 
 ## Blockers
-API audit approval before any API-uploaded video can be public (owner files the form).
+None.
 
 ## Decisions
 - 2026-11-20: Upload through the YouTube Data API (owner chose option B over manual upload), because publishing should be one command.
@@ -41,3 +40,4 @@ API audit approval before any API-uploaded video can be public (owner files the 
 - 2026-11-21 upload-feature: `yt upload` also sets `thumbnail.png` and uploads `captions.srt`; 10 tests against the fake.
 - 2026-11-21 upload-feature: second real run (`--again`): video and captions uploaded; the thumbnail was refused (403, channel not verified for custom thumbnails) and reported without failing the run; the error now says how to fix it.
 - 2026-11-21 upload-feature: `yt upload <dir> --thumbnail` added (11 tests) and used: thumbnail set on Episode 0 after the owner verified the channel.
+- 2026-11-21 upload-audit-facts: Next and Blockers corrected after PRs #2-#4 merged: the audit is not blocking (Episode 0 is public), the channel is verified, the 7-day sign-in and the audit form are two separate things.
