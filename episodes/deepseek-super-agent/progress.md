@@ -1,12 +1,11 @@
 # deepseek-super-agent progress
 
 ## Status
-Cut 5 is on YouTube as private with captions (`published.json`). The local `video.mp4` is newer: same picture, new music ("Blue Sky", CC0); not uploaded. 1 must-fix left, for the owner (thumbnail: channel unverified).
+The final cut (cut 5 picture, "Blue Sky" music) is on YouTube as private with captions since 2026-11-21 (`published.json`). 1 must-fix left, for the owner (thumbnail: channel unverified).
 
 ## Next
-0. Owner decides whether to upload the newer `video.mp4` (new music) again; it would be a third video on the channel, so the two older ones should be deleted in Studio.
 1. Owner: verify the channel at https://www.youtube.com/verify, then set `thumbnail.png` on the video in YouTube Studio (the API refused it).
-2. Owner: delete the first upload in YouTube Studio (cut 4, video id `CYSE9zRA4Xg`, private); the current video is in `published.json`.
+2. Owner: delete the two older uploads in YouTube Studio, both private: `CYSE9zRA4Xg` (cut 4) and `jnJN0d45uy4` (cut 5 with the old music). The current video is in `published.json`.
 3. Owner: listen to the music and voice; confirm or change the title the agent picked ("Why You Can Only Run 5 AI Agents (Napoleon's Fix)").
 4. Going public: the API project is unaudited, so this upload may be locked private (see `upload/progress.md` on `upload-feature`); uploading `video.mp4` by hand in Studio is the other way.
 5. Rebuild from git if needed: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
@@ -82,3 +81,4 @@ none
 - 2026-11-21 ep-super-agent: thumbnail v3 (promise + brand sticker), `evaluation.md` scorecard, `captions.srt`, description first lines, hashtags and tags fixed in `upload.json`.
 - 2026-11-21 ep-super-agent: cut 5 (new hook and opening, corner tag, brand ending) rendered, audit 0 issues; uploaded as private with captions; thumbnail refused by YouTube (channel not verified); `evaluation.md` redone.
 - 2026-11-21 ep-super-agent: music replaced with "Blue Sky" (CC0, via Openverse), mixed 16 dB under the voice (audio-only rebuild, audit 0 issues); sound rows of `evaluation.md` redone with earshot; credit added to `upload.json`. Not uploaded.
+- 2026-11-21 ep-super-agent: owner approved the new music ("this is perfect"); uploaded as private with captions (third upload); the thumbnail was refused again (channel unverified).

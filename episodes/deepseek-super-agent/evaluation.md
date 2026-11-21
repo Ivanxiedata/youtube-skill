@@ -2,7 +2,7 @@
 
 Done by hand on 2026-11-21 with the youtube-agent skill's tools, as the dry run for the `evaluate` feature.
 Verdict: **not ready: 1 must-fix, and it needs the owner** (the thumbnail can't be set until the channel is verified).
-The sound rows were re-done on 2026-11-21 by listening with earshot (`measure`, `describe`, `timeline`, `sheet`); the copy on YouTube still has the old code-made music.
+The sound rows were re-done on 2026-11-21 by listening with earshot (`measure`, `describe`, `timeline`, `sheet`); this is the version now on YouTube.
 The three must-fix rows found on cut 4 are fixed. The scores are the tools' own; a low score is a reason to look again, not proof.
 
 ## Must fix
