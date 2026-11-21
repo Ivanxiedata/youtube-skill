@@ -40,6 +40,8 @@ actually understand it: how it works, not just its name.
 Pace: a new shot about every 2-3 seconds (Episode 0's first cut averaged 6 and felt slow).
 Sound: voice, quiet instrumental music (no lyrics, about 16 dB under the voice) and a few sampled effects; no room tone or other noise bed.
 Captions: upload `script.md` as the video's captions (packaging step).
+Thumbnail: the headline names the topic and the picture shows the lesson (Episode 0: YOU -> ROUTER -> AI WORKERS), so a viewer knows
+what they will learn before clicking. A hook that could sit on any video is too generic. Drawn from code with the film's characters.
 
 ## Skills used
 | Skill | Repo | Role |

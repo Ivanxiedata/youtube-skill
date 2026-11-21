@@ -38,9 +38,10 @@ none
 - 2026-11-20: Cut 4, because the owner asked for a call to action at the end: spoken "Subscribe for the next one." plus a Subscribe button on screen.
   To stay at 60 s, the pause before the takeaway is a line break (0.5 s) instead of a paragraph break (0.95 s); only the last five shots were retimed.
 - 2026-11-21: Thumbnail drawn from code with the film's rig (`film/thumb.js`), not an AI image generator, because the product renders visuals from code.
-  Idea: the general, shocked, in front of an army whose heads are screens asking "?". Text "YOU'RE THE BOTTLENECK." (3 words, a verdict about the viewer, different words from the title).
-  Rules applied (stickman packaging playbook + `yt-package`): one idea, three elements, big face with an exaggerated expression, dark ground with one light,
-  text top-right in heavy caps with one accent colour, nothing important bottom-right (duration badge), checked readable at 160 px wide.
+- 2026-11-21: Thumbnail v2, because the owner rejected v1 ("YOU'RE THE BOTTLENECK." over a shocked general) as too generic: a viewer couldn't tell the topic.
+  Owner's rule: the thumbnail must show what the viewer will learn. So the headline is the topic (DEEPSEEK SUPER-AGENT) and the picture is the lesson:
+  YOU (the general) -> ROUTER (the chief of staff) -> AI WORKERS (soldiers with screens for heads). This overrides the guides' "don't repeat the title" and "3 words" rules.
+  Kept from the guides: big face with a readable emotion, dark ground with one light, heavy caps with one accent colour, checked at 160 px wide, bottom-right left unimportant.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -65,4 +66,4 @@ none
 - 2026-11-20 ep-super-agent: cut 4: call to action at the end (voice + Subscribe button); audit 0 issues.
 - 2026-11-20 ep-super-agent: `upload.json` written; final cut copied to `video.mp4` for `yt upload`.
 - 2026-11-21 ep-super-agent: uploaded as private with `yt upload --confirm` (video id in `published.json`).
-- 2026-11-21 ep-super-agent: thumbnail made (`thumbnail.png`, 1280x720, 614 KB) from `film/thumb.js`; not yet set on the video.
+- 2026-11-21 ep-super-agent: thumbnail made (`thumbnail.png`, 1280x720) from `film/thumb.js`; v2 names the topic and shows YOU -> ROUTER -> AI WORKERS; not yet set on the video.
