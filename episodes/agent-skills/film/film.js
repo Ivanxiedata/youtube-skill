@@ -33,6 +33,21 @@ function toque(x,p){x.save();headT(x,p);x.fillStyle='#FFF6E6';
 function cap(x,p){x.save();headT(x,p);x.fillStyle='#2DB2AE';x.beginPath();x.moveTo(-88,-56);x.quadraticCurveTo(-92,-150,0,-150);x.quadraticCurveTo(92,-150,88,-56);x.closePath();x.fill();
  x.fillStyle='#187E86';x.beginPath();x.roundRect(-90,-74,180,24,8);x.fill();x.restore()}
 
+// the AI agent (the cook) is not a person: a dark rounded screen for a head, glowing eyes and mouth (coral when overloaded, teal when calm).
+// Drawn after actor() (noFace) and before cap(), in the head's own transform, so the cook keeps his body and cap; hands are a light steel, not skin.
+const COOK=Object.assign({},FRIEND,{skin:'#2B2750',hand:'#9C8FB5'});
+function screenHead(x,p){x.save();headT(x,p);const g=p.glow||'#5FE0D6',lk=p.look||0,ly=p.lookY||0,fx=lk*38,fy=ly*14+10,bl=p.blink||0;
+ x.fillStyle='#6E5D8E';x.beginPath();x.roundRect(-114,-22,26,52,9);x.roundRect(88,-22,26,52,9);x.fill();
+ rr(x,-98,-84,196,180,24,'#2B2750','#6E5D8E',5);rr(x,-84,-70,168,152,14,'#0C0A24');
+ x.fillStyle='rgba(95,224,214,.07)';for(let y=-48;y<80;y+=10)x.fillRect(-84,y,168,3);
+ x.fillStyle=g;x.strokeStyle=g;x.lineCap='round';
+ for(let i=0;i<2;i++){const e=(i?32:-32)+fx*(i?1.1:.9),hgt=bl>.5?6:26*(1-bl*1.4)+4;
+  x.globalAlpha=.25;x.beginPath();x.roundRect(e-17,fy-hgt/2-8,34,hgt+16,17);x.fill();x.globalAlpha=1;
+  x.beginPath();x.roundRect(e-(bl>.5?14:9),fy-hgt/2,bl>.5?28:18,hgt,bl>.5?3:9);x.fill();
+  const by=fy-38-(p.brow||0)*6,sl=(p.sad||0)*9*(i?-1:1);x.lineWidth=6;x.beginPath();x.moveTo(e-15,by+sl);x.lineTo(e+15,by-sl);x.stroke()}
+ const m=p.mouth||0,my=fy+42,mx=fx*.9;x.lineWidth=7;x.beginPath();x.moveTo(mx-24,my-m*5);x.quadraticCurveTo(mx,my+m*22,mx+24,my-m*5);x.stroke();
+ x.restore()}
+
 // ---------- kitchen: head chef (you) on the left, the cook on the right, one counter ----------
 const CY=780,BX=1010,TABN=['EGG','SOUP','CAKE','RICE','PIE'];
 const T_SLAM=T(6),T_FIX=T(10),T_SHELF=T_FIX+.68,T_BOX=T_FIX+.7;
@@ -110,7 +125,7 @@ function chefPose(t){const s=SH(t),ok=t>=T_FIX;
 // the cook: worn out by the binder before the fix, calm with the recipe box after
 function cookPose(t){const s=SH(t),ok=t>=T_FIX,sc=scan(t);
  const p={x:1290,y:575,s:.8,face:-1,noLegs:true,breath:t*2+1,blink:blinkAt(t,[.9,2.9,11.6,15.6,18.8,22.6,24.9,27.7,52.9,56.2]),
-  look:-.8,lookY:.3,brow:.15,sad:0,mouth:.5,tilt:-.03};
+  look:-.8,lookY:.3,brow:.15,sad:0,mouth:.5,tilt:-.03,noFace:true,glow:ok?'#5FE0D6':'#FF8F7A'};
  if(!ok){Object.assign(p,{brow:.6,sad:.7,mouth:-.45,tilt:.07,look:-.75+.16*Math.sin(t*3.1),lookY:s>=6?.75:.2});
   if(s==8){ // he flips the pages with his near hand
    Object.assign(p,{hands:{l:[-162+6*Math.sin(t*21),132+10*Math.abs(Math.sin(t*10.6))]},showH:{l:true},tuck:{l:true}})}}
@@ -128,7 +143,7 @@ function cookPose(t){const s=SH(t),ok=t>=T_FIX,sc=scan(t);
  return p}
 function drawKitchen(t,cam){const b=cam.b||[2,0];let x=layer('wall',cam,1);kitWall(x,t);
  const a=layer('lamp',cam);pendant(a,300,t,.06);pendant(a,1240,t,.06);
- const h=layer('hero',cam);toque(h,actor(h,'chef',HERO,chefPose(t),cam));cap(h,actor(h,'cook',FRIEND,cookPose(t),cam));
+ const h=layer('hero',cam);toque(h,actor(h,'chef',HERO,chefPose(t),cam));{const cp=actor(h,'cook',COOK,cookPose(t),cam);screenHead(h,cp);cap(h,cp)}
  const f=layer('fg',cam);counter(f);stove(f,t);
  if(t>=T_SLAM&&t<T_FIX)bigBinder(f,t);
  if(t>=T_FIX&&t<T_SHELF){const e=ease(seg(t,T_FIX+.03,T_SHELF));closedBinder(f,lerp(850,620,e),lerp(CY-78,164,e),lerp(300,262,e),lerp(78,68,e))}
@@ -163,13 +178,14 @@ function agentScreen(x,t){const {cx,w,h}=SCR,by=DESK_Y,top=by-30-h,l=cx-w/2,s=SH
   else MORE.slice(0,10).forEach((n,i)=>{const y=sy+72+i*33,a=fin(t,T(23)+.1+i*.1,.2);if(a<=0)return;x.save();x.globalAlpha*=a;
    pill(x,sx+110,y,190,26,'#FFC66E');txt(x,n,sx+110,y+1,16,'#1B1430','center','800');x.fillStyle='rgba(201,184,224,.45)';x.fillRect(sx+226,y-4,(sw-340)*(.5+.5*hash(i,7)),8);x.restore()})}
  // the context meter
- let f;if(s==1)f=.18+.3*seg(t,T(1),T(2));else if(s==2)f=.48+.52*ease(seg(t,3.9,4.8));else if(s==3)f=lerp(1,.14,ease(seg(t,T(3)+.2,T(3)+1.2)));else if(s==23)f=.22+.02*Math.sin(t*2);else f=.14+.02*Math.sin(t*2);
+ let f;if(s==1)f=.18+.3*seg(t,T(1),T(2));else if(s==2)f=.48+.37*ease(seg(t,3.9,4.8));else if(s==3)f=lerp(.85,.14,ease(seg(t,T(3)+.2,T(3)+1.2)));else if(s==23)f=.22+.02*Math.sin(t*2);else f=.14+.02*Math.sin(t*2);
  const tu=s==3?ease(seg(t,T(3)+.2,T(3)+1.2)):s>3?1:0,col=mixc('#FF6B5E','#2DB2AE',tu);
  x.fillStyle='rgba(201,184,224,.18)';x.fillRect(mx,sy+62,40,mh);x.fillStyle=col;x.fillRect(mx,sy+62+mh*(1-f),40,mh*f);
- txt(x,'context',mx+20,sy+36,16,'#C9B8E0','center','700');txt(x,f>.97?'FULL':tu>.6?'free':'filling',mx+20,sy+sh-26,18,f>.97?'#FF8F7A':tu>.6?'#2DB2AE':'#C9B8E0','center','800');
+ txt(x,'context',mx+20,sy+36,16,'#C9B8E0','center','700');if(f>.8&&tu<.6){txt(x,'EVERY RULE,',mx+20,sy+sh-40,13,'#FF8F7A','center','800');txt(x,'EVERY TASK',mx+20,sy+sh-22,13,'#FF8F7A','center','800')} // what fills it, as the sources say
+ else txt(x,tu>.6?'free':'filling',mx+20,sy+sh-26,18,tu>.6?'#2DB2AE':'#C9B8E0','center','800');
  if(s==2){ // the task arrives, then the whole prompt pours into the context
   const ta=ease(seg(t,T(2)+.05,T(2)+.4));bubble(x,sx+470,lerp(sy-30,sy+27,ta),'task','#FFC66E',Math.min(1,ta*3),22);
-  for(let i=0;i<6;i++)tokenP(x,[sx+134,sy+80+i*50],[mx+20,sy+62+mh*(1-f)+10],seg(t,3.9+i*.14,3.9+i*.14+.55),RULES[i],'#FF8F7A',16)}
+  for(let i=0;i<6;i++)tokenP(x,[sx+134,sy+80+i*50],[mx-60,sy+62+mh*(1-f)+10],seg(t,3.9+i*.14,3.9+i*.14+.45),RULES[i],'#FF8F7A',16)}
  x.restore()}
 function heroPose(t){const s=SH(t),late=s>=3;
  const p={x:430,y:560,s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[2.6,6.6,8.9,45.6,47.4]),
@@ -193,7 +209,7 @@ function arrowP(x,P,Q,p,lab,col='#C9B8E0',wd=4){if(p<=0)return;const E=[lerp(P[0
  if(lab)txt(x,lab,(P[0]+Q[0])/2,(P[1]+Q[1])/2-22,19,col,'center','700',ease(seg(p,.6,1)))}
 function tokenP(x,P,Q,u,lab,col,size=18){if(u<=0||u>=1)return;const e=easeIO(u);bubble(x,lerp(P[0],Q[0],e),lerp(P[1],Q[1],e),lab,col,Math.min(1,u*6,(1-u)*6),size)}
 function agentNode(x,X,Y,t,like){rr(x,X-130,Y-48,260,96,16,'#2A1F42','#6E5D8E',3);x.save();x.beginPath();x.roundRect(X-130,Y-48,260,96,16);x.clip();
- drawPerson(x,FRIEND,{x:X-82,y:Y-16,s:.16,face:1,noLegs:true,breath:t*2+X,blink:blinkAt(t,[X%7+30,X%5+38,X%9+47]),mouth:.6,look:.5,lookY:.4});x.restore();
+ const q={x:X-82,y:Y-16,s:.16,face:1,noLegs:true,breath:t*2+X,blink:blinkAt(t,[X%7+30,X%5+38,X%9+47]),mouth:.6,look:.5,lookY:.4,noFace:true,glow:like?'#5FE0D6':'#FF8F7A'};drawPerson(x,COOK,q);screenHead(x,q);x.restore();
  txt(x,'Agent',X+28,Y+2,30,'#F8E9CC','center','700');if(like)txt(x,like,X-124,Y-70,22,'#C9B8E0','left','600');x.fillStyle='#6E5D8E';x.fillRect(X-2,Y+48,4,62)}
 // a skill's name (+ description), as it sits in the agent's context; tg = the "~100 tokens" tag, hot = the match outline, dy = drop-in offset
 function chip(x,l,y,name,a,hot=0,tg=0,dy=0){if(a<=0)return;x.save();x.globalAlpha*=a;y+=dy;rr(x,l,y-19,290,38,10,'#3A2C58');if(hot>0){x.save();x.globalAlpha*=hot;rr(x,l,y-19,290,38,10,null,'#2DB2AE',5);x.restore()}
@@ -201,10 +217,10 @@ function chip(x,l,y,name,a,hot=0,tg=0,dy=0){if(a<=0)return;x.save();x.globalAlph
  if(tg>0){pill(x,l+232,y,100,26,'#2DB2AE',tg);txt(x,'~100 tokens',l+232,y+1,14,'#0F2F33','center','900',tg)}else{x.fillStyle='rgba(201,184,224,.5)';x.fillRect(l+158,y-4,118,8)}x.restore()}
 function boardBefore(x,t){txt(x,'like the binder',112,278,22,'#C9B8E0','left','600');rr(x,110,300,340,550,14,'#2A1F42','#6E5D8E',3);txt(x,'ONE BIG PROMPT',130,336,24,'#F8E9CC','left','800');
  RULES.forEach((s,i)=>{rr(x,130,366+i*58,300,42,8,'#3A2C58');txt(x,s,146,388+i*58,19,'#C9B8E0','left','700')});
- agentNode(x,700,330,t);rr(x,540,440,320,390,14,'#2A1F42','#6E5D8E',3);txt(x,'context window',556,466,19,'#C9B8E0','left','700');pill(x,810,466,72,28,'#FF6B5E');txt(x,'FULL',810,467,16,'#1B1430','center','900');
- RULES.forEach((s,i)=>{rr(x,556,488+i*41,288,34,7,'rgba(255,107,94,.55)');txt(x,s,568,506+i*41,16,'#1B1430','left','800')});
+ agentNode(x,700,330,t);rr(x,540,440,320,390,14,'#2A1F42','#6E5D8E',3);txt(x,'context window',556,462,19,'#C9B8E0','left','700');pill(x,700,490,246,28,'#FF6B5E');txt(x,'EVERY RULE, EVERY TASK',700,491,15,'#1B1430','center','900');
+ RULES.forEach((s,i)=>{rr(x,556,516+i*38,288,31,7,'rgba(255,107,94,.55)');txt(x,s,568,532+i*38,16,'#1B1430','left','800')});
  arrowP(x,[456,610],[534,610],1,null);txt(x,'all of it,',495,572,16,'#C9B8E0','center','700');txt(x,'every task',495,592,16,'#C9B8E0','center','700');
- tokenP(x,[300,610],[700,640],(t*.62)%1,'every rule','#F8E9CC')}
+ tokenP(x,[466,612],[528,618],(t*.62)%1,'every rule','#F8E9CC')}
 // AGENT SKILLS side: other skill folders behind, then the one folder with SKILL.md; its extra files appear when they are talked about (shot 20)
 function boardFolder(x,t){const fa=fin(t,T(16)+.9,.45),oa=fin(t,T(16)+1.4,.4);
  [[56,'brand-voice/'],[28,'code-review/']].forEach(([o,s])=>{x.save();x.globalAlpha=oa;rr(x,1000+o,350-o,400,480,14,'#241A3C','#4E4070',2);rr(x,1226+o,318-o,174,34,[10,10,0,0],'#4E4070');txt(x,s,1313+o,336-o,16,'#F8E9CC','center','700');x.restore()});
@@ -229,13 +245,13 @@ function boardFolder(x,t){const fa=fin(t,T(16)+.9,.45),oa=fin(t,T(16)+1.4,.4);
 // the agent and what is in its context, stage by stage
 function boardContext(x,t){const s=SH(t);agentNode(x,1690,330,t,'like your cook');rr(x,1530,440,320,390,14,'#2A1F42','#6E5D8E',3);txt(x,'context window',1546,466,19,'#C9B8E0','left','700');
  const fr=fin(t,T(21)+.1,.3);if(fr>0){pill(x,1810,466,72,28,'#2DB2AE',fr);txt(x,'free',1810,467,16,'#0F2F33','center','900',fr)}
- arrowP(x,[1372,480],[1524,497],fin(t,32.6,.5),'at startup','#FFC66E');
+ {const ap=fin(t,32.6,.5);arrowP(x,[1372,480],[1524,497],ap,null,'#FFC66E');txt(x,'at startup',1458,520,19,'#FFC66E','center','700',ease(seg(ap,.6,1)))}
  const cy=[497,539,581,623],land=[33.8,34.5,34.8,35.1];
- SKILLS.forEach((n,i)=>{const u=seg(t,land[i],land[i]+.25);chip(x,1545,cy[i],n,fin(t,land[i],.15),i==0?fin(t,37.9,.3):0,fin(t,35.5+i*.3,.2),-26*(1-ease(u)))});
+ SKILLS.forEach((n,i)=>{const u=seg(t,land[i],land[i]+.25);chip(x,1545,cy[i],n,fin(t,land[i],.15),i==0?fin(t,37.9,.3):0,fin(t,35.5+i*.3,.2),(i?-26:0)*(1-ease(u)))});
  {const a=fin(t,39.1,.2);if(a>0){x.save();x.globalAlpha=a;rr(x,1545,656,290,102,10,'rgba(45,178,174,.28)','#2DB2AE',3);txt(x,'SKILL.md: full instructions',1558,678,17,'#F8E9CC','left','800');x.fillStyle='rgba(248,233,204,.4)';for(let k=0;k<4;k++)x.fillRect(1558,698+k*14,250*(.55+.4*hash(k,9)),6);x.restore();
   const pa=a*(s<=20?1:0);pill(x,1690,790,234,32,'#2DB2AE',pa);txt(x,'= pulling the card',1690,791,19,'#0F2F33','center','900',pa)}}
  if(s==21){const q=fin(t,T(21)+.2,.4);dashRect(x,1540,772,300,52,'#2DB2AE',q);txt(x,'room to work',1690,799,22,'#2DB2AE','center','800',q)}
- tokenP(x,[1360,472],[1690,497],seg(t,33.0,33.8),'pdf-processing','#FFC66E',15);
+ tokenP(x,[1380,484],[1690,497],seg(t,33.0,33.8),'pdf-processing','#FFC66E',15);
  tokenP(x,[1200,610],[1690,708],seg(t,38.4,39.2),'full instructions','#2DB2AE',18);
  if(s==19){const ta=ease(seg(t,37.1,37.6));bubble(x,1690,lerp(150,205,ta),'Extract the text from this PDF','#F8E9CC',Math.min(1,ta*3),20)}}
 function drawBoard(t,cam,s){const x=layer('board',cam);let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#1F1636');g.addColorStop(1,'#2E1F4A');x.fillStyle=g;x.fillRect(-900,-600,W+1800,H+1200);
@@ -305,9 +321,9 @@ function overlay(t){ctx.setTransform(1,0,0,1,0,0);
  const v=fin(t,52.55,.35);if(v>0){const hh=lerp(124,210,fin(t,54.2,.35));ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.88)';ctx.beginPath();ctx.roundRect(W/2-520,92,1040,hh,40);ctx.fill();ctx.restore();
   txt(ctx,'Don’t tell your agent everything.',W/2,154,56,'#F8E9CC','center','800',v);txt(ctx,'Tell it where to look.',W/2,236,64,'#FFC66E','center','800',fin(t,54.3,.35))}
  // call to action: a subscribe button that pops in on the spoken line, with the next episode under it
- const c=fin(t,55.7,.3);if(c>0){const sc=lerp(.6,1,c)*(1+.035*Math.sin((t-55.7)*7)),x=ctx;x.save();x.globalAlpha=c;x.translate(W/2,905);x.scale(sc,sc);
+ const c=fin(t,55.7,.3);if(c>0){const sc=lerp(.6,1,c)*(1+.035*Math.sin((t-55.7)*7)),x=ctx;x.save();x.globalAlpha=c;x.translate(W/2,915);x.scale(sc,sc);
   pill(x,0,0,400,96,'#E4493F');x.fillStyle='#F8E9CC';x.beginPath();x.moveTo(-150,-22);x.lineTo(-150,22);x.lineTo(-112,0);x.closePath();x.fill();txt(x,'Subscribe',22,3,50,'#F8E9CC','center','800');x.restore()}
- card(t,56.2,0,1010,900,'Next in 60 seconds: why MCP went stateless','#C9B8E0',28)}
+ card(t,56.2,0,1016,900,'Next in 60 seconds: why MCP went stateless','#C9B8E0',28)}
 
 // shot 0 title, 1-4 and 23 studio, 5-15 and 24-26 kitchen, 16-22 board
 const KIT=[5,6,7,8,9,10,11,12,13,14,15,24,25,26],STU=[1,2,3,4,23];
@@ -315,29 +331,29 @@ const CAMS=[null,
  (u,t)=>({x:lerp(900,940,u),y:560,z:lerp(1.06,1.14,u)}),                                      // 1 you at your desk; the wall of rules
  (u,t)=>({x:lerp(1180,1170,u),y:585,z:lerp(1.62,1.75,u)}),                        // 2 a task arrives; the wall pours into the context
  (u,t)=>({x:lerp(1180,1150,u),y:lerp(560,570,u),z:lerp(1.8,1.65,u)}),                        // 3 the screen flips: skills, ~100 tokens each
- (u,t)=>({x:lerp(640,680,u),y:lerp(470,460,u),z:lerp(1.5,1.68,u),b:[4]}),                     // 4 but how?
+ (u,t)=>({x:lerp(720,760,u),y:lerp(470,460,u),z:lerp(1.5,1.68,u),b:[4]}),                     // 4 but how?
  (u,t)=>({x:lerp(930,990,u),y:540,z:lerp(1,1.06,u)}),                                         // 5 your kitchen, wide
- (u,t)=>({x:lerp(990,1010,u),y:lerp(692,684,u),z:lerp(1.5,1.7,u),b:[4,0]}),                  // 6 the binder slams down
- (u,t)=>({x:lerp(820,860,u),y:lerp(600,590,u),z:lerp(1.55,1.65,u),b:[3,0]}),                  // 7 he points: your big prompt
+ (u,t)=>({x:lerp(880,890,u),y:lerp(575,562,u),z:lerp(1.4,1.5,u),b:[4,0]}),                  // 6 the binder slams down
+ (u,t)=>({x:lerp(820,860,u),y:lerp(560,556,u),z:lerp(1.5,1.6,u),b:[3,0]}),                  // 7 he points: your big prompt
  (u,t)=>({x:lerp(1130,1160,u),y:lerp(560,550,u),z:lerp(1.65,1.8,u),b:[3,0]}),                 // 8 the cook rereads all of it
  (u,t)=>({x:lerp(1480,1510,u),y:lerp(600,590,u),z:lerp(1.7,1.9,u),b:[4,0]}),                  // 9 the one egg, waiting
  (u,t)=>({x:lerp(900,930,u),y:lerp(518,524,u),z:lerp(1.3,1.34,u),b:[0,0]}),                   // 10 the binder goes to the shelf; the recipe box lands
- (u,t)=>({x:lerp(1000,1016,u),y:lerp(690,680,u),z:lerp(2.2,2.5,u),b:[5,0]}),                  // 11 a tab on every card
- (u,t)=>({x:lerp(1010,1020,u),y:lerp(560,548,u),z:lerp(1.62,1.78,u),b:[4,0]}),                // 12 its name, and when to use it
- (u,t)=>({x:lerp(1060,1090,u),y:lerp(590,580,u),z:lerp(1.55,1.7,u),b:[3,0]}),                 // 13 he reads only the tabs
+ (u,t)=>({x:lerp(1040,1050,u),y:lerp(600,590,u),z:lerp(2.0,2.2,u),b:[5,0]}),                  // 11 a tab on every card
+ (u,t)=>({x:lerp(850,860,u),y:lerp(542,536,u),z:lerp(1.5,1.6,u),b:[4,0]}),                // 12 its name, and when to use it
+ (u,t)=>({x:lerp(1180,1210,u),y:lerp(590,580,u),z:lerp(1.55,1.7,u),b:[3,0]}),                 // 13 he reads only the tabs
  (u,t)=>({x:lerp(1600,1540,u),y:lerp(425,415,u),z:lerp(1.85,2.05,u),b:[4,0]}),                // 14 an order: soup
- (u,t)=>({x:lerp(1100,1130,u),y:lerp(600,585,u),z:lerp(1.5,1.7,u),b:[3,0]}),                  // 15 he pulls one card
+ (u,t)=>({x:lerp(1200,1230,u),y:lerp(600,585,u),z:lerp(1.5,1.7,u),b:[3,0]}),                  // 15 he pulls one card
  (u,t)=>{const v=(t-T(16))/(T(17)-T(16));return {x:lerp(540,985,v*.8+u*.2),y:lerp(500,540,u),z:lerp(1.25,1.03,v*.8+u*.2)}}, // 16 board: before, then across to a skill folder
- (u,t)=>({x:lerp(1300,1360,u),y:500,z:lerp(1.72,1.78,u)}),                                    // 17 SKILL.md's top lines
- (u,t)=>({x:lerp(1650,1690,u),y:lerp(560,545,u),z:lerp(1.8,2.1,u)}),                          // 18 the context column
- (u,t)=>({x:lerp(1480,1500,u),y:lerp(555,560,u),z:lerp(1.34,1.4,u)}),                          // 19 a task matches
- (u,t)=>({x:lerp(1380,1420,u),y:lerp(640,650,u),z:lerp(1.45,1.6,u)}),                         // 20 extra files, only if needed
+ (u,t)=>({x:lerp(1300,1360,u),y:lerp(385,390,u),z:lerp(1.72,1.76,u)}),                                    // 17 SKILL.md's top lines
+ (u,t)=>({x:lerp(1700,1720,u),y:lerp(528,506,u),z:lerp(1.8,1.95,u)}),                          // 18 the context column
+ (u,t)=>({x:lerp(1300,1320,u),y:lerp(528,520,u),z:lerp(1.34,1.37,u)}),                          // 19 a task matches
+ (u,t)=>({x:lerp(1380,1400,u),y:lerp(647,618,u),z:lerp(1.3,1.4,u)}),                         // 20 extra files, only if needed
  (u,t)=>({x:lerp(960,975,u),y:lerp(540,548,u),z:lerp(1,1.05,u)}),                             // 21 the whole board: that's the how
  (u,t)=>({x:960,y:540,z:lerp(1,1.06,u)}),                                                      // 22 tab = chip, card = body
  (u,t)=>({x:lerp(1000,1040,u),y:560,z:lerp(1.04,1.12,u)}),                                    // 23 studio: many skills on hand
  (u,t)=>({x:lerp(1010,960,u),y:lerp(550,540,u),z:lerp(1.12,1.02,u),b:[0,0]}),                 // 24 back in the kitchen, calm
- (u,t)=>({x:lerp(1060,1080,u),y:lerp(500,495,u),z:lerp(1.45,1.55,u),b:[3,0]}),                // 25 where to look
- (u,t)=>({x:lerp(720,710,u),y:lerp(305,295,u),z:lerp(1.04,1.1,u),b:[3,0]})                   // 26 you, and the ask
+ (u,t)=>({x:lerp(940,960,u),y:lerp(500,495,u),z:lerp(1.4,1.45,u),b:[3,0]}),                // 25 where to look
+ (u,t)=>({x:lerp(960,950,u),y:lerp(472,468,u),z:lerp(1,1.03,u),b:[3,0]})                   // 26 you, and the ask
 ];
 FILM={dur:CUTS[27]/30,cuts:CUTS,fadeIn:0,fadeOut:.45,
  cam(s,u,t){return s==0?{x:W/2,y:H/2,z:1}:CAMS[s](ease(u),t)},
@@ -349,7 +365,7 @@ say(T_SLAM+.5,'thud');say(T_BOX+.55,'thud');say(T_FIX+.05,'paper');             
 for(const t of [14.8,15.1,15.4,15.7,16.0])say(t,'paper');                                              // the cook flips the pages
 for(let i=0;i<6;i++)say(3.9+i*.14,'tick');                                                             // the prompt pours into the context
 for(let i=0;i<4;i++)say(T(3)+.45+i*.18,'tick');                                                        // skill chips appear
-for(let i=0;i<5;i++)say(T(11)+.17+i*.2,'tick');                                                        // tabs rise
+for(let i=0;i<5;i++)say(T(11)+.17+i*.2,'flip');                                                        // tabs rise: one soft card flip each
 for(const t of [T(13)+.2,T(13)+.5,T(13)+.8,T(13)+1.1,T(13)+1.4])say(t,'tick');                         // he reads the tabs
 say(T(14)+.02,'bell');say(T(15)+.2,'paper');                                                           // the soup order, the card is pulled
 for(let i=0;i<5;i++)say(T(25)+.3+i*.65,'tick');                                                        // where to look

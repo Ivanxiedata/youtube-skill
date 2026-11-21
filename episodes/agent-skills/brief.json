@@ -122,7 +122,7 @@
         },
         {
           "id": "ctx",
-          "label": "Context window: full"
+          "label": "Context window: every rule, every task"
         }
       ],
       "edges": [
