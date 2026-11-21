@@ -12,11 +12,16 @@
   },
   "sections": {
     "hook": {
-      "text": "Watching one AI helper is easy; watching ten is not.",
-      "claims": []
+      "text": "Napoleon led more than a hundred thousand soldiers and could not shout orders at each one.",
+      "claims": [
+        {
+          "text": "In the 1805 campaign the Grande Armée coordinated more than 150,000-200,000 soldiers.",
+          "source": "https://www.worldhistory.org/image/21911/la-grande-armee-napoleons-army-1804-1805/"
+        }
+      ]
     },
     "before": {
-      "text": "A person drives each coding-agent session step by step and can supervise only a few at once.",
+      "text": "Today you are the general and your soldiers are AI coding agents: you still drive each session step by step, and can follow only a few at once.",
       "claims": [
         {
           "text": "DeepSeek's team estimates a person can supervise only 3-5 active agent sessions at once.",
@@ -25,8 +30,16 @@
       ]
     },
     "new": {
-      "text": "A router (main Session) listens to GitHub and team chat, turns allowed requests into tickets, and gives each ticket its own worker session and directory; tickets run concurrently.",
+      "text": "Napoleon's fix was a chief of staff, Berthier, who turned what Napoleon wanted into written orders for the corps, each a small army able to fight alone. Super-agent works the same way: a router (main Session) listens to GitHub and team chat, turns an allowed request into a ticket, and gives each ticket its own worker session and directory; tickets run concurrently.",
       "claims": [
+        {
+          "text": "Berthier, Napoleon's chief of staff, turned Napoleon's instructions into orders and dispatched them to the marshals commanding the corps.",
+          "source": "https://www.britannica.com/EBchecked/topic/62795/Louis-Alexandre-Berthier-prince-de-Wagram"
+        },
+        {
+          "text": "Each corps was a self-contained small army (infantry, cavalry, artillery) that could act independently.",
+          "source": "https://en.wikipedia.org/wiki/Grande_Arm%C3%A9e"
+        },
         {
           "text": "Listens to GitHub and optionally Feishu; answers in the original conversation, e.g. with a pull request.",
           "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
@@ -46,7 +59,7 @@
       ]
     },
     "why": {
-      "text": "Human attention is the limit, so the agent speaks only when a person must act or can use a result.",
+      "text": "The router stays quiet and speaks up only when a person must decide or can use a result.",
       "claims": [
         {
           "text": "Core principle: take as little human attention as possible; speak only when a person must act or can use a result.",

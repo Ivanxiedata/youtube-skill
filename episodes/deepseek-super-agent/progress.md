@@ -1,14 +1,14 @@
 # deepseek-super-agent progress
 
 ## Status
-Rendered: `deepseek-super-agent.mp4` (60 s, 1080p, audit 0 issues); waiting for the owner to watch it and approve.
+Cut 2 rendered after owner feedback (Napoleon/Berthier story, 59 s, 24 shots, no noise bed, audit 0 issues); waiting for the owner to watch and listen.
 
 ## Next
 1. Owner watches `episodes/deepseek-super-agent/deepseek-super-agent.mp4` (not in git: rebuild with step 4) and listens to the mix (nobody has heard it).
 2. Packaging: title, description with the sources from `research.md`, captions from `script.md`, thumbnail (youtube-agent `yt-package`).
 3. Upload by hand in YouTube Studio as private until the `upload` feature exists (PR #2).
 4. Rebuild from git: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
-   `tts.py film film/script.txt --voice am_michael --speed 1.1 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
+   `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
 5. After PR #2 merges, a repo-level follow-up: `docs/progress.md` (Episode 0 done) and the `docs/product.md` non-goal "research proposes a ranked shortlist, the owner picks".
 
 ## Blockers
@@ -23,6 +23,12 @@ none
 - 2026-11-20: Defaults with nobody to ask: 2D, free voice am_michael at speed 1.1 (163 wpm, so the voice fits 60 s), effects on, no music, no storyboard stop.
 - 2026-11-20: `--no-align`: pocketsphinx is SIGKILLed on import on this Mac (arm64, anaconda 3.12 venv); word times are estimated inside lines, line times exact.
 - 2026-11-20: Film folder lives at `episodes/<slug>/film/`; git keeps only film.js, audio_mix.py, script.txt, vo_lines.json (`.gitignore`).
+- 2026-11-20: Cut 2, because the owner found cut 1 slow, heard white noise, and wants a strong hook and a story everyone knows (now in `docs/product.md`).
+  Story: Napoleon could not shout at 100,000+ soldiers, so his chief of staff Berthier turned his wishes into written orders for the corps.
+  Mapping: you = the general, router agent = Berthier, worker = a corps, ticket = orders. History facts are sourced in `research.md`.
+- 2026-11-20: Sound is voice plus sampled effects only. Cut 1's `room_bed` and `drone` measured -30 to -35 dBFS between lines; cut 2 is digital silence there.
+- 2026-11-20: Voice speed 1.2 (174 wpm, 57.3 s) and voice laid in at .3 s, so the film is 59 s. `script.txt` blank lines (0.95 s pauses) only before "Napoleon's fix" and "It is an open-source".
+- 2026-11-20: `script.txt` spells Berthier as "Bairtyay" for the voice; `script.md` keeps the real spelling for captions.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -31,7 +37,13 @@ none
   so the `diagram` feature should emit film.js-compatible draw code or data for it, not an SVG file.
 - Engine lesson: `setLineDash` strokes render non-deterministically in headless Chromium (audit failure); draw dashes as filled rects.
 - Engine lesson: a diagram shot that starts mostly empty fails the 0.2 motion floor; move the camera across it.
+- Engine lesson: any camera move across a dense, high-contrast crowd trips the audit's pop check (mean frame difference over 6) and can strobe.
+  What fixed it: a haze gradient over the far rows (`source-atop`), softer detail colours, and zooming instead of panning.
+- Engine lesson: a state change timed just before a cut shows as a one-frame pop; time it on the cut frame (frame / 30).
+- Engine lesson: hats and props for a character can be drawn after `actor()` by repeating the head transform (`bicorne` in film.js), so the engine copy stays untouched.
+- episode Q2 update: at speed 1.2 the voice does 2.9 words/s; 166 words = 57.3 s.
 
 ## Log
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-20 ep-super-agent: research (primary repo docs + press), brief.json, script.md, voice, film.js (studio + side-by-side diagram), rendered 60 s; audit 0 issues after fixing a stillness window and a dashed-line determinism bug.
+- 2026-11-20 ep-super-agent: cut 2 after owner feedback: new script (Napoleon and Berthier), 24 shots, battlefield set, noise beds removed, `docs/product.md` gets the story/hook/pace/sound rules; audit 0 issues.

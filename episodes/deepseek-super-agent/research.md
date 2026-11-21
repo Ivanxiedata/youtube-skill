@@ -14,6 +14,17 @@ Done 2026-11-20. Primary source first; press only where the repo is silent.
 | Setup: ask your coding agent to read SETUP.md and set it up with you; runs on DeepSeek Harness | [README](https://github.com/deepseek-ai/dsh-superagent-prototype) |
 | Motivation: the team estimates a person can supervise only 3-5 active agent sessions at once | [Let's Data Science](https://letsdatascience.com/news/deepseek-proposes-experimental-super-agent-to-coordinate-mul-cc3cd380), [SCMP](https://www.scmp.com/tech/article/3372884/deepseek-unveils-ai-super-agent-coding-race-openai-anthropic) |
 
+## The story: Napoleon and Berthier (added for cut 2)
+The owner asked for a concept everyone knows. Mapping: you = the general, router agent = Berthier (chief of staff), worker = a corps, ticket = written orders.
+| Fact | Source |
+|---|---|
+| Berthier was Napoleon's chief of staff; he turned Napoleon's instructions into orders and sent them to the marshals | [Britannica](https://www.britannica.com/EBchecked/topic/62795/Louis-Alexandre-Berthier-prince-de-Wagram), [Wikipedia](https://en.wikipedia.org/wiki/Louis-Alexandre_Berthier) |
+| The Grande Armée of 1805 coordinated more than 150,000-200,000 soldiers, so the script says "more than a hundred thousand" | [World History Encyclopedia](https://www.worldhistory.org/image/21911/la-grande-armee-napoleons-army-1804-1805/) |
+| The army was split into corps, each a self-contained small army able to act on its own | [Wikipedia: Grande Armée](https://en.wikipedia.org/wiki/Grande_Arm%C3%A9e) |
+
+Where the analogy stops (not said in the video): corps commanders were people who used their own judgement; workers are agent sessions bound to one ticket.
+"Take that hill." on screen is an invented example order, not a quote. No military "3 to 5 units" rule is claimed: doctrine sources disagree (2-5, 3-4, 3-7).
+
 ## Left out on purpose
 - Speed-up numbers (p95 29.5 -> 15.7 min, reported by [Inside](https://www.inside.com.tw/article/42792-deepseek-super-agent-router-worker-ai-agent)):
   not in the repo, and [one review](https://www.buildmvpfast.com/blog/deepseek-super-agent-router-worker-always-on-coding-agent-2026) says the test task wrote no code. Accurate over exciting.

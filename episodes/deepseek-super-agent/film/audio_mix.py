@@ -10,16 +10,17 @@ m = Mix(info["dur"], seed=9)
 # ---- EDIT FROM HERE: set this from the sound brief ----
 SFX, MUSIC, VOICE = True, False, "vo.wav"
 
+# No room tone, drone or other noise beds: the owner heard them as white noise under the voice. Sampled effects only.
 if SFX:
-    m.room_bed([(0, .5), (info["dur"], .5)])
-    m.drone([(0, .1), (7.5, .25), (17.4, .15), (38.4, .08), (info["dur"], .05)])
     for e in info["events"]:
         t, k = e["t"], e["k"]
-        if k == "pop": m.whoosh(t, d=.5, g=.12)
-        elif k == "ready": m.tick(t, g=.08, pan=.3)
+        if k == "drum": m.sfx("impactsoft-heavy-000", t, .5, 420, .5, 0, .15)
+        elif k == "paper": m.sfx("bookplace1", t, 1.1, 5000, .2, .25, .1)
+        elif k == "march": m.step(t, pan=.3, g=.05 if e.get("soft") else .1, surface="grass")
+        elif k == "tick": m.tick(t, g=.05, pan=.2)
 if MUSIC:
     m.music(mood="warm")
 if VOICE:
-    m.voice(VOICE, at=.5)
+    m.voice(VOICE, at=.3)
 # ---- TO HERE ----
 m.write("audio.wav")

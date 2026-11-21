@@ -16,6 +16,9 @@ actually understand it: how it works, not just its name.
 ## Principles
 - **Simple words, real depth.** Talk like you're explaining to a five-year-old, but the explanation must match
   how the technology actually works. An analogy that's wrong underneath is a bug.
+- **Start from what everyone knows.** Tell the new tech through a story the viewer already has (history, a war, everyday life),
+  so they get it at once: Napoleon's chief of staff for a router agent. The story must map onto how the tech works,
+  and its facts are sourced like any other claim.
 - **Always relative.** Every video names the predecessor and shows the difference side by side.
   A technology with no "before" isn't explained yet.
 - **Accurate over exciting.** Every claim traces to a source from the research step. No hype,
@@ -27,13 +30,15 @@ actually understand it: how it works, not just its name.
 ## Video format (v1: 60 seconds, ~150 spoken words)
 | Time | Section | Shows |
 |---|---|---|
-| 0-5s | Hook | The one-line promise: what you'll understand in a minute |
+| 0-5s | Hook | A surprising fact or image from the story, not a statement about AI |
 | 5-15s | Before | The previous technology and its limit |
 | 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
 | 35-45s | Why we need it | The problem the old one couldn't solve |
 | 45-57s | How to use it | One concrete starting point |
 | 57-60s | Outro | What to watch next (the predecessor's or successor's video) |
 
+Pace: a new shot about every 2-3 seconds (Episode 0's first cut averaged 6 and felt slow).
+Sound: voice plus a few sampled effects; no room tone or other noise bed under the voice.
 Captions: upload `script.md` as the video's captions (packaging step).
 
 ## Skills used
