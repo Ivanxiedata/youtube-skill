@@ -1,7 +1,21 @@
 {
   "title": "DeepSeek Super-agent, explained with Napoleon's army (60 seconds)",
-  "description": "Napoleon led more than a hundred thousand soldiers, and he could not shout orders at each one. His fix was one man: Berthier, his chief of staff, who turned what Napoleon wanted into written orders for the corps.\n\nDeepSeek's Super-agent research prototype works the same way for AI coding agents. One router agent takes your request, opens a ticket and hands it to a worker agent with its own session and its own folder. Many workers run at once, and the router speaks up only when you must decide or can use a result.\n\nThe takeaway: the limit isn't your agents. It's your attention.\n\nTry it (open source, MIT, a research prototype and not an official DeepSeek product):\nhttps://github.com/deepseek-ai/dsh-superagent-prototype\nAsk your coding agent: \"Read SETUP.md in this repository and set up dsh-superagent with me.\"\n\nChapters\n0:00 Napoleon's problem, and yours\n0:17 Berthier, the chief of staff\n0:27 How Super-agent works\n0:47 The takeaway\n\nSources\nSuper-agent README and design docs: https://github.com/deepseek-ai/dsh-superagent-prototype\n\"3 to 5 sessions\" estimate by DeepSeek's team: https://letsdatascience.com/news/deepseek-proposes-experimental-super-agent-to-coordinate-mul-cc3cd380\nBerthier, Napoleon's chief of staff: https://www.britannica.com/EBchecked/topic/62795/Louis-Alexandre-Berthier-prince-de-Wagram\nThe Grande Armée in 1805: https://www.worldhistory.org/image/21911/la-grande-armee-napoleons-army-1804-1805/\nThe corps system: https://en.wikipedia.org/wiki/Grande_Arm%C3%A9e\n\n\"Take that hill.\" is an invented example order, not a quote.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.",
-  "tags": ["DeepSeek", "Super-agent", "AI agents", "coding agents", "multi-agent", "AI explained", "Napoleon", "Berthier"],
+  "description": "DeepSeek Super-agent explained in 60 seconds: one router agent takes your request and commands many AI worker agents, so you stop babysitting each coding agent yourself. Told with Napoleon's army.\n\nTry it (open source, MIT, a research prototype and not an official DeepSeek product):\nhttps://github.com/deepseek-ai/dsh-superagent-prototype\nAsk your coding agent: \"Read SETUP.md in this repository and set up dsh-superagent with me.\"\n\nChapters\n0:00 Napoleon's problem, and yours\n0:17 Berthier, the chief of staff\n0:27 How Super-agent works\n0:47 The takeaway\n\nThe story: Napoleon led more than a hundred thousand soldiers and could not shout orders at each one. His fix was one man: Berthier, his chief of staff, who turned what Napoleon wanted into written orders for the corps. Super-agent works the same way: the router opens a ticket and hands it to a worker with its own session and its own folder. Many workers run at once, and the router speaks up only when you must decide or can use a result.\n\nThe takeaway: the limit isn't your agents. It's your attention.\n\nSources\nSuper-agent README and design docs: https://github.com/deepseek-ai/dsh-superagent-prototype\n\"3 to 5 sessions\" estimate by DeepSeek's team: https://letsdatascience.com/news/deepseek-proposes-experimental-super-agent-to-coordinate-mul-cc3cd380\nBerthier, Napoleon's chief of staff: https://www.britannica.com/EBchecked/topic/62795/Louis-Alexandre-Berthier-prince-de-Wagram\nThe Grande Armée in 1805: https://www.worldhistory.org/image/21911/la-grande-armee-napoleons-army-1804-1805/\nThe corps system: https://en.wikipedia.org/wiki/Grande_Arm%C3%A9e\n\n\"Take that hill.\" is an invented example order, not a quote.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\n\n#DeepSeek #AIAgents #AIExplained",
+  "tags": [
+    "DeepSeek",
+    "Super-agent",
+    "AI agents",
+    "coding agents",
+    "multi-agent",
+    "AI explained",
+    "Napoleon",
+    "Berthier",
+    "DeepSeek super agent",
+    "superagent",
+    "dsh-superagent",
+    "AI coding agents",
+    "agent orchestration"
+  ],
   "category_id": "28",
   "made_for_kids": false
 }

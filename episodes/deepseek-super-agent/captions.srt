@@ -1,0 +1,87 @@
+1
+00:00:00,300 --> 00:00:03,093
+Napoleon led more than a hundred thousand soldiers.
+
+2
+00:00:03,393 --> 00:00:05,194
+He could not shout orders at each one.
+
+3
+00:00:05,694 --> 00:00:07,080
+Today, you are the general.
+
+4
+00:00:07,380 --> 00:00:09,538
+Your soldiers are AI coding agents.
+
+5
+00:00:09,838 --> 00:00:12,166
+You still shout at each one, step by step.
+
+6
+00:00:12,466 --> 00:00:15,981
+DeepSeek's team says one person can follow only three to five.
+
+7
+00:00:16,931 --> 00:00:20,242
+Napoleon's fix was one man: Berthier, his chief of staff.
+
+8
+00:00:20,542 --> 00:00:22,037
+Napoleon said what he wanted.
+
+9
+00:00:22,337 --> 00:00:27,180
+Berthier wrote the orders and sent them to the corps: small armies that could each fight alone.
+
+10
+00:00:27,480 --> 00:00:29,795
+DeepSeek's Super-agent works the same way.
+
+11
+00:00:30,095 --> 00:00:33,464
+One router agent listens on GitHub and in your team chat.
+
+12
+00:00:33,764 --> 00:00:34,454
+Ask once.
+
+13
+00:00:34,754 --> 00:00:39,917
+It opens a ticket and hands it to a worker agent, with its own session and its own folder.
+
+14
+00:00:40,217 --> 00:00:41,729
+Many workers march at once.
+
+15
+00:00:42,229 --> 00:00:43,396
+The router stays quiet.
+
+16
+00:00:43,696 --> 00:00:47,105
+It speaks up only when you must decide, or can use a result.
+
+17
+00:00:47,605 --> 00:00:49,224
+It is still a research prototype.
+
+18
+00:00:49,524 --> 00:00:51,519
+But the lesson is two hundred years old.
+
+19
+00:00:51,819 --> 00:00:53,581
+The limit was never the soldiers.
+
+20
+00:00:53,881 --> 00:00:55,477
+It was the general's attention.
+
+21
+00:00:55,777 --> 00:00:57,179
+And now, that general is you.
+
+22
+00:00:57,679 --> 00:00:59,081
+Subscribe for the next one.
