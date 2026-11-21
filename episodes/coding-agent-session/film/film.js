@@ -82,7 +82,7 @@ function youBefore(t){const wr=Math.sin(t*9)*((t<2.2||t>16.7)?1:.25);
   hands:{r:[158+wr*9,150+wr*13]},showH:{r:true}}}
 function youAfter(t){const ask=fin(t,22.7,.25)*(1-fin(t,23.7,.3)),stop=fin(t,42.2,.25)*(1-fin(t,43.5,.3)),up=Math.max(ask,stop);
  return {x:YOU_X,y:PY,s:PS,face:1,breath:t*2.2,blink:blinkAt(t,[19.6,23.2,30.6,42.9,54.4,57.8]),look:.85,lookY:.2,brow:.25,sad:0,mouth:kf(t,[[18.5,.5],[35,.5],[41.4,.8]]),open:talk(t,22.75,23.6)+talk(t,42.3,43.2),
-  hands:up>.02?{r:[lerp(96,lerp(150,128,stop),up),lerp(240,lerp(70,-20,stop),up)]}:{},showH:{r:up>.02}}}
+  hands:up>.02?{r:[lerp(96,lerp(150,128,stop),up),lerp(222,lerp(70,10,stop),up)]}:{},showH:{r:up>.02}}}
 // after 18.5 s: the mechanic at the car. He looks (27.1), turns the wrench (28.5), starts the engine and listens (29.8)
 function mechPose(t){const st=t<F(993)?stepAt(t):-1,hi=t>=F(1527)&&t<F(1566),end=t>=F(1608);
  return {x:AT_CAR,y:PY,s:PS,face:1,breath:t*2.1,blink:blinkAt(t,[19.4,21.7,23.1,31.4,32.5,42.6,49.6,54.6,56.9,58.8]),bend:st==0?.3:st==1?.2:0,
@@ -249,7 +249,7 @@ FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,
   {x:lerp(1010,1090,e),y:lerp(545,535,e),z:lerp(.98,.9,e),b:[1]},         // 4 garage, wide: the whole problem
   {x:lerp(720,700,e),y:lerp(430,415,e),z:lerp(1.85,2.05,e),b:[4]},        // 5 he can only talk
   {x:lerp(1230,1280,e),y:lerp(470,480,e),z:lerp(1.5,1.62,e),b:[3,0,0]},   // 6 you paste his fix
-  {x:lerp(1480,1500,e),y:lerp(560,600,e),z:lerp(2.1,2.35,e),b:[4,0,0]},   // 7 you run it: error
+  {x:lerp(1484,1494,e),y:lerp(578,592,e),z:lerp(2.16,2.26,e),b:[4,0,0]},   // 7 you run it: error
   {x:lerp(1300,1220,e),y:lerp(520,505,e),z:lerp(1.45,1.32,e),b:[3,0,0]},   // 8 you carry the error back
   {x:lerp(940,975,e),y:lerp(530,515,e),z:lerp(1.45,1.6,e),b:[3]},         // 9 again and again
   {x:lerp(870,850,e),y:lerp(470,500,e),z:lerp(1.95,1.5,e),b:[3]},         // 10 the mechanic, in your garage
@@ -263,7 +263,7 @@ FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,
   {x:lerp(930,960,e),y:lerp(455,445,e),z:lerp(2.3,2.55,e),b:[5]},         // 18 still broken?
   {x:lerp(1600,1585,e),y:560,z:lerp(1.75,1.55,e)},                        // 19 board: round again, until it passes
   {x:lerp(1250,1290,e),y:lerp(480,500,e),z:lerp(1.5,1.64,e),b:[3,0,0]},   // 20 every step, every result
-  {x:lerp(1430,960,e),y:lerp(530,540,e),z:lerp(1.28,1,e)},                // 21 board: one session
+  {x:lerp(1180,1060,e),y:lerp(535,540,e),z:lerp(1.12,1,e)},                // 21 board: one session
   {x:lerp(480,520,e),y:lerp(605,595,e),z:lerp(1.36,1.48,e)},               // 22 before: you were the messenger
   {x:lerp(820,770,e),y:lerp(545,530,e),z:lerp(1.06,1.16,e),b:[2]},        // 23 you watch, and you can stop it
   {x:lerp(1110,1140,e),y:lerp(528,540,e),z:lerp(2.3,2.45,e),b:[4,0,0]},   // 24 it can still be wrong

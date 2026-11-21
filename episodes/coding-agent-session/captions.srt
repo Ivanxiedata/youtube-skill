@@ -1,0 +1,91 @@
+1
+00:00:00,080 --> 00:00:05,631
+You would never fix your car with the mechanic on the phone, but that is how you code with an AI chatbot.
+
+2
+00:00:05,931 --> 00:00:07,737
+A coding-agent session fixes that.
+
+3
+00:00:08,237 --> 00:00:10,602
+A chat assistant is the mechanic on the phone.
+
+4
+00:00:10,902 --> 00:00:11,996
+He can only talk.
+
+5
+00:00:12,296 --> 00:00:16,505
+So you paste his fix into your code, run it, and carry the error back to him.
+
+6
+00:00:16,805 --> 00:00:17,700
+Again and again.
+
+7
+00:00:18,650 --> 00:00:22,418
+A coding agent is the mechanic standing in your garage, with tools.
+
+8
+00:00:22,718 --> 00:00:25,484
+You give it one job, in your terminal or your editor.
+
+9
+00:00:25,784 --> 00:00:26,869
+Then it works in a loop.
+
+10
+00:00:27,169 --> 00:00:28,306
+It reads your files.
+
+11
+00:00:28,606 --> 00:00:29,580
+It edits the code.
+
+12
+00:00:29,880 --> 00:00:31,728
+It runs a command, and checks the result.
+
+13
+00:00:32,028 --> 00:00:32,892
+Still broken?
+
+14
+00:00:33,192 --> 00:00:35,667
+It goes around again, until the job is done.
+
+15
+00:00:35,967 --> 00:00:39,337
+That whole visit, every step and every result, is one session.
+
+16
+00:00:39,837 --> 00:00:41,260
+You stop being the messenger.
+
+17
+00:00:41,560 --> 00:00:43,638
+You watch, and you can stop it at any moment.
+
+18
+00:00:44,588 --> 00:00:47,016
+It can still be wrong, so give it a test to run.
+
+19
+00:00:47,316 --> 00:00:48,553
+But notice what changed.
+
+20
+00:00:48,853 --> 00:00:50,733
+The mechanic did not get a bigger brain.
+
+21
+00:00:51,033 --> 00:00:53,405
+He got hands, and a way to check his own work.
+
+22
+00:00:53,705 --> 00:00:55,270
+That is what makes it an agent.
+
+23
+00:00:55,770 --> 00:00:57,171
+Subscribe for the next one.

@@ -1,0 +1,192 @@
+{
+  "slug": "coding-agent-session",
+  "tech": {
+    "id": "coding-agent-session",
+    "name": "Coding-agent session",
+    "released": "2025-02",
+    "one_line": "One AI model working in a loop with tools: it reads files, edits code, runs commands and checks the result, in your terminal or editor, until the job is done."
+  },
+  "predecessor": {
+    "id": "chat-assistant",
+    "name": "Chat assistant (and autocomplete): you copy code back and forth"
+  },
+  "sections": {
+    "hook": {
+      "text": "You would never fix your car with the mechanic on the phone, but that is how you code with an AI chatbot. A coding-agent session fixes that.",
+      "claims": [
+        {
+          "text": "Chat-based assistants only respond with text you must apply yourself.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        }
+      ]
+    },
+    "before": {
+      "text": "A chat assistant is the mechanic on the phone: it can only talk, so you paste its fix, run it, and carry the error back.",
+      "claims": [
+        {
+          "text": "Without tools, the model can only respond with text.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        },
+        {
+          "text": "Agentic coding is defined as opposed to chat-based assistants that only respond with text you must apply yourself.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        }
+      ]
+    },
+    "new": {
+      "text": "A coding agent is the mechanic in your garage, with tools. You give it one job in your terminal or editor; it reads files, edits code, runs a command and checks the result, and goes around again until done. The whole visit, every step and result, is one session.",
+      "claims": [
+        {
+          "text": "The agentic loop: gather context, take action, verify results, repeat until done; tools read code, edit files, run commands.",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "text": "Claude Code runs in the terminal, IDE extensions, desktop and web; the loop is the same everywhere.",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "text": "A session is a conversation tied to your directory; each message, tool use and result is written to its transcript.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        },
+        {
+          "text": "Codex CLI: inspect files, make edits, run tools in one focused loop, in your terminal.",
+          "source": "https://learn.chatgpt.com/docs/codex/cli"
+        },
+        {
+          "text": "Copilot agent mode reads files, edits, runs terminal commands and tests, and auto-corrects in a loop until the task is completed.",
+          "source": "https://code.visualstudio.com/blogs/2025/02/24/introducing-copilot-agent-mode"
+        }
+      ]
+    },
+    "why": {
+      "text": "You stop being the messenger. You watch, and you can stop it at any moment.",
+      "claims": [
+        {
+          "text": "The AI reads files, runs commands and makes changes while you watch, redirect, or step away.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        },
+        {
+          "text": "You can interrupt the loop at any point to steer it.",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        }
+      ]
+    },
+    "takeaway": {
+      "text": "It can still be wrong, so give it a test to run. The model did not get a bigger brain: it got tools (hands) and a way to check its own work.",
+      "claims": [
+        {
+          "text": "The agentic loop is powered by models that reason and tools that act; the harness provides the tools.",
+          "source": "https://code.claude.com/docs/en/how-claude-code-works"
+        },
+        {
+          "text": "Verification loop: give it a check it can run so it iterates until the check passes.",
+          "source": "https://code.claude.com/docs/en/glossary"
+        }
+      ]
+    },
+    "outro": {
+      "text": "Spoken call to action: subscribe for the next one. On screen: a Subscribe button and 'Next in 60 seconds: what are Agent Skills?'",
+      "claims": []
+    }
+  },
+  "architecture": {
+    "before": {
+      "nodes": [
+        {
+          "id": "chat",
+          "label": "Chat assistant"
+        },
+        {
+          "id": "you",
+          "label": "You"
+        },
+        {
+          "id": "code",
+          "label": "Your code"
+        }
+      ],
+      "edges": [
+        {
+          "from": "chat",
+          "to": "you",
+          "label": "only text"
+        },
+        {
+          "from": "you",
+          "to": "code",
+          "label": "paste, run"
+        },
+        {
+          "from": "code",
+          "to": "you",
+          "label": "error"
+        },
+        {
+          "from": "you",
+          "to": "chat",
+          "label": "ask again"
+        }
+      ]
+    },
+    "after": {
+      "nodes": [
+        {
+          "id": "you",
+          "label": "You"
+        },
+        {
+          "id": "agent",
+          "label": "Coding agent"
+        },
+        {
+          "id": "read",
+          "label": "Read files"
+        },
+        {
+          "id": "edit",
+          "label": "Edit code"
+        },
+        {
+          "id": "run",
+          "label": "Run commands"
+        },
+        {
+          "id": "check",
+          "label": "Check result"
+        }
+      ],
+      "edges": [
+        {
+          "from": "you",
+          "to": "agent",
+          "label": "one job"
+        },
+        {
+          "from": "agent",
+          "to": "read",
+          "label": ""
+        },
+        {
+          "from": "read",
+          "to": "edit",
+          "label": ""
+        },
+        {
+          "from": "edit",
+          "to": "run",
+          "label": ""
+        },
+        {
+          "from": "run",
+          "to": "check",
+          "label": ""
+        },
+        {
+          "from": "check",
+          "to": "read",
+          "label": "until done"
+        }
+      ]
+    }
+  }
+}
