@@ -57,7 +57,6 @@ Gap none of them covers: architecture diagrams inside the stickman video. That's
 
 ## Non-goals (v1)
 - Finding new tech automatically. The owner picks the topic.
-- Uploading to YouTube automatically.
 - Videos longer than 60 seconds.
 - Real-person footage, talking heads, or AI-generated images/video.
 - Opinions, predictions, rankings or investment advice.
@@ -69,7 +68,8 @@ Gap none of them covers: architecture diagrams inside the stickman video. That's
 | 1 | `episode` | Checks an episode's brief (four questions plus hook and outro, every claim sourced) and 60s script before render |
 | 2 | `lineage` | Which tech replaced which, from the briefs, so videos reference their predecessor |
 | 3 | `diagram` | Side-by-side architecture graph (old vs new) in the stickman style |
-| 4 | `cmd/yt` | One CLI wiring them together: `yt check`, `yt lineage`, `yt diagram` |
+| 4 | `upload` | Publishes a finished episode to the owner's channel, private by default |
+| 5 | `cmd/yt` | One CLI wiring them together: `yt check`, `yt lineage`, `yt diagram`, `yt upload` |
 
-Research, rendering and packaging are done by the external skills, not our code.
+Research, rendering and packaging are done by the external skills; publishing is ours (`upload`).
 Status of each: `make status` (from each feature's `progress.md`). Specs are drafts until Episode 0 answers their open questions.
