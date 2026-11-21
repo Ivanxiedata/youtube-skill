@@ -38,3 +38,4 @@ Waiting on the owner: merge PR #1 and pick the Episode 0 topic. Plus three skill
 - 2026-11-20 product-doc: verifier follow-ups: `cmd/yt/<feature>.go` counts as the feature's (`check.go` -> `episode.go`); `yt lineage check`; force-with-lease after rebase; post-merge cleanup and stale-branch list; branch age in `make status`; claim is a Status prefix; `check-%` refuses non-features; stricter spec-tick check; CI-only progress-after-code check; .gitignore additions.
 - 2026-11-20 product-doc: check-progress CI rule judges by ancestry, not dates, so merged parallel branches are handled.
 - 2026-11-20 upload-feature: owner chose API upload (option B); `upload` feature specced; upload removed from v1 non-goals.
+- 2026-11-20 upload-feature: first third-party Go module (`golang.org/x/oauth2`); CI caches on `go.sum` and runs a pinned `govulncheck`.

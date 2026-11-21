@@ -19,18 +19,18 @@ Secrets live outside the repo, in `~/.config/youtube-skill/` (mode 0600): `clien
 Google Cloud project) and `token.json` (written at sign-in). Never in the repo, never in logs.
 
 ## Acceptance criteria
-- [ ] `yt upload episodes/<slug>` refuses to run unless `yt check` passes for that episode.
-- [ ] Without `--confirm` it only prints what it would upload (title, privacy, file size, channel name) and exits 1.
-- [ ] Privacy is `private` unless `--privacy unlisted` or `--privacy public` is given.
-- [ ] First run signs in through the browser (installed-app OAuth with loopback redirect and PKCE) and saves `token.json` with mode 0600.
-- [ ] It requests only the `youtube.upload` and `youtube.force-ssl` scopes.
-- [ ] A missing `client_secret.json` prints the path to put it in and points to "Owner setup" below.
+- [ ] `yt upload episodes/<slug>` refuses to run unless `yt check` passes for that episode (waits for the `episode` feature).
+- [x] Without `--confirm` it only prints what it would upload (title, privacy, file size, channel name) and exits 1. -> TestDryRunReportsAndUploadsNothing
+- [x] Privacy is `private` unless `--privacy unlisted` or `--privacy public` is given. -> TestPrivacyDefaultsToPrivate
+- [x] First run signs in through the browser (installed-app OAuth with loopback redirect and PKCE) and saves `token.json` with mode 0600. -> TestFirstRunSignsInAndSavesToken
+- [x] It requests only the `youtube.upload` and `youtube.force-ssl` scopes. -> TestRequestsOnlyUploadScopes
+- [x] A missing `client_secret.json` prints the path to put it in and points to "Owner setup" below. -> TestMissingClientSecretPointsToSetup
 - [ ] The upload is resumable: an interrupted run resumes from the last confirmed byte when rerun on the same file.
-- [ ] An episode with `published.json` is refused unless `--again` is given.
-- [ ] After the video uploads it sets the thumbnail if `thumbnail.png` exists and uploads the captions file.
-- [ ] It writes `published.json` only after the video upload succeeded; thumbnail or caption failures are reported, not fatal.
+- [x] An episode with `published.json` is refused unless `--again` is given. -> TestRefusesPublishedEpisodeWithoutAgain
+- [ ] After the video uploads it sets the thumbnail if `thumbnail.png` exists and uploads the captions file; failures there are reported, not fatal.
+- [x] It writes `published.json` only after the video upload succeeded. -> TestWritesPublishedOnlyAfterUpload
 - [ ] Quota exceeded, an expired or revoked token, and an unaudited project's private lock each print a one-line cause and fix.
-- [ ] Tests run against a fake API (`net/http/httptest`); no test touches the network or real credentials.
+- [x] Tests run against a fake API (`net/http/httptest`); no test touches the network or real credentials. -> TestRunUploadsToFakeAPI
 
 ## Non-goals
 - Scheduling, playlists, analytics, editing a video after upload, Shorts.
@@ -38,12 +38,12 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
 - Storing credentials anywhere but `~/.config/youtube-skill/`.
 
 ## Interfaces
-- Uses from `shared/`: `shared/brief` for the episode's file names and `Problem` type.
-- Exposes to `cmd/`: `upload.Run(ctx, dir string, opts Options) (Published, []brief.Problem)`.
+- Uses from `shared/`: nothing yet. When `shared/brief` lands, the episode file names move there.
+- Exposes to `cmd/`: `upload.Run(ctx, dir string, opts Options) (Published, error)`; a dry run returns `upload.ErrNotConfirmed`.
 - Used by: `cmd/yt/upload.go` (`yt upload <episode-dir> [--confirm] [--privacy p] [--again] [--login]`).
-- Dependencies: `golang.org/x/oauth2` and `google.golang.org/api/youtube/v3`, the official Google clients,
-  because OAuth and resumable upload are easy to get subtly wrong by hand. These are the repo's first
-  third-party Go modules; add `govulncheck ./...` to CI in the same PR.
+- Dependencies: `golang.org/x/oauth2` for sign-in, token refresh and PKCE, because OAuth is easy to get subtly wrong by hand.
+  The two API calls (`channels.list`, `videos.insert`) are plain `net/http`, because `google.golang.org/api` brings
+  dozens of modules for two calls. It is the repo's first third-party Go module, so CI runs `govulncheck`.
 
 ## Owner setup (one time, about 15 minutes, free)
 1. https://console.cloud.google.com: create a project, e.g. `youtube-skill`.
