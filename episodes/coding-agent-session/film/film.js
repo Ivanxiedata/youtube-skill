@@ -152,7 +152,7 @@ function drawStudio(t,cam){let x=layer('wall',cam,1);studioWall(x);
 
 // ---------- board: BEFORE vs CODING-AGENT SESSION (brief.json "architecture", by hand) ----------
 const BN={chat:[440,330,'Chat assistant'],you:[440,560,'You'],code:[440,790,'Your code'],
- you2:[1100,262,'You'],agent:[1100,560,'Coding agent'],read:[1410,560,'READ files',204,74],edit:[1600,410,'EDIT code',204,74],run:[1790,560,'RUN commands',204,74],check:[1600,710,'CHECK result',204,74]};
+ you2:[1100,290,'You'],agent:[1100,560,'Coding agent'],read:[1410,560,'READ files',204,74],edit:[1600,410,'EDIT code',204,74],run:[1790,560,'RUN commands',204,74],check:[1600,710,'CHECK result',204,74]};
 const NEW={agent:1,read:1,edit:1,run:1,check:1},CH={chat:HERO,you:FRIEND,you2:FRIEND,agent:HERO},RING=['read','edit','run','check'];
 const LIKE={chat:['mechanic on the phone',150,0],you:['the messenger',150,0],code:['the car',150,0],agent:['in your garage',-135,72]};
 const nodeIn={read:25.85,edit:26.05,run:26.25,check:26.45};
@@ -181,8 +181,8 @@ function drawBoard(t,cam){const x=layer('board',cam);let g=x.createLinearGradien
  txt(x,'BEFORE',90,156,40,'#C9B8E0');txt(x,'you carry everything by hand',90,204,28,'#C9B8E0','left','600'); // below the corner tag
  txt(x,'CODING-AGENT SESSION',960,156,40,'#FFC66E');
  // one session: the agent and its loop, from your request to the result
- const sb=fin(t,37.8,.7);if(sb>0){x.save();x.globalAlpha=sb;x.fillStyle='rgba(255,198,110,.06)';x.strokeStyle='#FFC66E';x.lineWidth=4;x.beginPath();x.roundRect(940,212,972,592,28);x.fill();x.stroke();
-  pill(x,1740,212,250,44,'#FFC66E');txt(x,'ONE SESSION',1740,214,24,'#1B1430','center','900');x.restore();txt(x,'your request · every step · every result',1426,850,26,'#FFC66E','center','700',fin(t,38.5,.5))}
+ const sb=fin(t,37.8,.7);if(sb>0){x.save();x.globalAlpha=sb;x.fillStyle='rgba(255,198,110,.06)';x.strokeStyle='#FFC66E';x.lineWidth=4;x.beginPath();x.roundRect(940,226,972,578,28);x.fill();x.stroke();
+  pill(x,1740,226,250,44,'#FFC66E');txt(x,'ONE SESSION',1740,228,24,'#1B1430','center','900');x.restore();txt(x,'your request · every step · every result',1426,850,26,'#FFC66E','center','700',fin(t,38.5,.5))}
  // before: he can only send text, so you are the messenger, down with the fix and up with the error
  arrow(x,'chat','you',1,'only text','#C9B8E0',4,[42,0],1);arrow(x,'you','code',1,'paste, run','#C9B8E0',4,[42,0],1);arrow(x,'code','you',1,'error','#FF8F7A',4,[-42,0],-1);arrow(x,'you','chat',1,'ask again','#FF8F7A',4,[-42,0],-1);
  const al=1-fin(t,40.5,.5),cyc=(t*.62)%4,ci=Math.floor(cyc),cu=cyc-ci;
@@ -221,8 +221,8 @@ function overlay(t,s){ctx.setTransform(1,0,0,1,0,0);
  card(t,36.1,37.3,960,700,'every step · every result','#F8E9CC',40);
  card(t,39.9,41.1,960,800,'you stop being the messenger','#F8E9CC',40);
  card(t,41.6,43.6,130,900,'you watch · you can stop it at any moment','#F8E9CC',36);
- card(t,44.65,45.35,130,620,'it can still be wrong','#FF8F7A',42);
- card(t,45.85,46.95,130,640,'so give it a test to run','#FFC66E',42);
+ card(t,44.65,45.35,960,620,'it can still be wrong','#FF8F7A',42);
+ card(t,45.85,46.95,960,640,'so give it a test to run','#FFC66E',42);
  card(t,48.9,50.6,960,560,'not a bigger brain','#F8E9CC',44);
  card(t,51.1,51.9,960,440,'hands = tools','#2DB2AE',44);
  card(t,52.4,53.3,960,760,'and a way to check its own work','#2DB2AE',40);
@@ -250,12 +250,12 @@ FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,
   {x:lerp(720,700,e),y:lerp(430,415,e),z:lerp(1.85,2.05,e),b:[4]},        // 5 he can only talk
   {x:lerp(1230,1280,e),y:lerp(470,480,e),z:lerp(1.5,1.62,e),b:[3,0,0]},   // 6 you paste his fix
   {x:lerp(1480,1500,e),y:lerp(560,600,e),z:lerp(2.1,2.35,e),b:[4,0,0]},   // 7 you run it: error
-  {x:lerp(1290,1180,e),y:lerp(590,570,e),z:lerp(1.6,1.45,e),b:[3,0,0]},   // 8 you carry the error back
+  {x:lerp(1300,1220,e),y:lerp(520,505,e),z:lerp(1.45,1.32,e),b:[3,0,0]},   // 8 you carry the error back
   {x:lerp(940,975,e),y:lerp(530,515,e),z:lerp(1.45,1.6,e),b:[3]},         // 9 again and again
   {x:lerp(870,850,e),y:lerp(470,500,e),z:lerp(1.95,1.5,e),b:[3]},         // 10 the mechanic, in your garage
-  {x:lerp(735,925,e),y:lerp(705,605,e),z:lerp(2.25,2.05,e),b:[4]},        // 11 with tools
+  {x:lerp(760,900,e),y:lerp(640,575,e),z:lerp(1.95,1.8,e),b:[4]},        // 11 with tools
   {x:lerp(580,620,e),y:lerp(490,475,e),z:lerp(1.42,1.52,e),b:[2]},        // 12 you give it one job
-  {x:lerp(1120,1170,e),y:lerp(400,390,e),z:lerp(1.7,1.88,e),b:[3,0,0]},   // 13 in a terminal
+  {x:lerp(1180,1220,e),y:lerp(420,405,e),z:lerp(1.62,1.78,e),b:[3,0,0]},   // 13 in a terminal
   {x:lerp(1470,1560,e),y:lerp(545,560,e),z:lerp(1.3,1.5,e)},              // 14 board: it works in a loop
   {x:lerp(990,1010,e),y:lerp(560,575,e),z:lerp(1.65,1.85,e),b:[3]},       // 15 it reads
   {x:lerp(1030,1050,e),y:lerp(600,610,e),z:lerp(2.4,2.7,e),b:[5]},        // 16 it edits
@@ -264,9 +264,9 @@ FILM={dur:60,cuts:[0,66,117,177,243,324,366,420,453,501,555,618,678,720,771,813,
   {x:lerp(1600,1585,e),y:560,z:lerp(1.75,1.55,e)},                        // 19 board: round again, until it passes
   {x:lerp(1250,1290,e),y:lerp(480,500,e),z:lerp(1.5,1.64,e),b:[3,0,0]},   // 20 every step, every result
   {x:lerp(1430,960,e),y:lerp(530,540,e),z:lerp(1.28,1,e)},                // 21 board: one session
-  {x:lerp(470,520,e),y:lerp(560,545,e),z:lerp(1.5,1.66,e)},               // 22 before: you were the messenger
+  {x:lerp(480,520,e),y:lerp(605,595,e),z:lerp(1.36,1.48,e)},               // 22 before: you were the messenger
   {x:lerp(820,770,e),y:lerp(545,530,e),z:lerp(1.06,1.16,e),b:[2]},        // 23 you watch, and you can stop it
-  {x:lerp(1100,1140,e),y:lerp(486,498,e),z:lerp(2.3,2.55,e),b:[4,0,0]},   // 24 it can still be wrong
+  {x:lerp(1110,1140,e),y:lerp(528,540,e),z:lerp(2.3,2.45,e),b:[4,0,0]},   // 24 it can still be wrong
   {x:lerp(1140,1100,e),y:lerp(590,612,e),z:lerp(2.45,2.2,e),b:[4,0,0]},   // 25 give it a test to run
   {x:lerp(960,1080,e),y:lerp(540,550,e),z:lerp(1,1.14,e)},                // 26 board: notice what changed
   {x:lerp(730,760,e),y:lerp(445,435,e),z:lerp(1.95,2.2,e),b:[4]},         // 27 the same mechanic, the phone now dark
