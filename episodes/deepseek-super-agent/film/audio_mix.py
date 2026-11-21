@@ -8,8 +8,9 @@ info = json.load(open("film.json"))
 m = Mix(info["dur"], seed=9)
 
 # ---- EDIT FROM HERE: set this from the sound brief ----
-SFX, MUSIC, VOICE = True, False, "vo.wav"
+SFX, MUSIC, VOICE = True, True, "vo.wav"
 
+MUSIC_GAIN = 1.4   # measured: music sits 16 dB under the voice
 # No room tone, drone or other noise beds: the owner heard them as white noise under the voice. Sampled effects only.
 if SFX:
     for e in info["events"]:
@@ -19,7 +20,7 @@ if SFX:
         elif k == "march": m.step(t, pan=.3, g=.05 if e.get("soft") else .1, surface="grass")
         elif k == "tick": m.tick(t, g=.05, pan=.2)
 if MUSIC:
-    m.music(mood="warm")
+    m.music(mood="hopeful", bpm=96, gain=MUSIC_GAIN)   # code-made, no lyrics; the owner asked for music
 if VOICE:
     m.voice(VOICE, at=.3)
 # ---- TO HERE ----

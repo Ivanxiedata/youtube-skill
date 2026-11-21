@@ -132,23 +132,39 @@
   "beat": 2,
   "voice": "am_michael",
   "start": 47.755,
-  "end": 51.55,
-  "text": "It is an open-source research prototype for one GitHub repo."
+  "end": 49.374,
+  "text": "It is still a research prototype."
  },
  {
   "n": 17,
   "beat": 2,
   "voice": "am_michael",
-  "start": 51.85,
-  "end": 54.092,
-  "text": "Ask your coding agent to read its setup file."
+  "start": 49.674,
+  "end": 51.669,
+  "text": "But the lesson is two hundred years old."
  },
  {
   "n": 18,
   "beat": 2,
   "voice": "am_michael",
-  "start": 54.592,
-  "end": 57.026,
-  "text": "Next time: what is a coding agent session?"
+  "start": 51.969,
+  "end": 53.731,
+  "text": "The limit was never the soldiers."
+ },
+ {
+  "n": 19,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 54.031,
+  "end": 55.627,
+  "text": "It was the general's attention."
+ },
+ {
+  "n": 20,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 55.927,
+  "end": 57.329,
+  "text": "And now, that general is you."
  }
 ]

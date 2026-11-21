@@ -10,8 +10,5 @@ Napoleon's fix was one man: Berthier, his chief of staff. Napoleon said what he 
 ## why
 The router stays quiet. It speaks up only when you must decide, or can use a result.
 
-## how
-It is an open-source research prototype for one GitHub repo. Ask your coding agent to read its setup file.
-
-## outro
-Next time: what is a coding agent session?
+## takeaway
+It is still a research prototype. But the lesson is two hundred years old. The limit was never the soldiers. It was the general's attention. And now, that general is you.

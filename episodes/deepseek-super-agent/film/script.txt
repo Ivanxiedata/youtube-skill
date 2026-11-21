@@ -4,5 +4,4 @@ Today, you are the general. Your soldiers are AI coding agents. You still shout 
 Napoleon's fix was one man: Bairtyay, his chief of staff. Napoleon said what he wanted. Bairtyay wrote the orders and sent them to the corps: small armies that could each fight alone. DeepSeek's Super-agent works the same way. One router agent listens on GitHub and in your team chat. Ask once. It opens a ticket and hands it to a worker agent, with its own session and its own folder. Many workers march at once.
 The router stays quiet. It speaks up only when you must decide, or can use a result.
 
-It is an open-source research prototype for one GitHub repo. Ask your coding agent to read its setup file.
-Next time: what is a coding agent session?
+It is still a research prototype. But the lesson is two hundred years old. The limit was never the soldiers. It was the general's attention. And now, that general is you.

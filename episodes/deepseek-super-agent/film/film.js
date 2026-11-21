@@ -1,5 +1,5 @@
 // Episode 0, cut 2: DeepSeek Super-agent told through Napoleon and his chief of staff, Berthier.
-// 59 s. Voice from tts.py (vo.wav laid in at .3 s), so every time below is voice time + .3.
+// 60 s. Voice from tts.py (vo.wav laid in at .3 s), so every time below is voice time + .3.
 // Three places on one clock: the battlefield (the story), the studio (today), the board (the architecture).
 const hash=(a,b)=>{const s=Math.sin(a*12.9898+b*78.233)*43758.5453;return s-Math.floor(s)};
 function txt(x,s,X,Y,size,col,al='left',wt='700',a=1){if(a<=0)return;x.save();x.globalAlpha*=a;x.fillStyle=col;x.font=`${wt} ${size}px Arial`;x.textAlign=al;x.textBaseline='middle';x.fillText(s,X,Y);x.restore()}
@@ -10,8 +10,8 @@ const fin=(t,a,d=.4)=>ease(seg(t,a,a+d));
 // ---------- battlefield: Napoleon on a hill, Berthier at a camp table, the army on the plain ----------
 const HZ=610,HILL_Y=632,NAP_X=480,BER_X=800,PAPER=[836,497];
 const CORPS=[{x:1560,y:1250},{x:2200,y:1285},{x:2840,y:1250}],CK=2; // the front row of the army
-const marchD=(t,i)=>t<40?250*ramp(t,25.2+i*.3,27.9+i*.3,.2):320+(t-54.7)*48;
-const marching=(t,i)=>(t>25.2+i*.3&&t<27.9+i*.3)||t>54;
+const marchD=(t,i)=>t<40?250*ramp(t,25.2+i*.3,27.9+i*.3,.2):300+(t-49.9)*40;
+const marching=(t,i)=>(t>25.2+i*.3&&t<27.9+i*.3)||t>49;
 function sky(x){let g=x.createLinearGradient(0,-300,0,HZ);g.addColorStop(0,'#2B2050');g.addColorStop(.45,'#6A4590');g.addColorStop(.78,'#E0708A');g.addColorStop(1,'#FFC66E');x.fillStyle=g;x.fillRect(-3000,-1500,9500,1500+HZ);
  x.fillStyle='#8A5298';x.beginPath();x.moveTo(-3000,HZ);for(let i=0;i<=42;i++)x.lineTo(-3000+i*225,HZ-26-58*hash(i,5)-(i%3==0?36:0));x.lineTo(6500,HZ);x.fill()}
 function ground(x){const g=x.createLinearGradient(0,HZ,0,1100);g.addColorStop(0,'#9A5A80');g.addColorStop(.25,'#5A3A78');g.addColorStop(1,'#2E2150');x.fillStyle=g;x.fillRect(-3000,HZ,9500,1600)}
@@ -33,7 +33,7 @@ const ROWS=[.12,.2,.28,.36,.44,.52,.6,.68,.75,.81,.87,.92,.96,.985];
 function army(x,t){for(let i=ROWS.length-1;i>=0;i--){const d=ROWS[i],k=lerp(2.1,.08,d),y=lerp(1320,HZ+10,Math.pow(d,.75)),sp=190*k+26;x.globalAlpha=d<.5?1:lerp(1,.5,d*2-1);
   for(let X=1180+hash(i,2)*sp;X<4600;X+=sp)block(x,X,y,k,t,false,i*31+X*.01,false)}x.globalAlpha=1;
  {const g=x.createLinearGradient(0,HZ,0,1150);g.addColorStop(0,'rgba(154,90,128,.72)');g.addColorStop(1,'rgba(154,90,128,0)');x.globalCompositeOperation='source-atop';x.fillStyle=g;x.fillRect(-3000,HZ-200,9500,800);x.globalCompositeOperation='source-over'}
-  const hz=(t>24.59&&t<28)?.5:t>54?.4:0;if(hz){x.fillStyle=`rgba(46,33,80,${hz})`;x.fillRect(-3000,HZ-140,9500,1800)}
+  const hz=(t>24.59&&t<28)?.5:0;if(hz){x.fillStyle=`rgba(46,33,80,${hz})`;x.fillRect(-3000,HZ-140,9500,1800)}
  CORPS.forEach((c,i)=>block(x,c.x+marchD(t,i),c.y,CK,t,marching(t,i),i*7,true))}
 function hill(x){const path=()=>{x.beginPath();x.moveTo(-3000,1700);x.lineTo(-3000,700);x.quadraticCurveTo(100,640,400,HILL_Y);x.lineTo(930,HILL_Y+8);x.quadraticCurveTo(1130,662,1310,900);x.lineTo(1400,1700)};
  const g=x.createLinearGradient(0,620,0,1100);g.addColorStop(0,'#4A2F6A');g.addColorStop(1,'#241736');x.fillStyle=g;path();x.closePath();x.fill();
@@ -47,10 +47,10 @@ function bicorne(x,p,col,trim){x.save();x.translate(p.x,p.y);x.scale(p.s,p.s);if
  x.strokeStyle=trim;x.lineWidth=8;x.lineCap='round';x.beginPath();x.moveTo(-162,-45);x.quadraticCurveTo(0,-109,162,-45);x.stroke();
  x.fillStyle='#E4493F';x.fillRect(-10,-150,20,30);x.fillStyle='#F4EBDD';x.fillRect(-10,-140,20,10);x.restore()}
 function napPose(t){const sh=fin(t,3.35,.2)*(1-fin(t,5.2,.3));
- return {x:NAP_X,y:standY(HILL_Y,.5),s:.5,face:1,breath:t*2.2,blink:blinkAt(t,[1.1,6.5,17.6,19.9,21.9,26.2,56.2,58]),
-  look:kf(t,[[0,.75],[16.6,.75],[18,.3],[20.4,.9],[54,.9],[55,.7]]),lookY:kf(t,[[0,.15],[16.6,.3],[20.4,.1]]),
+ return {x:NAP_X,y:standY(HILL_Y,.5),s:.5,face:1,breath:t*2.2,blink:blinkAt(t,[1.1,6.5,17.6,19.9,21.9,26.2,51,54.9]),
+  look:kf(t,[[0,.75],[16.6,.75],[18,.3],[20.4,.9],[54.2,.8],[55.3,.1]]),lookY:kf(t,[[0,.15],[16.6,.3],[20.4,.1]]),
   brow:kf(t,[[0,.2],[3.3,.2],[3.5,-.4],[5.3,-.4],[16.6,.5],[20.4,.1]]),sad:kf(t,[[0,-.25],[3.3,-.25],[3.5,-.6],[5.3,-.6],[5.6,.5],[20.2,.5],[20.6,0]]),
-  mouth:kf(t,[[0,-.25],[16.6,-.4],[20.3,-.3],[20.6,.5],[54,.6],[55,.85]]),open:sh*(.55+.4*Math.abs(Math.sin(t*9)))+talk(t,20.6,22),bend:sh*.13,tilt:sh*.06}}
+  mouth:kf(t,[[0,-.25],[16.6,-.4],[20.3,-.3],[20.6,.5],[49,.6],[50,.8]]),open:sh*(.55+.4*Math.abs(Math.sin(t*9)))+talk(t,20.6,22),bend:sh*.13,tilt:sh*.06}}
 function berPose(t){const w=fin(t,22.3,.3)*(1-fin(t,24.3,.3));
  return {x:BER_X,y:standY(HILL_Y+8,.5),s:.5,face:1,breath:t*2+1,blink:blinkAt(t,[19.3,21.2,25.5,56.9]),
   look:kf(t,[[0,-.85],[22.1,-.85],[22.5,.25],[24.3,.25],[24.7,.9]]),lookY:kf(t,[[0,.1],[22.1,.1],[22.5,.9],[24.3,.9],[24.7,.2]]),
@@ -78,7 +78,7 @@ function studioWall(x){let g=x.createLinearGradient(0,0,0,760);g.addColorStop(0,
  x.fillStyle='#237F80';x.fillRect(-800,700,W+2400,600);x.fillStyle='#2F9A98';x.fillRect(-800,692,W+2400,10);
  x.fillStyle='#241736';x.fillRect(690,470,1100,16);x.fillStyle='rgba(20,10,30,.35)';x.fillRect(690,486,1100,10)}
 function desk(x){let g=x.createLinearGradient(0,DESK_Y,0,1100);g.addColorStop(0,'#B0705A');g.addColorStop(.08,'#8A4A3A');g.addColorStop(1,'#4A2838');x.fillStyle=g;x.fillRect(200,DESK_Y,1700,500);x.fillStyle='rgba(255,226,190,.45)';x.fillRect(200,DESK_Y,1700,4)}
-// st: a appear 0..1, work 0..1 (scrolling code), wait 0..1 (needs you), hot 0..1 (you are watching it), dim 0..1, term (how-beat text)
+// st: a appear 0..1, work 0..1 (scrolling code), wait 0..1 (needs you), hot 0..1 (you are watching it), dim 0..1
 function monitor(x,m,i,t,st){const a=st.a;if(a<=0)return;x.save();x.globalAlpha=a;const {cx,by,w,h}=m,top=by-26-h,l=cx-w/2;
  x.fillStyle='#1B1430';x.fillRect(cx-7,by-28,14,28);x.beginPath();x.ellipse(cx,by-2,w*.2,6,0,0,7);x.fill();
  if(st.hot>0){x.save();x.globalAlpha=a*st.hot;x.strokeStyle='#FFC66E';x.lineWidth=6;x.beginPath();x.roundRect(l-7,top-7,w+14,h+14,12);x.stroke();x.restore()}
@@ -87,33 +87,21 @@ function monitor(x,m,i,t,st){const a=st.a;if(a<=0)return;x.save();x.globalAlpha=
  x.save();x.beginPath();x.rect(sx,sy,sw,sh);x.clip();
  if(st.work>0){x.globalAlpha=a*st.work*(1-st.dim*.7);const n=7,gap=sh/n;for(let k=0;k<n+1;k++){const y=sy+((k*gap+t*22*(1+hash(i,1))+i*9)%(sh+gap))-gap/2;x.fillStyle=k%3?'#2DB2AE':'#FF8F7A';x.fillRect(sx+8+hash(i,k)*10,y,sw*(.25+.5*hash(i+3,k)),Math.max(3,gap*.32))}}
  if(st.wait>0){x.globalAlpha=a*st.wait;if(Math.floor(t*2.2+i*.3)%2==0){x.fillStyle='#F8E9CC';x.fillRect(sx+10,sy+sh*.5-8,10,16)}}
- if(st.term)st.term(x,sx,sy,sw,sh);
  x.restore();
  if(st.wait>0){const b=1+Math.sin(t*4+i)*.05*st.wait;x.save();x.globalAlpha=a*st.wait;x.translate(cx+w*.32,top-16);x.scale(b,b);pill(x,0,0,46,40,'#FFC66E');x.fillStyle='#FFC66E';x.beginPath();x.moveTo(-8,16);x.lineTo(0,28);x.lineTo(6,16);x.fill();txt(x,'?',0,1,28,'#1B1430','center','900');x.restore()}
  if(st.badge){const [lab,col,ba]=st.badge;if(ba>0){x.save();x.globalAlpha=a*ba;const bw=lab.length*13+40;pill(x,cx,top-24-(1-ba)*10,bw,40,col);txt(x,lab,cx,top-23-(1-ba)*10,22,'#1B1430','center','800');x.restore()}}
  x.restore()}
-function monState(i,t){const m=MON[i],s={a:i?fin(t,7.45+i*.2,.3):1,work:0,wait:0,hot:0,dim:0,badge:null,term:null};
+function monState(i,t){const m=MON[i],s={a:i?fin(t,7.45+i*.2,.3):1,work:0,wait:0,hot:0,dim:0,badge:null};
  // today: sessions start, then every one waits on you; "three to five": the desk row is watched, the back row is not; later they run alone
  if(t<9.7)s.work=1;else if(t<30){s.wait=1;s.hot=m.row==0?fin(t,13.2,.5):0;s.dim=m.row==1?fin(t,13.2,.6):0}
- else{s.work=1;if(i==3)s.badge=['decide?','#FFC66E',fin(t,44.9)*(1-fin(t,47.2))];if(i==7)s.badge=['ready','#2DB2AE',fin(t,46.3)]}
- if(i==0&&t>=47.4&&t<54.7){s.work=0;s.term=termAt(t)}
+ else{s.work=1;if(i==3)s.badge=['decide?','#FFC66E',fin(t,44.9)*(1-fin(t,47.2))];if(i==7)s.badge=['ready','#2DB2AE',fin(t,46.3)*(1-fin(t,47.3,.1))]}
  return s}
-// the README's own setup line, typed out
-function termAt(t){return (x,sx,sy,sw,sh)=>{const pad=12;x.globalAlpha=1;x.fillStyle='#0E0C24';x.fillRect(sx,sy,sw,sh);x.fillStyle='#2A1F42';x.fillRect(sx,sy,sw,22);
- for(let k=0;k<3;k++){x.fillStyle=['#FF6B5E','#FFC66E','#2DB2AE'][k];x.beginPath();x.roundRect(sx+10+k*14,sy+7,8,8,4);x.fill()}
- txt(x,'github.com/deepseek-ai/dsh-superagent-prototype',sx+pad,sy+40,9,'#F8E9CC','left','700',fin(t,47.6));
- txt(x,'open source  ·  MIT  ·  research prototype',sx+pad,sy+58,9.5,'#2DB2AE','left','700',fin(t,48.5));
- txt(x,'one GitHub repo  ·  runs on DeepSeek Harness',sx+pad,sy+74,9.5,'#C9B8E0','left','600',fin(t,50.2));
- const L1='> Read SETUP.md in this repository',L2='  and set up dsh-superagent with me.',n=Math.floor(clamp((t-52.2)/2)*(L1.length+L2.length));
- const s1=L1.slice(0,n),s2=L2.slice(0,Math.max(0,n-L1.length));
- txt(x,s1,sx+pad,sy+104,10.5,'#FFC66E');txt(x,s2,sx+pad,sy+120,10.5,'#FFC66E');
- if(t>51.6&&Math.floor(t*2.4)%2==0){x.font='700 10.5px Arial';const on2=n>L1.length,cw=x.measureText(on2?s2:s1).width;x.fillStyle='#FFC66E';x.fillRect(sx+pad+cw+2,sy+(on2?114:98),6,12)}}}
 function heroPose(t){const amp=fin(t,9.7,.3)*(1-fin(t,12,.3));
- return {x:HERO_P[0],y:HERO_P[1],s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[6.6,8.9,13.5,15.6,42.8,44.6,50,53]),
-  look:kf(t,[[0,.6],[7.3,.6],[7.7,.9],[42,.75],[44.9,.75],[45.2,.95],[46.2,.95],[46.5,.8]])-amp*(.2+.2*Math.sin(t*5.2)),
-  lookY:kf(t,[[0,.35],[7.3,.35],[7.8,-.15],[9.7,.3],[42,.3],[46.2,.25],[46.5,-.25]]),
+ return {x:HERO_P[0],y:HERO_P[1],s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[6.6,8.9,13.5,15.6,42.8,44.6,57.2,59]),
+  look:kf(t,[[0,.6],[7.3,.6],[7.7,.9],[42,.75],[44.9,.75],[45.2,.95],[46.2,.95],[46.5,.8],[56,.8],[56.1,.12]])-amp*(.2+.2*Math.sin(t*5.2)),
+  lookY:kf(t,[[0,.35],[7.3,.35],[7.8,-.15],[9.7,.3],[42,.3],[46.2,.25],[46.5,-.25],[56,-.25],[56.1,.1]]),
   brow:kf(t,[[0,.1],[7.5,.1],[8,.7],[16.6,.7],[42,.1]]),sad:kf(t,[[0,0],[7.5,0],[8.1,.55],[16.6,.6],[42,0]]),
-  mouth:kf(t,[[0,.7],[7.5,.7],[8.1,-.3],[16.6,-.35],[42,.7]]),tilt:kf(t,[[0,0],[7.5,0],[8.1,-.05],[16.6,-.05],[42,.04]])}}
+  mouth:kf(t,[[0,.7],[7.5,.7],[8.1,-.3],[16.6,-.35],[42,.7],[56,.7],[56.1,.9]]),tilt:kf(t,[[0,0],[7.5,0],[8.1,-.05],[16.6,-.05],[42,.04]])}}
 function drawStudio(t,cam){let x=layer('wall',cam,1);studioWall(x);for(let i=5;i<10;i++)monitor(x,MON[i],i,t,monState(i,t));
  const a=layer('lamp',cam);pendant(a,520,t,.08);pendant(a,1500,t,.08);
  const h=layer('hero',cam),hp=actor(h,'hero',HERO,heroPose(t),cam);bicorne(h,hp,'#17141F','#FFC66E');
@@ -160,17 +148,21 @@ function drawBoard(t,cam){const x=layer('board',cam);let g=x.createLinearGradien
 // ---------- words on screen (screen space) ----------
 function card(t,a,b,y,w,s,col,size){const v=fin(t,a,.25)*(b?1-fin(t,b,.25):1);if(v<=0)return;pill(ctx,W/2,y,w,size*2.2,'rgba(27,20,48,.84)',v);txt(ctx,s,W/2,y+2,size,col,'center','800',v)}
 function overlay(t){ctx.setTransform(1,0,0,1,0,0);
- card(t,1.7,3.2,120,760,'100,000+ soldiers','#FFC66E',58);
- card(t,5.8,7.2,960,640,'today, you are the general','#F8E9CC',38);
- card(t,14.5,16.5,110,740,'one person follows 3–5 at once','#F8E9CC',38);
- card(t,18.6,20.3,960,640,'Berthier · chief of staff','#FFC66E',40);
- card(t,25.3,27.2,960,660,'each corps: a small army','#F8E9CC',38);
- card(t,27.6,29.9,960,640,'DeepSeek Super-agent','#FFC66E',46);
- card(t,43.8,47.3,110,760,'it speaks up only when needed','#F8E9CC',38);
- card(t,55,0,130,900,'Next: what is a coding-agent session?','#FFC66E',40)}
+ card(t,1.7,3.0,120,760,'100,000+ soldiers','#FFC66E',58);
+ card(t,5.8,7.0,960,640,'today, you are the general','#F8E9CC',38);
+ card(t,14.5,16.3,110,740,'one person follows 3–5 at once','#F8E9CC',38);
+ card(t,18.6,20.1,960,640,'Berthier · chief of staff','#FFC66E',40);
+ card(t,25.3,27.0,960,660,'each corps: a small army','#F8E9CC',38);
+ card(t,27.6,29.7,960,640,'DeepSeek Super-agent','#FFC66E',46);
+ card(t,43.8,47.1,110,760,'it speaks up only when needed','#F8E9CC',38);
+ card(t,47.9,49.6,972,860,'still a research prototype · open source','#FFC66E',36);
+ card(t,50.2,51.9,120,640,'a 200-year-old lesson','#FFC66E',44);
+ const v=fin(t,56.6,.35);if(v>0){ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.88)';ctx.beginPath();ctx.roundRect(W/2-560,70,1120,210,40);ctx.fill();ctx.restore();
+  txt(ctx,'The limit isn’t your agents.',W/2,132,58,'#F8E9CC','center','800',v);txt(ctx,'It’s your attention.',W/2,214,64,'#FFC66E','center','800',fin(t,57.2,.35))}
+ card(t,58.3,0,1000,720,'Next: what is a coding-agent session?','#C9B8E0',30)}
 
-FILM={dur:59,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,1110,1200,1260,1308,1368,1422,1560,1641,1770],fadeIn:.15,fadeOut:.5,
- cam(s,u,t){const e=ease(u),m0=MON[0];return [
+FILM={dur:60,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,1110,1200,1260,1308,1368,1422,1497,1566,1626,1683,1800],fadeIn:.15,fadeOut:.6,
+ cam(s,u,t){const e=ease(u);return [
   {x:lerp(540,520,e),y:lerp(350,370,e),z:lerp(2.3,2.05,e),b:[6,3]},              // 0 Napoleon, close
   {x:lerp(1420,1700,(u+e)/2),y:lerp(520,560,e),z:lerp(.98,.72,(u+e)/2),b:[2,1+2.5*Math.sin(Math.PI*u)]},             // 1 pull out: the whole army
   {x:lerp(800,880,e),y:470,z:lerp(1.3,1.2,e),b:[4,1.5]},                         // 2 he shouts; the orders die in the air
@@ -192,12 +184,14 @@ FILM={dur:59,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,
   {x:lerp(1100,1060,e),y:540,z:lerp(.86,.92,e),b:[2,0,0]},                       // 18 studio: it runs without you
   {x:lerp(980,1040,e),y:lerp(600,590,e),z:lerp(1.1,1.2,e),b:[2,0,0]},            // 19 a question
   {x:lerp(1280,1310,e),y:lerp(430,415,e),z:lerp(1.55,1.8,e),b:[0,0,0]},          // 20 a result
-  {x:m0.cx+lerp(-10,10,e),y:m0.by-26-m0.h/2+4,z:lerp(5.2,5.5,e),b:[6,0,0]},      // 21 how: the repo
-  {x:lerp(828,842,e),y:lerp(684,690,e),z:lerp(6.3,6.7,e),b:[6,0,0]},             // 22 how: the setup line
-  {x:lerp(1250,1500,e),y:lerp(560,540,e),z:lerp(.85,.7,e),b:[2,0]}               // 23 back on the hill
+  {x:lerp(960,975,e),y:lerp(540,548,e),z:lerp(1,1.05,e)},                        // 21 the whole design: still a prototype
+  {x:lerp(1300,1380,e),y:lerp(560,548,e),z:lerp(.8,.75,e),b:[2,0]},              // 22 back on the hill: the old lesson
+  {x:lerp(2380,2420,e),y:lerp(880,870,e),z:lerp(1,1.07,e),b:[3,0]},              // 23 not the soldiers
+  {x:lerp(430,390,e),y:lerp(365,350,e),z:lerp(1.9,2.25,e),b:[6,3]},              // 24 the general's attention
+  {x:lerp(640,700,e),y:lerp(462,478,e),z:lerp(1.38,1.26,e),b:[2,0,0]}            // 25 that general is you
  ][s]},
- draw(t,cam,s){if(s<=2||(s>=8&&s<=12)||s==23)drawBattle(t,cam);else if(s>=13&&s<=17)drawBoard(t,cam);else drawStudio(t,cam);overlay(t)},
+ draw(t,cam,s){if(s<=2||(s>=8&&s<=12)||(s>=22&&s<=24))drawBattle(t,cam);else if((s>=13&&s<=17)||s==21)drawBoard(t,cam);else drawStudio(t,cam);overlay(t)},
  plants(){return {}}};
 say(.15,'drum');say(1.5,'drum');for(let i=1;i<10;i++)say(7.45+i*.2,'tick');
-for(const t of [23.5,23.8,24.1])say(t,'paper');for(let t=25.3;t<27.3;t+=.28)say(t,'march');for(let t=54.9;t<58.2;t+=.28)say(t,'march',{soft:1});
+for(const t of [23.5,23.8,24.1])say(t,'paper');for(let t=25.3;t<27.3;t+=.28)say(t,'march');for(let t=50;t<54;t+=.28)say(t,'march',{soft:1});
 for(const t of [30.3,36.3,40.4,40.7,44.9,46.3])say(t,'tick');

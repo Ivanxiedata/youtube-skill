@@ -5,7 +5,7 @@ Owner-maintained. Agents read this; they don't edit it without being asked.
 ## What it is
 Turns a new AI technology into a 1-minute stickman video that explains it as if to a five-year-old,
 always side by side with the technology it builds on. Every video answers four questions:
-what came before, what's new, why we need it, and how to use it, with an architecture diagram
+what came before, what's new, why we need it, and what to take away, with an architecture diagram
 comparing old and new. AI moves fast, so the product remembers what it has already covered and
 each new video builds on the last ("remember v2? here's what changed").
 
@@ -34,11 +34,11 @@ actually understand it: how it works, not just its name.
 | 5-15s | Before | The previous technology and its limit |
 | 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
 | 35-45s | Why we need it | The problem the old one couldn't solve |
-| 45-57s | How to use it | One concrete starting point |
-| 57-60s | Outro | What to watch next (the predecessor's or successor's video) |
+| 45-57s | Takeaway | The insight the viewer keeps, tied back to the story. How to try it goes in the description, not on screen |
+| 57-60s | Outro | The takeaway as one line on screen, then what to watch next |
 
 Pace: a new shot about every 2-3 seconds (Episode 0's first cut averaged 6 and felt slow).
-Sound: voice plus a few sampled effects; no room tone or other noise bed under the voice.
+Sound: voice, quiet instrumental music (no lyrics, about 16 dB under the voice) and a few sampled effects; no room tone or other noise bed.
 Captions: upload `script.md` as the video's captions (packaging step).
 
 ## Skills used

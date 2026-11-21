@@ -1,11 +1,11 @@
 # deepseek-super-agent progress
 
 ## Status
-Cut 2 rendered after owner feedback (Napoleon/Berthier story, 59 s, 24 shots, no noise bed, audit 0 issues); waiting for the owner to watch and listen.
+Cut 3 rendered after owner feedback (Napoleon/Berthier story, 60 s, 26 shots, instrumental music, insight ending, audit 0 issues); waiting for the owner to watch and listen.
 
 ## Next
 1. Owner watches `episodes/deepseek-super-agent/deepseek-super-agent.mp4` (not in git: rebuild with step 4) and listens to the mix (nobody has heard it).
-2. Packaging: title, description with the sources from `research.md`, captions from `script.md`, thumbnail (youtube-agent `yt-package`).
+2. Packaging: title, description with the repo link, the setup line ("Read SETUP.md in this repository and set up dsh-superagent with me.") and the sources from `research.md`; captions from `script.md`; thumbnail (youtube-agent `yt-package`).
 3. Upload by hand in YouTube Studio as private until the `upload` feature exists (PR #2).
 4. Rebuild from git: `make skills`, venv as `make skills` prints, `python .claude/skills/stickman/scripts/new_film.py <tmp>`, copy its engine files into `film/`,
    `tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align`, then `build.py film --out deepseek-super-agent.mp4` from this folder.
@@ -29,6 +29,10 @@ none
 - 2026-11-20: Sound is voice plus sampled effects only. Cut 1's `room_bed` and `drone` measured -30 to -35 dBFS between lines; cut 2 is digital silence there.
 - 2026-11-20: Voice speed 1.2 (174 wpm, 57.3 s) and voice laid in at .3 s, so the film is 59 s. `script.txt` blank lines (0.95 s pauses) only before "Napoleon's fix" and "It is an open-source".
 - 2026-11-20: `script.txt` spells Berthier as "Bairtyay" for the voice; `script.md` keeps the real spelling for captions.
+- 2026-11-20: Cut 3, because the owner liked the content but wants instrumental background music and an insightful conclusion instead of the how-to terminal screen.
+  The `how` section became `takeaway` ("the limit was never the soldiers, it was the general's attention; now that general is you"); the setup link moves to the description.
+  The spoken "Next time" line is gone; "Next" is an on-screen card only, so the last spoken line is the insight.
+- 2026-11-20: Music is the stickman skill's code-made bed (`m.music(mood="hopeful", bpm=96)`, gain 1.4), because stock tracks can't be licence-checked here; measured 16 dB under the voice. A supplied MP3 would go through `m.music_file`.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -41,9 +45,12 @@ none
   What fixed it: a haze gradient over the far rows (`source-atop`), softer detail colours, and zooming instead of panning.
 - Engine lesson: a state change timed just before a cut shows as a one-frame pop; time it on the cut frame (frame / 30).
 - Engine lesson: hats and props for a character can be drawn after `actor()` by repeating the head transform (`bicorne` in film.js), so the engine copy stays untouched.
-- episode Q2 update: at speed 1.2 the voice does 2.9 words/s; 166 words = 57.3 s.
+- episode Q2 update: at speed 1.2 the voice does 2.9 words/s; 170 words = 57.6 s, so the spec's 135-165 word limit is too low for this voice.
+- For the specs: the owner replaced the `how` section with `takeaway` (see `docs/product.md` format table); `docs/specs/episode.md` and `shared/brief` should use hook/before/new/why/takeaway/outro.
+- Engine lesson: a caption card must finish fading before its shot's cut, or it bleeds into the next shot.
 
 ## Log
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-20 ep-super-agent: research (primary repo docs + press), brief.json, script.md, voice, film.js (studio + side-by-side diagram), rendered 60 s; audit 0 issues after fixing a stillness window and a dashed-line determinism bug.
 - 2026-11-20 ep-super-agent: cut 2 after owner feedback: new script (Napoleon and Berthier), 24 shots, battlefield set, noise beds removed, `docs/product.md` gets the story/hook/pace/sound rules; audit 0 issues.
+- 2026-11-20 ep-super-agent: cut 3 after owner feedback: instrumental music, how-to ending replaced by the insight ending, caption timing fixed; `docs/product.md` format table updated; audit 0 issues.

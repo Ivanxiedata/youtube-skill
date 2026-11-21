@@ -67,17 +67,21 @@
         }
       ]
     },
-    "how": {
-      "text": "Open-source research prototype for one GitHub repo; ask your coding agent to read SETUP.md and set it up with you.",
+    "takeaway": {
+      "text": "Still a research prototype, but the lesson is two hundred years old: the limit was never the soldiers, it was the general's attention, and with AI agents that general is you.",
       "claims": [
         {
           "text": "Research prototype, not an official DeepSeek product; MIT; for one GitHub repository; setup by asking a coding agent to read SETUP.md.",
           "source": "https://github.com/deepseek-ai/dsh-superagent-prototype"
+        },
+        {
+          "text": "DeepSeek's stated principle: take as little human attention as possible, and give as much value as possible.",
+          "source": "https://github.com/deepseek-ai/dsh-superagent-prototype/blob/main/docs/000-philosophy.md"
         }
       ]
     },
     "outro": {
-      "text": "Next: what a coding-agent session is.",
+      "text": "On screen only: Next, what is a coding-agent session?",
       "claims": []
     }
   },
