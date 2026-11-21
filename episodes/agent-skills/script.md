@@ -1,17 +1,17 @@
 ## hook
-Agent Skills, explained: you would never make a cook reread 500 pages to fry one egg, but that is how you prompt your AI agent.
+Agent Skills in 60s: you stop loading your 1 big prompt before each task; skills cost 100 tokens until you need them, but how?
 
 ## before
-In your kitchen, every rule you wrote sits in one giant binder: the one big prompt. Your cook reads all of it before every order.
+Here's how, in a kitchen. Every rule you wrote sits in one giant binder: your big prompt. Your cook rereads all of it, even to fry one egg.
 
 ## new
-The fix is a recipe box. Every recipe is a card with a tab: its name, and when to use it. Your cook reads only the tabs. Soup is ordered. He pulls the soup card, and nothing else. Agent Skills work the same way. A skill is a folder with one file: SKILL.md. At startup, your agent loads only each skill's name and description. When a task matches, it reads the full instructions. Extra files load only if needed.
+Agent Skills are a recipe box. Every card has a tab: its name, and when to use it. Your cook reads only the tabs. Soup is ordered: he pulls only the soup card. A skill is a folder with a SKILL.md file. At startup, your agent loads only each skill's name and description: about 100 tokens. When a task matches, it reads the full instructions. Extra files load only if needed.
 
 ## why
-So it keeps many skills on hand, and a clear head for the job.
+That's the how: only the tab loads, until a task needs the card. So your agent keeps many skills on hand, and room to work.
 
 ## takeaway
-It is an open standard, started by Anthropic. But the lesson is as old as the kitchen. Don't tell your agent everything. Tell it where to look.
+The lesson is as old as the kitchen. Don't tell your agent everything. Tell it where to look.
 
 ## outro
 Subscribe for the next one.

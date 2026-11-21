@@ -12,16 +12,28 @@
   },
   "sections": {
     "hook": {
-      "text": "You would never make a cook reread a 500-page recipe binder before frying one egg, but that is how you prompt your AI agent; Agent Skills fix that.",
+      "text": "Agent Skills in 60s: you stop loading your 1 big prompt before each task; skills cost 100 tokens until you need them, but how?",
       "claims": [
+        {
+          "text": "Before: every instruction sits in one always-loaded prompt; instructions in CLAUDE.md are always loaded, while a skill's body loads only when it's used.",
+          "source": "https://code.claude.com/docs/en/skills"
+        },
         {
           "text": "Unlike prompts, Skills load on demand, so you don't have to repeat the same guidance across conversations.",
           "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        },
+        {
+          "text": "Level 1 metadata (name and description) is always loaded at startup and costs ~100 tokens per Skill; the rest loads when triggered.",
+          "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        },
+        {
+          "text": "Metadata (~100 tokens): the name and description fields are loaded at startup for all skills.",
+          "source": "https://agentskills.io/specification"
         }
       ]
     },
     "before": {
-      "text": "Every rule you wrote sits in one big prompt, and the agent takes all of it in before every task.",
+      "text": "Turn: here's how, in a kitchen. Every rule you wrote sits in one giant binder: your big prompt. Your cook rereads all of it, even to fry one egg.",
       "claims": [
         {
           "text": "Instructions in CLAUDE.md are always loaded; a skill's body loads only when it's used. Create a skill when you keep pasting the same instructions into chat.",
@@ -34,7 +46,7 @@
       ]
     },
     "new": {
-      "text": "A recipe box: the cook reads only the tabs and pulls the one card an order needs. A skill is a folder with SKILL.md; at startup the agent loads only each skill's name and description; when a task matches, it reads the full instructions; extra files load only if needed.",
+      "text": "Agent Skills are a recipe box: every card has a tab (its name, and when to use it); the cook reads only the tabs and pulls only the card an order needs. A skill is a folder with a SKILL.md file; at startup the agent loads only each skill's name and description, about 100 tokens; when a task matches, it reads the full instructions; extra files load only if needed.",
       "claims": [
         {
           "text": "Recipe boxes held recipe cards, some hundreds, a kitchen staple before recipe apps.",
@@ -63,7 +75,7 @@
       ]
     },
     "why": {
-      "text": "So the agent keeps many skills on hand and its context stays free for the job.",
+      "text": "Payoff: that's the how, only the tab loads until a task needs the card. So your agent keeps many skills on hand, and room to work.",
       "claims": [
         {
           "text": "Agents can keep many skills on hand with only a small context footprint.",
@@ -72,11 +84,15 @@
         {
           "text": "You can install many Skills without context penalty; bundled files cost no tokens until accessed.",
           "source": "https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview"
+        },
+        {
+          "text": "Progressive disclosure: metadata at startup, the full SKILL.md body when the skill is activated, other files only when required.",
+          "source": "https://agentskills.io/specification"
         }
       ]
     },
     "takeaway": {
-      "text": "An open standard started by Anthropic; the lesson is as old as the kitchen: don't tell your agent everything, tell it where to look.",
+      "text": "The lesson is as old as the kitchen: don't tell your agent everything, tell it where to look. On screen only (not spoken): an open standard, started by Anthropic.",
       "claims": [
         {
           "text": "The Agent Skills format was originally developed by Anthropic and released as an open standard.",
@@ -89,7 +105,7 @@
       ]
     },
     "outro": {
-      "text": "Spoken call to action: subscribe for the next one. On screen: a Subscribe button and 'Next in 60 seconds: why MCP went stateless'",
+      "text": "Spoken call to action: Subscribe for the next one. On screen: a Subscribe button and 'Next in 60 seconds: why MCP went stateless'",
       "claims": []
     }
   },
