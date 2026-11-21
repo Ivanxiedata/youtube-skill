@@ -129,42 +129,50 @@
  },
  {
   "n": 16,
-  "beat": 2,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 47.755,
-  "end": 49.374,
+  "start": 47.305,
+  "end": 48.924,
   "text": "It is still a research prototype."
  },
  {
   "n": 17,
-  "beat": 2,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 49.674,
-  "end": 51.669,
+  "start": 49.224,
+  "end": 51.219,
   "text": "But the lesson is two hundred years old."
  },
  {
   "n": 18,
-  "beat": 2,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 51.969,
-  "end": 53.731,
+  "start": 51.519,
+  "end": 53.281,
   "text": "The limit was never the soldiers."
  },
  {
   "n": 19,
-  "beat": 2,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 54.031,
-  "end": 55.627,
+  "start": 53.581,
+  "end": 55.177,
   "text": "It was the general's attention."
  },
  {
   "n": 20,
-  "beat": 2,
+  "beat": 1,
   "voice": "am_michael",
-  "start": 55.927,
-  "end": 57.329,
+  "start": 55.477,
+  "end": 56.879,
   "text": "And now, that general is you."
+ },
+ {
+  "n": 21,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 57.379,
+  "end": 58.781,
+  "text": "Subscribe for the next one."
  }
 ]

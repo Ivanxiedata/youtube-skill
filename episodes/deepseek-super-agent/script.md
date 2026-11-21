@@ -12,3 +12,6 @@ The router stays quiet. It speaks up only when you must decide, or can use a res
 
 ## takeaway
 It is still a research prototype. But the lesson is two hundred years old. The limit was never the soldiers. It was the general's attention. And now, that general is you.
+
+## outro
+Subscribe for the next one.

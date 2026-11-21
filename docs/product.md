@@ -35,7 +35,7 @@ actually understand it: how it works, not just its name.
 | 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
 | 35-45s | Why we need it | The problem the old one couldn't solve |
 | 45-57s | Takeaway | The insight the viewer keeps, tied back to the story. How to try it goes in the description, not on screen |
-| 57-60s | Outro | The takeaway as one line on screen, then what to watch next |
+| 57-60s | Outro | The takeaway as one line on screen, a spoken call to action (subscribe) with a button, and what to watch next |
 
 Pace: a new shot about every 2-3 seconds (Episode 0's first cut averaged 6 and felt slow).
 Sound: voice, quiet instrumental music (no lyrics, about 16 dB under the voice) and a few sampled effects; no room tone or other noise bed.

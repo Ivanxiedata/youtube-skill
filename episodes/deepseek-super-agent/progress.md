@@ -1,7 +1,7 @@
 # deepseek-super-agent progress
 
 ## Status
-Cut 3 rendered after owner feedback (Napoleon/Berthier story, 60 s, 26 shots, instrumental music, insight ending, audit 0 issues); waiting for the owner to watch and listen.
+Cut 4 rendered (Napoleon/Berthier story, 60 s, 26 shots, music, insight ending, spoken call to action; audit 0 issues); owner approved the content; upload is next.
 
 ## Next
 1. Owner watches `episodes/deepseek-super-agent/deepseek-super-agent.mp4` (not in git: rebuild with step 4) and listens to the mix (nobody has heard it).
@@ -33,6 +33,8 @@ none
   The `how` section became `takeaway` ("the limit was never the soldiers, it was the general's attention; now that general is you"); the setup link moves to the description.
   The spoken "Next time" line is gone; "Next" is an on-screen card only, so the last spoken line is the insight.
 - 2026-11-20: Music is the stickman skill's code-made bed (`m.music(mood="hopeful", bpm=96)`, gain 1.4), because stock tracks can't be licence-checked here; measured 16 dB under the voice. A supplied MP3 would go through `m.music_file`.
+- 2026-11-20: Cut 4, because the owner asked for a call to action at the end: spoken "Subscribe for the next one." plus a Subscribe button on screen.
+  To stay at 60 s, the pause before the takeaway is a line break (0.5 s) instead of a paragraph break (0.95 s); only the last five shots were retimed.
 
 ## Answers for the specs (Episode 0's open questions)
 - episode Q1 (brief fields): the draft fields were enough; `claims[].source` per claim worked. Nothing was missing.
@@ -54,3 +56,4 @@ none
 - 2026-11-20 ep-super-agent: research (primary repo docs + press), brief.json, script.md, voice, film.js (studio + side-by-side diagram), rendered 60 s; audit 0 issues after fixing a stillness window and a dashed-line determinism bug.
 - 2026-11-20 ep-super-agent: cut 2 after owner feedback: new script (Napoleon and Berthier), 24 shots, battlefield set, noise beds removed, `docs/product.md` gets the story/hook/pace/sound rules; audit 0 issues.
 - 2026-11-20 ep-super-agent: cut 3 after owner feedback: instrumental music, how-to ending replaced by the insight ending, caption timing fixed; `docs/product.md` format table updated; audit 0 issues.
+- 2026-11-20 ep-super-agent: cut 4: call to action at the end (voice + Subscribe button); audit 0 issues.

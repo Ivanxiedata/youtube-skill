@@ -10,7 +10,7 @@ const fin=(t,a,d=.4)=>ease(seg(t,a,a+d));
 // ---------- battlefield: Napoleon on a hill, Berthier at a camp table, the army on the plain ----------
 const HZ=610,HILL_Y=632,NAP_X=480,BER_X=800,PAPER=[836,497];
 const CORPS=[{x:1560,y:1250},{x:2200,y:1285},{x:2840,y:1250}],CK=2; // the front row of the army
-const marchD=(t,i)=>t<40?250*ramp(t,25.2+i*.3,27.9+i*.3,.2):300+(t-49.9)*40;
+const marchD=(t,i)=>t<40?250*ramp(t,25.2+i*.3,27.9+i*.3,.2):300+(t-49.47)*40;
 const marching=(t,i)=>(t>25.2+i*.3&&t<27.9+i*.3)||t>49;
 function sky(x){let g=x.createLinearGradient(0,-300,0,HZ);g.addColorStop(0,'#2B2050');g.addColorStop(.45,'#6A4590');g.addColorStop(.78,'#E0708A');g.addColorStop(1,'#FFC66E');x.fillStyle=g;x.fillRect(-3000,-1500,9500,1500+HZ);
  x.fillStyle='#8A5298';x.beginPath();x.moveTo(-3000,HZ);for(let i=0;i<=42;i++)x.lineTo(-3000+i*225,HZ-26-58*hash(i,5)-(i%3==0?36:0));x.lineTo(6500,HZ);x.fill()}
@@ -47,8 +47,8 @@ function bicorne(x,p,col,trim){x.save();x.translate(p.x,p.y);x.scale(p.s,p.s);if
  x.strokeStyle=trim;x.lineWidth=8;x.lineCap='round';x.beginPath();x.moveTo(-162,-45);x.quadraticCurveTo(0,-109,162,-45);x.stroke();
  x.fillStyle='#E4493F';x.fillRect(-10,-150,20,30);x.fillStyle='#F4EBDD';x.fillRect(-10,-140,20,10);x.restore()}
 function napPose(t){const sh=fin(t,3.35,.2)*(1-fin(t,5.2,.3));
- return {x:NAP_X,y:standY(HILL_Y,.5),s:.5,face:1,breath:t*2.2,blink:blinkAt(t,[1.1,6.5,17.6,19.9,21.9,26.2,51,54.9]),
-  look:kf(t,[[0,.75],[16.6,.75],[18,.3],[20.4,.9],[54.2,.8],[55.3,.1]]),lookY:kf(t,[[0,.15],[16.6,.3],[20.4,.1]]),
+ return {x:NAP_X,y:standY(HILL_Y,.5),s:.5,face:1,breath:t*2.2,blink:blinkAt(t,[1.1,6.5,17.6,19.9,21.9,26.2,50.6,54.3]),
+  look:kf(t,[[0,.75],[16.6,.75],[18,.3],[20.4,.9],[53.8,.8],[54.9,.1]]),lookY:kf(t,[[0,.15],[16.6,.3],[20.4,.1]]),
   brow:kf(t,[[0,.2],[3.3,.2],[3.5,-.4],[5.3,-.4],[16.6,.5],[20.4,.1]]),sad:kf(t,[[0,-.25],[3.3,-.25],[3.5,-.6],[5.3,-.6],[5.6,.5],[20.2,.5],[20.6,0]]),
   mouth:kf(t,[[0,-.25],[16.6,-.4],[20.3,-.3],[20.6,.5],[49,.6],[50,.8]]),open:sh*(.55+.4*Math.abs(Math.sin(t*9)))+talk(t,20.6,22),bend:sh*.13,tilt:sh*.06}}
 function berPose(t){const w=fin(t,22.3,.3)*(1-fin(t,24.3,.3));
@@ -97,11 +97,11 @@ function monState(i,t){const m=MON[i],s={a:i?fin(t,7.45+i*.2,.3):1,work:0,wait:0
  else{s.work=1;if(i==3)s.badge=['decide?','#FFC66E',fin(t,44.9)*(1-fin(t,47.2))];if(i==7)s.badge=['ready','#2DB2AE',fin(t,46.3)*(1-fin(t,47.3,.1))]}
  return s}
 function heroPose(t){const amp=fin(t,9.7,.3)*(1-fin(t,12,.3));
- return {x:HERO_P[0],y:HERO_P[1],s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[6.6,8.9,13.5,15.6,42.8,44.6,57.2,59]),
-  look:kf(t,[[0,.6],[7.3,.6],[7.7,.9],[42,.75],[44.9,.75],[45.2,.95],[46.2,.95],[46.5,.8],[56,.8],[56.1,.12]])-amp*(.2+.2*Math.sin(t*5.2)),
-  lookY:kf(t,[[0,.35],[7.3,.35],[7.8,-.15],[9.7,.3],[42,.3],[46.2,.25],[46.5,-.25],[56,-.25],[56.1,.1]]),
+ return {x:HERO_P[0],y:HERO_P[1],s:.86,face:1,noLegs:true,breath:t*2.1,blink:blinkAt(t,[6.6,8.9,13.5,15.6,42.8,44.6,56.8,59.2]),
+  look:kf(t,[[0,.6],[7.3,.6],[7.7,.9],[42,.75],[44.9,.75],[45.2,.95],[46.2,.95],[46.5,.8],[55.5,.8],[55.6,.12]])-amp*(.2+.2*Math.sin(t*5.2)),
+  lookY:kf(t,[[0,.35],[7.3,.35],[7.8,-.15],[9.7,.3],[42,.3],[46.2,.25],[46.5,-.25],[55.5,-.25],[55.6,.1]]),
   brow:kf(t,[[0,.1],[7.5,.1],[8,.7],[16.6,.7],[42,.1]]),sad:kf(t,[[0,0],[7.5,0],[8.1,.55],[16.6,.6],[42,0]]),
-  mouth:kf(t,[[0,.7],[7.5,.7],[8.1,-.3],[16.6,-.35],[42,.7],[56,.7],[56.1,.9]]),tilt:kf(t,[[0,0],[7.5,0],[8.1,-.05],[16.6,-.05],[42,.04]])}}
+  mouth:kf(t,[[0,.7],[7.5,.7],[8.1,-.3],[16.6,-.35],[42,.7],[55.5,.7],[55.6,.9]]),tilt:kf(t,[[0,0],[7.5,0],[8.1,-.05],[16.6,-.05],[42,.04]])}}
 function drawStudio(t,cam){let x=layer('wall',cam,1);studioWall(x);for(let i=5;i<10;i++)monitor(x,MON[i],i,t,monState(i,t));
  const a=layer('lamp',cam);pendant(a,520,t,.08);pendant(a,1500,t,.08);
  const h=layer('hero',cam),hp=actor(h,'hero',HERO,heroPose(t),cam);bicorne(h,hp,'#17141F','#FFC66E');
@@ -155,13 +155,16 @@ function overlay(t){ctx.setTransform(1,0,0,1,0,0);
  card(t,25.3,27.0,960,660,'each corps: a small army','#F8E9CC',38);
  card(t,27.6,29.7,960,640,'DeepSeek Super-agent','#FFC66E',46);
  card(t,43.8,47.1,110,760,'it speaks up only when needed','#F8E9CC',38);
- card(t,47.9,49.6,972,860,'still a research prototype · open source','#FFC66E',36);
- card(t,50.2,51.9,120,640,'a 200-year-old lesson','#FFC66E',44);
- const v=fin(t,56.6,.35);if(v>0){ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.88)';ctx.beginPath();ctx.roundRect(W/2-560,70,1120,210,40);ctx.fill();ctx.restore();
-  txt(ctx,'The limit isn’t your agents.',W/2,132,58,'#F8E9CC','center','800',v);txt(ctx,'It’s your attention.',W/2,214,64,'#FFC66E','center','800',fin(t,57.2,.35))}
- card(t,58.3,0,1000,720,'Next: what is a coding-agent session?','#C9B8E0',30)}
+ card(t,47.5,49.15,972,860,'still a research prototype · open source','#FFC66E',36);
+ card(t,49.75,51.45,120,640,'a 200-year-old lesson','#FFC66E',44);
+ const v=fin(t,56.1,.35);if(v>0){ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.88)';ctx.beginPath();ctx.roundRect(W/2-560,70,1120,210,40);ctx.fill();ctx.restore();
+  txt(ctx,'The limit isn’t your agents.',W/2,132,58,'#F8E9CC','center','800',v);txt(ctx,'It’s your attention.',W/2,214,64,'#FFC66E','center','800',fin(t,56.7,.35))}
+ // call to action: a subscribe button that pops in on the spoken line, with the next episode under it
+ const c=fin(t,57.6,.3);if(c>0){const sc=lerp(.6,1,c)*(1+.035*Math.sin((t-57.6)*7)),x=ctx;x.save();x.globalAlpha=c;x.translate(W/2,905);x.scale(sc,sc);
+  pill(x,0,0,400,96,'#E4493F');x.fillStyle='#F8E9CC';x.beginPath();x.moveTo(-150,-22);x.lineTo(-150,22);x.lineTo(-112,0);x.closePath();x.fill();txt(x,'Subscribe',22,3,50,'#F8E9CC','center','800');x.restore()}
+ card(t,58.1,0,1010,720,'Next: what is a coding-agent session?','#C9B8E0',28)}
 
-FILM={dur:60,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,1110,1200,1260,1308,1368,1422,1497,1566,1626,1683,1800],fadeIn:.15,fadeOut:.6,
+FILM={dur:60,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,1110,1200,1260,1308,1368,1422,1484,1553,1613,1670,1800],fadeIn:.15,fadeOut:.45,
  cam(s,u,t){const e=ease(u);return [
   {x:lerp(540,520,e),y:lerp(350,370,e),z:lerp(2.3,2.05,e),b:[6,3]},              // 0 Napoleon, close
   {x:lerp(1420,1700,(u+e)/2),y:lerp(520,560,e),z:lerp(.98,.72,(u+e)/2),b:[2,1+2.5*Math.sin(Math.PI*u)]},             // 1 pull out: the whole army
@@ -187,11 +190,11 @@ FILM={dur:60,cuts:[0,45,99,168,219,291,369,432,498,552,612,666,738,819,900,1008,
   {x:lerp(960,975,e),y:lerp(540,548,e),z:lerp(1,1.05,e)},                        // 21 the whole design: still a prototype
   {x:lerp(1300,1380,e),y:lerp(560,548,e),z:lerp(.8,.75,e),b:[2,0]},              // 22 back on the hill: the old lesson
   {x:lerp(2380,2420,e),y:lerp(880,870,e),z:lerp(1,1.07,e),b:[3,0]},              // 23 not the soldiers
-  {x:lerp(430,390,e),y:lerp(365,350,e),z:lerp(1.9,2.25,e),b:[6,3]},              // 24 the general's attention
+  {x:lerp(310,285,e),y:lerp(365,350,e),z:lerp(1.9,2.25,e),b:[6,3]},              // 24 the general's attention
   {x:lerp(640,700,e),y:lerp(462,478,e),z:lerp(1.38,1.26,e),b:[2,0,0]}            // 25 that general is you
  ][s]},
  draw(t,cam,s){if(s<=2||(s>=8&&s<=12)||(s>=22&&s<=24))drawBattle(t,cam);else if((s>=13&&s<=17)||s==21)drawBoard(t,cam);else drawStudio(t,cam);overlay(t)},
  plants(){return {}}};
 say(.15,'drum');say(1.5,'drum');for(let i=1;i<10;i++)say(7.45+i*.2,'tick');
-for(const t of [23.5,23.8,24.1])say(t,'paper');for(let t=25.3;t<27.3;t+=.28)say(t,'march');for(let t=50;t<54;t+=.28)say(t,'march',{soft:1});
+for(const t of [23.5,23.8,24.1])say(t,'paper');for(let t=25.3;t<27.3;t+=.28)say(t,'march');for(let t=49.6;t<53.6;t+=.28)say(t,'march',{soft:1});say(57.65,'tick');
 for(const t of [30.3,36.3,40.4,40.7,44.9,46.3])say(t,'tick');
