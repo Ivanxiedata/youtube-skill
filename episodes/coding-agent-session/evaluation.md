@@ -15,7 +15,7 @@ None. Every must-fix condition of the 20 rows passes (evidence under Passed).
 
 ## Should fix
 
-After the judge, the maker fixed S1, S3, S4 and S5 in the commit titled "coding-agent-session: fix four judge should-fix items (hook chips, board framing, description line 2, caption 1)" (hash in `progress.md` Log; rows moved to Passed below, evidence there). S2 is not fixed here. Rebuilt shots 2, 3 and 17-21 only: audit `ISSUES 0` (1797/1797 frames, max hand step 38.1, foot skate .19), `earshot measure`: 59.907 s, -17.1 LUFS, true peak -3.8 dBTP, no voice line changed.
+After the judge, the maker fixed S1, S3, S4 and S5 in the commit titled "coding-agent-session: fix four judge should-fix items (hook chips, board framing, description line 2, caption 1)" (commit `b00869f`; rows moved to Passed below, evidence there). S2 is not fixed here. Rebuilt shots 2, 3 and 17-21 only: audit `ISSUES 0` (1797/1797 frames, max hand step 38.1, foot skate .19), `earshot measure`: 59.907 s, -17.1 LUFS, true peak -3.8 dBTP, no voice line changed.
 
 | # | Row and rule | Evidence | Fix | Goes back to |
 |---|---|---|---|---|
