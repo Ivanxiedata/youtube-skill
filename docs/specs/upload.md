@@ -57,8 +57,9 @@ Google Cloud project) and `token.json` (written at sign-in). Never in the repo, 
 5. Audience: **Publish app**, so sign-in doesn't expire every 7 days (it does while in Testing). On 2026-11-21 the console greyed this out until
    the Branding page is "complete"; while in Testing, add your own account under Test users instead.
    Google may warn that the app is unverified when you sign in; for your own account you can continue.
-6. Apply for the API audit (https://support.google.com/youtube/contact/yt_api_form). Until it's approved,
-   videos uploaded through the API are locked to private.
+6. Verify the channel's phone number (https://www.youtube.com/verify), or YouTube refuses custom thumbnails.
+7. Only if needed: the API audit (https://support.google.com/youtube/contact/yt_api_form). Google's docs say uploads from an unaudited project are locked to private,
+   but Episode 0 (2026-11-21) could be made public in YouTube Studio. File it if an upload does get locked, or to ask for more quota.
 
 ## Later
 - Add each episode to a playlist per lineage chain (oldest first).
@@ -73,4 +74,4 @@ appears as private in YouTube Studio, and `episodes/<slug>/published.json` has i
 1. Quota cost of one upload: Google's docs disagree (1600 units of 10,000/day vs a separate per-call limit).
    Check the current videos.insert reference page and record the number in `upload/progress.md` Decisions.
 2. Answered: captions are uploaded as an SRT file (`captions.srt`), built from the voice line timings.
-3. Is the private lock lifted for videos already uploaded once the audit passes, or only for new uploads?
+3. Does YouTube lock an API-uploaded video to private later? Episode 0 was not locked on the day of upload (2026-11-21); look again after a week.
