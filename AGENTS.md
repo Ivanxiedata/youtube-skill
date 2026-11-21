@@ -50,6 +50,15 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
 8. Third-party skills: `make skills` installs the pinned ones into this worktree (`.claude/skills`, `.agents/skills`);
    each worktree runs it itself. Never install skills globally. Run the stickman scripts inside the venv `make skills` prints.
    Bumping a pin: read the upstream diff first (`skills.lock` header).
+9. Cheap model for easy work (owner's rule): hand an easy task to a subagent on a cheaper model, and keep the expensive model for the hard parts.
+   Claude Code: the Agent tool with `model: "sonnet"`. Other agents: their smaller model. Never launch a subagent without choosing its model.
+   - Easy (Sonnet): the inputs and the expected result are written down, and a command checks it. Edits from a spec or progress Next,
+     fixing a failing `make check`, renders and rebuilds, captions, `upload.json`, running the `hookscore.py`/`title.py`/earshot tools,
+     lookups, moving or renaming files.
+   - Hard (keep the expensive model): research where the sources disagree, picking the story and writing the script, reviewing or judging work,
+     the final evaluation, debugging with no known cause, decisions the owner hasn't made.
+   - Mixed task, such as a whole episode: the expensive model plans and judges; Sonnet subagents do the easy steps in between.
+   - When a Sonnet subagent fails the same step twice, the expensive model takes that step over; say so in the progress file.
 
 ## Skills: which one for which step
 `make skills` installs these, pinned in `skills.lock`. Use the skill for its step; don't improvise what a skill already does.
