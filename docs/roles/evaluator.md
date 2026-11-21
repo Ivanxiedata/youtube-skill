@@ -1,29 +1,50 @@
-# Role: evaluator
+# Role: evaluator (step 6 of `docs/workflow.md`)
 
-You score a finished episode before it is published. You did not make it; if you did, hand this role to another agent.
-You report; you fix nothing.
+You judge a finished episode before it is published. You did not make it: if you did, or you have seen the conversation that made it,
+hand this role to another agent. You report; you fix nothing.
+
+The rubric is not your taste. It is the published rules of the youtube-agent skills (`.claude/skills/yt-*/SKILL.md`),
+`docs/brand.md`, `docs/lessons.md` and `docs/workflow.md`. Quote the rule a row is judged against.
 
 ## Inputs
-- The episode folder `episodes/<slug>/` and its rendered `video.mp4`
-- `docs/brand.md`, `docs/lessons.md`, `docs/product.md`
+- `episodes/<slug>/`: `video.mp4`, `thumbnail.png`, `research.md`, `brief.json`, `package.md`, `beats.md`, `script.md`,
+  `captions.srt`, `upload.json`, `film/contact_sheet.jpg`, `film/vo_lines.json`
 - The model scorecard: `episodes/deepseek-super-agent/evaluation.md`
+- Tools after `make skills`, inside the venv `make skills` prints, with `EARSHOT_HOME` set.
 
-## Steps
-1. Run `yt evaluate episodes/<slug>` once the `evaluate` feature exists; until then, work through the rows of the model scorecard by hand.
-2. Fill every judged row with evidence, using the youtube-agent tools after `make skills`:
-   - Hook: `python3 .claude/skills/yt-script/hookscore.py --hook "<first sentence>"`; also score four alternatives and name the best.
-   - Title and thumbnail text: `python3 .claude/skills/yt-package/title.py --title "..." --thumb "..."`.
-   - Thumbnail: view it at 160 px wide. Can you tell the topic and the promise? Does it follow the template in `docs/brand.md`?
-   - Brand: list the elements of `docs/brand.md` "What repeats in every episode" and mark each present or missing.
-   - Lessons: each open lesson marked `check: evaluate` in `docs/lessons.md`, followed or not.
-3. Listen with earshot (inside the venv `make skills` prints, `EARSHOT_HOME` set):
-   - `earshot measure video.mp4`: loudness (target about -17 LUFS), true peak, loudness range.
-   - `earshot describe video.mp4`: what it sounds like (speech, music, noise tags). A noise or hum tag is a Must fix.
-   - `earshot timeline video.mp4 --video video.mp4`: events second by second and whether sounds land on picture cuts.
-   - `earshot sheet video.mp4 -o sheet.png`, then look at the picture.
-   - For a music track before it goes in: `earshot describe track.mp3` (no singing or speech tags) and `earshot rank "<what the music should be>" tracks...`.
-4. Say plainly what you still could not judge. earshot does not transcribe words, so a mispronounced name is for the owner's ears.
+## Checklist
+Every row: result, evidence (the tool output or the quoted line), and the fix if it fails. Must-fix rows block publishing.
+
+**Click (`/yt-package`, `/yt-seo`)**
+1. Title: `title.py --title "..." --thumb "..."`. Must-fix: over 60 characters, or the subject not in the first 40.
+2. Title and thumbnail as one promise: besides the topic's name, the title repeats no thumbnail word. Should-fix otherwise.
+3. Thumbnail at 160 px wide (shrink it and look): topic and promise readable, brand card used. Must-fix if unreadable.
+4. The 3 searches in `package.md`: their words are in the title and the first two description lines. Should-fix otherwise.
+
+**Watch (`/yt-script`)**
+5. Hook: `hookscore.py --hook "<first spoken sentence>"`. Must-fix below 100. Must-fix if any number in it is not true.
+6. The first seconds do three things: confirm the title's promise, open a question the viewer can't close, show the payoff exists. Must-fix if the title's promise isn't confirmed.
+7. Topic first: title card from frame 0 and the topic's name as the first spoken words (lesson L14). Must-fix.
+8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
+9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
+10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
+11. Close: the takeaway tied to the story, then exactly one ask. Should-fix for two asks or none.
+
+**Understand**
+12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json`. Must-fix for an unsourced claim or a wrong one.
+13. Before -> after is stated plainly and shown side by side (diagram). Must-fix if the viewer can't say what is new.
+
+**Brand and lessons**
+14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.
+15. Each open lesson marked `check: evaluate` in `docs/lessons.md`: followed or not.
+
+**Sound and picture (earshot, stickman audit)**
+16. `earshot measure video.mp4`: -17 LUFS within 1, true peak under -1 dBTP. Should-fix outside.
+17. `earshot describe video.mp4`: a noise or hum tag is Must-fix; voice-over clear; music present.
+18. `earshot timeline video.mp4 --video video.mp4`: share of picture cuts with a sound on them. Should-fix below 50%.
+19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
+20. `/yt-chapters`: chapters in `upload.json` pass `chapters.py` rules. Must-fix if invalid (they would not render).
 
 ## Output
-`episodes/<slug>/evaluation.md`: Must fix, Should fix, Passed, Not evaluated. Each row: area, result, evidence, fix.
-First line: `ready to publish` or `not ready: N must-fix`.
+`episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.
+Say plainly what you could not judge: earshot does not transcribe words, so pronunciation is for the owner's ears.
