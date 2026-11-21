@@ -58,3 +58,21 @@ source  youtube-agent  https://github.com/jakeschincariol/youtube-agent-skill  a
 copy    youtube-agent  skills/yt-*  .claude/skills
 copy    youtube-agent  skills/yt-*  .agents/skills
 rewrite youtube-agent  ~/.claude/youtube/voice.md  docs/voice.md
+
+# earshot: MIT. Two things: it makes sound effects in code, and it "listens" for agents that cannot hear:
+# measurements (LUFS, peak, spectrum, tempo), tags (speech, music, noise), a second-by-second timeline of a film's sound.
+# It does NOT transcribe words. Vetted 2026-11-21 at 7a7f7c5 (release 1.0.0) by reading the code paths for process and network use:
+# subprocess is ffmpeg/ffprobe with argument lists (no shell); np.load is allow_pickle=False; the only downloads are the two
+# listening models from huggingface.co at pinned revisions, safetensors only (CLAP, AudioSet tagger; about 1.1 GB), into EARSHOT_HOME.
+# `earshot llm` would upload audio to Google's Gemini: off unless an API key is set AND --yes-upload is passed; we don't install that extra.
+# The skills are prompts plus stdlib/ffmpeg scripts; real-sound/scripts/audit.py fetches licence pages when run.
+# The plugin's MCP server (.claude-plugin) is not installed. The Python package is installed from this pinned checkout, never from PyPI
+# (the PyPI name `earshot` is another project).
+source  earshot  https://github.com/Leonxlnx/earshot  7a7f7c5c70d4a763a1eca4b3666af7c77e313f97
+copy    earshot  skills/earshot      .claude/skills
+copy    earshot  skills/earshot      .agents/skills
+copy    earshot  skills/real-sound   .claude/skills
+copy    earshot  skills/real-sound   .agents/skills
+
+# Openverse (https://github.com/WordPress/openverse) is not a skill and nothing of it is installed: it is a search service.
+# `scripts/music.py` calls its public API (api.openverse.org, no key) to find and fetch CC0 / CC BY music.

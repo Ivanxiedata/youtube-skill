@@ -3,22 +3,19 @@
 Covers repo-level work: harness, `shared/`, `cmd/` (except `cmd/yt/<feature>.go`, which is the feature's), `scripts/`.
 
 ## Status
-Foundation done (harness, product doc, 3 feature specs); review fixes and verifier follow-ups for PR #1 applied. Episode 0 is next; no product code yet.
+Episode 0 is published (public since 2026-11-21), made end to end with the skills in `AGENTS.md`; `upload` works against real YouTube; brand guide, lessons log and evaluator role are in place. No code yet for `shared/brief`, `episode`, `lineage`, `diagram`, `evaluate`, `feedback`.
 
 ## Next
-1. Owner does the one-time Google setup for uploads (`docs/specs/upload.md`, "Owner setup"); the audit takes days, so start early.
-2. Owner picks the Episode 0 topic: a new AI tech and its predecessor.
-3. `make skills`, and the owner decides the three open skill questions under Blockers.
-4. `make new-episode NAME=<slug>` and make Episode 0 by hand: research, brief.json, script.md, diagram (rough), render, title.
-   Write what was slow or manual into its Log; answer the open questions in `docs/specs/episode.md` and `docs/specs/diagram.md`.
-   Also decide where stickman's film folder lives and ignore its copied engine files.
-5. Land `shared/brief` (own PR, `docs/architecture.md`), then `episode`, `lineage`, `diagram` can run in parallel, one agent each.
+1. Owner decides: a name for the series and for the mascot (`docs/brand.md`, "Open").
+2. Update the draft specs with what Episode 0 answered (`episodes/deepseek-super-agent/progress.md`, "Answers for the specs"):
+   `docs/specs/episode.md` (sections hook/before/new/why/takeaway/outro; word limits for a 2.9 words/s voice), `docs/specs/diagram.md` (emit draw data for `film.js`, not an SVG file).
+3. Land `shared/brief` (own PR, `docs/architecture.md`). Then one agent each: `episode`, `evaluate`, `feedback` (its `add`/`list`/`check` don't need `shared/brief`), `lineage`, `diagram`.
+4. Episode 1: a research step proposes a ranked shortlist, the owner picks; follow the skills table in `AGENTS.md`; fix the two should-fix rows of Episode 0's `evaluation.md` (sounds on the picture cuts, the synthetic-sounding voice).
+5. Publish the OAuth app so the upload sign-in stops expiring every 7 days (`upload/progress.md`, Next 2).
+6. `main` is fast-forwarded to `develop` when the owner says develop is done.
 
 ## Blockers
-Waiting on the owner: merge PR #1 and pick the Episode 0 topic. Plus three skill decisions (see `skills.lock` notes):
-- Where the YouTube skills keep the channel voice profile: `docs/voice.md` for now (one lock line to change).
-- Whether to restrict Deep-Research's `web-search-agent` (upstream: `model: opus`, all tools, reads untrusted web pages).
-- Running stickman's `doctor.py`/`tts.py` only inside the venv `make skills` prints, because otherwise they pip-install into the active Python.
+None. One skill decision is still open (see `skills.lock` notes): whether to restrict Deep-Research's `web-search-agent` (upstream: `model: opus`, all tools, reads untrusted web pages).
 
 ## Decisions
 - 2026-11-20: No branch protection, because the owner wants speed. PRs go to `develop`; `main` is fast-forwarded by the owner; agents never merge, because nothing else stops a red PR.
@@ -39,3 +36,6 @@ Waiting on the owner: merge PR #1 and pick the Episode 0 topic. Plus three skill
 - 2026-11-20 product-doc: check-progress CI rule judges by ancestry, not dates, so merged parallel branches are handled.
 - 2026-11-20 upload-feature: owner chose API upload (option B); `upload` feature specced; upload removed from v1 non-goals.
 - 2026-11-20 upload-feature: first third-party Go module (`golang.org/x/oauth2`); CI caches on `go.sum` and runs a pinned `govulncheck`.
+- 2026-11-21 brand-evaluate-feedback: `docs/brand.md`, `docs/voice.md`, `docs/lessons.md` and the evaluator role added; `AGENTS.md` routes episode work through them; two new features specced (`evaluate`, `feedback`).
+- 2026-11-21 brand-evaluate-feedback: earshot pinned in `skills.lock` (its two skills installed; the package and listening models install into `.skills/`); `scripts/music.py` finds CC0 / CC BY music through Openverse; `AGENTS.md` gets a skills-by-step table.
+- 2026-11-21 brand-evaluate-feedback: PRs #2 (upload) and #3 (Episode 0) merged; Status and Next rewritten for after Episode 0.

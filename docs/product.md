@@ -56,7 +56,7 @@ Codex gets the skills but not Deep-Research's web-search subagent (upstream's Co
 Gap none of them covers: architecture diagrams inside the stickman video. That's ours to build.
 
 ## Non-goals (v1)
-- Finding new tech automatically. The owner picks the topic.
+- Picking the topic automatically. A research step proposes a ranked shortlist with sources; the owner picks.
 - Videos longer than 60 seconds.
 - Real-person footage, talking heads, or AI-generated images/video.
 - Opinions, predictions, rankings or investment advice.
