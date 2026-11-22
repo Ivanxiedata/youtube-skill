@@ -165,6 +165,17 @@ jobs:
           echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
           echo "privacy=$p" >> "$GITHUB_OUTPUT"
           echo "$SLUG: $verdict -> $p"
+      - name: Keep the video for 30 days
+        # video.mp4 is git-ignored, so this is the only copy of an episode that wasn't uploaded (dry run, skip).
+        if: always() && steps.gate.outputs.verdict != ''
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: ${{ env.SLUG }}
+          path: |
+            episodes/${{ env.SLUG }}/video.mp4
+            episodes/${{ env.SLUG }}/thumbnail.png
+          if-no-files-found: ignore
+          retention-days: 30
       - name: Upload to YouTube
         id: upload
         if: always() && steps.gate.outputs.privacy != 'skip'
