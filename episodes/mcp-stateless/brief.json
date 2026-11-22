@@ -1,0 +1,199 @@
+{
+ "slug": "mcp-stateless",
+ "tech": {
+  "id": "mcp-2026-07-28-stateless",
+  "name": "Stateless MCP (Model Context Protocol, spec 2026-07-28)",
+  "released": "2026-07-28",
+  "status": "shipped: 2026-07-28 is the current MCP protocol version",
+  "one_line": "MCP drops the initialize handshake and the session ID: every request carries what it needs, so any server instance can answer it."
+ },
+ "predecessor": {
+  "id": "mcp-2025-11-25-sessions",
+  "name": "Session-based MCP (spec 2025-11-25): initialize handshake and Mcp-Session-Id"
+ },
+ "sections": {
+  "hook": {
+   "text": "MCP before July 28, 2026: your server quit, you lost your order; now any server takes it, but how, and why, in 60 seconds?",
+   "claims": [
+    {
+     "text": "In stateful (pre-2026-07-28) MCP, if the server instance handling a client session fails, that session state is lost and the client must reconnect and redo the handshake.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "The 2026-07-28 specification was released on July 28, 2026.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    },
+    {
+     "text": "Under 2026-07-28, any request can land on any server instance behind a plain round-robin load balancer.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how, in one diner. Your AI app is the customer; an MCP server is the waiter bringing its tools. Old MCP: shake hands, maybe get a table number, a session ID, and your order lives in his head. Other waiters: not my table.",
+   "claims": [
+    {
+     "text": "MCP is an open protocol connecting LLM applications to external data sources and tools.",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28"
+    },
+    {
+     "text": "In 2025-11-25 the initialize request and initialized notification must be the first interaction between client and server.",
+     "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/lifecycle"
+    },
+    {
+     "text": "In 2025-11-25 a Streamable HTTP server MAY assign a session ID at initialization in the MCP-Session-Id header; clients MUST then include it on all later requests.",
+     "source": "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports"
+    },
+    {
+     "text": "Session state lives on one server instance: a plain round-robin load balancer would route requests to servers without that state, so operators use sticky sessions.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    }
+   ]
+  },
+  "new": {
+   "text": "The new MCP drops both. Every request is now a complete order slip, so any waiter can take it. Need a basket kept? The server hands back a ticket; your AI shows it next time.",
+   "claims": [
+    {
+     "text": "2026-07-28 removes the initialize/initialized handshake; every request carries its protocol version and client capabilities in _meta (SEP-2575).",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
+    },
+    {
+     "text": "2026-07-28 removes protocol-level sessions and the Mcp-Session-Id header from Streamable HTTP (SEP-2567).",
+     "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog"
+    },
+    {
+     "text": "Stateless by default: any request can be handled by any server instance.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "Servers that need cross-call state mint an explicit handle from a tool (create_basket() returns basket_id) and the model threads it through later calls as an ordinary argument.",
+     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
+    },
+    {
+     "text": "2026-07-28 is the current protocol version.",
+     "source": "https://modelcontextprotocol.io/specification/versioning"
+    }
+   ]
+  },
+  "why": {
+   "text": "For you, AI tools can stop hanging on one machine: busy day, add servers; one quits, the next takes your next order. And the ticket stays in your chat for tomorrow.",
+   "claims": [
+    {
+     "text": "Any request can now land on any server instance behind a plain round-robin load balancer without needing shared storage.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/"
+    },
+    {
+     "text": "Stateless by default enables straightforward horizontal scaling and improves resilience, as any request can be handled by any server instance.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "Handles appear in tool results and so in the chat transcript; clients that persist chats (most) persist them, and reopening a conversation after a restart, a reload or on another device puts the handle back in front of the model.",
+     "source": "https://modelcontextprotocol.io/seps/2567-sessionless-mcp"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "How? The order moved onto the slip. Why? Any waiter can take it. That's stateless: a server that remembers nothing is a server anyone can replace.",
+   "claims": [
+    {
+     "text": "Every request is self-contained (version and capabilities per request), so any server instance can handle it.",
+     "source": "https://modelcontextprotocol.io/seps/2575-stateless-mcp"
+    },
+    {
+     "text": "The protocol no longer manages session state; applications that need state carry it in explicit handles.",
+     "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28-release-candidate/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Spoken call to action: subscribe for the next one. On screen: the takeaway card and a Subscribe button. No 'Next' line: the next episode is not decided.",
+   "claims": []
+  }
+ },
+ "architecture": {
+  "before": {
+   "nodes": [
+    {
+     "id": "app",
+     "label": "AI app"
+    },
+    {
+     "id": "sA",
+     "label": "Server A (holds your session)"
+    },
+    {
+     "id": "sB",
+     "label": "Server B"
+    },
+    {
+     "id": "sC",
+     "label": "Server C"
+    }
+   ],
+   "edges": [
+    {
+     "from": "app",
+     "to": "sA",
+     "label": "1 handshake, 2 session ID, then every request"
+    }
+   ]
+  },
+  "after": {
+   "nodes": [
+    {
+     "id": "app",
+     "label": "AI app"
+    },
+    {
+     "id": "req",
+     "label": "Request (version, client info, capabilities)",
+     "new": true
+    },
+    {
+     "id": "s1",
+     "label": "Server A"
+    },
+    {
+     "id": "s2",
+     "label": "Server B"
+    },
+    {
+     "id": "s3",
+     "label": "Server C"
+    }
+   ],
+   "edges": [
+    {
+     "from": "app",
+     "to": "req",
+     "label": ""
+    },
+    {
+     "from": "req",
+     "to": "s1",
+     "label": "any"
+    },
+    {
+     "from": "req",
+     "to": "s2",
+     "label": "any"
+    },
+    {
+     "from": "req",
+     "to": "s3",
+     "label": "any"
+    },
+    {
+     "from": "s1",
+     "to": "app",
+     "label": "ticket (state handle)"
+    },
+    {
+     "from": "app",
+     "to": "s3",
+     "label": "request + ticket"
+    }
+   ]
+  }
+ }
+}

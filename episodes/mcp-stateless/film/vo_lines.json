@@ -1,0 +1,138 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 9.057,
+  "text": "MCP before July twenty-eighth, twenty twenty-six: your server quit, you lost your order; now any server takes it, but how, and why, in sixty seconds?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.557,
+  "end": 10.959,
+  "text": "Here's how, in one diner."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 11.259,
+  "end": 16.175,
+  "text": "Your AI app is the customer; an MCP server is the waiter bringing its tools."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 16.475,
+  "end": 22.604,
+  "text": "Old MCP: shake hands, maybe get a table number, a session ID, and your order lives in his head."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 22.904,
+  "end": 24.477,
+  "text": "Other waiters: not my table."
+ },
+ {
+  "n": 5,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 25.427,
+  "end": 27.136,
+  "text": "The new MCP drops both."
+ },
+ {
+  "n": 6,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 27.436,
+  "end": 31.355,
+  "text": "Every request is now a complete order slip, so any waiter can take it."
+ },
+ {
+  "n": 7,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 31.655,
+  "end": 32.676,
+  "text": "Need a basket kept?"
+ },
+ {
+  "n": 8,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 32.976,
+  "end": 36.334,
+  "text": "The server hands back a ticket; your AI shows it next time."
+ },
+ {
+  "n": 9,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 36.834,
+  "end": 44.007,
+  "text": "For you, AI tools can stop hanging on one machine: busy day, add servers; one quits, the next takes your next order."
+ },
+ {
+  "n": 10,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 44.306,
+  "end": 46.387,
+  "text": "And the ticket stays in your chat for tomorrow."
+ },
+ {
+  "n": 11,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 46.887,
+  "end": 47.322,
+  "text": "How?"
+ },
+ {
+  "n": 12,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 47.622,
+  "end": 49.119,
+  "text": "The order moved onto the slip."
+ },
+ {
+  "n": 13,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 49.419,
+  "end": 49.862,
+  "text": "Why?"
+ },
+ {
+  "n": 14,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 50.162,
+  "end": 51.335,
+  "text": "Any waiter can take it."
+ },
+ {
+  "n": 15,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 51.635,
+  "end": 56.146,
+  "text": "That's stateless: a server that remembers nothing is a server anyone can replace."
+ },
+ {
+  "n": 16,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 56.646,
+  "end": 58.048,
+  "text": "Subscribe for the next one."
+ }
+]
