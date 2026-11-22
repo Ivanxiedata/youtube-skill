@@ -1,0 +1,170 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.624,
+  "text": "Coding agents, in sixty seconds: before, you paste your chatbot's code and never stop, but how does one agent loop four steps until you're done?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.124,
+  "end": 11.336,
+  "text": "Here's how, in one story: a mechanic."
+ },
+ {
+  "n": 2,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 12.286,
+  "end": 14.373,
+  "text": "A chatbot is the mechanic on the phone."
+ },
+ {
+  "n": 3,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 14.673,
+  "end": 15.768,
+  "text": "He can only talk."
+ },
+ {
+  "n": 4,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 16.068,
+  "end": 19.517,
+  "text": "So you paste his fix, run it, and carry the error back to him."
+ },
+ {
+  "n": 5,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 20.466,
+  "end": 24.183,
+  "text": "A coding agent is the same mechanic, in your garage, with tools."
+ },
+ {
+  "n": 6,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 24.483,
+  "end": 27.098,
+  "text": "You give it one job, in your terminal or editor."
+ },
+ {
+  "n": 7,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 27.398,
+  "end": 28.535,
+  "text": "It reads your files."
+ },
+ {
+  "n": 8,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 28.835,
+  "end": 29.809,
+  "text": "It edits the code."
+ },
+ {
+  "n": 9,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 30.109,
+  "end": 31.957,
+  "text": "It runs a command, and checks the result."
+ },
+ {
+  "n": 10,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 32.257,
+  "end": 33.121,
+  "text": "Still broken?"
+ },
+ {
+  "n": 11,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 33.421,
+  "end": 35.896,
+  "text": "It goes around again, until the job is done."
+ },
+ {
+  "n": 12,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 36.396,
+  "end": 39.994,
+  "text": "That's the answer I promised: one agent, one loop, four steps."
+ },
+ {
+  "n": 13,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 40.294,
+  "end": 41.557,
+  "text": "Read, edit, run, check."
+ },
+ {
+  "n": 14,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 41.857,
+  "end": 43.478,
+  "text": "The whole visit is one session."
+ },
+ {
+  "n": 15,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 43.978,
+  "end": 45.401,
+  "text": "You stop being the messenger."
+ },
+ {
+  "n": 16,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 45.701,
+  "end": 47.779,
+  "text": "You watch, and you can stop it at any moment."
+ },
+ {
+  "n": 17,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 48.729,
+  "end": 51.157,
+  "text": "It can still be wrong, so give it a test to run."
+ },
+ {
+  "n": 18,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 51.457,
+  "end": 53.337,
+  "text": "The mechanic did not get a bigger brain."
+ },
+ {
+  "n": 19,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 53.637,
+  "end": 56.009,
+  "text": "He got hands, and a way to check his own work."
+ },
+ {
+  "n": 20,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 56.509,
+  "end": 57.911,
+  "text": "Subscribe for the next one."
+ }
+]

@@ -1,0 +1,92 @@
+1
+00:00:00,080 --> 00:00:02,043
+Coding agents, in 60 seconds:
+
+2
+00:00:02,043 --> 00:00:05,254
+before, you paste your chatbot's code and never stop,
+
+3
+00:00:05,254 --> 00:00:08,704
+but how does 1 agent loop 4 steps until you're done?
+
+4
+00:00:09,204 --> 00:00:11,416
+Here's how, in one story: a mechanic.
+
+5
+00:00:12,366 --> 00:00:14,453
+A chatbot is the mechanic on the phone.
+
+6
+00:00:14,753 --> 00:00:15,848
+He can only talk.
+
+7
+00:00:16,148 --> 00:00:19,597
+So you paste his fix, run it, and carry the error back to him.
+
+8
+00:00:20,546 --> 00:00:24,263
+A coding agent is the same mechanic, in your garage, with tools.
+
+9
+00:00:24,563 --> 00:00:27,178
+You give it one job, in your terminal or editor.
+
+10
+00:00:27,478 --> 00:00:28,615
+It reads your files.
+
+11
+00:00:28,915 --> 00:00:29,889
+It edits the code.
+
+12
+00:00:30,189 --> 00:00:32,037
+It runs a command, and checks the result.
+
+13
+00:00:32,337 --> 00:00:33,201
+Still broken?
+
+14
+00:00:33,501 --> 00:00:35,976
+It goes around again, until the job is done.
+
+15
+00:00:36,476 --> 00:00:40,074
+That's the answer I promised: one agent, one loop, four steps.
+
+16
+00:00:40,374 --> 00:00:41,637
+Read, edit, run, check.
+
+17
+00:00:41,937 --> 00:00:43,558
+The whole visit is one session.
+
+18
+00:00:44,058 --> 00:00:45,481
+You stop being the messenger.
+
+19
+00:00:45,781 --> 00:00:47,859
+You watch, and you can stop it at any moment.
+
+20
+00:00:48,809 --> 00:00:51,237
+It can still be wrong, so give it a test to run.
+
+21
+00:00:51,537 --> 00:00:53,417
+The mechanic did not get a bigger brain.
+
+22
+00:00:53,717 --> 00:00:56,089
+He got hands, and a way to check his own work.
+
+23
+00:00:56,589 --> 00:00:57,991
+Subscribe for the next one.
+
