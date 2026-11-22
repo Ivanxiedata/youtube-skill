@@ -125,6 +125,19 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
   If the early drop is healthy and the middle is flat, the video is fine and the problem is packaging: back to step 2 for the next one.
 - **Monthly, `/yt-audit` (strong):** the last ten titles as a set (`title.py`), thumbnails at feed size, the first seconds of the three latest (`hookscore.py`), upload rhythm, retention shape. One fix, added to `docs/lessons.md`.
 
+## The automated daily run
+`.github/workflows/daily-videos.yml` runs this whole workflow unattended every day on GitHub Actions, on the owner's Claude plan.
+- **Settings:** `pipeline.yaml` (videos per day, publish rules, models per role, timeouts, Claude Code version). Edit it and push to `develop`.
+  The run time is the `cron` line in the workflow file, the only setting GitHub requires there.
+- **Latest code:** every run checks out the latest `develop`, so merged changes are used from the next run on. Skills come from `skills.lock`.
+- **Flow:** the planner (`docs/pipeline/plan.md`) picks the day's topics (refreshing the `/yt-viral` study when it is old) -> one job per topic
+  (`docs/pipeline/episode.md`) does steps 1-6 with the models in `pipeline.yaml` -> the judge's first line decides:
+  `ready to publish` -> uploaded as `publish.when_ready`; anything else -> `publish.otherwise` (private or skip) and a GitHub issue for the owner.
+- Each episode is committed straight to `develop` after `make check` passes (the one exception to "PRs only"); if it fails, to `daily/<slug>` and an issue.
+- **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing).
+- **One-time owner setup:** repo secrets `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`), `YOUTUBE_CLIENT_SECRET_JSON` and `YOUTUBE_TOKEN_JSON`
+  (the two files in `~/.config/youtube-skill/`), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
+
 ## Where we deviate from the skills, on purpose
 | Skill rule | Ours | Why |
 |---|---|---|

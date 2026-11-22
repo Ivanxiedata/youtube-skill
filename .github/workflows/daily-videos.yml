@@ -1,0 +1,197 @@
+name: daily-videos
+# The unattended daily run: pick topics, make each video (docs/workflow.md steps 1-6), publish what the judge passes.
+# Every setting is in pipeline.yaml except the time below, because GitHub reads schedules only from this file.
+# Each run checks out the latest default branch (develop), so pushed changes are used from the next run on.
+# Secrets (owner, once): CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`), YOUTUBE_CLIENT_SECRET_JSON, YOUTUBE_TOKEN_JSON.
+on:
+  schedule:
+    - cron: "0 13 * * *" # every day at 13:00 UTC
+  workflow_dispatch:
+    inputs:
+      videos:
+        description: "Videos this run (blank = pipeline.yaml)"
+        required: false
+        default: ""
+      dry_run:
+        description: "Make and judge, but upload nothing"
+        type: boolean
+        default: false
+permissions:
+  contents: write # commit each episode to develop
+  issues: write # tell the owner when something needs them
+concurrency:
+  group: daily-videos
+  cancel-in-progress: false
+env:
+  GIT_AUTHOR_NAME: github-actions[bot]
+  GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+  GIT_COMMITTER_NAME: github-actions[bot]
+  GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    outputs:
+      topics: ${{ steps.topics.outputs.topics }}
+      count: ${{ steps.topics.outputs.count }}
+      timeout: ${{ steps.config.outputs.timeout }}
+      when_ready: ${{ steps.config.outputs.when_ready }}
+      otherwise: ${{ steps.config.outputs.otherwise }}
+      max_fix_rounds: ${{ steps.config.outputs.max_fix_rounds }}
+      model_maker: ${{ steps.config.outputs.model_maker }}
+      model_worker: ${{ steps.config.outputs.model_worker }}
+      model_judge: ${{ steps.config.outputs.model_judge }}
+      claude_version: ${{ steps.config.outputs.claude_version }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - name: Read pipeline.yaml
+        id: config
+        env:
+          VIDEOS: ${{ inputs.videos }}
+        run: |
+          python3 -m venv "$RUNNER_TEMP/venv"
+          "$RUNNER_TEMP/venv/bin/pip" install -q pyyaml yt-dlp
+          echo "$RUNNER_TEMP/venv/bin" >> "$GITHUB_PATH"
+          "$RUNNER_TEMP/venv/bin/python" scripts/pipeline-config.py pipeline.yaml --videos "${VIDEOS:-}" | tee -a "$GITHUB_OUTPUT"
+      - name: Install Claude Code
+        if: steps.config.outputs.videos != '0'
+        env:
+          VERSION: ${{ steps.config.outputs.claude_version }}
+        run: npm install -g "@anthropic-ai/claude-code@$VERSION"
+      - name: Pick today's topics
+        if: steps.config.outputs.videos != '0'
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          VIDEOS: ${{ steps.config.outputs.videos }}
+          FOCUS: ${{ steps.config.outputs.focus }}
+          MAX_AGE: ${{ steps.config.outputs.max_age_days }}
+          REFRESH: ${{ steps.config.outputs.refresh_days }}
+          MODEL: ${{ steps.config.outputs.model_planner }}
+        run: |
+          python scripts/pipeline-prompt.py docs/pipeline/plan.md VIDEOS="$VIDEOS" FOCUS="$FOCUS" MAX_AGE_DAYS="$MAX_AGE" REFRESH_DAYS="$REFRESH" > "$RUNNER_TEMP/plan.txt"
+          claude -p "$(cat "$RUNNER_TEMP/plan.txt")" --model "$MODEL" --dangerously-skip-permissions
+      - name: Check the topics
+        id: topics
+        env:
+          VIDEOS: ${{ steps.config.outputs.videos }}
+        run: |
+          if [ "$VIDEOS" = 0 ]; then echo "topics=[]" >> "$GITHUB_OUTPUT"; echo "count=0" >> "$GITHUB_OUTPUT"; exit 0; fi
+          t=$(python scripts/pipeline-topics.py pipeline-topics.json "$VIDEOS")
+          echo "topics=$t" >> "$GITHUB_OUTPUT"
+          echo "count=$(printf '%s' "$t" | python -c 'import json,sys;print(len(json.load(sys.stdin)))')" >> "$GITHUB_OUTPUT"
+          printf '%s\n' "$t"
+      - name: Save a refreshed study
+        if: steps.config.outputs.videos != '0'
+        run: |
+          [ -z "$(git status --porcelain docs/studies)" ] || scripts/pipeline-push.sh "Daily run: refresh the /yt-viral study" docs/studies
+
+  episode:
+    needs: plan
+    if: needs.plan.outputs.count != '0'
+    runs-on: ubuntu-latest
+    timeout-minutes: ${{ fromJSON(needs.plan.outputs.timeout) }}
+    strategy:
+      fail-fast: false
+      matrix:
+        topic: ${{ fromJSON(needs.plan.outputs.topics) }}
+    env:
+      SLUG: ${{ matrix.topic.slug }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Restore models and browser
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            .skills/venv
+            .skills/browsers
+            .skills/voice-models
+            .skills/earshot-home
+          key: episode-tools-${{ runner.os }}-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh') }}
+      - name: Install the tools
+        run: scripts/ci-setup.sh
+      - name: Install Claude Code
+        env:
+          VERSION: ${{ needs.plan.outputs.claude_version }}
+        run: npm install -g "@anthropic-ai/claude-code@$VERSION"
+      - name: YouTube sign-in
+        env:
+          CLIENT: ${{ secrets.YOUTUBE_CLIENT_SECRET_JSON }}
+          TOKEN: ${{ secrets.YOUTUBE_TOKEN_JSON }}
+        run: |
+          umask 077
+          mkdir -p ~/.config/youtube-skill
+          printf '%s' "$CLIENT" > ~/.config/youtube-skill/client_secret.json
+          printf '%s' "$TOKEN" > ~/.config/youtube-skill/token.json
+      - name: Make the episode (steps 1-6)
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TOPIC: ${{ matrix.topic.topic }}
+          BEFORE: ${{ matrix.topic.before }}
+          SOURCES: ${{ matrix.topic.sources }}
+          MODEL_MAKER: ${{ needs.plan.outputs.model_maker }}
+          MODEL_WORKER: ${{ needs.plan.outputs.model_worker }}
+          MODEL_JUDGE: ${{ needs.plan.outputs.model_judge }}
+          ROUNDS: ${{ needs.plan.outputs.max_fix_rounds }}
+        run: |
+          make new-episode NAME="$SLUG"
+          mkdir -p "$RUNNER_TEMP/$SLUG"
+          python scripts/pipeline-prompt.py docs/pipeline/episode.md SLUG="$SLUG" TOPIC="$TOPIC" BEFORE="$BEFORE" SOURCES="$SOURCES" \
+            MODEL_WORKER="$MODEL_WORKER" MODEL_JUDGE="$MODEL_JUDGE" MAX_FIX_ROUNDS="$ROUNDS" > "$RUNNER_TEMP/episode.txt"
+          claude -p "$(cat "$RUNNER_TEMP/episode.txt")" --model "$MODEL_MAKER" --dangerously-skip-permissions
+      - name: Judge's gate
+        id: gate
+        if: always()
+        env:
+          WHEN_READY: ${{ needs.plan.outputs.when_ready }}
+          OTHERWISE: ${{ needs.plan.outputs.otherwise }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          verdict=$(head -n 1 "episodes/$SLUG/evaluation.md" 2>/dev/null || true)
+          [ -n "$verdict" ] || verdict="not ready: no evaluation.md"
+          [ -f "episodes/$SLUG/video.mp4" ] || verdict="not ready: no video.mp4"
+          if [ "$verdict" = "ready to publish" ]; then p=$WHEN_READY; else p=$OTHERWISE; fi
+          [ "$DRY_RUN" != true ] || p=skip
+          echo "verdict=$verdict" >> "$GITHUB_OUTPUT"
+          echo "privacy=$p" >> "$GITHUB_OUTPUT"
+          echo "$SLUG: $verdict -> $p"
+      - name: Upload to YouTube
+        id: upload
+        if: always() && steps.gate.outputs.privacy != 'skip'
+        env:
+          PRIVACY: ${{ steps.gate.outputs.privacy }}
+        run: go run ./cmd/yt upload "episodes/$SLUG" --privacy "$PRIVACY" --confirm
+      - name: Save the episode
+        if: always() && steps.gate.outputs.verdict != ''
+        env:
+          VERDICT: ${{ steps.gate.outputs.verdict }}
+        run: |
+          if make check TESTFLAGS=-short; then
+            scripts/pipeline-push.sh "Daily run: $SLUG ($VERDICT)" "episodes/$SLUG"
+          else
+            git switch -c "daily/$SLUG"
+            git add "episodes/$SLUG" && git commit -q -m "Daily run: $SLUG (make check failed)" && git push -q origin "daily/$SLUG"
+            exit 1
+          fi
+      - name: Tell the owner
+        if: failure() || steps.gate.outputs.verdict != 'ready to publish'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERDICT: ${{ steps.gate.outputs.verdict }}
+          PRIVACY: ${{ steps.gate.outputs.privacy }}
+          RUN: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          gh issue create --title "Daily run: $SLUG needs you" --body "Verdict: ${VERDICT:-none (the run failed before the judge)}
+          Upload: ${PRIVACY:-none}
+          Run log: $RUN
+          Episode files: episodes/$SLUG/ on develop (or branch daily/$SLUG if make check failed)."
