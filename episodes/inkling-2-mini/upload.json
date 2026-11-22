@@ -1,0 +1,23 @@
+{
+  "title": "Inkling 2 Mini: 12 Layers, 3 Loops, Why?",
+  "description": "What is Inkling 2 Mini? Thinking Machines' open-weights looped transformer, released November 20, 2026, explained in 60 seconds.\nBefore, an ordinary model ran each layer once per token and wrote its reasoning out. Now Inkling 2 Mini's middle 12 layers loop 3 times with shared weights, so it can write less.\n\nRead the maker's own announcement first: https://thinkingmachines.ai/news/inkling-2-mini/\n\nChapters\n0:00 Why does it loop?\n0:11 Before: it wrote it out\n0:22 Now: thinking in loops\n0:33 Why it writes less\n0:43 How, why, and the catch\n\nStatus: released, open weights. Inkling 2 Mini came out on November 20, 2026 from Thinking Machines Lab under the Apache 2.0 license, on Hugging Face and Tinker.\n\nThe story: one hard exam question. You are the examiner with a stopwatch. An ordinary model (the standard non-looped transformer, where each token passes through the layers once) thinks harder by writing its working out, line after line, and you wait while it writes. Inkling 2 Mini works more of it over inside its head and hands in a shorter note.\n\nHow it works: it is a 24-layer transformer. The middle 12 layers (layers 7 to 18, the two middle blocks of four blocks of six) run 3 times with shared weights, giving 48 layer applications per token from 24 layers of weights, with no new parameters. Thinking Machines says looping lets the model reason longer without writing its reasoning down, and reach the right answer with fewer tokens. In its test on a research variant (TML-d24-varloop-research), the mean reasoning tokens on GPQA Diamond fell from 3,703 at 1 pass to 1,731 at 3 passes, less than half. The weights are about 20 GB, which fits Apple silicon Macs with 32 GB or more memory.\n\nThe limits: it still writes some reasoning; even the minimum reasoning effort does not fully disable it. The token numbers come from the research twin on one benchmark, not from the released model, which supports a fixed number of looping passes. Looping adds no knowledge: knowledge is mostly a function of total parameter count. The maker notes that reasoning not written down matters for monitoring, and reports that at this scale it sees no meaningful reduction in monitorability: the chain of thought grew shorter but stayed legible. The maker also says it is not the strongest small model for multi-turn chat, and runtime support for looped models in local tools is new. This video makes no benchmark claim about Gemma 4 31B or Qwen3.8-27B; they appear only as examples of ordinary one-pass models in the maker's comparison table.\n\nThe takeaway: same exam; more working happens in its head.\n\nSources\nThinking Machines Lab, Introducing Inkling 2 Mini: https://thinkingmachines.ai/news/inkling-2-mini/\nThinking Machines Lab, Inkling 2 Mini model card: https://thinkingmachines.ai/model-card/inkling-2-mini/\nHugging Face, Inkling-2-Mini: https://huggingface.co/thinkingmachines/Inkling-2-Mini\n\nThe exam, the scroll, the stopwatch and the FACTS book are invented examples. The robots drawn here are generic cartoons, not Thinking Machines' artwork.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#Inkling2Mini #ThinkingMachines #AIExplained",
+  "tags": [
+    "inkling 2 mini",
+    "thinking machines",
+    "thinking machines lab",
+    "thinking machines inkling",
+    "inkling 2 mini explained",
+    "looped transformer",
+    "looped transformer explained",
+    "looped language model",
+    "how does inkling 2 mini work",
+    "open weights model",
+    "apache 2.0 model",
+    "run ai on a mac",
+    "reasoning tokens",
+    "ai explained",
+    "local llm"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

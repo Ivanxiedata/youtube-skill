@@ -1,0 +1,91 @@
+1
+00:00:00,300 --> 00:00:08,098
+Inkling 2 Mini: before, you'd stop and wait; your AI's written thinking cost you; now 12 layers loop 3 times, but how, why?
+
+2
+00:00:08,598 --> 00:00:10,696
+Here's how, in one hard exam question.
+
+3
+00:00:11,196 --> 00:00:12,881
+Before, an ordinary model,
+
+4
+00:00:12,881 --> 00:00:16,065
+like Gemma or Qwen, ran each layer once per token.
+
+5
+00:00:16,365 --> 00:00:18,502
+To think harder, it wrote its working out,
+
+6
+00:00:18,502 --> 00:00:20,142
+line after line, and you waited.
+
+7
+00:00:20,642 --> 00:00:22,259
+Now, since November 20,
+
+8
+00:00:22,259 --> 00:00:24,136
+Thinking Machines' Inkling 2 Mini
+
+9
+00:00:24,136 --> 00:00:25,544
+works it over in its head.
+
+10
+00:00:25,844 --> 00:00:28,958
+Its middle 12 layers run 3 times, same weights:
+
+11
+00:00:28,958 --> 00:00:31,684
+48 layer steps from 24 layers,
+
+12
+00:00:31,684 --> 00:00:32,629
+no bigger brain.
+
+13
+00:00:33,129 --> 00:00:34,252
+So it can write less.
+
+14
+00:00:34,552 --> 00:00:36,609
+In the maker's test on a research twin,
+
+15
+00:00:36,609 --> 00:00:39,129
+three passes wrote less than half the reasoning.
+
+16
+00:00:39,429 --> 00:00:40,239
+And it's open,
+
+17
+00:00:40,239 --> 00:00:42,939
+about 20 gigabytes, for a 32 gig Mac.
+
+18
+00:00:43,439 --> 00:00:45,281
+How? The middle layers loop.
+
+19
+00:00:45,581 --> 00:00:49,233
+Why? More thinking per token, fewer tokens to wait for.
+
+20
+00:00:49,533 --> 00:00:51,713
+The catch: it still writes some reasoning,
+
+21
+00:00:51,713 --> 00:00:53,132
+and loops add no new facts.
+
+22
+00:00:53,632 --> 00:00:56,063
+Same exam; more working happens in its head.
+
+23
+00:00:56,563 --> 00:00:57,965
+Subscribe for the next one.

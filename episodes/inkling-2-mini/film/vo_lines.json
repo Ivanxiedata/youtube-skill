@@ -1,0 +1,130 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 7.798,
+  "text": "Inkling Two Mini: before, you'd stop and wait; your AI's written thinking cost you; now twelve layers loop three times, but how, why?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 8.298,
+  "end": 10.396,
+  "text": "Here's how, in one hard exam question."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.896,
+  "end": 15.765,
+  "text": "Before, an ordinary model, like Gemma or Kwen, ran each layer once per token."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 16.065,
+  "end": 19.842,
+  "text": "To think harder, it wrote its working out, line after line, and you waited."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 20.342,
+  "end": 25.244,
+  "text": "Now, since November twentieth, Thinking Machines' Inkling Two Mini works it over in its head."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 25.544,
+  "end": 32.329,
+  "text": "Its middle twelve layers run three times, same weights: forty-eight layer steps from twenty-four layers, no bigger brain."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 32.829,
+  "end": 33.952,
+  "text": "So it can write less."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 34.252,
+  "end": 38.829,
+  "text": "In the maker's test on a research twin, three passes wrote less than half the reasoning."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 39.129,
+  "end": 42.639,
+  "text": "And it's open, about twenty gigabytes, for a thirty-two gig Mac."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 43.139,
+  "end": 43.572,
+  "text": "How?"
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 43.872,
+  "end": 44.981,
+  "text": "The middle layers loop."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 45.281,
+  "end": 45.73,
+  "text": "Why?"
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 46.03,
+  "end": 48.933,
+  "text": "More thinking per token, fewer tokens to wait for."
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 49.233,
+  "end": 52.832,
+  "text": "The catch: it still writes some reasoning, and loops add no new facts."
+ },
+ {
+  "n": 14,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.332,
+  "end": 55.763,
+  "text": "Same exam; more working happens in its head."
+ },
+ {
+  "n": 15,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 56.263,
+  "end": 57.665,
+  "text": "Subscribe for the next one."
+ }
+]

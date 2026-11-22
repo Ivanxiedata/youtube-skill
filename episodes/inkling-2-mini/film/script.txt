@@ -1,0 +1,8 @@
+Inkling Two Mini: before, you'd stop and wait; your AI's written thinking cost you; now twelve layers loop three times, but how, why?
+Here's how, in one hard exam question.
+Before, an ordinary model, like Gemma or Kwen, ran each layer once per token. To think harder, it wrote its working out, line after line, and you waited.
+Now, since November twentieth, Thinking Machines' Inkling Two Mini works it over in its head. Its middle twelve layers run three times, same weights: forty-eight layer steps from twenty-four layers, no bigger brain.
+So it can write less. In the maker's test on a research twin, three passes wrote less than half the reasoning. And it's open, about twenty gigabytes, for a thirty-two gig Mac.
+How? The middle layers loop. Why? More thinking per token, fewer tokens to wait for. The catch: it still writes some reasoning, and loops add no new facts.
+Same exam; more working happens in its head.
+Subscribe for the next one.
