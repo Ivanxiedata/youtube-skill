@@ -1,0 +1,106 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 7.766,
+  "text": "Before, you'd waste time watching your AI think out loud; now Inkling Two Mini thinks more in its head, so you wait less, but how?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 8.266,
+  "end": 10.364,
+  "text": "Here's how, in one hard exam question."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.864,
+  "end": 12.122,
+  "text": "You ask a hard question."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.422,
+  "end": 18.639,
+  "text": "An ordinary model, like Gemma or Kwen, thinks by writing: line after line, and you wait for every line."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 19.139,
+  "end": 27.208,
+  "text": "Same question on Thinking Machines' Inkling Two Mini, out November twentieth: it does more of the working in its head, then writes a short note."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 27.708,
+  "end": 28.141,
+  "text": "How?"
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 28.441,
+  "end": 35.226,
+  "text": "Its middle twelve layers run three times, same weights: forty-eight layer steps from twenty-four layers, no bigger brain."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.726,
+  "end": 40.303,
+  "text": "In the maker's test on a research twin, three passes wrote less than half the reasoning."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 40.603,
+  "end": 44.113,
+  "text": "And it's open: about twenty gigabytes, for a thirty-two gig Mac."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.613,
+  "end": 47.152,
+  "text": "That's how you wait less: less thinking to write out."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 47.452,
+  "end": 52.928,
+  "text": "The catch: each word it writes takes more work, so speed depends on your setup, and it still writes some."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.428,
+  "end": 56.085,
+  "text": "Same exam; more of the working happens in its head."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 56.585,
+  "end": 57.987,
+  "text": "Subscribe for the next one."
+ }
+]

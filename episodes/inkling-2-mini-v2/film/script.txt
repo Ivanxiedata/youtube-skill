@@ -1,0 +1,9 @@
+Before, you'd waste time watching your AI think out loud; now Inkling Two Mini thinks more in its head, so you wait less, but how?
+Here's how, in one hard exam question.
+You ask a hard question. An ordinary model, like Gemma or Kwen, thinks by writing: line after line, and you wait for every line.
+Same question on Thinking Machines' Inkling Two Mini, out November twentieth: it does more of the working in its head, then writes a short note.
+How? Its middle twelve layers run three times, same weights: forty-eight layer steps from twenty-four layers, no bigger brain.
+In the maker's test on a research twin, three passes wrote less than half the reasoning. And it's open: about twenty gigabytes, for a thirty-two gig Mac.
+That's how you wait less: less thinking to write out. The catch: each word it writes takes more work, so speed depends on your setup, and it still writes some.
+Same exam; more of the working happens in its head.
+Subscribe for the next one.

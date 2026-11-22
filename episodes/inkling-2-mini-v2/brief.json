@@ -1,0 +1,163 @@
+{
+ "slug": "inkling-2-mini-v2",
+ "tech": {
+  "id": "inkling-2-mini",
+  "name": "Inkling 2 Mini (Thinking Machines Lab, open-weights looped transformer)",
+  "released": "2026-11-20",
+  "status": "released, open weights (Apache 2.0) on Hugging Face and Tinker",
+  "one_line": "A 24-layer model whose middle 12 layers run three times per token with shared weights (48 layer applications from 24 stored layers), so it reasons more inside the model and needs fewer written reasoning tokens; about 20 GB, runs on a Mac with 32 GB."
+ },
+ "predecessor": {
+  "id": "one-pass-transformer",
+  "name": "An ordinary (non-looped) transformer, e.g. Gemma 4 31B and Qwen3.8-27B in the maker's table: each token passes through the layers once, so longer reasoning has to be written out as tokens"
+ },
+ "sections": {
+  "hook": {
+   "text": "Before, you'd waste time watching your AI think out loud; now Inkling 2 Mini thinks more in its head, so you wait less, but how?",
+   "claims": [
+    {
+     "text": "In the standard non-looped transformer each token passes through a fixed stack of layers once, so reasoning that needs more steps has to be carried out in generated text.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Inkling 2 Mini's middle 12 layers run three times with shared weights.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "Looping allows the model to reason longer without writing its reasoning down, and to reach the right answer with fewer tokens; fewer written reasoning tokens means less of its thinking for you to wait through.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "It runs faster than similarly performing models as well (speed charts are a theoretical ceiling).",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how, in one hard exam question. You ask a hard question. An ordinary model, like Gemma or Qwen, thinks by writing: line after line, and you wait for every line.",
+   "claims": [
+    {
+     "text": "Standard non-looped transformer: each token passes through a fixed stack of layers once.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Gemma 4 31B and Qwen3.8-27B are among the models in the maker's comparison table.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "In a non-looped model, reasoning that needs more steps has to be carried out in generated text, where it can be read.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+   ]
+  },
+  "new": {
+   "text": "Same question on Thinking Machines' Inkling 2 Mini, out November 20: it does more of the working in its head, then writes a short note. How? Its middle 12 layers run three times, same weights: 48 layer steps from 24 layers, no bigger brain.",
+   "claims": [
+    {
+     "text": "Date of release: November 20, 2026.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "Introducing Inkling 2 Mini, Thinking Machines Lab, Nov 20, 2026.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Looping allows the model to reason longer without writing its reasoning down.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "A 24-layer decoder-only transformer; the middle 12 layers run three times with shared weights, giving 48 layer applications per token from 24 layers of weights.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "The same architecture statement on the model page.",
+     "source": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+     "text": "Looping adds serial computation inside the model without adding parameters.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+   ]
+  },
+  "why": {
+   "text": "In the maker's test on a research twin, three passes wrote less than half the reasoning. And it's open: about 20 gigabytes, for a 32 gig Mac.",
+   "claims": [
+    {
+     "text": "Looping lets the model apply more reasoning and reach the right answer with fewer tokens.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Research variant TML-d24-varloop-research on GPQA Diamond: mean reasoning tokens 3,703 at 1 pass, 1,731 at 3 passes (questions answered correctly at all pass counts).",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Open weights, Apache 2.0.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "License: Apache 2.0.",
+     "source": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+    },
+    {
+     "text": "A single checkpoint of about 20GB; Apple silicon devices with 32GB or more memory (MacBooks, Mac minis and Studios).",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "That's how you wait less: less thinking to write out. The catch: each word it writes takes more work, so speed depends on your setup, and it still writes some. Same exam; more of the working happens in its head.",
+   "claims": [
+    {
+     "text": "Because the middle layers run three times, compute per token is higher than the active-parameter count alone suggests; speed varies by runtime and hardware.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "48 layer applications per token from 24 layers of weights.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "Reach the right answer with fewer tokens.",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+     "text": "Setting reasoning effort to its minimum does not fully disable reasoning; its chain of thought grew shorter with more loops but stayed legible.",
+     "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+    },
+    {
+     "text": "At this scale the maker sees no meaningful reduction in the monitorability of the looped models' reasoning (so the video makes no monitoring claim).",
+     "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Subscribe for the next one.",
+   "claims": []
+  }
+ },
+ "background": [
+  {
+   "text": "26.4B total parameters, 3.4B active; 5.4B effective active parameters per token with three passes.",
+   "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+  },
+  {
+   "text": "Each token is routed to 8 of 128 experts per layer; context up to 1M tokens.",
+   "source": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+  },
+  {
+   "text": "Released model supports only a fixed number of looping passes; the research variant was trained with one to five.",
+   "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+  },
+  {
+   "text": "Minimum reasoning effort does not fully disable reasoning; may take destructive actions without confirmation; local runtime support for looped models is new.",
+   "source": "https://huggingface.co/thinkingmachines/Inkling-2-Mini"
+  },
+  {
+   "text": "Not the strongest small model for multi-turn chat or many-constraint instructions.",
+   "source": "https://thinkingmachines.ai/news/inkling-2-mini/"
+  }
+ ],
+ "architecture": {
+  "before": "24 layers, each run once per token; more thinking = more written reasoning tokens",
+  "after": "24 layers in four blocks of six; blocks 2-3 (layers 7-18) run three times with shared weights = 48 layer applications per token; fewer reasoning tokens"
+ }
+}
