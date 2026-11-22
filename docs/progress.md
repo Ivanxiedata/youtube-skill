@@ -52,3 +52,5 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-22 keep-video: first end-to-end dry run (run 44977190119) passed in 38 min: planner picked openai-dots, judge said ready to publish, episode committed to develop (ef56484). Gap found: video.mp4 is git-ignored, so the dry run's video was lost; the episode job now keeps video.mp4 and thumbnail.png as a 30-day run artifact.
 
 - 2026-11-22 privacy-page: `docs/site/` (home page + privacy policy for the Google OAuth app) and `.github/workflows/pages.yml` publishing it to https://ivanxiedata.github.io/youtube-skill/ (Pages source: GitHub Actions). Needed to publish the OAuth app out of Testing, whose refresh token expires every 7 days.
+
+- 2026-11-22 cron-off-peak: the first scheduled run (13:00 UTC on 2026-11-22) never started (no schedule event by 14:52 UTC; workflow active, cron on develop). GitHub delays or drops scheduled runs at busy :00 times, so the cron moved to 13:17 UTC.

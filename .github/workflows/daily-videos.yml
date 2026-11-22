@@ -5,7 +5,7 @@ name: daily-videos
 # Secrets (owner, once): CLAUDE_CODE_OAUTH_TOKEN (`claude setup-token`), YOUTUBE_CLIENT_SECRET_JSON, YOUTUBE_TOKEN_JSON.
 on:
   schedule:
-    - cron: "0 13 * * *" # every day at 13:00 UTC
+    - cron: "17 13 * * *" # every day at 13:17 UTC (7:17 am Chicago in winter); off the hour, because GitHub drops runs at busy :00 times
   workflow_dispatch:
     inputs:
       videos:
