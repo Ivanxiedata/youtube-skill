@@ -1,0 +1,210 @@
+{
+ "slug": "openai-dots",
+ "tech": {
+  "id": "openai-dots",
+  "name": "OpenAI dots (always-on ChatGPT agents)",
+  "released": "2026-09-29",
+  "status": "shipped, rolling out: Pro and Business Premium in eligible markets; Enterprise, Edu and Healthcare beta when an admin enables it",
+  "one_line": "Always-on ChatGPT agents, each on its own cloud computer, that work toward your goals in the background (read-only), learn from feedback and ask before sensitive actions."
+ },
+ "predecessor": {
+  "id": "chatgpt-agent-2025",
+  "name": "A ChatGPT chat and ChatGPT agent mode (2025): one task per request, then it waits"
+ },
+ "sections": {
+  "hook": {
+   "text": "OpenAI dots: before, your ChatGPT would stop, wait for you; now your dot works 24/7, but how, at what risk, in 60 seconds?",
+   "claims": [
+    {
+     "text": "A ChatGPT agent task starts when you describe it, and ChatGPT notifies you when it's done with your task.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    },
+    {
+     "text": "A dot can work towards your goals 24/7.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Dots use auto-review and Custom Rules (allow, require approval, block) for actions that could affect your accounts or share information.",
+     "source": "https://openai.com/index/introducing-dots/"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how, in one shop you run. Old ChatGPT, even 2025's agent mode, was the clerk at the counter: you ring, it does that one task, then waits for the next ring. Go home, and no new work starts.",
+   "claims": [
+    {
+     "text": "ChatGPT agent (July 17, 2025) does work for you using its own virtual computer.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    },
+    {
+     "text": "In agent mode you select it in the composer and describe your desired task.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    },
+    {
+     "text": "ChatGPT agent sends a notification when it's done with your task.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now a dot works the night shift. It has its own desk, a cloud computer, and your goals pinned on the wall. While you're away, it reads your connected apps, but it can't send a thing.",
+   "claims": [
+    {
+     "text": "Dots were announced at DevDay and rolled out in ChatGPT on September 29, 2026.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "DevDay 2026 was on September 29, 2026.",
+     "source": "https://openai.com/index/devday-2026-recap/"
+    },
+    {
+     "text": "Each dot works on its own cloud computer, with its own browser and the apps you've connected.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "A dot knows your goals and standards and can work towards your goals 24/7.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "When you aren't actively working with it, your dot looks for ways to help in the background (proactive research).",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Proactive research uses tools restricted to be read-only: they can't send messages, change app content, or control your browser or computer.",
+     "source": "https://openai.com/index/introducing-dots/"
+    }
+   ]
+  },
+  "why": {
+   "text": "Morning, a note: you forgot an invoice; it's ready; send it? You tap yes. Say \"shorter notes\", and it learns. And changing a password always stays with you.",
+   "claims": [
+    {
+     "text": "An early tester's dot noticed he'd forgotten to invoice a publication, prepared the invoice, and sent it after his approval.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Dots can message you with progress, questions, or decisions that need you.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Dots learn from feedback over time and learn your preferences.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Certain sensitive tasks, such as changing a password, always stay with you.",
+     "source": "https://openai.com/index/introducing-dots/"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "How? Its own computer, working toward your goals. What risk? Away, it only reads; it asks before sensitive steps. It still makes mistakes, so check its work. The shop never closes now, but the keys are still yours.",
+   "claims": [
+    {
+     "text": "Each dot works on its own cloud computer and works towards your goals.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Background proactive research is read-only.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Custom Rules can require approval; auto-review checks actions that could affect your accounts or share information.",
+     "source": "https://openai.com/index/introducing-dots/"
+    },
+    {
+     "text": "Dots can still make mistakes, so always review consequential work.",
+     "source": "https://openai.com/index/introducing-dots/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Subscribe for the next one.",
+   "claims": []
+  }
+ },
+ "background": [
+  {
+   "text": "Dots look like little floating cartoon dots; much of this was already possible through Codex and agent harnesses.",
+   "source": "https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/"
+  }
+ ],
+ "architecture": {
+  "before": {
+   "nodes": [
+    {
+     "id": "you",
+     "label": "You"
+    },
+    {
+     "id": "ask",
+     "label": "One prompt or task"
+    },
+    {
+     "id": "cg",
+     "label": "ChatGPT / agent mode"
+    },
+    {
+     "id": "wait",
+     "label": "Done, waits for you"
+    }
+   ],
+   "edges": [
+    {
+     "from": "you",
+     "to": "ask",
+     "label": "you ask"
+    },
+    {
+     "from": "ask",
+     "to": "cg",
+     "label": ""
+    },
+    {
+     "from": "cg",
+     "to": "wait",
+     "label": "1 task"
+    }
+   ]
+  },
+  "after": {
+   "nodes": [
+    {
+     "id": "goals",
+     "label": "Your goals",
+     "new": true
+    },
+    {
+     "id": "dot",
+     "label": "Dot on its own cloud computer",
+     "new": true
+    },
+    {
+     "id": "apps",
+     "label": "Connected apps (read-only)",
+     "new": true
+    },
+    {
+     "id": "you",
+     "label": "You approve"
+    }
+   ],
+   "edges": [
+    {
+     "from": "goals",
+     "to": "dot",
+     "label": "24/7"
+    },
+    {
+     "from": "dot",
+     "to": "apps",
+     "label": "reads"
+    },
+    {
+     "from": "dot",
+     "to": "you",
+     "label": "asks before sensitive steps"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "OpenAI Dots: Can ChatGPT Work 24/7 Now?",
+  "description": "What are OpenAI dots? Always-on ChatGPT agents, launched at DevDay on September 29, 2026, explained in 60 seconds.\nBefore, ChatGPT and its 2025 agent mode did one task when you asked. Now a dot works toward your goals on its own cloud computer, and asks you before sensitive steps.\n\nRead OpenAI's own announcement first: https://openai.com/index/introducing-dots/\n\nChapters\n0:00 Dots vs waiting ChatGPT\n0:11 One ring, one task\n0:23 A dot works the night\n0:43 How it works, what risk\n\nStatus: shipped and rolling out. Dots launched on September 29, 2026 in ChatGPT for Pro and Business Premium in eligible markets (Enterprise, Edu and Healthcare are in beta when an admin enables it).\n\nThe story: a shop you run. The old ChatGPT, even 2025's agent mode, is the clerk at the counter: you ring the bell, it does that one task, then it waits for the next ring. (It could also repeat a task you had scheduled, like a weekly report, but it never picked its own work.) A dot is the night shift: it has its own desk (a cloud computer) and your goals pinned on the wall. While you are away it looks for ways to help in the background (OpenAI calls this proactive research) using connected apps through read-only tools, so it can read but cannot send. In the morning it can message you, and you approve before it sends. It learns from your feedback over time. Auto-review and Custom Rules (allow, require approval, block) cover sensitive actions, and some tasks, like changing a password, always stay with you.\n\nThe takeaway: the shop never closes now, but the keys are still yours. Dots can still make mistakes, so always review consequential work.\n\nSources\nOpenAI, Introducing dots: https://openai.com/index/introducing-dots/\nOpenAI, DevDay 2026 recap: https://openai.com/index/devday-2026-recap/\nOpenAI, Introducing ChatGPT agent (the 2025 before): https://openai.com/index/introducing-chatgpt-agent/\nTechCrunch, background on the look and what was already possible: https://techcrunch.com/2026/09/29/openai-launches-dots-its-bubbly-agentic-avatar/\n\nThe shop, the parcel and the goals list (\"get paid on time\", \"answer customers\") are invented examples. The forgotten invoice is OpenAI's own example from an early tester. The dot drawn here is a generic cartoon, not OpenAI's artwork.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#OpenAI #ChatGPT #AIExplained",
+  "tags": [
+    "openai dots",
+    "chatgpt dots",
+    "what are openai dots",
+    "openai dots explained",
+    "openai dots vs chatgpt agent",
+    "chatgpt agent",
+    "chatgpt agent mode",
+    "always-on ai agent",
+    "chatgpt 24/7",
+    "openai devday 2026",
+    "devday 2026",
+    "proactive research",
+    "ai agents",
+    "ai explained",
+    "openai"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

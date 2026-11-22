@@ -1,0 +1,115 @@
+1
+00:00:00,300 --> 00:00:01,689
+OpenAI dots: before,
+
+2
+00:00:01,689 --> 00:00:04,270
+your ChatGPT would stop, wait for you;
+
+3
+00:00:04,270 --> 00:00:06,784
+now your dot works 24/7,
+
+4
+00:00:06,784 --> 00:00:09,497
+but how, at what risk, in 60 seconds?
+
+5
+00:00:09,997 --> 00:00:11,662
+Here's how, in one shop you run.
+
+6
+00:00:11,962 --> 00:00:15,108
+Old ChatGPT, even 2025's agent mode,
+
+7
+00:00:15,108 --> 00:00:16,959
+was the clerk at the counter:
+
+8
+00:00:16,959 --> 00:00:18,994
+you ring, it does that one task,
+
+9
+00:00:18,994 --> 00:00:20,845
+then waits for the next ring.
+
+10
+00:00:21,145 --> 00:00:23,017
+Go home, and no new work starts.
+
+11
+00:00:23,967 --> 00:00:25,657
+Now a dot works the night shift.
+
+12
+00:00:25,957 --> 00:00:27,915
+It has its own desk, a cloud computer,
+
+13
+00:00:27,915 --> 00:00:29,672
+and your goals pinned on the wall.
+
+14
+00:00:29,972 --> 00:00:32,160
+While you're away, it reads your connected apps,
+
+15
+00:00:32,160 --> 00:00:33,365
+but it can't send a thing.
+
+16
+00:00:33,865 --> 00:00:34,660
+Morning, a note:
+
+17
+00:00:34,660 --> 00:00:36,719
+you forgot an invoice; it's ready; send it?
+
+18
+00:00:37,019 --> 00:00:37,840
+You tap yes.
+
+19
+00:00:38,140 --> 00:00:39,828
+Say "shorter notes", and it learns.
+
+20
+00:00:40,128 --> 00:00:42,506
+And changing a password always stays with you.
+
+21
+00:00:43,006 --> 00:00:43,439
+How?
+
+22
+00:00:43,739 --> 00:00:46,097
+Its own computer, working toward your goals.
+
+23
+00:00:46,397 --> 00:00:47,094
+What risk?
+
+24
+00:00:47,394 --> 00:00:48,660
+Away, it only reads;
+
+25
+00:00:48,660 --> 00:00:50,590
+it asks before sensitive steps.
+
+26
+00:00:50,890 --> 00:00:52,948
+It still makes mistakes, so check its work.
+
+27
+00:00:53,248 --> 00:00:54,771
+The shop never closes now,
+
+28
+00:00:54,771 --> 00:00:56,463
+but the keys are still yours.
+
+29
+00:00:56,963 --> 00:00:58,365
+Subscribe for the next one.
