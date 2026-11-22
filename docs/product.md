@@ -30,7 +30,7 @@ actually understand it: how it works, not just its name.
 ## Video format (v1: 60 seconds, ~150 spoken words)
 | Time | Section | Shows |
 |---|---|---|
-| 0-5s | Hook | A surprising fact or image from the story, not a statement about AI |
+| 0-5s | Hook | The topic first: a title card from frame 0 and the topic's name as the first spoken words, then the story's surprise in the same breath |
 | 5-15s | Before | The previous technology and its limit |
 | 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
 | 35-45s | Why we need it | The problem the old one couldn't solve |

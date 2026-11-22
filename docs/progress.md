@@ -28,6 +28,9 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-20: Each feature's `cmd/yt/<feature>.go` (and `_test.go`) maps to `<feature>/progress.md`, because three parallel feature PRs would otherwise all edit `docs/progress.md` and conflict.
 - 2026-11-20: A claim is an `in progress (<branch>): ` prefix on the existing Status line, and CI fails a feature or episode whose progress.md is older than its newest code, because overwriting Status lost information and one touch at claim time proved nothing.
 - 2026-11-21: Easy tasks go to a subagent on a cheaper model (Sonnet in Claude Code), the expensive model keeps planning, judging and hard work, because the owner asked to stop spending the expensive model on easy work (AGENTS.md Workflow 9).
+- 2026-11-21: `docs/workflow.md` replaces the skills table as the one standard for episodes (promise before script, full `/yt-script` shape, an independent judge, the weekly and after-publishing loops), because the owner approved the plan built from first principles and wanted all eleven youtube-agent skills used where they serve the goal.
+- 2026-11-21: The daily run commits episodes straight to `develop` (after `make check`) instead of opening PRs, because the owner asked for a full hand-off and Actions' token can't open PRs in this repo's settings; a failing check goes to a `daily/<slug>` branch and an issue instead.
+- 2026-11-21: The daily run uses the owner's Claude plan (`CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token`), not the API, and the settings live in `pipeline.yaml` so nothing is hard-coded in the workflow but the schedule.
 
 ## Log
 - 2026-11-20 develop: harness built and reviewed (5 lenses); CI green; develop/main branch model.
@@ -41,3 +44,8 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-21 brand-evaluate-feedback: earshot pinned in `skills.lock` (its two skills installed; the package and listening models install into `.skills/`); `scripts/music.py` finds CC0 / CC BY music through Openverse; `AGENTS.md` gets a skills-by-step table.
 - 2026-11-21 brand-evaluate-feedback: PRs #2 (upload) and #3 (Episode 0) merged; Status and Next rewritten for after Episode 0.
 - 2026-11-21 sonnet-subagents: AGENTS.md Workflow 9: easy tasks on a cheaper model, with what counts as easy and hard.
+- 2026-11-21 workflow-v2: `docs/workflow.md` (goal, map, steps 1-7 with skill, tool, output, gate and model; weekly; after publishing; deviations), evaluator role rewritten as a 20-row checklist from the skills' rules, `AGENTS.md` points to it, `make new-episode` starts with the steps. Includes the topic-first rule (PR #10).
+- 2026-11-21 workflow-v2: first weekly `/yt-viral` study (`docs/studies/2026-11-21-yt-viral.md`): 681 videos from 10 channels; top titles name one plain subject first, then bound the promise.
+- 2026-11-21 workflow-v2: lesson L15 and a workflow rule: one scratch folder per agent, no deletes outside it.
+- 2026-11-21 workflow-v2: L14 reworded to match the hook rule (topic first, then before -> after); brand rule: AI roles drawn as screen-headed, no story hierarchy that lines up with skin tone (raised by the Agent Skills judge).
+- 2026-11-21 daily-pipeline: `.github/workflows/daily-videos.yml` (plan job + one job per video), `pipeline.yaml`, `docs/pipeline/plan.md` and `episode.md` prompts, `scripts/ci-setup.sh`, `pipeline-config.py` (with selftest), `pipeline-prompt.py`, `pipeline-topics.py`, `pipeline-push.sh`; actionlint clean. Not run yet: needs the owner's secrets.

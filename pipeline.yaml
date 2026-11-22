@@ -1,0 +1,28 @@
+# Daily video pipeline: the settings the owner edits. Run by .github/workflows/daily-videos.yml.
+# Edit this file and push it to `develop`; the next run reads it. Every run uses the latest `develop`.
+# The run time (cron) lives in the workflow file, because GitHub only reads schedules from there.
+
+enabled: true            # false = scheduled runs do nothing
+
+videos_per_day: 3        # 0-10; each video is its own parallel job
+
+publish:
+  when_ready: public     # a video the judge rates "ready to publish": public, unlisted or private
+  otherwise: skip        # any other verdict: private (upload for review) or skip (no upload); either way an issue is opened
+
+# Models per role (docs/workflow.md, AGENTS.md Workflow 9). Aliases (opus, sonnet, haiku) or full model ids.
+models:
+  planner: opus          # picks the day's topics
+  maker: opus            # steps 1-3: research, promise, script
+  worker: sonnet         # steps 4-5: render, finish
+  judge: opus            # step 6: the independent judge
+
+max_fix_rounds: 1        # judge -> fix -> judge again, at most this many times
+episode_timeout_minutes: 240   # per video; GitHub's hard limit is 360
+
+topics:
+  focus: "new AI technology that people who use AI at work hear about but can't yet explain"
+  max_age_days: 120      # prefer things released or changed within this many days
+  refresh_viral_study_days: 7   # re-run the /yt-viral study when the newest one is older than this
+
+claude_code_version: 2.1.330   # npm @anthropic-ai/claude-code; bump to upgrade

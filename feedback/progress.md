@@ -21,3 +21,4 @@ none
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-21 brand-evaluate-feedback: feature scaffolded, spec drafted; `docs/lessons.md` seeded with 11 lessons.
 - 2026-11-21 brand-evaluate-feedback: lessons L12 (listen before judging) and L13 (licensed music through Openverse) added.
+- 2026-11-21 topic-first-rule: lesson L14 (topic first) added.

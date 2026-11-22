@@ -23,7 +23,7 @@ Two kinds of rows:
 
 ## Acceptance criteria
 Measured rows, each a row in the scorecard with its evidence:
-- [ ] Topic early: the topic's name (`brief.json` `tech.name` words) is spoken within the first 15 s (`vo_lines.json`); a miss is Must fix.
+- [ ] Topic first: the topic's name (`brief.json` `tech.name` words) is in the first spoken sentence (`vo_lines.json`), and a title card is on screen from frame 0; a miss is Must fix.
 - [ ] Hook addresses the viewer: the first spoken sentence contains "you" or "your"; a miss is Should fix.
 - [ ] Title: at most 60 characters, and contains the topic's name or the thumbnail text does (`upload.json` `thumbnail_text`).
 - [ ] Description: the first two lines contain the topic's name; it has at least one link; a miss is Should fix.
@@ -60,5 +60,5 @@ Measured rows, each a row in the scorecard with its evidence:
 topic first named at 12.5 s (pass), hook has no "you" (Should fix), title 65 characters (fail).
 
 ## Open questions
-1. Is "topic within 15 s" the right bar for a 60 s video, or should it be the first sentence? Episode 0's owner feedback says viewers must know the topic at once.
+1. Answered 2026-11-21 by the owner: the first sentence, plus a title card from frame 0 (criterion above).
 2. Where does the thumbnail's text live so it can be checked: a `thumbnail_text` field in `upload.json` (assumed above)?

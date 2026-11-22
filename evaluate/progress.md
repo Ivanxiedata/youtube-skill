@@ -21,3 +21,4 @@ none
 <!-- append at the bottom, oldest first: - YYYY-MM-DD <branch>: what was done -->
 - 2026-11-21 brand-evaluate-feedback: feature scaffolded, spec drafted from Episode 0's hand-made scorecard; `docs/roles/evaluator.md` added.
 - 2026-11-21 brand-evaluate-feedback: evaluator role and spec now use earshot for the sound rows; tried on Episode 0 cut 5.
+- 2026-11-21 topic-first-rule: open question 1 answered by the owner: topic in the first sentence plus a title card from frame 0.

@@ -10,13 +10,14 @@ Product: 1-minute stickman videos explaining new AI tech, side by side with what
    - **Feature work** (a row in `docs/features.md`): read `<feature>/AGENTS.md`, `docs/specs/<feature>.md`, `<feature>/progress.md`.
    - **Fits no feature:** it's a new feature. `make new-feature NAME=<name> DESC="<one line>"`, then write the spec.
    - **Making an episode:** `make new-episode NAME=<slug>` (inside your new worktree, before you claim) and `make skills`, then work in `episodes/<slug>/` and its `progress.md`.
-     Read `docs/brand.md` (what every episode repeats) and `docs/lessons.md` (what past feedback taught us) before writing; evaluate before upload (`docs/roles/evaluator.md`).
+     Follow `docs/workflow.md` step by step (research, promise, script, make, finish, judge, owner); it names the skill, tool, output file and model for each step.
+   - **Choosing topics, after publishing (comments, retention, audit):** `docs/workflow.md`, "Weekly" and "After publishing".
    - **Repo-level** (harness, `shared/`, `cmd/` except `cmd/yt/<feature>.go`, `scripts/`): `docs/progress.md`. One repo-level task at a time.
 4. **Claim before you start.** If "In flight" in `make status` shows someone on your feature or episode, pick other work.
    Right after `make worktree` (an episode: after `make new-episode` in it), prefix the existing Status line of the
    progress.md you'll own with `in progress (<branch>): `, keeping the old text; commit, `git push -u origin HEAD`.
    Other agents only see claims that are pushed. Drop the prefix in your last commit, when the work is done.
-5. Background when needed: `docs/product.md` (what and why), `docs/brand.md` (what makes it one channel), `docs/architecture.md` (how features connect).
+5. Background when needed: `docs/product.md` (what and why), `docs/workflow.md` (how an episode is made), `docs/brand.md` (what makes it one channel), `docs/architecture.md` (how features connect).
 
 ## Before you stop (every session, even mid-task)
 Update the progress.md you own: Status (one line: `make status` shows only that), Next (numbered, concrete), Blockers, Decisions (with the why),
@@ -31,6 +32,7 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
   `git fetch origin && git push origin origin/develop:refs/heads/main` (git rejects it if it isn't a fast-forward).
 - Never commit or open a PR directly against `main`. No branch protection; these rules are on you.
 - **Agents never merge PRs.** The owner merges into develop when ci/check is green.
+- The one exception: the scheduled daily run (`.github/workflows/daily-videos.yml`) commits its own episodes straight to `develop` after `make check` passes (`docs/workflow.md`, "The automated daily run").
 
 ## Workflow
 1. New task: `make worktree NAME=<slug>`, then `cd` there, `make setup`, `make status`, scaffold if needed (`make new-episode`, `make new-feature`), and claim (above). Work only in that worktree.
@@ -45,7 +47,7 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
    Never force-push `develop`, `main` or anyone else's branch.
 6. After the owner merges your PR, from another checkout: `git worktree remove <dir>`, then `git branch -D <slug>` (`-D`: git can't tell a squash-merged branch is merged).
    `make status` lists local branches whose upstream is gone under "Stale local branches".
-7. Roles: when asked to review, judge or evaluate an episode, follow `docs/roles/reviewer.md`, `docs/roles/judge.md` or `docs/roles/evaluator.md`.
+7. Roles: when asked to review, judge or evaluate an episode, follow `docs/roles/reviewer.md`, `docs/roles/judge.md` or `docs/roles/evaluator.md` (step 6 of `docs/workflow.md`; never the agent that made the episode).
    The owner's feedback on an episode is a lesson: add a row to `docs/lessons.md` in the same session.
 8. Third-party skills: `make skills` installs the pinned ones into this worktree (`.claude/skills`, `.agents/skills`);
    each worktree runs it itself. Never install skills globally. Run the stickman scripts inside the venv `make skills` prints.
@@ -60,20 +62,9 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
    - Mixed task, such as a whole episode: the expensive model plans and judges; Sonnet subagents do the easy steps in between.
    - When a Sonnet subagent fails the same step twice, the expensive model takes that step over; say so in the progress file.
 
-## Skills: which one for which step
-`make skills` installs these, pinned in `skills.lock`. Use the skill for its step; don't improvise what a skill already does.
-| Step of an episode | Skill | What it does here |
-|---|---|---|
-| 1. Research | `research` family (Deep-Research) | The new tech and its predecessor, every claim with a source. For one or two items, read the maker's own docs directly |
-| 2. Script | `yt-script` | Five hooks scored with `hookscore.py`, the best one kept; the 60-second script |
-| 3. Render | `stickman` | `film.js`, the free voice (`tts.py`), `build.py` and its audit, the thumbnail from the same rig |
-| 4. Sound | `earshot`, `real-sound`, `scripts/music.py` | Sound effects made in code; music found through Openverse (CC0 or CC BY only, credit recorded) |
-| 5. Listen | `earshot` | Hear the finished video before judging it: `measure`, `describe`, `timeline`, `sheet`. It hears levels, voice against music, noise and timing; it does not transcribe words |
-| 6. Package | `yt-package`, `yt-seo`, `yt-chapters` | Title and thumbnail text as one pair (`title.py`), description, tags, hashtags, chapters |
-| 7. Evaluate | `docs/roles/evaluator.md` | The scorecard `evaluation.md`, from the tools of steps 2, 5 and 6, before any upload |
-| 8. After publishing | `yt-retention`, `yt-viral` | Where viewers leave; what works for similar videos (patterns only, never a copy). Findings go to `docs/lessons.md` |
-
-Installed but not used here: `yt-audit`, `yt-comment`, `yt-edit`, `yt-plan`, `yt-shorts`.
+## Skills
+`make skills` installs the pinned third-party skills (`skills.lock`): Deep-Research, stickman, earshot, real-sound and the eleven youtube-agent skills.
+Which one serves which step, with its tool and its pass gate: `docs/workflow.md`. Use the skill for its step; don't improvise what a skill already does.
 
 ## Rules
 - Go. Tests sit next to code as `*_test.go`.
