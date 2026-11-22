@@ -1,0 +1,75 @@
+1
+00:00:00,080 --> 00:00:08,672
+Agent Skills in 60s: you stop loading your 1 big prompt before each task; skills cost 100 tokens until you need them, but how?
+
+2
+00:00:09,172 --> 00:00:10,395
+Here's how, in a kitchen.
+
+3
+00:00:10,695 --> 00:00:14,390
+Every rule you wrote sits in one giant binder: your big prompt.
+
+4
+00:00:14,690 --> 00:00:17,549
+Your cook rereads all of it, even to fry one egg.
+
+5
+00:00:18,049 --> 00:00:19,980
+Agent Skills are a recipe box.
+
+6
+00:00:20,280 --> 00:00:23,143
+Every card has a tab: its name, and when to use it.
+
+7
+00:00:23,443 --> 00:00:25,006
+Your cook reads only the tabs.
+
+8
+00:00:25,306 --> 00:00:27,974
+Soup is ordered: he pulls only the soup card.
+
+9
+00:00:28,474 --> 00:00:31,198
+A skill is a folder with a SKILL.md file.
+
+10
+00:00:31,498 --> 00:00:35,300
+At startup, your agent loads only each skill's name and description:
+
+11
+00:00:35,360 --> 00:00:36,710
+about 100 tokens.
+
+12
+00:00:37,010 --> 00:00:39,803
+When a task matches, it reads the full instructions.
+
+13
+00:00:40,103 --> 00:00:42,113
+Extra files load only if needed.
+
+14
+00:00:42,613 --> 00:00:46,155
+That's the how: only the tab loads, until a task needs the card.
+
+15
+00:00:46,455 --> 00:00:49,671
+So your agent keeps many skills on hand, and room to work.
+
+16
+00:00:50,171 --> 00:00:52,145
+The lesson is as old as the kitchen.
+
+17
+00:00:52,445 --> 00:00:53,981
+Don't tell your agent everything.
+
+18
+00:00:54,281 --> 00:00:55,169
+Tell it where to look.
+
+19
+00:00:55,669 --> 00:00:57,071
+Subscribe for the next one.

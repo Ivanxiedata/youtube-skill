@@ -1,0 +1,146 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.592,
+  "text": "Agent Skills in sixty seconds: you stop loading your one big prompt before each task; skills cost a hundred tokens until you need them, but how?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.092,
+  "end": 10.315,
+  "text": "Here's how, in a kitchen."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.615,
+  "end": 14.31,
+  "text": "Every rule you wrote sits in one giant binder: your big prompt."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 14.61,
+  "end": 17.469,
+  "text": "Your cook rereads all of it, even to fry one egg."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.969,
+  "end": 19.9,
+  "text": "Agent Skills are a recipe box."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 20.2,
+  "end": 23.063,
+  "text": "Every card has a tab: its name, and when to use it."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 23.363,
+  "end": 24.926,
+  "text": "Your cook reads only the tabs."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 25.226,
+  "end": 27.894,
+  "text": "Soup is ordered: he pulls only the soup card."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 28.394,
+  "end": 31.118,
+  "text": "A skill is a folder with a skill dot M D file."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.418,
+  "end": 36.63,
+  "text": "At startup, your agent loads only each skill's name and description: about a hundred tokens."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 36.93,
+  "end": 39.723,
+  "text": "When a task matches, it reads the full instructions."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 40.023,
+  "end": 42.033,
+  "text": "Extra files load only if needed."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 42.533,
+  "end": 46.075,
+  "text": "That's the how: only the tab loads, until a task needs the card."
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 46.375,
+  "end": 49.591,
+  "text": "So your agent keeps many skills on hand, and room to work."
+ },
+ {
+  "n": 14,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 50.091,
+  "end": 52.065,
+  "text": "The lesson is as old as the kitchen."
+ },
+ {
+  "n": 15,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.365,
+  "end": 53.901,
+  "text": "Don't tell your agent everything."
+ },
+ {
+  "n": 16,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 54.201,
+  "end": 55.089,
+  "text": "Tell it where to look."
+ },
+ {
+  "n": 17,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 55.589,
+  "end": 56.991,
+  "text": "Subscribe for the next one."
+ }
+]
