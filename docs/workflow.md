@@ -144,7 +144,8 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
   `ready to publish` -> uploaded as `publish.when_ready`; anything else -> `publish.otherwise` (private or skip) and a GitHub issue for the owner.
 - Each episode is committed straight to `develop` after `make check` passes (the one exception to "PRs only"); if it fails, to `daily/<slug>` and an issue.
 - **Watching a video:** each run keeps `video.mp4` and `thumbnail.png` for 30 days as a download on the run's page (Actions -> the run -> Artifacts); the video itself is never committed.
-- **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing).
+- **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing, or a topic you choose: a link or a sentence, which makes 1 video of it).
+  From a terminal: `gh workflow run daily-videos -f topic=<link>`.
 - **One-time owner setup:** repo secrets `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`), `YOUTUBE_CLIENT_SECRET_JSON` and `YOUTUBE_TOKEN_JSON`
   (the two files in `~/.config/youtube-skill/`), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
 

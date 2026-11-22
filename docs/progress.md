@@ -55,3 +55,4 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 
 - 2026-11-22 cron-off-peak: the first scheduled run (13:00 UTC on 2026-11-22) never started (no schedule event by 14:52 UTC; workflow active, cron on develop). GitHub delays or drops scheduled runs at busy :00 times, so the cron moved to 13:17 UTC.
 - 2026-11-22 pain-point-hook: owner feedback on inkling-2-mini (lesson L16): hooks sell the viewer's moment in one plain sentence, not the tech. workflow.md steps 2-3 (viewer's moment in package.md, 3-second test, body order pain -> now -> how -> why), evaluator rows 5 and 13, product.md format, brand.md opening, plan.md ranking. hookscore 100 rule replaced by a check at 72.
+- 2026-11-22 owner-topic: daily-videos gets a `topic` input (a link or a sentence): the planner makes exactly that 1 topic instead of ranking its own. First use: the owner's Inkling 2 Mini link.
