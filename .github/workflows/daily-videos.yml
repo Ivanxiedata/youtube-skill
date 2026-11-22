@@ -8,6 +8,10 @@ on:
     - cron: "17 13 * * *" # every day at 13:17 UTC (7:17 am Chicago in winter); off the hour, because GitHub drops runs at busy :00 times
   workflow_dispatch:
     inputs:
+      topic:
+        description: "A topic you choose: a link or a sentence (makes 1 video; blank = the planner picks)"
+        required: false
+        default: ""
       videos:
         description: "Videos this run (blank = pipeline.yaml)"
         required: false
@@ -51,7 +55,7 @@ jobs:
       - name: Read pipeline.yaml
         id: config
         env:
-          VIDEOS: ${{ inputs.videos }}
+          VIDEOS: ${{ inputs.topic != '' && '1' || inputs.videos }}
         run: |
           python3 -m venv "$RUNNER_TEMP/venv"
           "$RUNNER_TEMP/venv/bin/pip" install -q pyyaml yt-dlp
@@ -71,8 +75,10 @@ jobs:
           MAX_AGE: ${{ steps.config.outputs.max_age_days }}
           REFRESH: ${{ steps.config.outputs.refresh_days }}
           MODEL: ${{ steps.config.outputs.model_planner }}
+          OWNER_TOPIC: ${{ inputs.topic }}
         run: |
           python scripts/pipeline-prompt.py docs/pipeline/plan.md VIDEOS="$VIDEOS" FOCUS="$FOCUS" MAX_AGE_DAYS="$MAX_AGE" REFRESH_DAYS="$REFRESH" > "$RUNNER_TEMP/plan.txt"
+          [ -z "$OWNER_TOPIC" ] || printf '\n## The owner chose this topic\n%s\n\nMake exactly this one topic: skip the ranking and the study refresh, and research it from that source and the maker'"'"'s own docs. Every other rule above still applies.\n' "$OWNER_TOPIC" >> "$RUNNER_TEMP/plan.txt"
           claude -p "$(cat "$RUNNER_TEMP/plan.txt")" --model "$MODEL" --dangerously-skip-permissions
       - name: Check the topics
         id: topics
