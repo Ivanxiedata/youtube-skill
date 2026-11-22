@@ -13,7 +13,8 @@ decide by the rules in this repo and write your answer to a file. You are in a f
 ## Choose
 1. Search the web for what changed recently in AI that our audience hears about (official announcements, specs, changelogs, release notes).
 2. Keep only topics where the maker's own docs explain it and there is a clear "before" to compare with (`docs/product.md`: always relative).
-3. Rank by: the audience's interest (the study's patterns, what people search), how new it is, and how clearly before -> after can be shown.
+3. Rank by: how much it changes something our audience wants (faster, cheaper, less waiting, more control: a moment they'd pay for), the audience's interest
+   (the study's patterns, what people search), how new it is, and how clearly before -> after can be shown.
 4. Pick the top {{VIDEOS}}. If fewer good topics exist, pick fewer; never pad with a weak one.
 
 ## Output
