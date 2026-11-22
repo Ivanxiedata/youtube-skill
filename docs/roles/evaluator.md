@@ -22,9 +22,11 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 4. The 3 searches in `package.md`: their words are in the title and the first two description lines. Should-fix otherwise.
 
 **Watch (`/yt-script`)**
-5. Hook: `hookscore.py --hook "<first spoken sentence>"`. Must-fix below 100. Must-fix if any number in it is not true.
+5. Hook, the 3-second test (lesson L16): from the first spoken sentence alone, could someone who doesn't know the tech say what this video gives them?
+   It must name the topic, paint the viewer's moment from `package.md`, and use no architecture terms (layers, weights, tokens, parameters, loops). Must-fix otherwise.
+   Must-fix if any number in it is not true. `hookscore.py --hook "<first spoken sentence>"`: should-fix below 72.
 6. The first seconds do three things: confirm the title's promise, open a question the viewer can't close, show the payoff exists. Must-fix if the title's promise isn't confirmed.
-7. Topic first: title card from frame 0 and the topic's name as the first spoken words (lesson L14). Must-fix.
+7. Topic first: title card from frame 0 and the topic's name in the first spoken sentence (lessons L14, L16). Must-fix.
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
@@ -32,7 +34,9 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 
 **Understand**
 12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json`. Must-fix for an unsourced claim or a wrong one.
-13. Before -> after is stated plainly and shown side by side (diagram). Must-fix if the viewer can't say what is new.
+13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
+   now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
+   should-fix if the tech is explained before the viewer's pain is shown.
 
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.

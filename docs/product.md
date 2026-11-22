@@ -30,10 +30,10 @@ actually understand it: how it works, not just its name.
 ## Video format (v1: 60 seconds, ~150 spoken words)
 | Time | Section | Shows |
 |---|---|---|
-| 0-5s | Hook | The topic first: a title card from frame 0 and the topic's name as the first spoken words, then the story's surprise in the same breath |
-| 5-15s | Before | The previous technology and its limit |
-| 15-35s | What's new | Side-by-side architecture diagram, changed part highlighted |
-| 35-45s | Why we need it | The problem the old one couldn't solve |
+| 0-5s | Hook | A title card from frame 0; one plain sentence naming the topic and the moment the viewer wants ("Imagine running an open-source model that's faster and cheaper than the top ones") |
+| 5-15s | Before | The viewer's pain today, as a scene they've lived |
+| 15-35s | Now, and how | The same scene with the new tech, then the side-by-side diagram with the changed part highlighted |
+| 35-45s | Why it helps you | The outcome for the viewer, with its sourced number |
 | 45-57s | Takeaway | The insight the viewer keeps, tied back to the story. How to try it goes in the description, not on screen |
 | 57-60s | Outro | The takeaway as one line on screen, a spoken call to action (subscribe) with a button, and what to watch next |
 

@@ -30,7 +30,7 @@ PER EPISODE                                                                 │
        ▼                                                                    │
   2 PROMISE   /yt-package: 10 titles -> top 3 + thumbnail text              │
        ▼      /yt-seo: the 3 searches it must win ─► package.md             │
-  3 SCRIPT    /yt-script: hooks -> 100 -> turn -> beats [ON SCREEN]         │
+  3 SCRIPT    /yt-script: hooks -> 3-s test -> turn -> beats [ON SCREEN]         │
        ▼      -> payoff said -> one ask ─► beats.md, script.md              │
   4 MAKE      stickman film + voice + thumbnail · Openverse music · earshot │
        ▼                                                                    │
@@ -64,26 +64,35 @@ The finished example of every file is `episodes/deepseek-super-agent/`.
 
 ### 2 Promise first (strong)
 The click is decided by the title and thumbnail together, and the first seconds must confirm that promise, so the promise is fixed before the script.
+- **The viewer's moment first (lesson L16).** Sell what the viewer wants, not what the tech is. Write three lines at the top of `package.md`:
+  *Who* (from `docs/voice.md`), *the pain today* as a scene they've lived ("you hit enter and wait; the bill at the end of the month"),
+  and *the moment they're paying for* as a scene ("the answer is already there; the bill is half"). Every number in them traces to `research.md`.
+  Titles, thumbnail and hook all sell that moment; the tech is only the proof.
 - `/yt-package`: write 10 titles, run `python3 .claude/skills/yt-package/title.py titles.txt`, keep the top 3 with their scores and issues, pick one.
   Thumbnail text follows the brand card ("LEARN <TOPIC> IN 60 SECONDS", `docs/brand.md`); score the pair with `title.py --title "..." --thumb "..."`.
 - `/yt-seo`: write the 3 searches this video should win; the title and the first two description lines must contain their words.
-- **Out:** `package.md`: the 10 titles with scores, the top 3, the chosen title, the thumbnail text, the 3 searches.
+- **Out:** `package.md`: the viewer's moment (who, the pain, the moment), the 10 titles with scores, the top 3, the chosen title, the thumbnail text, the 3 searches.
 - **Pass:** title at most 60 characters with the subject in the first 40; a number, name or date in it; besides the topic's name it repeats no thumbnail word
   (the topic's name may be in both, because search needs it in the title and the brand card carries it).
 
 ### 3 Script (strong)
 `/yt-script`, scaled to 60 seconds:
-- **Hook.** Write at least 5 against the 21 formulas (`.claude/skills/yt-script/hooks.json`), score them all
-  (`python3 .claude/skills/yt-script/hookscore.py hooks.txt`), iterate until one scores **100**, and keep the top two with their panels.
-  The hook names the topic first, states before -> after, and confirms the title's promise. Every number stays true (video length, real counts);
-  never invent a figure to raise the score.
+- **Hook: one clear sentence the viewer can picture (lesson L16).** It names the topic and paints the viewer's moment from `package.md`,
+  e.g. "Imagine running an open-source model that's faster and cheaper than the top ones." Plain words only: no architecture terms
+  (layers, weights, tokens, parameters, loops) in the first sentence; the tech is the "how", later. It confirms the title's promise.
+  Write at least 5 against the 21 formulas (`.claude/skills/yt-script/hooks.json`) and score them (`python3 .claude/skills/yt-script/hookscore.py hooks.txt`):
+  the score is a check, not the target. Pick by the **3-second test**: would someone who doesn't know the tech say what this video gives them after the first sentence?
+  Among hooks that pass it, take the higher score; below 72 (WEAK/WORKABLE), look again. Every number stays true; never invent one to raise the score.
+  Keep the top two with their panels.
 - **Turn** (by about 10 s): one sentence saying what the video will do, then do it. No channel intro, no subscribe pitch here.
-- **Body:** one idea per beat, each beat marked `[ON SCREEN: ...]`: the story world, today's problem, the BEFORE vs NEW diagram.
+- **Body, in this order:** *before*: the viewer's pain as a scene; *now*: the same scene with the new tech; *how*: the tech in one or two beats
+  with the BEFORE vs NEW diagram; *why it helps you*: the outcome, with its sourced number. One idea per beat, each marked `[ON SCREEN: ...]`.
+  The story the episode borrows (a shop, an army, a kitchen) is how the scenes are drawn, not a detour from them.
 - **Payoff:** deliver what the hook promised, out loud, and say you are delivering it.
 - **Close:** the takeaway tied to the story, then one ask ("Subscribe for the next one.").
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
-- **Pass:** hook 100; about 170 words, so the voice fits in 60 s at speed 1.2.
+- **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 170 words, so the voice fits in 60 s at speed 1.2.
 
 ### 4 Make (Sonnet; the strong model takes over a step that fails twice)
 - stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`tts.py ... --voice am_michael --speed 1.2 --no-align`),
@@ -143,7 +152,7 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
 | Skill rule | Ours | Why |
 |---|---|---|
 | `/yt-package`: at most 3 words on the thumbnail, never repeat the title | The brand card "LEARN <TOPIC> IN 60 SECONDS"; only the topic's name may repeat | The owner's thumbnail rule (lessons L7, L8); checked readable at 160 px |
-| `/yt-script`: show the top two hooks | Also: the hook must score 100 with true facts | The owner's rule (2026-11-21) |
+| `/yt-script`: show the top two hooks | Also: the hook passes the 3-second test (the viewer's moment, plain words); the score is a check at 72, not a target of 100 | The owner's rule (2026-11-22, lesson L16; replaces "must score 100", which pushed hooks into jargon) |
 | `/yt-script`: the turn by 0:15-0:45 | By about 10 s; the topic in the first second (title card) | Our videos are 60 s; lesson L14 |
 | `/yt-plan`: three uploads a week including Shorts | Waits for the owner's hours and best day; no vertical Shorts yet | Our videos are 16:9; vertical versions are an open owner decision |
 | `/yt-edit` | Not used | It edits camera recordings; ours are rendered from code |
