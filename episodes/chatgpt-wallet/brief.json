@@ -1,0 +1,215 @@
+{
+ "slug": "chatgpt-wallet",
+ "tech": {
+  "id": "chatgpt-wallet",
+  "name": "ChatGPT Wallet (agent payments with card-network tokens, in dots)",
+  "released": "2026-11-13",
+  "status": "shipped, limited rollout: ChatGPT Pro subscribers 18+ in the US with eligible US-issued cards",
+  "one_line": "You approve each purchase with Face ID or a fingerprint; the card network issues a payment token (its own number, code and expiry) so your dot pays without the agent or the business seeing your real card."
+ },
+ "predecessor": {
+  "id": "chatgpt-agent-takeover",
+  "name": "ChatGPT agent (2025): asked before a purchase; you took over its browser and typed your real card"
+ },
+ "sections": {
+  "hook": {
+   "text": "ChatGPT Wallet: before, you'd stop, type your card; now 1 scan, it pays, never seeing your 3 numbers, but how, why, in 60 seconds?",
+   "claims": [
+    {
+     "text": "ChatGPT agent asks your permission before a purchase.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    },
+    {
+     "text": "For sensitive inputs you use takeover mode and type into the agent's browser yourself.",
+     "source": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+    },
+    {
+     "text": "Each Wallet purchase is approved with one security check such as Face ID or a fingerprint scan.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "The payment token replaces the three card details (card number, security code, expiration date), and Wallet does not share the actual card details with the business or agent.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how, in one errand: you send a helper to the shop. Before, ChatGPT's agent stopped at checkout. You took over its browser, typed your real card, and the shop got all three numbers.",
+   "claims": [
+    {
+     "text": "ChatGPT agent (launched July 17, 2025) explicitly asks for your permission before actions with real-world consequences, like making a purchase.",
+     "source": "https://openai.com/index/introducing-chatgpt-agent/"
+    },
+    {
+     "text": "Use takeover mode for sensitive inputs: you take control of the agent's virtual browser and type yourself.",
+     "source": "https://help.openai.com/en/articles/11752874-chatgpt-agent"
+    },
+    {
+     "text": "Typing a card into a checkout gives the business the actual card details; Wallet's contrast is that it does not share them with the business or agent.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now, since November 13, your dot carries a wallet. At checkout it shows you the items, the total and the card. You approve with Face ID or a fingerprint. Then the card network hands over a stand-in: its own number, code and date.",
+   "claims": [
+    {
+     "text": "ChatGPT Wallet was introduced on November 13, 2026, and launches in dots.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "Before each purchase, the user reviews the items, total, and selected card.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "The user approves with a security check such as Face ID or a fingerprint scan.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "After approval, the payment network provides a payment token, a substitute for the actual card details, with a card number, security code, and expiration date.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "The token is a substitute card number with its own security code and expiration date.",
+     "source": "https://www.helpnetsecurity.com/?p=391290"
+    }
+   ]
+  },
+  "why": {
+   "text": "The shop charges the stand-in; the bill lands on your real card, rewards and all. Your agent never sees your card, and neither does the shop.",
+   "claims": [
+    {
+     "text": "The charge goes to the user's selected card without Wallet sharing the actual card details with the business or agent.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "Users keep their card's existing rewards and protections for eligible disputes.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "How? One scan, then a stand-in card. Why? Your three numbers stay out of the errand. For now, only Pro users in America, and some shops may block it. Your helper still runs the errand; it just never holds your wallet.",
+   "claims": [
+    {
+     "text": "Initially available to ChatGPT Pro subscribers aged 18 and older in the US with eligible US-issued cards.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    },
+    {
+     "text": "Some sites may unintentionally block purchases through ChatGPT Wallet.",
+     "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Subscribe for the next one.",
+   "claims": []
+  }
+ },
+ "background": [
+  {
+   "text": "Built with American Express, Chase, Mastercard and Visa; merchants are asked to recognise signed agent requests (Web Bot Auth) and work with risk partners; risk systems may still flag legitimate agent purchases.",
+   "source": "https://openai.com/index/introducing-chatgpt-wallet/"
+  },
+  {
+   "text": "OpenAI built it with American Express, Mastercard and Visa; retailers must separate wanted bots from unwanted ones.",
+   "source": "https://www.helpnetsecurity.com/?p=391290"
+  },
+  {
+   "text": "Instant Checkout (2025) used encrypted payment tokens at participating merchants only (Etsy sellers first).",
+   "source": "https://openai.com/index/buy-it-in-chatgpt/"
+  },
+  {
+   "text": "Visa announced its payment network inside ChatGPT on June 10, 2026 (press).",
+   "source": "https://www.adn.com/business-economy/2026/06/10/visa-plugs-its-payment-network-into-chatgpt-letting-ai-agents-shop-and-pay-for-users/"
+  }
+ ],
+ "architecture": {
+  "before": {
+   "nodes": [
+    {
+     "id": "agent",
+     "label": "ChatGPT agent at checkout"
+    },
+    {
+     "id": "you",
+     "label": "You take over its browser"
+    },
+    {
+     "id": "card",
+     "label": "Your real card typed in"
+    },
+    {
+     "id": "shop",
+     "label": "Shop gets number, code, expiry"
+    }
+   ],
+   "edges": [
+    {
+     "from": "agent",
+     "to": "you",
+     "label": "stops"
+    },
+    {
+     "from": "you",
+     "to": "card",
+     "label": "type"
+    },
+    {
+     "from": "card",
+     "to": "shop",
+     "label": "all 3"
+    }
+   ]
+  },
+  "after": {
+   "nodes": [
+    {
+     "id": "dot",
+     "label": "Your dot with ChatGPT Wallet",
+     "new": true
+    },
+    {
+     "id": "you",
+     "label": "You review, Face ID or fingerprint",
+     "new": true
+    },
+    {
+     "id": "net",
+     "label": "Card network issues a token (stand-in)",
+     "new": true
+    },
+    {
+     "id": "shop",
+     "label": "Shop charges the stand-in"
+    },
+    {
+     "id": "card",
+     "label": "Bill on your real card"
+    }
+   ],
+   "edges": [
+    {
+     "from": "dot",
+     "to": "you",
+     "label": "items, total, card"
+    },
+    {
+     "from": "you",
+     "to": "net",
+     "label": "1 scan"
+    },
+    {
+     "from": "net",
+     "to": "shop",
+     "label": "stand-in"
+    },
+    {
+     "from": "shop",
+     "to": "card",
+     "label": "charge"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "ChatGPT Wallet 2026: Who Sees Your Card?",
+  "description": "How does ChatGPT Wallet work? OpenAI's wallet for ChatGPT dots, launched November 13, 2026, explained in 60 seconds.\nBefore, an AI agent stopped at checkout and you typed your real card. Now you approve with Face ID or a fingerprint and the card network gives the agent a payment token, a stand-in card.\n\nRead OpenAI's own announcement first: https://openai.com/index/introducing-chatgpt-wallet/\n\nChapters\n0:00 Before: you typed your card\n0:21 Now: one scan approves it\n0:32 The stand-in pays the shop\n0:43 How, why, and the limits\n\nStatus: limited rollout. ChatGPT Wallet launched on November 13, 2026, in dots, for ChatGPT Pro subscribers aged 18 and older in the US with eligible US-issued cards.\n\nThe story: one errand to the corner shop. The old ChatGPT agent (2025) is a helper that stops at the till. It asks permission before a purchase, so you use takeover mode: you take over its browser and type your real card yourself, and the shop gets your real card number, security code and expiry. Now your dot carries a wallet. Your phone shows you what you are buying, you approve it, and the shop is paid with a stand-in card while the bill lands on your real card at home.\n\nHow it works: you add a card once. Before each purchase you review the items, the total and the selected card, then approve it with a security check such as Face ID or a fingerprint scan. After you approve, the payment network provides a payment token, a substitute card number with its own security code and expiration date. The charge goes to your selected card without ChatGPT Wallet sharing your actual card details with the business or the agent. You keep your card's existing rewards and protections for eligible disputes with businesses, and each approval creates a clear record of the purchase you authorized. OpenAI built it in partnership with American Express, Chase, Mastercard and Visa.\n\nThe limits: some sites may unintentionally block purchases made through ChatGPT Wallet, and risk systems may still flag legitimate purchases made by agents. In takeover mode the agent does not capture what you type, so this video does not claim the old agent saw your card. Earlier paths existed too: Instant Checkout (September 29, 2025) worked only at participating merchants. Approval is per purchase today; letting an agent buy within limits you set is OpenAI's plan, not a feature. OpenAI does not say whether a stand-in works once or only at one shop. For merchants, OpenAI's announcement also covers a Commerce Partner Playbook, which this video leaves out.\n\nThe takeaway: your helper still runs the errand; it just never holds your wallet.\n\nSources\nOpenAI, Introducing ChatGPT Wallet: https://openai.com/index/introducing-chatgpt-wallet/\nOpenAI, Introducing ChatGPT agent (the 2025 before): https://openai.com/index/introducing-chatgpt-agent/\nOpenAI Help, ChatGPT agent (takeover mode): https://help.openai.com/en/articles/11752874-chatgpt-agent\nOpenAI, Buy it in ChatGPT (Instant Checkout, the earlier path): https://openai.com/index/buy-it-in-chatgpt/\nHelp Net Security, press coverage of the launch: https://www.helpnetsecurity.com/?p=391290\n\nThe errand, the milk and bread, the shop, the gate and the gold card are invented examples. The dot drawn here is a generic cartoon, not OpenAI's artwork.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ChatGPT #OpenAI #AIExplained",
+  "tags": [
+    "chatgpt wallet",
+    "openai wallet",
+    "chatgpt dots",
+    "dots",
+    "ai agent payments",
+    "ai agent payment token",
+    "payment token",
+    "how does chatgpt wallet work",
+    "chatgpt agent",
+    "chatgpt agent takeover mode",
+    "chatgpt pro",
+    "ai shopping agent",
+    "openai wallet explained",
+    "ai agents",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

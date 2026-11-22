@@ -1,0 +1,99 @@
+1
+00:00:00,300 --> 00:00:09,214
+ChatGPT Wallet: before, you'd stop, type your card; now 1 scan, it pays, never seeing your 3 numbers, but how, why, in 60 seconds?
+
+2
+00:00:09,714 --> 00:00:11,098
+Here's how, in one errand:
+
+3
+00:00:11,098 --> 00:00:12,687
+you send a helper to the shop.
+
+4
+00:00:12,987 --> 00:00:15,751
+Before, ChatGPT's agent stopped at checkout.
+
+5
+00:00:16,051 --> 00:00:18,666
+You took over its browser, typed your real card,
+
+6
+00:00:18,666 --> 00:00:20,588
+and the shop got all three numbers.
+
+7
+00:00:21,088 --> 00:00:22,722
+Now, since November 13,
+
+8
+00:00:22,722 --> 00:00:24,100
+your dot carries a wallet.
+
+9
+00:00:24,400 --> 00:00:26,264
+At checkout it shows you the items,
+
+10
+00:00:26,264 --> 00:00:27,507
+the total and the card.
+
+11
+00:00:27,807 --> 00:00:30,085
+You approve with Face ID or a fingerprint.
+
+12
+00:00:30,385 --> 00:00:32,796
+Then the card network hands over a stand-in:
+
+13
+00:00:32,796 --> 00:00:34,457
+its own number, code and date.
+
+14
+00:00:34,957 --> 00:00:37,201
+The shop charges the stand-in; the bill
+
+15
+00:00:37,201 --> 00:00:39,557
+lands on your real card, rewards and all.
+
+16
+00:00:39,857 --> 00:00:41,534
+Your agent never sees your card,
+
+17
+00:00:41,534 --> 00:00:42,907
+and neither does the shop.
+
+18
+00:00:43,407 --> 00:00:45,809
+How? One scan, then a stand-in card.
+
+19
+00:00:46,109 --> 00:00:47,663
+Why? Your three numbers
+
+20
+00:00:47,663 --> 00:00:48,679
+stay out of the errand.
+
+21
+00:00:48,979 --> 00:00:51,080
+For now, only Pro users in America,
+
+22
+00:00:51,080 --> 00:00:52,772
+and some shops may block it.
+
+23
+00:00:53,072 --> 00:00:54,877
+Your helper still runs the errand;
+
+24
+00:00:54,877 --> 00:00:56,579
+it just never holds your wallet.
+
+25
+00:00:57,079 --> 00:00:58,481
+Subscribe for the next one.
