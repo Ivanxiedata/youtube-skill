@@ -33,14 +33,14 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 11. Close: the takeaway tied to the story, then exactly one ask. Should-fix for two asks or none.
 
 **Understand**
-12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json`. Must-fix for an unsourced claim or a wrong one.
+12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json` (start from `claims.md`, step 3b). Must-fix for an unsourced claim or a wrong one.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
 
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.
-15. Each open lesson marked `check: evaluate` in `docs/lessons.md`: followed or not.
+15. Each open lesson marked `check: evaluate` in `docs/lessons.md`: followed or not. Must-fix for a lesson broken again (its row says `Repeated:`).
 
 **Sound and picture (earshot, stickman audit)**
 16. `earshot measure video.mp4`: -17 LUFS within 1, true peak under -1 dBTP. Should-fix outside.
@@ -52,3 +52,10 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 ## Output
 `episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.
 Say plainly what you could not judge: earshot does not transcribe words, so pronunciation is for the owner's ears.
+
+## Re-judge (after a fix round)
+You get the last `evaluation.md` and the list of files the maker changed. You are still a fresh agent who did not make the episode.
+Re-check every row that failed (must-fix or should-fix), every row whose inputs changed, and row 15 (lessons):
+words (`script.md`, `beats.md`, `package.md`, `brief.json`, `research.md`) -> rows 1-15; picture or sound (`film/`, `video.mp4`, `thumbnail.png`) -> rows 3, 9, 14-19;
+`upload.json` or `captions.srt` -> rows 1, 2, 4, 20. Carry every other row over as `passed in round N, inputs unchanged`.
+Write a fresh `evaluation.md` with the same first-line rule, and list which rows you re-checked.
