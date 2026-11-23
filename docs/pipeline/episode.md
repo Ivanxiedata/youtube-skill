@@ -49,6 +49,10 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Panels and cards ease in on scale and alpha over at least 0.5 s (the audit counts a fast fade as a pop); a shot over 2 s with little motion gets a slow camera push to about 1.1 (L23).
 - Whoever writes captions, chapters and `upload.json` reads `claims.md` first: no chapter title or description line may say more than a narrower row allows; mark each narrower row with where it was fixed (L17, repeated).
 - The Subscribe card's wording is undecided (`docs/brand.md` wants the next episode's name, `docs/workflow.md` says "Next in 60 seconds"): note it under Blockers in `progress.md` for the owner (L24).
+- Time the voice, not the words (L21, repeated): this voice speaks about 2.8 words a second at speed 1.2, spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.4 s. Before the claim check, voice a draft of `film/script.txt` with `tts.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
+- Write `research.md`'s narrowing conditions into the first draft; after any claim fix to the hook or title, re-run `hookscore.py` and `title.py` (L26).
+- Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
+- Every subagent runs with `run_in_background: false`; the session ends only when `video.mp4` exists and `evaluation.md` has its first line, or `evaluation.md` says why not (L28).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
