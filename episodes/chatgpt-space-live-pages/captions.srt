@@ -1,0 +1,51 @@
+1
+00:00:00,300 --> 00:00:10,164
+ChatGPT Space: you think a team plan costs you nothing, but twelve Slack decisions actually cost you twelve copies by hand, until you set it to update itself.
+
+2
+00:00:10,664 --> 00:00:11,404
+Here's why.
+
+3
+00:00:11,704 --> 00:00:15,818
+Before, ChatGPT gave you a reply or a file in your Library.
+
+4
+00:00:16,118 --> 00:00:20,368
+Each Slack decision got copied into the plan by hand, like an old scoreboard.
+
+5
+00:00:20,868 --> 00:00:26,895
+Now Space is rolling out to Plus: the plan is a shared page, set to update from your connected Slack.
+
+6
+00:00:27,195 --> 00:00:29,685
+Twelve decisions, zero copies by hand.
+
+7
+00:00:30,185 --> 00:00:30,619
+How?
+
+8
+00:00:30,919 --> 00:00:35,295
+Connect your apps, set the page to update, and your team opens the same page.
+
+9
+00:00:35,594 --> 00:00:40,656
+That's OpenAI's own example: a project plan that stays current with decisions from Slack.
+
+10
+00:00:41,156 --> 00:00:45,186
+The catch: colleagues need Space access, and you still check it before sharing.
+
+11
+00:00:45,486 --> 00:00:52,253
+So, what we learned: twelve decisions used to mean twelve copies by hand; now the page updates itself, once you set it.
+
+12
+00:00:52,753 --> 00:00:53,455
+Want more?
+
+13
+00:00:53,755 --> 00:00:56,286
+Subscribe, and comment what we should explain next.

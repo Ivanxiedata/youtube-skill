@@ -1,0 +1,85 @@
+{
+ "slug": "chatgpt-space-live-pages",
+ "tech": {
+  "id": "chatgpt-space",
+  "name": "ChatGPT Space (pages and presentations that can be set to update from connected apps)",
+  "released": "2026-11-20 rolling out globally to Plus users ages 18 and older (Pro, Business, Enterprise since 2026-09-29)",
+  "status": "rolling out; not every Plus account has it yet",
+  "one_line": "Pages and presentations you create with ChatGPT and share with people who have Space access, which you can set to update automatically based on your connected apps and tools, such as a project plan that stays current with decisions from Slack."
+ },
+ "predecessor": {
+  "id": "chatgpt-library",
+  "name": "A reply in the chat or a file saved to ChatGPT Library; a shared plan changed only when someone edited it, so new decisions were copied in by hand (the copying scene is the episode's example)"
+ },
+ "sections": {
+  "hook": {
+   "text": "ChatGPT Space: you think a team plan costs you nothing, but 12 Slack decisions actually cost you 12 copies by hand, until you set it to update itself.",
+   "claims": [
+    {
+     "text": "Pages and slides can be set to update automatically based on connected apps and tools: 'You can also set pages and slides to automatically update based on your connected apps and tools.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "text": "12 decisions / 12 copies by hand is the episode's own counted example, inside OpenAI's example 'a project plan that stays current with decisions from Slack.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's why. Before, ChatGPT gave you a reply or a file in your Library. Each Slack decision got copied into the plan by hand, like an old scoreboard.",
+   "claims": [
+    {
+     "text": "Library saved uploaded or created files: 'When you upload or create a file—whether it’s a PDF, spreadsheet, image, or more—it’s automatically saved to your Library.' (March 23, 2026)",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "text": "Space replaces Library: 'It replaces Library and is your new home for pages, slides, images, and uploaded files.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now Space is rolling out to Plus: the plan is a shared page, set to update from your connected Slack. Twelve decisions, zero copies by hand.",
+   "claims": [
+    {
+     "text": "'Starting today, ChatGPT Space is rolling out globally to Plus users ages 18 and older.' (November 20, 2026)",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "text": "'In Space, you can create interactive pages and presentations with ChatGPT, then invite other people with Space access to build on them with you.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "text": "'A page is an editable document. ... You and your collaborators can edit the same page'",
+     "source": "https://help.openai.com/en/articles/20001549-getting-started-with-space-in-chatgpt"
+    }
+   ]
+  },
+  "why": {
+   "text": "How? Connect your apps, set the page to update, and your team opens the same page. That's OpenAI's own example: a project plan that stays current with decisions from Slack.",
+   "claims": [
+    {
+     "text": "'Try making a to-do list that updates itself, a study guide with a 3D model you can explore, or a project plan that stays current with decisions from Slack.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "The catch: colleagues need Space access, and you still check it before sharing. So, what we learned: twelve decisions used to mean twelve copies by hand; now the page updates itself, once you set it.",
+   "claims": [
+    {
+     "text": "'To open a shared page or presentation, you need permission to view it and must be signed in to a Plus, Pro, Business, or Enterprise account with Space access. People on Free can’t open shared pages or presentations. Public links aren’t available.'",
+     "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
+     "text": "'Check names, dates, calculations, and source information before using or sharing the page.'",
+     "source": "https://help.openai.com/en/articles/20001549-getting-started-with-space-in-chatgpt"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Want more? Subscribe, and comment what we should explain next.",
+   "claims": []
+  }
+ }
+}

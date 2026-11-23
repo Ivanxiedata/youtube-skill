@@ -1,0 +1,22 @@
+{
+  "title": "ChatGPT Space: Stop Copying 12 Slack Decisions by Hand",
+  "description": "ChatGPT Space explained in 60 seconds: pages and presentations you build with ChatGPT and share, which you can set to update automatically from your connected apps, like a project plan that stays current with decisions from Slack.\nRolling out to ChatGPT Plus (18+) from November 20, 2026. Before, a plan was a reply or a Library file (OpenAI's pages don't say it updates itself), so in our example 12 Slack decisions meant 12 copies by hand.\n\nRead the makers' own pages first: https://help.openai.com/en/articles/6825453-chatgpt-release-notes and https://help.openai.com/en/articles/20001549-getting-started-with-space-in-chatgpt\n\nChapters\n0:00 Stop copying 12 decisions\n0:10 Before: copying by hand\n0:20 Now: set it to update\n0:30 How it works: OpenAI's example\n0:41 The catch and takeaway\n\nThe story: one counted example. Your team makes 12 decisions in its Slack this week, and each one has to get into the team plan. In our example, each of the 12 is copied into the plan by hand, because OpenAI's pages don't say a reply or a Library file updates itself.\n\nWith ChatGPT Space, you can set pages and slides to update automatically based on your connected apps and tools. In our example, with Slack connected and the page set to update, 0 of the 12 decisions are copied by hand. OpenAI doesn't say how often or how fast a page updates, so we claim no speed, and OpenAI asks you to check names, dates, calculations and source information before sharing a page.\n\nAvailability: ChatGPT Space is rolling out to Plus users ages 18 and older from November 20, 2026, so not every account has it yet.\n\nThe catch: to open a shared page you need permission to view it and a Plus, Pro, Business or Enterprise account with Space access. People on Free can't open shared pages, and public links aren't available.\n\nHow it works: connect your apps, set the page to update, and your team opens the same page. The proof is OpenAI's own example from the release notes: \"a project plan that stays current with decisions from Slack\".\n\nWhat we learned: in our example, twelve decisions used to mean twelve copies by hand; now the page updates itself, once you set it.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nOpenAI Help Center, ChatGPT release notes (November 20, 2026 entry): https://help.openai.com/en/articles/6825453-chatgpt-release-notes\nOpenAI Help Center, Getting started with Space in ChatGPT: https://help.openai.com/en/articles/20001549-getting-started-with-space-in-chatgpt\n\nThe 12 decisions, the team plan, the scoreboard, the ladder, the flat cap and the robot are our invented example and pictures; the robot and the cartoon people are generic drawings, not OpenAI's artwork or logos.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\n\"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ChatGPT #ChatGPTSpace #AIExplained",
+  "tags": [
+    "chatgpt space",
+    "chatgpt space slack",
+    "chatgpt pages that update automatically",
+    "chatgpt pages",
+    "chatgpt space explained",
+    "chatgpt space plus",
+    "chatgpt space release notes",
+    "chatgpt slack",
+    "chatgpt project plan",
+    "chatgpt shared pages",
+    "chatgpt connected apps",
+    "set pages to update",
+    "chatgpt plus new feature",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}
