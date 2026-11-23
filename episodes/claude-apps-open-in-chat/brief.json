@@ -1,0 +1,111 @@
+{
+ "slug": "claude-apps-open-in-chat",
+ "tech": {
+  "id": "claude-apps-mcp-apps",
+  "name": "Apps that open in Claude (built on MCP Apps)",
+  "released": "2026-11-10",
+  "status": "rolling out on the web and in the Claude desktop app on all plans, as part of the new Claude experience, where a connector supports it; developer support in public preview",
+  "one_line": "A connected tool such as Notion or Asana opens beside the conversation or full screen, signed into your own account, and Claude makes changes in it (you approve them) that appear as Claude makes them."
+ },
+ "predecessor": {
+  "id": "interactive-connectors",
+  "name": "Interactive connectors (2026-01-26): a small live view of the tool inside the conversation, a limited preview rather than the full editor",
+  "source": "https://claude.com/resources/articles/interactive-tools-in-claude"
+ },
+ "sections": {
+  "hook": {
+   "text": "Claude apps: you think 10 Notion edits cost you 10 trips to another tab, but actually, in supported apps, you never leave the chat. You watch Claude make them.",
+   "claims": [
+    {
+     "text": "'so you and Claude can work in the same tool, on the same screen, without switching tabs.' (where a connector supports it)",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'Changes appear in the tool as Claude makes them, so you can keep working right alongside it.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "10 edits / 10 tasks is our invented example inside the use case 'make changes to a page, row, or file that you have open'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    }
+   ]
+  },
+  "before": {
+   "text": "Before, Claude showed a small window: a live preview. For the full editor, you opened Notion in another tab.",
+   "claims": [
+    {
+     "text": "'Earlier this year, we launched interactive connectors to bring a small live view of tools into Claude.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'For tools like Confluence or Notion, that means you get the full editor, signed into your own account, rather than a limited preview.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "January launch: 'those tools show up as interactive connectors right in the conversation'",
+     "source": "https://claude.com/resources/articles/interactive-tools-in-claude"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now, where supported, the whole Notion opens beside the chat, signed in as you. You ask once; Claude edits all ten tasks, and you see each change as it happens. You approve its actions.",
+   "claims": [
+    {
+     "text": "'The whole tool opens next to your conversation.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'signed into your own account' (for tools like Confluence or Notion)",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'You can ask Claude to make changes to a page, row, or file that you have open and approve its actions the same way you approve a connector's actions. Changes appear in the tool as Claude makes them'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    }
+   ]
+  },
+  "how": {
+   "text": "It's built on MCP Apps, an open extension: the tool brings its own screen into Claude.",
+   "claims": [
+    {
+     "text": "'Interactive connectors run on MCP Apps, the open extension to the Model Context Protocol that lets an MCP server bring its own interface into AI applications.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "MCP Apps is 'the open extension to the Model Context Protocol' (not itself the standard; MCP is 'the open standard')",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'MCP Apps run in a sandboxed iframe controlled by the host.'",
+     "source": "https://modelcontextprotocol.io/extensions/apps/overview"
+    }
+   ]
+  },
+  "why": {
+   "text": "Asana, Canva, Notion and more, to start; rolling out on web and desktop, all plans, in the new Claude.",
+   "claims": [
+    {
+     "text": "'where a connector supports it'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'We're starting with a small group of tools from our directory, including Asana, Canva, Carta, Dropbox, monday.com, Smartsheet, Vercel, and Webflow.' / 'Notion. Ask Claude to create a Notion doc or database.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    },
+    {
+     "text": "'This is rolling out on the web and in the Claude desktop app on all plans, as part of the new Claude experience that brings chat and Cowork together.'",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "So, what we learned: ten tasks used to mean ten trips to another tab; now, in supported apps, Claude edits them beside your chat.",
+   "claims": [
+    {
+     "text": "'where a connector supports it' ... 'make changes directly'; the ten is our example",
+     "source": "https://claude.com/resources/articles/interactive-connectors-full-tool"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,23 @@
+{
+  "title": "Claude Apps: Watch Claude Edit 10 Notion Tasks Live",
+  "description": "Claude apps explained in 60 seconds: since November 10, 2026 (rolling out on web and desktop, all plans, in the new Claude), a connected tool like Notion or Asana can open beside your Claude chat (built on MCP Apps), where the app supports it.\nOur example: 10 Notion tasks. Before, a small live preview, and the full editor in another tab; now the whole Notion page opens beside the chat, signed in as you, and you watch Claude's edits appear after you approve them.\n\nRead the maker's own page first: https://claude.com/resources/articles/interactive-connectors-full-tool\n\nChapters\n0:00 Supported apps skip tab trips\n0:10 Before: preview, then another tab\n0:20 Supported apps open beside chat\n0:31 How it works, who gets it\n0:45 What we learned, supported apps\n\nThe story: one counted example, our own. You have a Notion project page with 10 tasks and ask Claude to update them. Before, in the interactive connectors Anthropic launched on January 26, 2026, Claude showed a small live view of the tool inside the conversation; for the full editor, our picture has you open Notion in another tab, once per task. The \"10 tab switches\" meter is our illustration of \"without switching tabs\", not a number from Anthropic, and the 10 tasks are our example, not a maker number. Now, where the app supports it, you can open a tool beside your conversation or expand it to full screen: for tools like Notion, you get the full editor, signed into your own account, rather than a limited preview. You ask Claude to make changes to a page, row, or file that you have open, you approve its actions the same way you approve a connector's actions, and the changes appear in the tool as Claude makes them.\n\nHow it works: Claude apps run on MCP Apps, the open extension to the Model Context Protocol that lets an MCP server bring its own interface into AI applications; in the video, the tool brings its own screen into Claude. Anthropic is starting with a small group of tools from its directory, including Asana and Canva; Notion is also on its list of tools you can use today. It is rolling out on the web and in the Claude desktop app on all plans, as part of the new Claude experience: you see it once your account is updated with the new Claude or your organization turns it on. We did not cover mobile. For developers, support for the new MCP Apps capabilities in Claude is in public preview.\n\nWhat we learned: in supported apps, ten tasks that used to mean ten trips to another tab can be edited beside your chat, after you approve Claude's actions. Anthropic gives no number for time saved.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nAnthropic, \"Your apps can now open in Claude, and Claude can work in them\" (November 10, 2026): https://claude.com/resources/articles/interactive-connectors-full-tool\nAnthropic, \"Your favorite work tools are now interactive connectors inside Claude\" (January 26, 2026): https://claude.com/resources/articles/interactive-tools-in-claude\nMCP Apps overview: https://modelcontextprotocol.io/extensions/apps/overview\n\nThe desk, headset, robot, tab bar, \"PROJECT PLAN\" page and the meter are invented pictures inside the maker's use case, not Claude's or Notion's real interface or logos. The robot and the cartoon people are generic drawings.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ClaudeApps #MCPApps #AIExplained",
+  "tags": [
+    "claude apps",
+    "claude apps explained",
+    "claude notion",
+    "claude notion integration",
+    "mcp apps",
+    "mcp apps claude",
+    "what are mcp apps",
+    "interactive connectors claude",
+    "claude apps notion",
+    "claude asana",
+    "claude canva",
+    "model context protocol",
+    "claude new features",
+    "claude ai explained",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

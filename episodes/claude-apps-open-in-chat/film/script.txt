@@ -1,0 +1,7 @@
+Claude apps: you think ten Notion edits cost you ten trips to another tab, but actually, in supported apps, you never leave the chat. You watch Claude make them.
+Here's what changed. Before, Claude showed a small window: a live preview. For the full editor, you opened Notion in another tab. Ten tasks: back and forth, ten times.
+Now, where supported, the whole Notion opens beside the chat, signed in as you. You ask once; Claude edits all ten tasks, and you see each change as it happens. You approve its actions.
+How? It's built on M C P Apps, an open extension: the tool brings its own screen into Claude.
+Asana, Canva, Notion and more, to start; rolling out on web and desktop, all plans, in the new Claude.
+So, what we learned: ten tasks used to mean ten trips to another tab; now, in supported apps, Claude edits them beside your chat.
+Want more? Subscribe, and comment what we should explain next.

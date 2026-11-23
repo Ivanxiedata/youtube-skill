@@ -1,0 +1,122 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 7.734,
+  "text": "Claude apps: you think ten Notion edits cost you ten trips to another tab, but actually, in supported apps, you never leave the chat."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 8.034,
+  "end": 9.318,
+  "text": "You watch Claude make them."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.818,
+  "end": 10.842,
+  "text": "Here's what changed."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 11.142,
+  "end": 14.06,
+  "text": "Before, Claude showed a small window: a live preview."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 14.36,
+  "end": 17.207,
+  "text": "For the full editor, you opened Notion in another tab."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.507,
+  "end": 19.644,
+  "text": "Ten tasks: back and forth, ten times."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 20.144,
+  "end": 24.569,
+  "text": "Now, where supported, the whole Notion opens beside the chat, signed in as you."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 24.869,
+  "end": 29.369,
+  "text": "You ask once; Claude edits all ten tasks, and you see each change as it happens."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 29.669,
+  "end": 30.883,
+  "text": "You approve its actions."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.383,
+  "end": 31.816,
+  "text": "How?"
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 32.116,
+  "end": 37.649,
+  "text": "It's built on M C P Apps, an open extension: the tool brings its own screen into Claude."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 38.149,
+  "end": 44.293,
+  "text": "Asana, Canva, Notion and more, to start; rolling out on web and desktop, all plans, in the new Claude."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.793,
+  "end": 52.357,
+  "text": "So, what we learned: ten tasks used to mean ten trips to another tab; now, in supported apps, Claude edits them beside your chat."
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.857,
+  "end": 53.559,
+  "text": "Want more?"
+ },
+ {
+  "n": 14,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.859,
+  "end": 56.39,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

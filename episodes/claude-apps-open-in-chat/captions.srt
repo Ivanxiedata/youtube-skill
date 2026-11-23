@@ -1,0 +1,59 @@
+1
+00:00:00,500 --> 00:00:08,234
+Claude apps: you think ten Notion edits cost you ten trips to another tab, but actually, in supported apps, you never leave the chat.
+
+2
+00:00:08,534 --> 00:00:09,818
+You watch Claude make them.
+
+3
+00:00:10,318 --> 00:00:11,342
+Here's what changed.
+
+4
+00:00:11,642 --> 00:00:14,560
+Before, Claude showed a small window: a live preview.
+
+5
+00:00:14,860 --> 00:00:17,707
+For the full editor, you opened Notion in another tab.
+
+6
+00:00:18,007 --> 00:00:20,144
+Ten tasks: back and forth, ten times.
+
+7
+00:00:20,644 --> 00:00:25,069
+Now, where supported, the whole Notion opens beside the chat, signed in as you.
+
+8
+00:00:25,369 --> 00:00:29,869
+You ask once; Claude edits all ten tasks, and you see each change as it happens.
+
+9
+00:00:30,169 --> 00:00:31,383
+You approve its actions.
+
+10
+00:00:31,883 --> 00:00:32,316
+How?
+
+11
+00:00:32,616 --> 00:00:38,149
+It's built on MCP Apps, an open extension: the tool brings its own screen into Claude.
+
+12
+00:00:38,649 --> 00:00:44,793
+Asana, Canva, Notion and more, to start; rolling out on web and desktop, all plans, in the new Claude.
+
+13
+00:00:45,293 --> 00:00:52,857
+So, what we learned: ten tasks used to mean ten trips to another tab; now, in supported apps, Claude edits them beside your chat.
+
+14
+00:00:53,357 --> 00:00:54,059
+Want more?
+
+15
+00:00:54,359 --> 00:00:56,890
+Subscribe, and comment what we should explain next.
