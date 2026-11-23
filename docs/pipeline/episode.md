@@ -52,6 +52,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Time the voice, not the words (L21, repeated): this voice speaks about 2.8 words a second at speed 1.2, spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.4 s. Before the claim check, voice a draft of `film/script.txt` with `tts.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
 - Write `research.md`'s narrowing conditions into the first draft; after any claim fix to the hook or title, re-run `hookscore.py` and `title.py` (L26).
 - Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
+- Never `SendMessage` a finished subagent (it resumes in the background); start a new foreground Agent with a full brief.
 - Every subagent runs with `run_in_background: false`; the session ends only when `video.mp4` exists and `evaluation.md` has its first line, or `evaluation.md` says why not (L28).
 
 ## Environment
