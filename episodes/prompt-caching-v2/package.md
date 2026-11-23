@@ -40,7 +40,7 @@ The duplicate and thumb-length issues are on purpose (`docs/workflow.md`, deviat
 a phone feed shows "Prompt Caching: Stop Paying Full Price..." and the subject survives).
 Chosen after the claim check: the first choice "Prompt Caching: Stop Paying for 1 PDF 30 Times" was ruled narrower (`claims.md` row 18), because the PDF is still paid at 1.25 once and about 0.1 on each later question.
 The promise is the viewer's moment: the same PDF is not billed at full price on every question. True as worded: with caching, 30 questions cost about 4.15 full PDF reads for the PDF part, not 30 (`research.md` row 9).
-The first seconds confirm it: the hook names prompt caching and says you stop paying full price for the same 100-page PDF thirty times.
+The first seconds confirm it: the hook names prompt caching and corrects the belief that a 100-page PDF costs you once: without it, 30 questions cost full price 30 times (owner fix, 2026-11-23).
 
 ## Thumbnail text
 **LEARN PROMPT CACHING IN 60 SECONDS** (brand card). Picture: the mascot, left, holding one PDF; bottom centre, one tall stack "100 PAGES" with a teal "SAVED" tag and a row of small question cards Q1 ... Q30 flowing past it; nothing in the bottom-right corner.

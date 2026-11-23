@@ -1,63 +1,63 @@
 1
-00:00:00,300 --> 00:00:09,046
-Prompt caching means you stop paying full price for the same hundred-page PDF thirty times when you ask your AI thirty questions, but how?
+00:00:00,300 --> 00:00:08,781
+Prompt caching: you think your 100-page PDF costs you once, but without it, 30 questions actually cost you full price 30 times.
 
 2
-00:00:09,546 --> 00:00:10,266
-Here's how.
+00:00:09,281 --> 00:00:10,017
+Here's why.
 
 3
-00:00:10,566 --> 00:00:14,146
+00:00:10,317 --> 00:00:13,898
 Without caching, it's a student re-reading the whole book per question.
 
 4
-00:00:14,446 --> 00:00:17,357
-Question one: all one hundred pages, full price.
+00:00:14,198 --> 00:00:17,083
+Question one: all 100 pages, full price.
 
 5
-00:00:17,657 --> 00:00:19,081
+00:00:17,383 --> 00:00:18,807
 Question two: all again.
 
 6
-00:00:19,381 --> 00:00:21,747
+00:00:19,107 --> 00:00:21,471
 By question thirty: paid thirty times.
 
 7
-00:00:22,247 --> 00:00:26,950
+00:00:21,971 --> 00:00:26,649
 With prompt caching, question one pays a quarter more, by default, to save its work.
 
 8
-00:00:27,250 --> 00:00:32,800
-Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner.
+00:00:26,949 --> 00:00:30,939
+Questions two to thirty reuse that work for about a tenth on most models.
 
 9
-00:00:33,300 --> 00:00:33,734
+00:00:31,439 --> 00:00:31,874
 How?
 
 10
-00:00:34,034 --> 00:00:38,962
+00:00:32,174 --> 00:00:37,103
 The document goes first, the same every time; only the new question is read fresh.
 
 11
-00:00:39,462 --> 00:00:43,824
+00:00:37,603 --> 00:00:41,911
 OpenAI's math: ten requests cost just over two full reads, not ten.
 
 12
-00:00:44,124 --> 00:00:45,865
+00:00:42,211 --> 00:00:43,928
 Ours for thirty: about four.
 
 13
-00:00:46,165 --> 00:00:48,717
-That's how you stop paying full price thirty times.
-
-14
-00:00:49,217 --> 00:00:53,947
+00:00:44,428 --> 00:00:49,132
 The catch: on Claude, unused saved work can fade after five minutes, by default.
 
+14
+00:00:49,432 --> 00:00:54,198
+So, what we learned: keep the document first, and it's fully read once, not thirty times.
+
 15
-00:00:54,247 --> 00:00:56,386
-Same book: read once, reuse the work.
+00:00:54,698 --> 00:00:55,399
+Want more?
 
 16
-00:00:56,686 --> 00:00:58,088
-Subscribe for the next one.
+00:00:55,699 --> 00:00:58,225
+Subscribe, and comment what we should explain next.

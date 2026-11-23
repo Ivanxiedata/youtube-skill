@@ -24,14 +24,14 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 **Watch (`/yt-script`)**
 5. Hook, the 3-second test (lesson L16): from the first spoken sentence alone, could someone who doesn't know the tech say what this video gives them?
    It must name the topic, paint the viewer's moment from `package.md`, and use no architecture terms (layers, weights, tokens, parameters, loops). Must-fix otherwise.
-   Must-fix if any number in it is not true. `hookscore.py --hook "<first spoken sentence>"`: should-fix below 72.
+   Must-fix if any number in it is not true, or if it ends on "but how?" (lesson L31). `hookscore.py --hook "<first spoken sentence>"`: should-fix below 72.
 6. The first seconds do three things: confirm the title's promise, open a question the viewer can't close, show the payoff exists. Must-fix if the title's promise isn't confirmed.
 7. Topic first: title card from frame 0 and the topic's name in the first spoken sentence (lessons L14, L16). Must-fix.
    Must-fix (L14, repeated): the topic's name is not the first spoken words (a hook opening "Before, you'd ..." and naming the topic later fails).
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
-11. Close: the takeaway tied to the story, then exactly one ask. Should-fix for two asks or none.
+11. Close (lesson L32): a "So, what we learned:" conclusion restating the before -> after on the counted example, then the ask to subscribe and comment what to explain next. Must-fix if there is no conclusion or no ask.
 
 **Understand**
 12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json` (start from `claims.md`, step 3b). Must-fix for an unsourced claim or a wrong one.
