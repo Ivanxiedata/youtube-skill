@@ -83,11 +83,17 @@ The click is decided by the title and thumbnail together, and the first seconds 
   Write at least 5 against the 21 formulas (`.claude/skills/yt-script/hooks.json`) and score them (`python3 .claude/skills/yt-script/hookscore.py hooks.txt`):
   the score is a check, not the target. Pick by the **3-second test**: would someone who doesn't know the tech say what this video gives them after the first sentence?
   Among hooks that pass it, take the higher score; below 72 (WEAK/WORKABLE), look again. Every number stays true; never invent one to raise the score.
-  Keep the top two with their panels.
+  Keep the top two with their panels. Tension beats a template: a claim people repeat that the video corrects ("People say X is dead; it isn't"),
+  or the outcome itself; not the "Before, you'd ..., but how?" frame every time (lesson L25).
 - **Turn** (by about 10 s): one sentence saying what the video will do, then do it. No channel intro, no subscribe pitch here.
 - **Body, in this order:** *before*: the viewer's pain as a scene; *now*: the same scene with the new tech; *how*: the tech in one or two beats
   with the BEFORE vs NEW diagram; *why it helps you*: the outcome, with its sourced number. One idea per beat, each marked `[ON SCREEN: ...]`.
   The story the episode borrows (a shop, an army, a kitchen) is how the scenes are drawn, not a detour from them.
+- **The flow the owner chose (lesson L25):** one concrete, counted example carried from the first beat to the last ("31 meetings in January",
+  "30 questions about one 100-page PDF"); a meter on screen for what the viewer pays (tokens, minutes, money) that visibly fills in *before*
+  and barely moves in *now*, on the same example; the *how* told on one diagram that grows piece by piece, with a highlight on whatever the voice names
+  (each highlight move or new piece counts as a new shot for lesson L1); the proof is the maker's own number, then one bigger-scale example if the sources give one.
+  The look stays ours (`docs/brand.md`): patterns from other channels, never their look.
 - **Payoff:** deliver what the hook promised, out loud, and say you are delivering it.
 - **Close:** the takeaway tied to the story, then one ask ("Subscribe for the next one.").
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
