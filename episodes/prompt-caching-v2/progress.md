@@ -1,7 +1,7 @@
 # prompt-caching-v2 progress
 
 ## Status
-ready to publish (owner fixes: new hook, whole numbers, no Next line; judge round 3: 0 must-fix); owner watches, then upload
+published: https://youtu.be/cB4BWSjhgQY (public, 2026-11-23); next: comments at 48 h, retention at 7 days
 
 ## Next
 1. Step 7: the owner watches and listens (pronunciation of "P D F", "hundred-page", "Open A I" is unjudged), then `yt upload` (dry run first, then `--confirm`).
@@ -35,3 +35,4 @@ ready to publish (owner fixes: new hook, whole numbers, no Next line; judge roun
 - 2026-11-23 pc2-fixes: judge round 2 must-fix (L31: decimals on the chart): '2.15x' -> 'ABOUT 2x', '0.1x reads' -> 'reads at 1/10', the '1.25 + 29 x 0.1' line dropped; `build.py --shots 22 23`, ISSUES 0, 60.000 s; beats.md and claims.md notes brought in line.
 - 2026-11-23 pc2-fixes: owner fix round, ending: new ending voiced (58.23 s) and drawn (WHAT WE LEARNED, READ ONCE / NOT 30 TIMES, Subscribe + COMMENT: WHAT NEXT?), shots 17-28 rebuilt, ISSUES 0, video.mp4 60.0 s -17.0 LUFS / -3.2 dBTP, captions and chapter times updated; upload.json description wording left for the maker.
 - 2026-11-23 pc2-fixes: judge round 4 ready to publish (3 should-fix): the mini scenes in shot 26 now fade with their panels (drawn offscreen), takeaway card "FULLY READ ONCE, / NOT 30 TIMES" to match the voice; `build.py --shots 26 27` ISSUES 0, 60.000 s; beats.md times from TS; the upload.json description was reworded for the new ending (conclusion + subscribe/comment ask).
+- 2026-11-23 published-records: uploaded public, https://youtu.be/cB4BWSjhgQY (owner said upload after watching the new ending).
