@@ -94,9 +94,15 @@ The click is decided by the title and thumbnail together, and the first seconds 
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
 - **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 170 words, so the voice fits in 60 s at speed 1.2.
 
+### 3b Claim check (Sonnet, a fresh agent that did not write the script)
+- Every claim in `script.md`, the ON SCREEN lines of `beats.md` and the title and thumbnail, checked against the source itself (lesson L17).
+- **Out:** `claims.md`: claim | source and quoted sentence | holds, narrower or wrong.
+- **Pass:** nothing narrower or wrong left; fix the words before anything is voiced or drawn.
+
 ### 4 Make (Sonnet; the strong model takes over a step that fails twice)
 - stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`tts.py ... --voice am_michael --speed 1.2 --no-align`),
-  stills checked by eye, `build.py` until the audit says `ISSUES 0`, copied to `video.mp4`.
+  stills of every shot checked by eye first, then one full `build.py`; after that only `build.py ... --shots <n>` for the shots an audit names or a fix changed
+  (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
 - Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button, "Next in 60 seconds".
 - Music: the signature track (`python scripts/music.py get efa007f6-a5fe-420c-a1a6-8d5dafa95005 film/music.mp3`, credit in `music.json`), about 16 dB under the voice.
 - Thumbnail: `film/thumb.js` + `film/thumb.py` from the brand template, checked at 160 px wide.
@@ -113,7 +119,9 @@ The click is decided by the title and thumbnail together, and the first seconds 
 ### 6 Judge (strong, a fresh agent that did not make the episode)
 Follow `docs/roles/evaluator.md`. The rubric is the youtube-agent skills' published rules plus `docs/brand.md` and `docs/lessons.md`, not the maker's opinion.
 - **Out:** `evaluation.md`, first line `ready to publish` or `not ready: N must-fix`.
-- Must-fix goes back to step 3 (words) or step 4 (picture and sound). Real retention later outranks every judge.
+- Must-fix goes back to step 3 (words) or step 4 (picture and sound), then a fresh judge re-checks only the failed rows and the rows whose inputs changed
+  (`docs/roles/evaluator.md`, "Re-judge"). Real retention later outranks every judge.
+- Every mistake on the way (claim check, stills, audits, redone commands, each judge round's rows) goes in `mistakes.md`, so it becomes a lesson.
 
 ### 7 Owner (owner)
 Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (dry run first, then `--confirm`), and the owner makes it public.
@@ -143,6 +151,10 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
   (`docs/pipeline/episode.md`) does steps 1-6 with the models in `pipeline.yaml` -> the judge's first line decides:
   `ready to publish` -> uploaded as `publish.when_ready`; anything else -> `publish.otherwise` (private or skip) and a GitHub issue for the owner.
 - Each episode is committed straight to `develop` after `make check` passes (the one exception to "PRs only"); if it fails, to `daily/<slug>` and an issue.
+- **Measured:** each episode's `trace.md` (from `scripts/pipeline-trace.py`): total minutes, tokens and cost per model, each subagent's minutes, the slowest calls, how many builds and judges.
+- **Learning:** after the day's episodes, the `learn` job (`docs/pipeline/learn.md`) reads each `mistakes.md`, `evaluation.md` and `trace.md` and writes every mistake into `docs/lessons.md`:
+  a new lesson, or `Repeated:` on an open one plus a harder rule (a must-fix in `docs/roles/evaluator.md` or a line in "Known traps" of `docs/pipeline/episode.md`).
+  It commits only those three files to `develop` after `make check`. The next run reads them before step 1.
 - **Watching a video:** each run keeps `video.mp4` and `thumbnail.png` for 30 days as a download on the run's page (Actions -> the run -> Artifacts); the video itself is never committed.
 - **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing, or a topic you choose: a link or a sentence, which makes 1 video of it).
   From a terminal: `gh workflow run daily-videos -f topic=<link>`.

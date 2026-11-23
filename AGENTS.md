@@ -32,7 +32,8 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
   `git fetch origin && git push origin origin/develop:refs/heads/main` (git rejects it if it isn't a fast-forward).
 - Never commit or open a PR directly against `main`. No branch protection; these rules are on you.
 - **Agents never merge PRs.** The owner merges into develop when ci/check is green.
-- The one exception: the scheduled daily run (`.github/workflows/daily-videos.yml`) commits its own episodes straight to `develop` after `make check` passes (`docs/workflow.md`, "The automated daily run").
+- The one exception: the scheduled daily run (`.github/workflows/daily-videos.yml`) commits its own episodes, and its learn job the day's lessons
+  (`docs/lessons.md`, `docs/roles/evaluator.md`, `docs/pipeline/episode.md`), straight to `develop` after `make check` passes (`docs/workflow.md`, "The automated daily run").
 
 ## Workflow
 1. New task: `make worktree NAME=<slug>`, then `cd` there, `make setup`, `make status`, scaffold if needed (`make new-episode`, `make new-feature`), and claim (above). Work only in that worktree.

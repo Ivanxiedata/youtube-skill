@@ -46,6 +46,7 @@ jobs:
       model_maker: ${{ steps.config.outputs.model_maker }}
       model_worker: ${{ steps.config.outputs.model_worker }}
       model_judge: ${{ steps.config.outputs.model_judge }}
+      model_learner: ${{ steps.config.outputs.model_learner }}
       claude_version: ${{ steps.config.outputs.claude_version }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
@@ -154,7 +155,8 @@ jobs:
           mkdir -p "$RUNNER_TEMP/$SLUG"
           python scripts/pipeline-prompt.py docs/pipeline/episode.md SLUG="$SLUG" TOPIC="$TOPIC" BEFORE="$BEFORE" SOURCES="$SOURCES" \
             MODEL_WORKER="$MODEL_WORKER" MODEL_JUDGE="$MODEL_JUDGE" MAX_FIX_ROUNDS="$ROUNDS" > "$RUNNER_TEMP/episode.txt"
-          claude -p "$(cat "$RUNNER_TEMP/episode.txt")" --model "$MODEL_MAKER" --dangerously-skip-permissions
+          claude -p "$(cat "$RUNNER_TEMP/episode.txt")" --model "$MODEL_MAKER" --dangerously-skip-permissions --output-format stream-json --verbose \
+            | python scripts/pipeline-trace.py "$RUNNER_TEMP/$SLUG/trace.jsonl" "episodes/$SLUG/trace.md"
       - name: Judge's gate
         id: gate
         if: always()
@@ -212,3 +214,36 @@ jobs:
           Upload: ${PRIVACY:-none}
           Run log: $RUN
           Episode files: episodes/$SLUG/ on develop (or branch daily/$SLUG if make check failed)."
+
+  learn:
+    # Every mistake of the day becomes a lesson the next run reads (docs/pipeline/learn.md). One job, so lesson ids never collide.
+    needs: [plan, episode]
+    if: always() && needs.plan.outputs.count != '0' && needs.plan.outputs.count != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+      - uses: actions/setup-go@40f1582b2485089dde7abd97c1529aa768e1baff # v5.6.0
+        with:
+          go-version-file: go.mod
+          cache-dependency-path: go.sum
+      - name: Install Claude Code
+        env:
+          VERSION: ${{ needs.plan.outputs.claude_version }}
+        run: npm install -g "@anthropic-ai/claude-code@$VERSION"
+      - name: Write today's lessons
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          TOPICS: ${{ needs.plan.outputs.topics }}
+          MODEL: ${{ needs.plan.outputs.model_learner }}
+        run: |
+          slugs=$(printf '%s' "$TOPICS" | python3 -c 'import json,sys;print("\n".join("- `"+t["slug"]+"`" for t in json.load(sys.stdin)))')
+          python3 scripts/pipeline-prompt.py docs/pipeline/learn.md SLUGS="$slugs" > "$RUNNER_TEMP/learn.txt"
+          claude -p "$(cat "$RUNNER_TEMP/learn.txt")" --model "$MODEL" --dangerously-skip-permissions
+      - name: Save the lessons
+        run: |
+          make check TESTFLAGS=-short
+          scripts/pipeline-push.sh "Daily run: lessons from today's mistakes" docs/lessons.md docs/roles/evaluator.md docs/pipeline/episode.md

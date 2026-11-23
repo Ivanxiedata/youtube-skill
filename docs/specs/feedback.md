@@ -13,13 +13,14 @@ The owner, whose comments stop being lost in a chat. Agents starting an episode,
 |---|---|---|
 | Owner | any time | the agent records the comment as a lesson, in the owner's words |
 | `evaluate` | before publishing | a Must fix row that shows up in two episodes becomes a lesson |
+| `pipeline` | after each daily run | the learn job (`docs/pipeline/learn.md`) turns every row of each episode's `mistakes.md` (judge rows, failed audits, redone steps) into a new lesson or marks an open one `Repeated:` and hardens its rule |
 | YouTube numbers | after publishing | the owner exports audience retention from YouTube Studio to `episodes/<slug>/retention.csv` |
 | Similar videos | every few episodes | a study with the youtube-agent `yt-viral` tool: patterns only (length, pacing, structure, packaging), never a copied premise, line or look |
 
 ## Data
 `docs/lessons.md`, one row per lesson, newest last:
 `id | date | source | episode | lesson (what went wrong or worked) | rule (what to do from now on) | check | status`
-- `check`: `evaluate` (looked at on every scorecard), `brand` or `product` (written into that doc), or `none`.
+- `check`: `evaluate` (looked at on every scorecard), `brand` or `product` (written into that doc), `pipeline` (a process trap, written into "Known traps" in `docs/pipeline/episode.md`), or `none`.
 - `status`: `open`, or `retired` with the reason.
 Seeded with the lessons from the owner's feedback on Episode 0.
 

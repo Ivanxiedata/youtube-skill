@@ -13,6 +13,7 @@ check:
 	@out=$$(gofmt -l .); [ -z "$$out" ] || { echo "$$out"; echo "gofmt: run 'gofmt -w .'"; exit 1; }
 	go vet ./...
 	go test -race $(TESTFLAGS) ./...
+	@for s in scripts/pipeline-config.py scripts/pipeline-trace.py; do python3 "$$s" --selftest >/dev/null || { echo "$$s --selftest failed"; exit 1; }; done
 
 # Fast loop while working inside one feature: make check-anomaly. Not a feature (e.g. make check-spec)? Refused.
 check-%:
