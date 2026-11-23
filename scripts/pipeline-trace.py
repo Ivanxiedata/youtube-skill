@@ -32,7 +32,7 @@ def read(lines, raw, now=time.monotonic, update=lambda calls, result: None):
         for c in msg.get("content") if isinstance(msg.get("content"), list) else []:
             if c.get("type") == "tool_use":
                 call = {"id": c.get("id"), "name": c.get("name", "?"), "what": short(c.get("input")), "start": t, "end": None,
-                        "sub": bool(d.get("parent_tool_use_id"))}
+                        "sub": bool(d.get("parent_tool_use_id")), "build": "build.py" in json.dumps(c.get("input"))}
                 calls.append(call)
                 open_[call["id"]] = call
                 print(f"[{t / 60:6.1f} min] {'  ' if call['sub'] else ''}{call['name']}: {call['what']}", flush=True)
@@ -51,7 +51,7 @@ def report(calls, result):
     total = (result.get("duration_ms") or 0) / 60000 or last / 60
     out = ["# Run trace", "", "Written by `scripts/pipeline-trace.py` from this episode's daily run. Times are minutes from the start.", "",
            f"- Total: {total:.1f} min, {result.get('num_turns', '?')} turns, ${result.get('total_cost_usd', 0) or 0:.2f} (list price; the run is on the owner's plan)",
-           f"- Builds (`build.py`): {sum('build.py' in c['what'] for c in calls)}; judges (subagents with \"judge\" in the brief): "
+           f"- Builds (`build.py`): {sum(c['build'] for c in calls)}; judges (subagents with \"judge\" in the brief): "
            f"{sum(c['name'] in ('Agent', 'Task') and 'judge' in c['what'].lower() for c in calls)}",
            f"- Ended: {result.get('subtype', 'no result (killed or timed out)')}", "", "## Tokens per model", "",
            "| model | input | output | cache read | cache write | cost |", "|---|---|---|---|---|---|"]
@@ -68,7 +68,7 @@ def report(calls, result):
 
 def selftest():
     import io
-    ev = [{"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "a", "name": "Bash", "input": {"command": "python build.py film"}}]}},
+    ev = [{"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "a", "name": "Bash", "input": {"command": "cd " + "x" * 100 + "; python build.py film"}}]}},
           {"type": "user", "message": {"content": [{"type": "tool_result", "tool_use_id": "a", "content": "SECRET output"}]}},
           {"type": "assistant", "message": {"content": [{"type": "tool_use", "id": "b", "name": "Agent", "input": {"description": "Fresh judge, step 6"}}]}},
           {"type": "assistant", "parent_tool_use_id": "b", "message": {"content": [{"type": "tool_use", "id": "c", "name": "Read", "input": {"file_path": "x.md"}}]}},
