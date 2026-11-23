@@ -1,0 +1,14 @@
+# Mistakes: prompt-caching
+
+One row per thing redone (`docs/pipeline/episode.md`, "Mistakes"). Minutes from the start of the run (04:26 UTC, 2026-11-23).
+
+| when (min into the run) | step | what went wrong | cause | minutes lost | lesson it broke (L-id) or new |
+|---|---|---|---|---|---|
+| 3 | 2 promise / 3 script | First hook draft ("Prompt caching lets you ask an AI thirty questions ... reads the PDF once instead of thirty times") scored 47 WEAK, no formula matched: a summary, not a hook | wrote a statement that answers itself; re-drafted with a stakes word and an open "but how?" | 1 | L16 (caught by the gate, as it asks) |
+| 5 | 3 script | First full draft was 193 words, then 182, before reaching 176 | wrote every beat before trimming; counted per beat only after the draft | 2 | L21 (repeated: count per beat while writing) |
+| 7 | 3b claim check | 7 narrower, 0 wrong: "stop paying for the same PDF thirty times" in the hook and the title (reads still cost about a tenth), "a quarter more, once" (default lifetime only), "about a tenth" without "on most models", "answers start sooner" (makers say generally / not guaranteed), OpenAI's 2.15x without its condition (GPT-5.6+, 0.1x reads), "fades after five unused minutes" (five is a minimum); and our 4.15 needed an "our math" label | words written a step looser than the quoted sentences, though `research.md`'s own narrowing list named most of these conditions | 4 (words, title and labels fixed before voicing) | L17 (caught in time, as it asks) |
+| 8 | 3 script | The hook with "full price" added scored 71 (below 72); dropped "about it" to get 73 | the fix lengthened the sentence | 1 | new |
+| 7 | 3b claim check | A grep pointed at the claim checker's folder as a file printed 3 MB of HTML | typo in a shell command (directory passed as a file) | 0.5 | new |
+| 10 | 4 make | Voice came out 67.28 s (film 67.6 s) for 190 words at speed 1.2; the limit is 60.0 s and the maker may not cut words, so step 4 stopped before any drawing | the script was counted by words (177 in beats.md, 190 as spoken with P D F spelled out) at the last episode's 3.1 words a second, but spelled letters, "hundred-page" and 16 line gaps (6.5 s) make this voice about 2.8 words a second | 0 so far (the step 3 cut and a re-voice come next) | L21 (repeated: count the voice, not only words; run tts.py before the claim check to get the real length) |
+| 12 | 3 script (cut) | First cut (161 words, sections on 6 lines) still voiced 59.67 s in a scratch draft; five more phrases trimmed to 155 words, 57.79 s | estimated the cut from words a second again, without the gaps | 1 | L21 (repeated) |
+| 12 | 3b claim check | The cut changed 9 sentences, so a second claim check (fresh Sonnet) was needed before the final voice: all 9 hold | the length gate was checked after the claim check, not before it | 1 | new: voice a draft of `film/script.txt` before the claim check, so the claim check runs once |

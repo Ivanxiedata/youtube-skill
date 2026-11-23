@@ -1,0 +1,135 @@
+{
+ "slug": "prompt-caching",
+ "tech": {
+  "id": "prompt-caching",
+  "name": "Prompt caching (Claude API, OpenAI API)",
+  "released": "shipped by both makers well before 2026-11; not a new release",
+  "status": "generally available; on by default for supported OpenAI models, opt-in with cache_control on the Claude Messages API",
+  "one_line": "When requests share the same start (a long document first), the API saves its work on that start once and reuses it, so later questions pay about a tenth for it and start answering sooner."
+ },
+ "predecessor": {
+  "id": "no-cache",
+  "name": "The same requests without caching: the whole 100-page PDF is re-sent, re-processed and billed at full input price on every question"
+ },
+ "sections": {
+  "hook": {
+   "text": "Prompt caching means you stop paying full price for the same 100-page PDF thirty times when you ask your AI thirty questions, but how?",
+   "claims": [
+    {
+     "text": "Without caching, each request processes the whole prompt again: 'Across ten requests, one write and nine full reads cost 2.15x at that rate, compared with 10x without caching.' So 30 questions about one PDF = 30 full PDF reads without caching, about 4.15 with it (1.25 + 29 x 0.1).",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how. Without caching, it's a student re-reading the whole book per question. Question one: all 100 pages, full price. Question two: all again. By question thirty: paid thirty times.",
+   "claims": [
+    {
+     "text": "Without caching the whole prefix is processed and billed on every request: '... compared with 10x without caching.'",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    },
+    {
+     "text": "Compute-efficient: Avoid recalculating a prompt prefix that the model has already processed.",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    }
+   ]
+  },
+  "new": {
+   "text": "With prompt caching, question one pays a quarter more, by default, to save its work. Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner. How? The document goes first, the same every time; only the new question is read fresh.",
+   "claims": [
+    {
+     "text": "Cache write tokens with a 5-minute TTL are 1.25 times the base input tokens price.",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    },
+    {
+     "text": "cache writes cost 1.25x the standard, uncached input-token rate for the default 30-minute lifetime (GPT-5.6 and later)",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    },
+    {
+     "text": "Cache read tokens are 0.1 times the base input tokens price (see the table footnote for per-model exceptions).",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    },
+    {
+     "text": "Subsequent reads cost 0.1x the ordinary input rate on most of these models and 0.05x on GPT-6.2 Astra, GPT-6.2 Sol, GPT-6.1 Sol, and GPT-6.1 Terra",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    },
+    {
+     "text": "You generally see improved time-to-first-token for long documents.",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    },
+    {
+     "text": "Prompt caching preserves that state for a reusable prefix: the unchanged tokens at the beginning of a prompt. When a later request has the same prefix and finds a matching cache entry, the model can reuse the saved state instead of processing those tokens again. It still needs to process any new input to generate a new response.",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    },
+    {
+     "text": "Cache hits require 100 percent identical prompt segments, including all text and images up to and including the block marked with cache control.",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    },
+    {
+     "text": "Put stable developer instructions and shared reference material first.",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    }
+   ]
+  },
+  "why": {
+   "text": "OpenAI's math: ten requests cost just over two full reads, not ten. Ours for thirty: about four.",
+   "claims": [
+    {
+     "text": "Across ten requests, one write and nine full reads cost 2.15x at that rate, compared with 10x without caching.",
+     "source": "https://platform.openai.com/docs/guides/prompt-caching"
+    },
+    {
+     "text": "Our 30 questions, same method: 1 write x 1.25 + 29 reads x 0.1 = 4.15 full PDF reads, against 30 (arithmetic on the rates above).",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    },
+    {
+     "text": "Cached prefixes automatically expire after a minimum of 5 minutes of inactivity.",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "That's how you stop paying full price thirty times. The catch: on Claude, unused saved work can fade after five minutes, by default. Same book: read once, reuse the work.",
+   "claims": [
+    {
+     "text": "By default, the cache has a 5-minute lifetime. The cache is refreshed for no additional cost each time the cached content is used.",
+     "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Subscribe for the next one.",
+   "claims": []
+  }
+ },
+ "background": [
+  {
+   "text": "Prompt caching is enabled by default for supported OpenAI models.",
+   "source": "https://platform.openai.com/docs/guides/prompt-caching"
+  },
+  {
+   "text": "Messages API: Opt in with cache_control, at the top level or on blocks.",
+   "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+  },
+  {
+   "text": "If 5 minutes is too short, you can use a 1-hour cache duration at additional cost",
+   "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+  },
+  {
+   "text": "OpenAI GPT-5.6 and later: default 30-minute lifetime at 1.25x; 12-hour lifetime at 2.5x the uncached input-token rate.",
+   "source": "https://platform.openai.com/docs/guides/prompt-caching"
+  },
+  {
+   "text": "The minimum cacheable prompt length is 1,024 tokens for GPT-5.6 and later",
+   "source": "https://platform.openai.com/docs/guides/prompt-caching"
+  },
+  {
+   "text": "Cheaper input tokens: Pay the model's reduced cached-input rate for reused tokens, discounted up to 95%.",
+   "source": "https://platform.openai.com/docs/guides/prompt-caching"
+  },
+  {
+   "text": "Books, papers, documentation, podcast transcripts, and other long-form content: Make any knowledge base interactive by embedding the entire document(s) into the prompt, and letting users ask it questions.",
+   "source": "https://docs.claude.com/en/docs/build-with-claude/prompt-caching"
+  }
+ ]
+}
