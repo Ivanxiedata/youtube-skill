@@ -54,6 +54,11 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
 - Never `SendMessage` a finished subagent (it resumes in the background); start a new foreground Agent with a full brief.
 - Every subagent runs with `run_in_background: false`; the session ends only when `video.mp4` exists and `evaluation.md` has its first line, or `evaluation.md` says why not (L28).
+- The claim check covers every word, not only the spoken ones: every on-screen label and source line in `beats.md`/`film.js`, and every sentence of the `upload.json` description, not only lines 1-2. Words carried over from an earlier episode get re-checked against `research.md`'s narrowing list too (L26, repeated).
+- Colour or state changes (a block turning teal) cross-fade over at least 0.5 s, and busy per-frame motion (a page riffle) is slowed until the audit stops calling it a pop; a `film.js` reused from an earlier episode that never passed an audit gets the same rules before its first build (L23, repeated).
+- The thumbnail is laid out by measuring too: get the mascot's face box first and keep every held prop and label off it; make the main picture fill the frame before the first look (L22, repeated).
+- Find quotes in fetched pages with Python `str.find`, not `grep -o ".{0,N}..."` (grep here is ugrep and rejects long bounded repeats) (L29).
+- Scaffold `film/` with `new_film.py` before writing `film/script.txt`; the step-3 draft lives in `$RUNNER_TEMP/{{SLUG}}/` (L30).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
