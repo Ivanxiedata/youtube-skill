@@ -1,0 +1,107 @@
+1
+00:00:00,300 --> 00:00:01,723
+Before, you'd waste time
+
+2
+00:00:01,723 --> 00:00:04,569
+after every Google Meet call writing up the plan;
+
+3
+00:00:04,569 --> 00:00:06,789
+now Claude Meetings writes it with you
+
+4
+00:00:06,789 --> 00:00:08,440
+before you hang up, but how?
+
+5
+00:00:08,940 --> 00:00:10,681
+Here's how, in one planning call.
+
+6
+00:00:11,181 --> 00:00:12,806
+Your team plans an event.
+
+7
+00:00:12,806 --> 00:00:15,273
+"What did last year's cost?" "I'll check later."
+
+8
+00:00:15,273 --> 00:00:17,186
+You hang up, and someone still writes
+
+9
+00:00:17,186 --> 00:00:18,394
+the notes and the plan.
+
+10
+00:00:18,894 --> 00:00:20,635
+Same call with Claude Meetings,
+
+11
+00:00:20,635 --> 00:00:23,330
+rolling out in beta since November 12.
+
+12
+00:00:23,330 --> 00:00:25,838
+Claude joins as a visible participant.
+
+13
+00:00:25,838 --> 00:00:27,766
+"Claude, start a doc for this plan."
+
+14
+00:00:27,766 --> 00:00:30,933
+It writes up what the team said, while teammates edit.
+
+15
+00:00:30,933 --> 00:00:32,251
+Last year's cost?
+
+16
+00:00:32,251 --> 00:00:33,959
+Claude asks first, then looks it up
+
+17
+00:00:33,959 --> 00:00:35,492
+and posts it in the chat.
+
+18
+00:00:35,492 --> 00:00:37,161
+The timeline goes on a whiteboard.
+
+19
+00:00:37,661 --> 00:00:39,950
+Claude writes the notes and action items,
+
+20
+00:00:39,950 --> 00:00:41,885
+so no one on the call has to.
+
+21
+00:00:41,885 --> 00:00:44,219
+After the call, it's all on the meeting's page.
+
+22
+00:00:44,719 --> 00:00:47,084
+That's how the plan is written before you hang up:
+
+23
+00:00:47,084 --> 00:00:48,683
+it's built during the call.
+
+24
+00:00:48,683 --> 00:00:51,592
+The catch: it's a beta, for Team and Enterprise,
+
+25
+00:00:51,592 --> 00:00:53,314
+on Google Meet only for now.
+
+26
+00:00:53,814 --> 00:00:56,246
+Same call; the writing happens while you talk.
+
+27
+00:00:56,746 --> 00:00:58,148
+Subscribe for the next one.

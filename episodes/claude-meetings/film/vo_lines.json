@@ -1,0 +1,130 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.14,
+  "text": "Before, you'd waste time after every Google Meet call writing up the plan; now Claude Meetings writes it with you before you hang up, but how?"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 8.64,
+  "end": 10.381,
+  "text": "Here's how, in one planning call."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.881,
+  "end": 12.206,
+  "text": "Your team plans an event."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.506,
+  "end": 18.094,
+  "text": "\"What did last year's cost?\" \"I'll check later.\" You hang up, and someone still writes the notes and the plan."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 18.594,
+  "end": 22.73,
+  "text": "Same call with Claude Meetings, rolling out in beta since November twelfth."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 23.03,
+  "end": 25.238,
+  "text": "Claude joins as a visible participant."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 25.538,
+  "end": 30.333,
+  "text": "\"Claude, start a doc for this plan.\" It writes up what the team said, while teammates edit."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 30.633,
+  "end": 31.651,
+  "text": "Last year's cost?"
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.951,
+  "end": 34.892,
+  "text": "Claude asks first, then looks it up and posts it in the chat."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.192,
+  "end": 36.861,
+  "text": "The timeline goes on a whiteboard."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 37.361,
+  "end": 41.285,
+  "text": "Claude writes the notes and action items, so no one on the call has to."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 41.585,
+  "end": 43.919,
+  "text": "After the call, it's all on the meeting's page."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.419,
+  "end": 48.083,
+  "text": "That's how the plan is written before you hang up: it's built during the call."
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 48.383,
+  "end": 53.014,
+  "text": "The catch: it's a beta, for Team and Enterprise, on Google Meet only for now."
+ },
+ {
+  "n": 14,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.514,
+  "end": 55.946,
+  "text": "Same call; the writing happens while you talk."
+ },
+ {
+  "n": 15,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 56.446,
+  "end": 57.848,
+  "text": "Subscribe for the next one."
+ }
+]

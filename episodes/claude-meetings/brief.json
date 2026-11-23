@@ -1,0 +1,135 @@
+{
+ "slug": "claude-meetings",
+ "tech": {
+  "id": "claude-meetings",
+  "name": "Claude Meetings (Anthropic)",
+  "released": "2026-11-12",
+  "status": "beta, rolling out on Team and Enterprise plans; Google Meet only for now",
+  "one_line": "Claude joins a Google Meet call as a visible participant, answers questions, looks things up in connected tools with permission, and builds docs, whiteboards, notes and action items live while teammates edit."
+ },
+ "predecessor": {
+  "id": "notes-after-the-call",
+  "name": "The meeting where someone takes notes, lookups wait for 'later', and the notes, plan and follow-ups are written after the call (a note-taker bot may send a transcript or summary afterwards)"
+ },
+ "sections": {
+  "hook": {
+   "text": "Before, you'd waste time after every Google Meet call writing up the plan; now Claude Meetings writes it with you before you hang up, but how?",
+   "claims": [
+    {
+     "text": "Claude writes up what the team has said so far, and teammates on the invite can edit the plan while you keep talking.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Support is currently available for Google Meet, with other platforms coming soon.",
+     "source": "https://claude.com/blog/claude-meetings"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how, in one planning call. Your team plans an event. \"What did last year's cost?\" \"I'll check later.\" You hang up, and someone still writes the notes and the plan.",
+   "claims": [
+    {
+     "text": "Claude writes the notes and action items, so no one on the call has to (implying that before, someone on the call had to).",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "The 'before' is the viewer's scene (notes, plan and lookups after the call), not a claim about another product; note-takers today also work live, e.g. Fireflies 'gives answers ... in real time, right inside the call'.",
+     "source": "https://fireflies.ai/"
+    }
+   ]
+  },
+  "new": {
+   "text": "Same call with Claude Meetings, rolling out in beta since November 12. Claude joins as a visible participant. \"Claude, start a doc for this plan.\" It writes up what the team said, while teammates edit. Last year's cost? Claude asks first, then looks it up and posts it in the chat. The timeline goes on a whiteboard.",
+   "claims": [
+    {
+     "text": "Introducing Claude Meetings, November 12, 2026; Claude Meetings is now in beta.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Claude can now join your video calls as a visible participant; when Claude joins, it appears as a participant and posts a notice in the call's chat.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "You say, 'Claude, start a doc for this plan.' Claude writes up what the team has said so far, and teammates on the invite can edit the plan while you keep talking.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Someone asks Claude what last year's event cost. Claude asks for their approval to look it up, posts it in the meeting chat, and compares it to the current plan.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "It can use your connected tools with your permission; it asks the first time, and a yes applies going forward.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Someone asks Claude to put it [the timeline] on a whiteboard, and the team works on the schedule alongside the doc.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Add Claude to a Google Meet call as a visible participant that takes notes, answers questions, and builds artifacts, such as docs, whiteboards, and slides, during the call.",
+     "source": "https://support.claude.com/en/articles/12138966"
+    }
+   ]
+  },
+  "why": {
+   "text": "Claude writes the notes and action items, so no one on the call has to. After the call, it's all on the meeting's page.",
+   "claims": [
+    {
+     "text": "Claude writes the notes and action items, so no one on the call has to.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "After the call, any notes, action items, plan, and whiteboard are on the meeting's page in claude.ai.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "After the meeting, the meeting page has the notes, including a summary and any action items, along with the transcript and everything you made.",
+     "source": "https://support.claude.com/en/articles/18325154-use-claude-meetings"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "That's how the plan is written before you hang up: it's built during the call. The catch: it's a beta, for Team and Enterprise, on Google Meet only for now. Same call; the writing happens while you talk.",
+   "claims": [
+    {
+     "text": "Claude Meetings is starting to roll out in beta on Team and Enterprise plans.",
+     "source": "https://claude.com/blog/claude-meetings"
+    },
+    {
+     "text": "Support is currently available for Google Meet, with other platforms coming soon.",
+     "source": "https://claude.com/blog/claude-meetings"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Subscribe for the next one.",
+   "claims": []
+  }
+ },
+ "background": [
+  {
+   "text": "It saves a transcript, summary, and screen descriptions, not audio.",
+   "source": "https://claude.com/blog/claude-meetings"
+  },
+  {
+   "text": "Before you add Claude or turn on auto-join, make sure everyone on your calls is OK with being transcribed.",
+   "source": "https://claude.com/blog/claude-meetings"
+  },
+  {
+   "text": "During the beta, notes and transcripts are free on Team and Enterprise plans; answers too unless they use a connected tool (counts toward usage); docs, whiteboards and other artifacts made in a call are free through February 10, 2027.",
+   "source": "https://claude.com/blog/claude-meetings"
+  },
+  {
+   "text": "Not available during beta to organizations with ZDR, HIPAA-ready configuration or CMEK.",
+   "source": "https://support.claude.com/en/articles/18325154-use-claude-meetings"
+  },
+  {
+   "text": "Claude can stay for up to eight hours and warns you before it leaves.",
+   "source": "https://support.claude.com/en/articles/18325154-use-claude-meetings"
+  },
+  {
+   "text": "Partners: Gong, Attention, Granola, Fireflies.ai, Otter, and Plaud, so you'll soon be able to send a meeting's transcript to the tools your team already uses.",
+   "source": "https://claude.com/blog/claude-meetings"
+  }
+ ]
+}

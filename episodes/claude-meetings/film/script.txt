@@ -1,0 +1,8 @@
+Before, you'd waste time after every Google Meet call writing up the plan; now Claude Meetings writes it with you before you hang up, but how?
+Here's how, in one planning call.
+Your team plans an event. "What did last year's cost?" "I'll check later." You hang up, and someone still writes the notes and the plan.
+Same call with Claude Meetings, rolling out in beta since November twelfth. Claude joins as a visible participant. "Claude, start a doc for this plan." It writes up what the team said, while teammates edit. Last year's cost? Claude asks first, then looks it up and posts it in the chat. The timeline goes on a whiteboard.
+Claude writes the notes and action items, so no one on the call has to. After the call, it's all on the meeting's page.
+That's how the plan is written before you hang up: it's built during the call. The catch: it's a beta, for Team and Enterprise, on Google Meet only for now.
+Same call; the writing happens while you talk.
+Subscribe for the next one.

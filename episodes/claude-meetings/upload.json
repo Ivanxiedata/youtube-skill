@@ -1,0 +1,23 @@
+{
+  "title": "Claude Meetings 2026: AI Builds the Plan Live",
+  "description": "Claude Meetings (2026), explained in 60 seconds: Anthropic's AI joins your Google Meet call as a visible participant and builds the plan live while you talk.\nBefore, the notes, the plan and the lookups waited until after the call; now Claude AI writes the doc, the whiteboard, the notes and the action items during it (beta, Team and Enterprise).\n\nRead the maker's own announcement first: https://claude.com/blog/claude-meetings\n\nChapters\n0:00 Plan written before hang-up\n0:11 Why calls end in homework\n0:23 Claude joins as a participant\n0:33 Answers, whiteboard and notes\n0:44 The catch: beta, Meet only\n\nStatus: beta. Claude Meetings was announced on November 12, 2026 and is rolling out in beta on Team and Enterprise plans in Claude and Claude Desktop. Support is currently available for Google Meet, with other platforms coming soon.\n\nThe story: one planning call. Your team plans an event. A question comes up (what did last year's cost?) and someone says \"I'll check later\"; you hang up, and someone still writes the notes and the plan. With Claude Meetings, Claude joins the same call as a visible participant. You say \"Claude, start a doc for this plan,\" and Claude writes up what the team has said so far while teammates on the invite edit the plan as you keep talking. When someone asks what last year's event cost, Claude asks for their approval to look it up, posts the answer in the meeting chat and compares it to the current plan. Someone can also ask for a whiteboard, and the team works on the schedule alongside the doc.\n\nHow it works: you can ask Claude questions during the meeting, out loud (say \"Claude\" and then your question) or in chat; by default Claude answers in writing. Claude writes the notes and action items, so no one on the call has to. After the call, any notes, action items, plan and whiteboard are on the meeting's page in claude.ai.\n\nThe limits: it is a beta. It is rolling out on Team and Enterprise plans and works with Google Meet only for now. It is not available to some organizations, including those with zero data retention (ZDR), HIPAA-ready configuration or customer-managed encryption keys (CMEK). Claude uses your connected tools only with your permission; answers that use one of your connected tools count toward your plan's usage. It saves a transcript, summary and screen descriptions, not audio. The maker says to make sure everyone on your calls is OK with being transcribed before you add Claude or turn on auto-join. This video makes no comparison with any other meeting tool.\n\nThe takeaway: same call; the writing happens while you talk.\n\nSources\nAnthropic, Introducing Claude Meetings: https://claude.com/blog/claude-meetings\nClaude Help Center, release notes (\"Add Claude to your meetings\"): https://support.claude.com/en/articles/12138966\nClaude Help Center, Use Claude Meetings: https://support.claude.com/en/articles/18325154-use-claude-meetings\n\nThe call window, the desk, the clock and the event are invented pictures inside the maker's own example. The robot and the cartoon people are generic drawings, not Anthropic's or Google's artwork or logos; \"Google Meet\" appears only as plain text.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky\" by Sergmusic (CC0 1.0), https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ClaudeMeetings #Claude #AIExplained",
+  "tags": [
+    "claude meetings",
+    "claude meetings 2026",
+    "claude ai meetings",
+    "claude google meet",
+    "claude in google meet",
+    "anthropic claude meetings",
+    "claude meetings explained",
+    "ai meeting notes",
+    "ai meeting assistant",
+    "claude live doc",
+    "claude whiteboard",
+    "claude action items",
+    "claude team enterprise",
+    "claude meetings beta",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}
