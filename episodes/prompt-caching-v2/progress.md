@@ -1,7 +1,7 @@
 # prompt-caching-v2 progress
 
 ## Status
-ready to publish (judge round 1: 0 must-fix, 2 should-fix; S1 fixed); step 7 owner review next
+in progress (pc2-fixes): ready to publish (judge round 1: 0 must-fix, 2 should-fix; S1 fixed); step 7 owner review next
 
 ## Next
 1. Step 7: the owner watches and listens (pronunciation of "P D F", "hundred-page", "Open A I" is unjudged), then `yt upload` (dry run first, then `--confirm`).
