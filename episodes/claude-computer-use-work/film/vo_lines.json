@@ -1,0 +1,114 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.501,
+  "text": "Claude computer use: you think twenty orders in an app with no connector cost you twenty copy-pastes, but actually Claude can type them, almost alone."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.001,
+  "end": 9.72,
+  "text": "Here's how."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.02,
+  "end": 13.776,
+  "text": "Before, on Team and Enterprise, Claude couldn't click or type in that app."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 14.076,
+  "end": 18.087,
+  "text": "So you copied every order into the chat, and typed the answers back yourself."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 18.387,
+  "end": 20.257,
+  "text": "Twenty orders, twenty round trips."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 20.757,
+  "end": 29.602,
+  "text": "Now, in beta on Team and Enterprise, once an owner turns it on, Claude takes screenshots to see your screen, then clicks and types in the apps you allow."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 29.902,
+  "end": 30.969,
+  "text": "You approve two apps."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.269,
+  "end": 32.358,
+  "text": "Claude does the twenty."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 32.858,
+  "end": 33.832,
+  "text": "How does it choose?"
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 34.132,
+  "end": 39.17,
+  "text": "In Cowork, the most precise tool first: a connector, then the browser, and your screen last."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 39.67,
+  "end": 46.097,
+  "text": "Anthropic's own catch: screen work is slower than a connector, and complex tasks sometimes need a second try."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 46.597,
+  "end": 53.018,
+  "text": "So, what we learned: twenty orders used to mean twenty copy-pastes; now Claude types them, and you approve two apps."
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.518,
+  "end": 54.22,
+  "text": "Want more?"
+ },
+ {
+  "n": 13,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 54.52,
+  "end": 57.051,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

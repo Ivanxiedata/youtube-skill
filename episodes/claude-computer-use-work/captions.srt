@@ -1,0 +1,71 @@
+1
+00:00:00,300 --> 00:00:06,042
+Claude computer use: you think 20 orders in an app with no connector cost you 20 copy-pastes,
+
+2
+00:00:06,042 --> 00:00:08,801
+but actually Claude can type them, almost alone.
+
+3
+00:00:09,301 --> 00:00:10,020
+Here's how.
+
+4
+00:00:10,320 --> 00:00:14,076
+Before, on Team and Enterprise, Claude couldn't click or type in that app.
+
+5
+00:00:14,376 --> 00:00:18,387
+So you copied every order into the chat, and typed the answers back yourself.
+
+6
+00:00:18,687 --> 00:00:20,557
+20 orders, 20 round trips.
+
+7
+00:00:21,057 --> 00:00:24,733
+Now, in beta on Team and Enterprise, once an owner turns it on,
+
+8
+00:00:24,733 --> 00:00:29,902
+Claude takes screenshots to see your screen, then clicks and types in the apps you allow.
+
+9
+00:00:30,202 --> 00:00:31,269
+You approve 2 apps.
+
+10
+00:00:31,569 --> 00:00:32,658
+Claude does the 20.
+
+11
+00:00:33,158 --> 00:00:34,132
+How does it choose?
+
+12
+00:00:34,432 --> 00:00:39,470
+In Cowork, the most precise tool first: a connector, then the browser, and your screen last.
+
+13
+00:00:39,970 --> 00:00:43,651
+Anthropic's own catch: screen work is slower than a connector,
+
+14
+00:00:43,651 --> 00:00:46,397
+and complex tasks sometimes need a second try.
+
+15
+00:00:46,897 --> 00:00:51,891
+So, what we learned: 20 orders used to mean 20 copy-pastes; now Claude types them,
+
+16
+00:00:51,891 --> 00:00:53,318
+and you approve 2 apps.
+
+17
+00:00:53,818 --> 00:00:54,520
+Want more?
+
+18
+00:00:54,820 --> 00:00:57,351
+Subscribe, and comment what we should explain next.

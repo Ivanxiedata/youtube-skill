@@ -1,0 +1,7 @@
+Claude computer use: you think twenty orders in an app with no connector cost you twenty copy-pastes, but actually Claude can type them, almost alone.
+Here's how. Before, on Team and Enterprise, Claude couldn't click or type in that app. So you copied every order into the chat, and typed the answers back yourself. Twenty orders, twenty round trips.
+Now, in beta on Team and Enterprise, once an owner turns it on, Claude takes screenshots to see your screen, then clicks and types in the apps you allow. You approve two apps. Claude does the twenty.
+How does it choose? In Cowork, the most precise tool first: a connector, then the browser, and your screen last.
+Anthropic's own catch: screen work is slower than a connector, and complex tasks sometimes need a second try.
+So, what we learned: twenty orders used to mean twenty copy-pastes; now Claude types them, and you approve two apps.
+Want more? Subscribe, and comment what we should explain next.

@@ -1,0 +1,98 @@
+{
+ "slug": "claude-computer-use-work",
+ "tech": {
+  "id": "claude-computer-use-team-enterprise",
+  "name": "Claude computer use (beta) on Team and Enterprise plans",
+  "released": "2026-11-20 (release notes)",
+  "status": "beta, off by default, rolling out to organizations gradually; an Owner or Primary Owner turns it on",
+  "one_line": "Claude takes screenshots to see your screen, then clicks and types in the desktop apps you allow, so it can work in apps with no connector."
+ },
+ "predecessor": {
+  "id": "connectors-only",
+  "name": "On Team and Enterprise before 2026-11-20: Claude reached tools through connectors (and the browser); for a desktop app with no connector you copied the data into the chat and clicked or typed the answer back yourself"
+ },
+ "sections": {
+  "hook": {
+   "text": "Claude computer use: you think 20 orders in an app with no connector cost you 20 copy-pastes, but actually Claude can type them, almost alone.",
+   "claims": [
+    {
+     "text": "Computer use lets Claude see a user's screen and work in the desktop apps they allow. Claude clicks and types like you would on Claude Desktop.",
+     "source": "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans"
+    },
+    {
+     "text": "Navigate apps that don't have connectors—like an internal dashboard or a specialized tool your team uses.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    },
+    {
+     "text": "'Almost alone': Claude asks for your permission before accessing each application; you must approve before Claude can interact with that app.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's how. Before, on Team and Enterprise, Claude couldn't click or type in that app. So you copied every order into the chat, and typed the answers back yourself. 20 orders, 20 round trips.",
+   "claims": [
+    {
+     "text": "When computer use is enabled and Claude doesn't have a connector or tool for what you need, it may navigate to your screen directly (so without computer use, an app with no connector or tool is out of reach). Computer use reached Team and Enterprise only on 2026-11-20.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    },
+    {
+     "text": "Computer use (beta) for Team and Enterprise plans (November 20, 2026).",
+     "source": "https://support.claude.com/en/articles/12138966-release-notes"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now, in beta on Team and Enterprise, once an owner turns it on, Claude takes screenshots to see your screen, then clicks and types in the apps you allow. You approve 2 apps. Claude does the 20. How does it choose? In Cowork, the most precise tool first: a connector, then the browser, and your screen last.",
+   "claims": [
+    {
+     "text": "It's now available in beta on Team and Enterprise plans, and is rolling out to organizations gradually.",
+     "source": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+     "text": "Computer use is in beta on Team and Enterprise plans, and it's off by default. Only an Owner or Primary Owner can change this setting.",
+     "source": "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans"
+    },
+    {
+     "text": "Claude takes screenshots to see and navigate the screen, and they're saved with the chat.",
+     "source": "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans"
+    },
+    {
+     "text": "Claude asks for your permission before accessing each application ... After that, Claude can keep using the app in that session without asking again.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    },
+    {
+     "text": "In Cowork, Claude uses the most precise tool first: Connectors ... Browser ... Screen interaction.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    }
+   ]
+  },
+  "why": {
+   "text": "Anthropic's own catch: screen work is slower than a connector, and complex tasks sometimes need a second try.",
+   "claims": [
+    {
+     "text": "Screen interaction is slower than connectors. Complex tasks sometimes need a second try.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "So, what we learned: 20 orders used to mean 20 copy-pastes; now Claude types them, and you approve 2 apps.",
+   "claims": [
+    {
+     "text": "The counted example (20 orders, 2 apps approved) restated; rows 1, 5, 7 of research.md.",
+     "source": "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Want more? Subscribe, and comment what we should explain next.",
+   "claims": []
+  }
+ },
+ "sources": [
+  "https://support.claude.com/en/articles/12138966-release-notes",
+  "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans",
+  "https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork"
+ ]
+}

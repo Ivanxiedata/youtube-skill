@@ -1,0 +1,23 @@
+{
+  "title": "Claude Computer Use: Stop Copy-Pasting 20 Orders by Hand",
+  "description": "What is Claude computer use? In beta on Claude Team and Enterprise plans since November 20, 2026, rolling out to organizations gradually: once an owner turns it on, Claude takes screenshots to see your screen, then clicks and types in the desktop apps you allow.\nExplained in 60 seconds with 20 orders in an app with no connector: before, 20 copy-pastes by you; now you approve the 2 apps and Claude types them (slower than a connector, and complex tasks sometimes need a second try).\n\nRead Anthropic's own pages first: https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans , https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork and https://support.claude.com/en/articles/12138966-release-notes\n\nChapters\n0:00 20 orders, no connector\n0:10 Before: copy-paste every order\n0:21 Beta: you approve, Claude types\n0:33 Picking tools, then the catch\n0:46 What we learned: 2 approvals\n\nThe story: one counted example. Your team has an order tool, a desktop app with no connector, and 20 orders to get into a spreadsheet. Before, Claude could not click or type in that app, so you copied every order into the chat and typed the answers back yourself: 20 orders, 20 round trips. Now, in beta on Team and Enterprise plans and once an owner turns it on, Claude takes screenshots to see your screen, then clicks and types in the apps you allow. You approve the 2 apps, the order tool and the spreadsheet, and Claude does the 20. (Pro and Max plans have had a computer use research preview since March 23, 2026; what is new on November 20, 2026 is Team and Enterprise.)\n\nHow it works: in Cowork, Claude uses the most precise tool first: a connector if one is available (the help center calls it the fastest path), then the browser, and your screen last. Computer use is what Claude may do when it has no connector or tool for what you need, such as an internal dashboard or a specialized tool your team uses. Claude asks your permission before accessing each application and keeps using it for that session; you can stop Claude at any time, and admins can block apps.\n\nThe catch, in the maker's words: \"Screen interaction is slower than connectors.\" and \"Complex tasks sometimes need a second try.\" (Claude Help Center). The maker gives no speed number for computer use, so this video has none.\n\nWhere it works: Claude Desktop on macOS 14 or later and Windows. On Team and Enterprise it works only in the new Claude experience, not in tasks started with the separate Cowork option or in Claude Code. Your computer needs to be awake and the Claude Desktop app open. Screenshots are saved with the chat, so be careful with confidential data on your screen.\n\nWhat we learned: 20 orders used to mean 20 copy-pastes; now Claude types them, and you approve 2 apps.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nClaude Help Center, Set up computer use for Team and Enterprise plans: https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans\nClaude Help Center, Let Claude use your computer in Cowork: https://support.claude.com/en/articles/14128542-let-claude-use-your-computer-in-cowork\nClaude Help Center, Release notes (November 20, 2026): https://support.claude.com/en/articles/12138966-release-notes\n\nThe 20 orders, the order tool, the spreadsheet, the desk and the chat are invented pictures inside the maker's own use case (apps that don't have connectors). The robot and the cartoon people are generic drawings, not Anthropic's artwork or logos.\nAnimation rendered from code. Voice by Kokoro (am_michael), an open-source text-to-speech model.\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ClaudeComputerUse #AIExplained #Claude",
+  "tags": [
+    "claude computer use",
+    "what is claude computer use",
+    "claude computer use team enterprise",
+    "claude computer use explained",
+    "claude computer use beta",
+    "claude desktop computer use",
+    "claude cowork computer use",
+    "claude connectors",
+    "claude connector vs computer use",
+    "claude use my computer",
+    "claude screen control",
+    "anthropic computer use",
+    "ai agent clicks and types",
+    "claude team enterprise",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}
