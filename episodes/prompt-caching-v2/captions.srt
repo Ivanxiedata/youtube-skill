@@ -1,0 +1,63 @@
+1
+00:00:00,300 --> 00:00:09,046
+Prompt caching means you stop paying full price for the same hundred-page PDF thirty times when you ask your AI thirty questions, but how?
+
+2
+00:00:09,546 --> 00:00:10,266
+Here's how.
+
+3
+00:00:10,566 --> 00:00:14,146
+Without caching, it's a student re-reading the whole book per question.
+
+4
+00:00:14,446 --> 00:00:17,357
+Question one: all one hundred pages, full price.
+
+5
+00:00:17,657 --> 00:00:19,081
+Question two: all again.
+
+6
+00:00:19,381 --> 00:00:21,747
+By question thirty: paid thirty times.
+
+7
+00:00:22,247 --> 00:00:26,950
+With prompt caching, question one pays a quarter more, by default, to save its work.
+
+8
+00:00:27,250 --> 00:00:32,800
+Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner.
+
+9
+00:00:33,300 --> 00:00:33,734
+How?
+
+10
+00:00:34,034 --> 00:00:38,962
+The document goes first, the same every time; only the new question is read fresh.
+
+11
+00:00:39,462 --> 00:00:43,824
+OpenAI's math: ten requests cost just over two full reads, not ten.
+
+12
+00:00:44,124 --> 00:00:45,865
+Ours for thirty: about four.
+
+13
+00:00:46,165 --> 00:00:48,717
+That's how you stop paying full price thirty times.
+
+14
+00:00:49,217 --> 00:00:53,947
+The catch: on Claude, unused saved work can fade after five minutes, by default.
+
+15
+00:00:54,247 --> 00:00:56,386
+Same book: read once, reuse the work.
+
+16
+00:00:56,686 --> 00:00:58,088
+Subscribe for the next one.
