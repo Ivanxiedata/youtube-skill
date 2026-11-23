@@ -157,6 +157,14 @@ jobs:
             MODEL_WORKER="$MODEL_WORKER" MODEL_JUDGE="$MODEL_JUDGE" MAX_FIX_ROUNDS="$ROUNDS" > "$RUNNER_TEMP/episode.txt"
           claude -p "$(cat "$RUNNER_TEMP/episode.txt")" --model "$MODEL_MAKER" --dangerously-skip-permissions --output-format stream-json --verbose \
             | python scripts/pipeline-trace.py "$RUNNER_TEMP/$SLUG/trace.jsonl" "episodes/$SLUG/trace.md"
+          # A session that ends early (e.g. it left a subagent running in the background: lesson L28) is resumed, at most twice.
+          for i in 1 2; do
+            [ ! -f "episodes/$SLUG/evaluation.md" ] || break
+            echo "::warning::no evaluation.md yet: resuming the maker ($i)"
+            claude -p --continue "You stopped before step 6: episodes/$SLUG/evaluation.md does not exist. Continue from progress.md's Next until it does. Run every subagent in the foreground (run_in_background: false) and never SendMessage; start a new Agent with a full brief instead. Log this stop in mistakes.md." \
+              --model "$MODEL_MAKER" --dangerously-skip-permissions --output-format stream-json --verbose \
+              | python scripts/pipeline-trace.py "$RUNNER_TEMP/$SLUG/trace-resume$i.jsonl" "episodes/$SLUG/trace-resume$i.md"
+          done
       - name: Judge's gate
         id: gate
         if: always()
