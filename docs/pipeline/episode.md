@@ -59,6 +59,14 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The thumbnail is laid out by measuring too: get the mascot's face box first and keep every held prop and label off it; make the main picture fill the frame before the first look (L22, repeated).
 - Find quotes in fetched pages with Python `str.find`, not `grep -o ".{0,N}..."` (grep here is ugrep and rejects long bounded repeats) (L29).
 - Scaffold `film/` with `new_film.py` before writing `film/script.txt`; the step-3 draft lives in `$RUNNER_TEMP/{{SLUG}}/` (L30).
+- `title.py` counts only digits and dates as the "number, date or name": a product name (Claude, Slack, Notion) never passes; put a digit in every title. Leave about 3 s of headroom in the first draft voice (end near 55 s), since claim fixes add words (L21, repeated).
+- Every line that states the feature carries its condition (hook, now line, takeaway, its card, description lines in `package.md`), not one line for all; re-read `research.md`'s narrowing list before writing `package.md`'s description lines (L26, repeated).
+- New props (badges, switches, arrows) and the thumbnail's pointing arm are measured against their neighbours before the first still, and the thumbnail picture fills the frame before the first look (L22, repeated).
+- A cross-fade between two views of very different brightness (dark chat to bright page) runs 0.7 s or more; 0.5 s still counts as a pop (L23, repeated).
+- Read `hookscore.py`'s word lists before the first hook; numbers as digits in `hooks.txt` (L33).
+- Call stickman scripts by full path, `.claude/skills/stickman/scripts/<name>.py`; they are not on PATH (L35).
+- Set view state per shot in `film.js`, never as a range; check the BEFORE shots' stills against `beats.md` before the first build (L38).
+- `m.voice(..., at=)` in `audio_mix.py` uses the film clock's offset; never copy the example's value (L39).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.

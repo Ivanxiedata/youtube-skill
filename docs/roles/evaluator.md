@@ -40,6 +40,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
+   Must-fix (L25, repeated): the NOW side does not show the same counted example reaching its outcome (an empty NOW panel beside a filled BEFORE one reads as "nothing happened").
 
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.
