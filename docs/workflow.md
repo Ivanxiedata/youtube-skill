@@ -84,7 +84,8 @@ The click is decided by the title and thumbnail together, and the first seconds 
   the score is a check, not the target. Pick by the **3-second test**: would someone who doesn't know the tech say what this video gives them after the first sentence?
   Among hooks that pass it, take the higher score; below 72 (WEAK/WORKABLE), look again. Every number stays true; never invent one to raise the score.
   Keep the top two with their panels. Tension beats a template: a claim people repeat that the video corrects ("People say X is dead; it isn't"),
-  or the outcome itself; not the "Before, you'd ..., but how?" frame every time (lesson L25).
+  or the outcome itself; never the "Before, you'd ..., but how?" frame, and never ending on "but how?" (lessons L25, L31).
+  Numbers on screen are whole ("about 4", not 4.15); decimals belong in the description (lesson L31).
 - **Turn** (by about 10 s): one sentence saying what the video will do, then do it. No channel intro, no subscribe pitch here.
 - **Body, in this order:** *before*: the viewer's pain as a scene; *now*: the same scene with the new tech; *how*: the tech in one or two beats
   with the BEFORE vs NEW diagram; *why it helps you*: the outcome, with its sourced number. One idea per beat, each marked `[ON SCREEN: ...]`.
@@ -109,7 +110,7 @@ The click is decided by the title and thumbnail together, and the first seconds 
 - stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`tts.py ... --voice am_michael --speed 1.2 --no-align`),
   stills of every shot checked by eye first, then one full `build.py`; after that only `build.py ... --shots <n>` for the shots an audit names or a fix changed
   (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
-- Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button, "Next in 60 seconds".
+- Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button (with the next episode's name under it only when it is decided; otherwise nothing, lesson L24).
 - Music: the signature track (`python scripts/music.py get efa007f6-a5fe-420c-a1a6-8d5dafa95005 film/music.mp3`, credit in `music.json`), about 16 dB under the voice.
 - Thumbnail: `film/thumb.js` + `film/thumb.py` from the brand template, checked at 160 px wide.
 - Listen: `earshot measure`, `describe`, `timeline --video`, `sheet`.

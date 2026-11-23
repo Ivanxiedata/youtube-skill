@@ -1,7 +1,8 @@
 // Episode: Prompt Caching, told through 30 questions about one 100-page PDF. You (the mascot, round amber reading glasses) ask; the AI (a robot with a teal screen head) answers.
 // BEFORE: every question makes it read the whole PDF again, and the meter "PDF READS PAID" fills to 30. NOW: the same 30 questions, the PDF read once and its work saved; the meter stops near 4.15.
 // 60 s, 29 shots (beats.md "Shots", numbered 0-28). Voice from tts.py (vo.wav laid in at .3 s): film time = voice time + .3. Every time below is FILM seconds.
-// Places: T title, D the desk (shots 1,4-18,27), S the PDF close-up (2,3), X the request-row diagram (19-21), C the chart (22,23), P payoff split (24), K cards (25,26), M mascot big (28).
+// Hook shots 0-5 follow the hook's phrases (beats.md rows 0-5): 0 title, 1 PDF close, 2 coin at the desk, 3 Q cards, 4 meter climbs + FULL PRICE, 5 meter x30 + tall pile.
+// Places: T title, D the desk (shots 2,3,6-18,27), S the PDF close-up (1,4,5), X the request-row diagram (19-21), C the chart (22,23), P payoff split (24), K cards (25,26), M mascot big (28).
 // Helpers follow episodes/claude-meetings/film/film.js. Rules: no setLineDash; every stroke setting sits inside save/restore; no Math.random.
 let t_g=0;
 const AMB='#FFC66E',TEAL='#2DB2AE',CREAM='#F8E9CC',INKC='#120A1C',RED='#E4493F',PAPER='#E9DCC2';
@@ -16,10 +17,10 @@ function impW(x,s,size){x.save();x.font=`${size}px Impact, "Arial Black", sans-s
 function scribLines(x,X0,X1,Y,seed,h=4,col='#8A7AA8'){let X=X0,k=0;x.fillStyle=col;while(X<X1-8){const len=14+((Math.sin(seed*12.9898+k*78.233)*43758.5453)%1+1)%1*46;x.fillRect(X,Y,Math.min(len,X1-X),h);X+=len+9;k++}}
 
 /* THE CLOCK: cut times of the 29 shots (film seconds) = word starts of the real voice (align.json + .3 s) minus .02 s, on frames. */
-const TS=[0,1.58,3.50,5.24,6.05,8.47,9.53,10.55,11.39,14.43,17.64,19.36,20.57,22.23,23.39,25.93,27.23,29.43,31.30,33.28,35.50,36.75,39.44,44.10,46.14,49.20,50.48,54.23,56.67];
+const TS=[0,1.54,3.50,4.63,6.43,7.97,9.27,10.30,11.13,14.17,17.37,19.10,20.30,21.97,23.10,25.67,26.93,29.13,31.00,32.97,35.20,36.43,39.13,43.73,45.77,48.80,50.07,53.80,56.23];
 const CF=TS.map(t=>Math.round(t*30)).concat([1800]);
 const ST=i=>CF[i]/30,inS=(t,a,b)=>t>=ST(a)&&t<ST(b),out=i=>ST(i)-.32;
-const PLACE='TDSSDDDDDDDDDDDDDDDXXXCCPKKDM'; /* one letter per shot 0-28 (sound only) */
+const PLACE='TSDDSSDDDDDDDDDDDDDXXXCCPKKDM'; /* one letter per shot 0-28 (sound only) */
 
 // ---------- the cast ----------
 const CLB={skin:'#187E86',cloth:'#2A6F7A',hood:'#1A4D5A',hand:'#BFF2EE',face:'#16243C',leg:'#1A4D5A',shoe:'#17141F',finger:'#16243C'};
@@ -82,8 +83,8 @@ function deskWorld(x,t,o){bgDusk(x,o.warm===undefined?.3:o.warm);
  pill(x,AXp,770,86,44,'rgba(18,10,28,.85)');txt(x,'AI',AXp,772,30,'#BFF2EE','center','900');
  if(o.stack)stackDraw(x,o.stackX||STX,STY,SSC,1);
  if(o.box)savedBox(x,t,o.box,o.pulse||0)}
-function deskState(sh,t){const u=t-ST(sh),s={stack:sh>=4&&sh!=8,hand:[4,9,10,11,14,16,17,18].includes(sh),cap:sh==8,smile:sh==18||sh==27,warm:sh==27?.45:.3};
- if(sh==1)s.hand=true;
+function deskState(sh,t){const u=t-ST(sh),s={stack:sh>=3&&sh!=8,hand:[3,9,10,11,14,16,17,18].includes(sh),cap:sh==8,smile:sh==18||sh==27,warm:sh==27?.45:.3};
+ if(sh==2)s.hand=true;
  if(sh==12){s.pile=1;s.pileT0=ST(12)+.05}
  if(sh==15)s.box=fin(t,ST(15)+.25,.6);
  if(sh>=16&&sh<=18||sh==27)s.box=1;
@@ -93,8 +94,8 @@ function drawDesk(t,sh,cam){const x=layer('board',cam),u=t-ST(sh),s=deskState(sh
  // book in front of the AI (shot 8): the whole thick stack, pages flying
  if(sh==8){const a=fin(t,ST(8)+.2,.5);stackDraw(x,AXp,846,1.4,a,true);
   for(let i=0;i<6;i++){const ph=((t*1.5+i/6)%1),X=AXp+(i%3-1)*130+Math.sin(ph*6+i)*30,Y=760-ph*300;x.save();x.globalAlpha=Math.sin(Math.PI*ph)*.95*a;x.translate(X,Y);x.rotate(Math.sin(ph*5+i)*.9);rr(x,-45,-58,90,116,6,'#F8E9CC',INKC,3);scribLines(x,-32,32,-30,i,4);scribLines(x,-32,32,-10,i+3,4);scribLines(x,-32,32,10,i+5,4);x.restore()}}
- if(sh==1){for(const [d,i] of [[.3,0],[.95,1]]){const v=(t-(ST(1)+d))/1.0;if(v<0||v>1)continue;const e=ease(v);coinDraw(x,lerp(HANDR[0]+20,AXp-60,e),lerp(HANDR[1]-10,610,e)-Math.sin(Math.PI*e)*140,lerp(1,.6,e),Math.min(1,v*6)*Math.min(1,(1-v)*5))}}
- if(sh==4){for(let k=0;k<30;k++)flyCard(x,t,ST(4)+.05+k*.072,k+1,.4)}
+ if(sh==2){for(const [d,i] of [[.3,0],[.95,1]]){const v=(t-(ST(2)+d))/1.0;if(v<0||v>1)continue;const e=ease(v);coinDraw(x,lerp(HANDR[0]+20,AXp-60,e),lerp(HANDR[1]-10,610,e)-Math.sin(Math.PI*e)*140,lerp(1,.6,e),Math.min(1,v*6)*Math.min(1,(1-v)*5))}}
+ if(sh==3){for(let k=0;k<30;k++)flyCard(x,t,ST(3)+.05+k*.042,k+1,.4)}
  if(sh==9){flyCard(x,t,u>0?ST(9)+.1:0,1,.45);ghost(x,t,ST(9)+.7,.9)}
  if(sh==10){flyCard(x,t,ST(10)+.1,2,.4);ghost(x,t,ST(10)+.45,.7)}
  if(sh==11){for(let k=0;k<10;k++)flyCard(x,t,ST(11)+.02+k*.11,3+k*3,.3);for(let k=0;k<5;k++)ghost(x,t,ST(11)+.05+k*.22,.4)}
@@ -111,8 +112,10 @@ function bubbleLines(x,cx,cy,w,h,tip,u){x.save();x.translate(cx,cy);const sc=.85
 // ---------- the PDF close-up (shots 2 and 3) ----------
 function drawS(t,sh,cam){const x=layer('board',cam);bgDusk(x,.4,700,560);
  x.fillStyle='#B0705A';x.fillRect(-900,860,W+1800,40);x.fillStyle='#7A4038';x.fillRect(-900,900,W+1800,400);
- if(sh==2){stackDraw(x,700,880,2.6,1,true,t-ST(2));pill(x,700,320,780,100,'rgba(27,20,48,.88)',fin(t,ST(2)+.1,.5));txt(x,'PDF · 100 PAGES',700,324,58,AMB,'center','800',fin(t,ST(2)+.1,.5))}
- if(sh==3){for(let k=4;k>=0;k--){const a=k==0?1:fin(t,ST(3)+.02+k*.05,.5);stackDraw(x,700,880-k*100,1.1,a,k==0||k==4)}}
+ if(sh==1){stackDraw(x,700,880,2.6,1,true,t-ST(1));pill(x,700,320,780,100,'rgba(27,20,48,.88)',fin(t,ST(1)+.1,.5));txt(x,'PDF · 100 PAGES',700,324,58,AMB,'center','800',fin(t,ST(1)+.1,.5))}
+ // shot 4: the stack copies itself twice (full price, again, again); shot 5: two more, a tall pile of 5
+ if(sh==4){for(let k=2;k>=0;k--){const a=k==0?1:fin(t,ST(4)+.15+k*.4,.5);stackDraw(x,700,880-k*100,1.1,a,k==0||k==2)}}
+ if(sh==5){for(let k=4;k>=0;k--){const a=k<=2?1:fin(t,ST(5)+.05+(k-3)*.3,.5);stackDraw(x,700,880-k*100,1.1,a,k==0||k==4)}}
  comp([['board',0]])}
 
 // ---------- the request-row diagram (shots 19-21) ----------
@@ -150,15 +153,14 @@ function drawC(t,sh,cam){const x=layer('board',cam);bgDusk(x,.2,960,600);
  const g1=1,ha=sh==22?fin(t,T22+.9,.9):1,ht=sh==22?fin(t,T22+2.3,.8):1;
  imp(x,'10 REQUESTS',520,205,84,CREAM);
  bar(x,360,CH*ha,AMB,1);bar(x,680,CH*(2.15/10)*ht,TEAL,1);
- if(ha>.05)imp(x,'10x',360,BASE-CH*ha-44,76,AMB);if(ht>.05)imp(x,'2.15x',680,BASE-CH*.215*ht-44,76,TEAL);
+ if(ha>.05)imp(x,'10x',360,BASE-CH*ha-44,76,AMB);if(ht>.05)imp(x,'ABOUT 2x',680,BASE-CH*.215*ht-44,62,TEAL);
  txt(x,'WITHOUT CACHING',360,BASE+46,28,CREAM,'center','900');txt(x,'WITH CACHING',680,BASE+46,28,CREAM,'center','900');
- {const S1='OpenAI docs · GPT-5.6+, most models · 0.1x reads',fs=Math.min(30,30*716/txt_w(x,S1,30,'800'));txt(x,S1,520,BASE+104,fs,'#C9B8E0','center','800',sh==22?fin(t,T22+.4,.5):1)}
+ {const S1='OpenAI docs · GPT-5.6+, most models · reads at 1/10',fs=Math.min(30,30*716/txt_w(x,S1,30,'800'));txt(x,S1,520,BASE+104,fs,'#C9B8E0','center','800',sh==22?fin(t,T22+.4,.5):1)}
  if(sh==23){const hh=fin(t,T23+.15,.6),a2=fin(t,T23+.4,.7),b2=fin(t,T23+.9,.7),l2=fin(t,T23+1.2,.5);
   x.fillStyle='rgba(201,184,224,.3)';for(let y=150;y<BASE+120;y+=26)x.fillRect(898,y,4,12);
   {const S2='30 QUESTIONS · OUR MATH · PDF PART',fs=Math.min(60,60*900/impW(x,S2,60));imp(x,S2,1390,205,fs,CREAM)}
   bar(x,1230,CH*a2,AMB,1);bar(x,1550,CH*(4.15/30)*b2,TEAL,1);
-  if(a2>.05)imp(x,'30',1230,BASE-CH*a2-44,76,AMB);if(b2>.05)imp(x,'ABOUT 4',1550,BASE-CH*(4.15/30)*b2-44,70,TEAL);
-  txt(x,'1.25 + 29 x 0.1',1550,BASE+46,34,CREAM,'center','900',l2)}
+  if(a2>.05)imp(x,'30',1230,BASE-CH*a2-44,76,AMB);if(b2>.05)imp(x,'ABOUT 4',1550,BASE-CH*(4.15/30)*b2-44,70,TEAL);}
  comp([['board',0]])}
 
 // ---------- the payoff split (shot 24) ----------
@@ -196,21 +198,21 @@ function drawMascot(t,sh,cam){const x=layer('board',cam);bgDusk(x,.35,620,560);
  actor(x,'hero',HERO,p,cam);reading(x,p);
  const T0=ST(28)+.1,c=fin(t,T0,.55),pulse=1+.035*Math.sin((t-T0)*7);x.save();x.translate(1430,560);const sc=lerp(.7,1,c)*pulse;x.scale(sc,sc);x.globalAlpha=c;
  x.fillStyle=INKC;x.beginPath();x.roundRect(-300,-80,600,160,80);x.fill();pill(x,0,0,580,142,RED);x.fillStyle=CREAM;x.beginPath();x.moveTo(-235,-34);x.lineTo(-235,34);x.lineTo(-177,0);x.closePath();x.fill();txt(x,'Subscribe',60,5,78,CREAM,'center','800');x.restore();
- txt(x,'NEXT IN 60 SECONDS',1430,700,50,AMB,'center','900',fin(t,ST(28)+.6,.5));
+ // no "Next" line: no next episode is decided (owner, 2026-11-23, lesson L24)
  comp([['board',0]])}
 
 // ---------- the meter "PDF READS PAID" (lesson L25): screen space ----------
 function meterBox(x,l,tp,k,v,col,a=1,title=true){if(a<=0)return;x.save();x.globalAlpha*=a;const w=320*k,h=780*k,cx=l+w/2,cy=tp+h/2,sc=.94+.06*a;x.translate(cx,cy);x.scale(sc,sc);x.translate(-cx,-cy);
  rr(x,l,tp,w,h,26*k,'rgba(27,20,48,.93)',col,5*k);
  if(title){const fs=Math.min(30,280/txt_w(x,'PDF READS PAID',30)*30)*k;txt(x,'PDF READS PAID',cx,tp+46*k,fs,CREAM,'center','900')}
- const amber=col===AMB,s=amber?(v>29.6?'x30':String(Math.round(v))):(v<.005?'0':v.toFixed(2));imp(x,s,cx,tp+(title?150:110)*k,(s.length>4?112:132)*k,col);
+ const amber=col===AMB,s=amber?(v>29.6?'x30':String(Math.round(v))):(v<.005?'0':String(Math.max(1,Math.round(v))));imp(x,s,cx,tp+(title?150:110)*k,(s.length>4?112:132)*k,col);
  const tl=l+118*k,tw=90*k,top=tp+260*k,bot=tp+720*k,ph=bot-top;
  rr(x,tl,top,tw,ph,12*k,'#241A3C',INKC,4*k);
  for(const n of [0,10,20,30]){const y=bot-ph*n/30;x.fillStyle='#C9B8E0';x.fillRect(tl-18*k,y-2*k,18*k,4*k);txt(x,String(n),tl-26*k,y,28*k,'#C9B8E0','right','900')}
  const fh=ph*clamp(v/30);if(fh>.5){x.save();x.beginPath();x.roundRect(tl,top,tw,ph,12*k);x.clip();x.fillStyle=col;x.fillRect(tl,bot-fh,tw,fh);x.fillStyle='rgba(255,255,255,.28)';x.fillRect(tl,bot-fh,tw,Math.min(6*k,fh));x.restore()}
  x.restore()}
-const MK=[[ST(3)+.05,0],[ST(3)+.65,30],[ST(6)+.02,30],[ST(6)+.55,0],[ST(9)+1.3,0],[ST(9)+2.0,1],[ST(10)+.8,1],[ST(10)+1.4,2],[ST(11),2],[ST(12),27],[ST(12)+.8,30],[ST(13),30],[ST(13)+.5,0],[ST(14)+.3,0],[ST(14)+.9,1],[ST(14)+1.2,1],[ST(14)+1.55,1.25],[ST(16)+.1,1.25],[ST(17),2.6],[ST(17)+1.7,4.15]];
-function meterOverlay(t,sh){if(!((sh>=3&&sh<=18)||sh==27))return;const a=sh==3?fin(t,ST(3),.5):1,col=t<ST(13)+.5&&sh<19?AMB:TEAL;meterBox(ctx,1560,170,1,sh==27?4.15:kf(t,MK),col,a)}
+const MK=[[ST(4)+.05,0],[ST(5),21],[ST(5)+.55,30],[ST(6)+.02,30],[ST(6)+.55,0],[ST(9)+1.3,0],[ST(9)+2.0,1],[ST(10)+.8,1],[ST(10)+1.4,2],[ST(11),2],[ST(12),27],[ST(12)+.8,30],[ST(13),30],[ST(13)+.5,0],[ST(14)+.3,0],[ST(14)+.9,1],[ST(14)+1.2,1],[ST(14)+1.55,1.25],[ST(16)+.1,1.25],[ST(17),2.6],[ST(17)+1.7,4.15]];
+function meterOverlay(t,sh){if(!((sh>=4&&sh<=18)||sh==27))return;const a=sh==4?fin(t,ST(4),.5):1,col=t<ST(13)+.5&&sh<19?AMB:TEAL;meterBox(ctx,1560,170,1,sh==27?4.15:kf(t,MK),col,a)}
 /* a sliver for every card: small teal chips fly from the SAVED WORK box to the meter (shot 17) */
 function slivers(t){if(!inS(t,17,18))return;const f=kf(t,MK);for(let k=0;k<9;k++){const u=(t-(ST(17)+.1+k*.17))/.5;if(u<0||u>1)continue;const e=ease(u);const X=lerp(1360,1723,e),Y=lerp(700,890-460*clamp(f/30),e)-Math.sin(Math.PI*e)*90;ctx.save();ctx.globalAlpha=Math.min(1,u*6)*Math.min(1,(1-u)*5);ctx.fillStyle=TEAL;ctx.strokeStyle=INKC;ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(X-20,Y-6,40,12,5);ctx.fill();ctx.stroke();ctx.restore()}}
 
@@ -239,8 +241,8 @@ const LX=800,LY=935;
 function overlay(t,sh){ctx.setTransform(1,0,0,1,0,0);
  meterOverlay(t,sh);slivers(t);
  tab(t,ST(7)+.05,out(13),'BEFORE',AMB);tab(t,ST(13)+.05,out(19),'NOW',TEAL);
- if(sh==4){const n=Math.min(30,1+Math.floor(seg(t,ST(4)+.1,ST(5)-.2)*30));const a=fin(t,ST(4)+.05,.5);ctx.save();ctx.globalAlpha=a;pill(ctx,830,215,330,150,'rgba(27,20,48,.88)');imp(ctx,'Q'+n,830,218,124,AMB);ctx.restore()}
- if(sh==5){const v=fin(t,ST(5)+.1,.55);if(v>0){ctx.save();ctx.translate(820,200);ctx.scale(.75+.25*v,.75+.25*v);ctx.globalAlpha=v;ctx.rotate(-.04);imp(ctx,'HOW?',0,0,200,AMB);ctx.restore()}}
+ if(sh==3){const n=Math.min(30,1+Math.floor(seg(t,ST(3)+.1,ST(4)-.2)*30));const a=fin(t,ST(3)+.05,.5);ctx.save();ctx.globalAlpha=a;pill(ctx,830,215,330,150,'rgba(27,20,48,.88)');imp(ctx,'Q'+n,830,218,124,AMB);ctx.restore()}
+ card(t,ST(4)+.3,out(5),700,300,'FULL PRICE',AMB,56);
  card(t,ST(6)+.3,out(7),LX,LY,'1 PDF · 30 QUESTIONS',CREAM,46);
  card(t,ST(8)+.5,out(9),LX,LY,'EVERY QUESTION: ALL 100 PAGES',AMB,44);
  card(t,ST(9)+2.0,out(10),LX,LY,'FULL PRICE',AMB,50);
@@ -255,7 +257,7 @@ function overlay(t,sh){ctx.setTransform(1,0,0,1,0,0);
 
 // ---------- cameras: a slow push on the flat board ----------
 const E=u=>ease(u),push=(a=1,b=1.04)=>u=>({x:960,y:540,z:lerp(a,b,E(u)),b:[0,0,0]});
-const CAM=[()=>({})].concat(Array.from({length:28},()=>push()));CAM[25]=push(1,1.08);CAM[26]=push(1,1.06);CAM[2]=push(1,1.08);CAM[19]=push(1,1.03);CAM[20]=push(1,1.03);CAM[21]=push(1,1.03);CAM[22]=push(1,1.1);CAM[23]=push(1,1.03);
+const CAM=[()=>({})].concat(Array.from({length:28},()=>push()));CAM[25]=push(1,1.08);CAM[26]=push(1,1.06);CAM[1]=push(1,1.08);CAM[19]=push(1,1.03);CAM[20]=push(1,1.03);CAM[21]=push(1,1.03);CAM[22]=push(1,1.1);CAM[23]=push(1,1.03);
 FILM={dur:60,cuts:CF,fadeIn:0,fadeOut:0,
  cam(s,u,t){return CAM[s](u,t)},
  draw(t,cam,s){const o=t+1e-6;t_g=o;
@@ -264,8 +266,8 @@ FILM={dur:60,cuts:CF,fadeIn:0,fadeOut:0,
  plants(){return {}}};
 // ---------- sound events (the mix is in audio_mix.py): a soft brush on every cut, pops on cards and labels, page sounds ----------
 for(let i=1;i<CF.length-1;i++)say(ST(i),PLACE[i]!=PLACE[i-1]?'cut':'cut2');
-for(let k=0;k<30;k+=3)say(ST(4)+.05+k*.072+.4,'tick');
-for(const t of [ST(1)+.5,ST(1)+1.1,ST(9)+.55,ST(10)+.5,ST(14)+.55,ST(14)+1.55,ST(18)+.5,ST(19)+.2,ST(19)+1.0,ST(20)+.1,ST(20)+.35,ST(20)+.8,ST(21)+.1,ST(22)+.9,ST(22)+2.3,ST(23)+.4,ST(23)+.9,ST(25)+.1,ST(25)+.9,ST(26)+.1,ST(26)+1.5,ST(26)+2.2,ST(27)+.1,ST(28)+.1,ST(5)+.1,ST(6)+.3,ST(8)+.5,ST(9)+2.0,ST(12)+.3,ST(14)+.9,ST(17)+.2,ST(18)+.5,ST(24)+.8,ST(3)+.1])say(t,'tick');
-for(const t of [ST(2)+.2,ST(2)+.7,ST(2)+1.2,ST(8)+.2,ST(8)+.8,ST(8)+1.4,ST(8)+2.0])say(t,'paper');
-for(const t of [ST(9)+.7,ST(10)+.45,ST(14)+.55,ST(11)+.05,ST(11)+.5,ST(11)+.95,ST(16)+.1,ST(16)+1.0,ST(12)+.3,ST(3)+.3])say(t,'slide');
+for(let k=0;k<30;k+=3)say(ST(3)+.05+k*.042+.35,'tick');
+for(const t of [ST(2)+.5,ST(2)+1.1,ST(9)+.55,ST(10)+.5,ST(14)+.55,ST(14)+1.55,ST(18)+.5,ST(19)+.2,ST(19)+1.0,ST(20)+.1,ST(20)+.35,ST(20)+.8,ST(21)+.1,ST(22)+.9,ST(22)+2.3,ST(23)+.4,ST(23)+.9,ST(25)+.1,ST(25)+.9,ST(26)+.1,ST(26)+1.5,ST(26)+2.2,ST(27)+.1,ST(28)+.1,ST(4)+.3,ST(6)+.3,ST(8)+.5,ST(9)+2.0,ST(12)+.3,ST(14)+.9,ST(17)+.2,ST(18)+.5,ST(24)+.8,ST(4)+.1])say(t,'tick');
+for(const t of [ST(1)+.2,ST(1)+.7,ST(1)+1.2,ST(8)+.2,ST(8)+.8,ST(8)+1.4,ST(8)+2.0])say(t,'paper');
+for(const t of [ST(9)+.7,ST(10)+.45,ST(14)+.55,ST(11)+.05,ST(11)+.5,ST(11)+.95,ST(16)+.1,ST(16)+1.0,ST(12)+.3,ST(4)+.3,ST(4)+.7,ST(5)+.2])say(t,'slide');
 say(ST(15)+.25,'stamp');say(ST(25)+.1,'stamp');

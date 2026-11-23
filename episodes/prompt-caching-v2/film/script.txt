@@ -1,5 +1,5 @@
-Prompt caching means you stop paying full price for the same hundred-page P D F thirty times when you ask your AI thirty questions, but how?
-Here's how. Without caching, it's a student re-reading the whole book per question. Question one: all one hundred pages, full price. Question two: all again. By question thirty: paid thirty times.
+Prompt caching: you think your hundred-page P D F costs you once, but without it, thirty questions actually cost you full price thirty times.
+Here's why. Without caching, it's a student re-reading the whole book per question. Question one: all one hundred pages, full price. Question two: all again. By question thirty: paid thirty times.
 With prompt caching, question one pays a quarter more, by default, to save its work. Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner.
 How? The document goes first, the same every time; only the new question is read fresh.
 Open A I's math: ten requests cost just over two full reads, not ten. Ours for thirty: about four. That's how you stop paying full price thirty times.
