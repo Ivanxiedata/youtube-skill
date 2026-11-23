@@ -31,7 +31,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
-11. Close: the takeaway tied to the story, then exactly one ask. Should-fix for two asks or none.
+11. Close (lesson L32): a "So, what we learned:" conclusion restating the before -> after on the counted example, then the ask to subscribe and comment what to explain next. Must-fix if there is no conclusion or no ask.
 
 **Understand**
 12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json` (start from `claims.md`, step 3b). Must-fix for an unsourced claim or a wrong one.

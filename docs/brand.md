@@ -17,7 +17,7 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Opening | Frame 0 to the end of the first spoken phrase (about 1.5 s): a full-screen title card in the thumbnail's style, the topic huge in amber and the red "IN 60 SECONDS" sticker. The first spoken sentence names the topic and the moment the viewer wants, in plain words ("Imagine running an open-source model that's faster and cheaper than the top ones"). "<X> just dropped ..." only when X is about a month old or less |
 | Structure | Title card, hook to the viewer, today's problem, the story, the side-by-side diagram, the takeaway, one call to action |
 | Takeaway card | The last line on screen in two lines: plain statement, then the amber punchline |
-| Call to action | Spoken "Subscribe for the next one." with the red Subscribe button; the next episode's name under it only when it is decided, otherwise nothing under it (owner, 2026-11-23, lesson L24) |
+| Call to action | A "So, what we learned:" conclusion, then spoken "Want more? Subscribe, and comment what we should explain next." with the red Subscribe button and a comment button; the next episode's name under them only when it is decided (owner, 2026-11-23, lessons L24, L32) |
 | Voice | Kokoro `am_michael`, speed 1.2; plain words; "you" in the first sentence |
 | Music | One signature instrumental track, the same every episode, 16 dB under the voice: "Blue Sky" by Sergmusic (CC0, found through Openverse with `scripts/music.py`). A new track must be CC0 or CC BY, have no vocals (checked with earshot) and be credited in the description |
 

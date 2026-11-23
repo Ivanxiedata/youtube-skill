@@ -60,71 +60,71 @@
   "beat": 0,
   "voice": "am_michael",
   "start": 26.649,
-  "end": 32.199,
-  "text": "Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner."
+  "end": 30.639,
+  "text": "Questions two to thirty reuse that work for about a tenth on most models."
  },
  {
   "n": 8,
   "beat": 0,
   "voice": "am_michael",
-  "start": 32.699,
-  "end": 33.134,
+  "start": 31.139,
+  "end": 31.574,
   "text": "How?"
  },
  {
   "n": 9,
   "beat": 0,
   "voice": "am_michael",
-  "start": 33.434,
-  "end": 38.362,
+  "start": 31.874,
+  "end": 36.803,
   "text": "The document goes first, the same every time; only the new question is read fresh."
  },
  {
   "n": 10,
   "beat": 0,
   "voice": "am_michael",
-  "start": 38.862,
-  "end": 43.171,
+  "start": 37.303,
+  "end": 41.611,
   "text": "Open A I's math: ten requests cost just over two full reads, not ten."
  },
  {
   "n": 11,
   "beat": 0,
   "voice": "am_michael",
-  "start": 43.471,
-  "end": 45.187,
+  "start": 41.911,
+  "end": 43.628,
   "text": "Ours for thirty: about four."
  },
  {
   "n": 12,
   "beat": 0,
   "voice": "am_michael",
-  "start": 45.487,
-  "end": 48.015,
-  "text": "That's how you stop paying full price thirty times."
+  "start": 44.128,
+  "end": 48.832,
+  "text": "The catch: on Claude, unused saved work can fade after five minutes, by default."
  },
  {
   "n": 13,
   "beat": 0,
   "voice": "am_michael",
-  "start": 48.515,
-  "end": 53.219,
-  "text": "The catch: on Claude, unused saved work can fade after five minutes, by default."
+  "start": 49.132,
+  "end": 53.898,
+  "text": "So, what we learned: keep the document first, and it's fully read once, not thirty times."
  },
  {
   "n": 14,
   "beat": 0,
   "voice": "am_michael",
-  "start": 53.519,
-  "end": 55.658,
-  "text": "Same book: read once, reuse the work."
+  "start": 54.398,
+  "end": 55.099,
+  "text": "Want more?"
  },
  {
   "n": 15,
   "beat": 0,
   "voice": "am_michael",
-  "start": 55.958,
-  "end": 57.36,
-  "text": "Subscribe for the next one."
+  "start": 55.399,
+  "end": 57.925,
+  "text": "Subscribe, and comment what we should explain next."
  }
 ]

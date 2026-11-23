@@ -93,39 +93,39 @@ Shortened after the first real voice ran 67.3 s (`mistakes.md`): 155 words, sect
 
 | # | Film time (s) | Spoken | ON SCREEN | Purpose |
 |---|---|---|---|---|
-| 0 | 0.0-~1.4 | "Prompt caching:" | Full-screen title card from frame 0, no fade: small off-white "LEARN", huge amber "PROMPT CACHING", tilted red "IN 60 SECONDS"; corner tag on | hook: topic first (L14) |
-| 1 | (voice) | "you think your 100-page PDF" | Close: the thick PDF stack, label "PDF · 100 PAGES"; pages riffle (the old shot 2 drawing) | hook: the document |
-| 2 | (voice) | "costs you once," | The mascot at the desk, one coin leaves his hand toward the AI (the old shot 1 drawing) | hook: the belief |
-| 3 | (voice) | "but without it, 30 questions" | Wide desk: the mascot hands question cards Q1, Q2, Q3 ... to the AI; a counter "Q1 ... Q30" runs (the old shot 4 drawing) | hook: the counted example |
-| 4 | (voice) | "actually cost you full price" | The meter "PDF READS PAID" eases in and climbs fast, amber; tag "FULL PRICE" | hook: the real cost |
-| 5 | (voice) | "30 times." | The meter lands on "x30"; the stack copies itself into a tall pile (the old shot 3 end) | hook: the number |
-| 6 | (voice) | "Here's why." | Wide desk with the meter at 0; lower card "1 PDF · 30 QUESTIONS" | turn (by 10 s) |
-| 7 | 10.5-11.5 | "Without caching," | Amber tab "BEFORE"; the same desk, meter at 0 | before: your scene |
-| 8 | 11.5-14.4 | "it's a student re-reading the whole book per question." | The AI in a small student cap flips through the whole thick book, pages flying; label "EVERY QUESTION: ALL 100 PAGES" | before: the story |
-| 9 | 14.4-17.6 | "Question one: all 100 pages, full price." | Card "Q1" goes in; the whole PDF stack slides into the AI's screen; the meter fills to 1; tag "FULL PRICE" | before: one |
-| 10 | 17.6-19.3 | "Question two: all again." | Card "Q2"; the whole stack slides in again; the meter to 2 | before: again |
-| 11 | 19.3-20.6 | "By question thirty:" | Cards Q3 ... Q30 fly in fast, the stack slides in each time; the meter races up | before: it adds up |
-| 12 | 20.6-22.2 | "paid thirty times." | The meter full at "30", amber; label "30 PDFs PAID"; a tall pile of 30 stacks behind the AI | before: the pain, counted |
-| 13 | 22.2-23.5 | "With prompt caching," | Teal tab "NOW"; the same desk, meter back at 0 (teal) | now: same scene |
-| 14 | 23.5-25.6 | "question one pays a quarter more, by default," | Card "Q1"; the whole stack slides into the AI's screen once; the meter fills to 1 (whole numbers on screen, L31) (the +25% is the tag, not a number on the meter); tag "+25% · FIRST QUESTION · DEFAULT" | now: the first read and its price |
-| 15 | 25.6-27.2 | "to save its work." | A teal box "SAVED WORK" appears on the AI's screen beside the PDF, glowing | now: the saved work |
-| 16 | 27.2-29.0 | "Questions two to thirty reuse that work" | Cards Q2 ... Q30 stream in; each touches the "SAVED WORK" box, which pulses; no stack slides in; the meter barely moves | now: reuse |
-| 17 | 29.0-31.2 | "for about a tenth on most models," | Each card adds a thin sliver to the meter; tag "ABOUT 1/10 EACH · MOST MODELS"; the meter stops at "4" (whole numbers, L31) | now: the meter barely moves |
-| 18 | 31.2-33.2 | "and usually answer sooner." | An answer bubble pops back right after a card goes in; small label "USUALLY STARTS SOONER" | now: the wait |
-| 19 | 33.2-35.9 | "How? The document goes first," | Diagram starts, title "HOW IT WORKS": request row 1 = a long block "PDF · 100 PAGES" then a short block "Q1"; the PDF block highlighted, an arrow "FIRST" | how: the diagram, piece 1 |
-| 20 | 35.9-37.3 | "the same every time;" | Rows 2 and 3 grow under it: the same PDF block, then "Q2", "Q3"; "=" marks between the PDF blocks; label "EXACTLY THE SAME"; row 1's PDF block turns teal "SAVED WORK", rows 2-3's turn teal "REUSED" | how: piece 2, the same start reused |
-| 21 | 37.3-39.4 | "only the new question is read fresh." | Highlight moves to the Q blocks, amber, tag "NEW: READ FRESH" | how: piece 3, highlight moves |
-| 22 | 39.4-44.0 | "OpenAI's math: ten requests cost just over two full reads, not ten." | Chart "10 REQUESTS": amber bar "WITHOUT CACHING 10x", teal bar "WITH CACHING ABOUT 2x"; small source line "OpenAI docs · GPT-5.6+, most models · reads at 1/10" | proof: the maker's number |
-| 23 | 44.0-46.0 | "Ours for thirty: about four." | The same chart grows a second pair "30 QUESTIONS · OUR MATH · PDF PART": amber "30", teal "ABOUT 4"; small line (no formula on screen, L31) | proof: our example |
-| 24 | 46.0-49.1 | "That's how you stop paying full price thirty times." | Side by side: left "BEFORE" the meter at 30 (amber), right "NOW" the meter at about 4 (teal), the same desk; label "SAME 30 QUESTIONS" | payoff (said out loud) |
-| 25 | 49.1-51.0 | "The catch: on Claude," | Card "THE CATCH" and tag "CLAUDE · DEFAULT" | catch |
-| 26 | 51.0-54.1 | "unused saved work can fade after five minutes, by default." | The "SAVED WORK" box with a clock "5:00" running down and the box fading; small lines "AT LEAST 5 MIN" and "EACH USE RESTARTS THE CLOCK" | catch: the limit |
-| 27 | 54.1-56.6 | "Same book: read once, reuse the work." | The desk, warm light, the PDF with its teal "SAVED WORK" box and the meter near 4; takeaway card: line 1 off-white "Same book:", line 2 amber "read once, reuse the work." | close: takeaway |
-| 28 | 56.6-60.0 | "Subscribe for the next one." | The mascot waves; red Subscribe button eases in and pulses; nothing under it (L24); short fade with the corner tag drawn over it | close: one ask |
+| 0 | 0.0-1.5 | "Prompt caching:" | Full-screen title card from frame 0, no fade: small off-white "LEARN", huge amber "PROMPT CACHING", tilted red "IN 60 SECONDS"; corner tag on | hook: topic first (L14) |
+| 1 | 1.5-3.5 | "you think your 100-page PDF" | Close: the thick PDF stack, label "PDF · 100 PAGES"; pages riffle (the old shot 2 drawing) | hook: the document |
+| 2 | 3.5-4.6 | "costs you once," | The mascot at the desk, one coin leaves his hand toward the AI (the old shot 1 drawing) | hook: the belief |
+| 3 | 4.6-6.4 | "but without it, 30 questions" | Wide desk: the mascot hands question cards Q1, Q2, Q3 ... to the AI; a counter "Q1 ... Q30" runs (the old shot 4 drawing) | hook: the counted example |
+| 4 | 6.4-8.0 | "actually cost you full price" | The meter "PDF READS PAID" eases in and climbs fast, amber; tag "FULL PRICE" | hook: the real cost |
+| 5 | 8.0-9.3 | "30 times." | The meter lands on "x30"; the stack copies itself into a tall pile (the old shot 3 end) | hook: the number |
+| 6 | 9.3-10.3 | "Here's why." | Wide desk with the meter at 0; lower card "1 PDF · 30 QUESTIONS" | turn (by 10 s) |
+| 7 | 10.3-11.1 | "Without caching," | Amber tab "BEFORE"; the same desk, meter at 0 | before: your scene |
+| 8 | 11.1-14.2 | "it's a student re-reading the whole book per question." | The AI in a small student cap flips through the whole thick book, pages flying; label "EVERY QUESTION: ALL 100 PAGES" | before: the story |
+| 9 | 14.2-17.4 | "Question one: all 100 pages, full price." | Card "Q1" goes in; the whole PDF stack slides into the AI's screen; the meter fills to 1; tag "FULL PRICE" | before: one |
+| 10 | 17.4-19.1 | "Question two: all again." | Card "Q2"; the whole stack slides in again; the meter to 2 | before: again |
+| 11 | 19.1-20.3 | "By question thirty:" | Cards Q3 ... Q30 fly in fast, the stack slides in each time; the meter races up | before: it adds up |
+| 12 | 20.3-22.0 | "paid thirty times." | The meter full at "30", amber; label "30 PDFs PAID"; a tall pile of 30 stacks behind the AI | before: the pain, counted |
+| 13 | 22.0-23.1 | "With prompt caching," | Teal tab "NOW"; the same desk, meter back at 0 (teal) | now: same scene |
+| 14 | 23.1-25.7 | "question one pays a quarter more, by default," | Card "Q1"; the whole stack slides into the AI's screen once; the meter fills to 1 (whole numbers on screen, L31) (the +25% is the tag, not a number on the meter); tag "+25% · FIRST QUESTION · DEFAULT" | now: the first read and its price |
+| 15 | 25.7-26.9 | "to save its work." | A teal box "SAVED WORK" appears on the AI's screen beside the PDF, glowing | now: the saved work |
+| 16 | 26.9-29.1 | "Questions two to thirty reuse that work" | Cards Q2 ... Q30 stream in; each touches the "SAVED WORK" box, which pulses; no stack slides in; the meter barely moves | now: reuse |
+| 17 | 29.1-30.4 | "for about a tenth on most models," | Each card adds a thin sliver to the meter; tag "ABOUT 1/10 EACH · MOST MODELS"; the meter stops at "4" (whole numbers, L31) | now: the meter barely moves |
+| 18 | 30.4-31.4 | (the end of "on most models.", about 1 s, no new words) | An answer bubble pops back right after a card goes in; the "ABOUT 1/10 EACH · MOST MODELS" tag stays on. The label "USUALLY STARTS SOONER" is dropped: the voice no longer says it and a 1 s shot cannot ease a second card in over 0.5 s (L23) | now: the wait |
+| 19 | 31.4-33.6 | "How? The document goes first," | Diagram starts, title "HOW IT WORKS": request row 1 = a long block "PDF · 100 PAGES" then a short block "Q1"; the PDF block highlighted, an arrow "FIRST" | how: the diagram, piece 1 |
+| 20 | 33.6-34.9 | "the same every time;" | Rows 2 and 3 grow under it: the same PDF block, then "Q2", "Q3"; "=" marks between the PDF blocks; label "EXACTLY THE SAME"; row 1's PDF block turns teal "SAVED WORK", rows 2-3's turn teal "REUSED" | how: piece 2, the same start reused |
+| 21 | 34.9-37.6 | "only the new question is read fresh." | Highlight moves to the Q blocks, amber, tag "NEW: READ FRESH" | how: piece 3, highlight moves |
+| 22 | 37.6-42.2 | "OpenAI's math: ten requests cost just over two full reads, not ten." | Chart "10 REQUESTS": amber bar "WITHOUT CACHING 10x", teal bar "WITH CACHING ABOUT 2x"; small source line "OpenAI docs · GPT-5.6+, most models · reads at 1/10" | proof: the maker's number |
+| 23 | 42.2-44.4 | "Ours for thirty: about four." | The same chart grows a second pair "30 QUESTIONS · OUR MATH · PDF PART": amber "30", teal "ABOUT 4"; small line (no formula on screen, L31) | proof: our example |
+| 24 | 44.4-45.7 | "The catch: on Claude," | Card "THE CATCH" and tag "CLAUDE · DEFAULT" (the old shot 25 drawing) | catch |
+| 25 | 45.7-49.4 | "unused saved work can fade after five minutes, by default." | The "SAVED WORK" box with the clock running down and the box fading; "AT LEAST 5 MIN" (the old shot 26 drawing) | catch: the limit |
+| 26 | 49.4-51.9 | "So, what we learned: keep the document first," | Side by side: left "BEFORE" the meter at 30 (amber), right "NOW" the meter at 4 (teal), the same desk; label "SAME 30 QUESTIONS"; top card "WHAT WE LEARNED" (the old shot 24 drawing plus the card) | close: the conclusion |
+| 27 | 51.9-54.7 | "and it's fully read once, not thirty times." | The desk, warm light, the PDF with its teal "SAVED WORK" box and the meter at 4; takeaway card: line 1 off-white "READ ONCE,", line 2 amber "NOT 30 TIMES" (the old shot 27 drawing, new words) | close: the takeaway, the promise delivered out loud |
+| 28 | 54.7-60.0 | "Want more? Subscribe, and comment what we should explain next." | The mascot waves; red Subscribe button eases in and pulses; beside it a speech-bubble button "COMMENT: WHAT NEXT?"; short fade with the corner tag drawn over it | close: the ask (subscribe + comment, owner 2026-11-23, L32) |
 
 ## On-screen words and their sources
 "PROMPT CACHING": both makers' page titles. "PDF · 100 PAGES", "Q1 ... Q30", "1 PDF · 30 QUESTIONS": the episode's counted example (an invented example inside the makers' use case "embedding the entire document(s) into the prompt, and letting users ask it questions", `research.md` row 2).
 "PDF READS PAID", "x30", "30 PDFs PAID", "FULL PRICE", "EVERY QUESTION: ALL 100 PAGES": `research.md`, Before (every request processes and bills the whole prefix again; OpenAI "10x without caching").
-"+25% · FIRST QUESTION · DEFAULT": row 7 (default lifetime; `claims.md` row 3). "ABOUT 1/10 EACH · MOST MODELS", "4" on the meter, "ABOUT 4" on the chart: rows 6 and 9. "SAVED WORK", "REUSED": row 3. "USUALLY STARTS SOONER": row 11. "FIRST", "EXACTLY THE SAME": row 5. "NEW: READ FRESH": rows 3 and 16.
+"+25% · FIRST QUESTION · DEFAULT": row 7 (default lifetime; `claims.md` row 3). "ABOUT 1/10 EACH · MOST MODELS", "4" on the meter, "ABOUT 4" on the chart: rows 6 and 9. "SAVED WORK", "REUSED": row 3. ("USUALLY STARTS SOONER" is no longer on screen: row 11, dropped with the spoken "and usually answer sooner".) "FIRST", "EXACTLY THE SAME": row 5. "NEW: READ FRESH": rows 3 and 16.
 "10 REQUESTS", "10x", "ABOUT 2x", "OpenAI docs · GPT-5.6+, most models · reads at 1/10": row 8 (owner fix: whole numbers, L31). "30 QUESTIONS · OUR MATH · PDF PART": row 9 (the 1.25 + 29 x 0.1 math is in the description). "CLAUDE · DEFAULT", "5:00", "AT LEAST 5 MIN", "EACH USE RESTARTS THE CLOCK": row 12 and Claude "Cached prefixes automatically expire after a minimum of 5 minutes of inactivity."
 The desk, the student cap, the coin, the book and the pile of stacks are invented pictures inside the example (said in the description).

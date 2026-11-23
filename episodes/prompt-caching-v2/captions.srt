@@ -12,7 +12,7 @@ Without caching, it's a student re-reading the whole book per question.
 
 4
 00:00:14,198 --> 00:00:17,083
-Question one: all one hundred pages, full price.
+Question one: all 100 pages, full price.
 
 5
 00:00:17,383 --> 00:00:18,807
@@ -27,37 +27,37 @@ By question thirty: paid thirty times.
 With prompt caching, question one pays a quarter more, by default, to save its work.
 
 8
-00:00:26,949 --> 00:00:32,499
-Questions two to thirty reuse that work for about a tenth on most models, and usually answer sooner.
+00:00:26,949 --> 00:00:30,939
+Questions two to thirty reuse that work for about a tenth on most models.
 
 9
-00:00:32,999 --> 00:00:33,434
+00:00:31,439 --> 00:00:31,874
 How?
 
 10
-00:00:33,734 --> 00:00:38,662
+00:00:32,174 --> 00:00:37,103
 The document goes first, the same every time; only the new question is read fresh.
 
 11
-00:00:39,162 --> 00:00:43,471
+00:00:37,603 --> 00:00:41,911
 OpenAI's math: ten requests cost just over two full reads, not ten.
 
 12
-00:00:43,771 --> 00:00:45,487
+00:00:42,211 --> 00:00:43,928
 Ours for thirty: about four.
 
 13
-00:00:45,787 --> 00:00:48,315
-That's how you stop paying full price thirty times.
-
-14
-00:00:48,815 --> 00:00:53,519
+00:00:44,428 --> 00:00:49,132
 The catch: on Claude, unused saved work can fade after five minutes, by default.
 
+14
+00:00:49,432 --> 00:00:54,198
+So, what we learned: keep the document first, and it's fully read once, not thirty times.
+
 15
-00:00:53,819 --> 00:00:55,958
-Same book: read once, reuse the work.
+00:00:54,698 --> 00:00:55,399
+Want more?
 
 16
-00:00:56,258 --> 00:00:57,660
-Subscribe for the next one.
+00:00:55,699 --> 00:00:58,225
+Subscribe, and comment what we should explain next.

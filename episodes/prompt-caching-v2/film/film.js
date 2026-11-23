@@ -2,7 +2,8 @@
 // BEFORE: every question makes it read the whole PDF again, and the meter "PDF READS PAID" fills to 30. NOW: the same 30 questions, the PDF read once and its work saved; the meter stops near 4.15.
 // 60 s, 29 shots (beats.md "Shots", numbered 0-28). Voice from tts.py (vo.wav laid in at .3 s): film time = voice time + .3. Every time below is FILM seconds.
 // Hook shots 0-5 follow the hook's phrases (beats.md rows 0-5): 0 title, 1 PDF close, 2 coin at the desk, 3 Q cards, 4 meter climbs + FULL PRICE, 5 meter x30 + tall pile.
-// Places: T title, D the desk (shots 2,3,6-18,27), S the PDF close-up (1,4,5), X the request-row diagram (19-21), C the chart (22,23), P payoff split (24), K cards (25,26), M mascot big (28).
+// Places: T title, D the desk (shots 2,3,6-18,27), S the PDF close-up (1,4,5), X the request-row diagram (19-21), C the chart (22,23), K catch cards (24 THE CATCH, 25 the clock), P side by side + WHAT WE LEARNED (26), M mascot big + Subscribe + comment (28).
+// Ending (owner, 2026-11-23, L32): 24 catch card, 25 clock, 26 side by side + WHAT WE LEARNED, 27 takeaway READ ONCE / NOT 30 TIMES, 28 Subscribe + COMMENT: WHAT NEXT? Shot 18 is ~1 s at the end of line 7 (no voice of its own, no card).
 // Helpers follow episodes/claude-meetings/film/film.js. Rules: no setLineDash; every stroke setting sits inside save/restore; no Math.random.
 let t_g=0;
 const AMB='#FFC66E',TEAL='#2DB2AE',CREAM='#F8E9CC',INKC='#120A1C',RED='#E4493F',PAPER='#E9DCC2';
@@ -17,10 +18,10 @@ function impW(x,s,size){x.save();x.font=`${size}px Impact, "Arial Black", sans-s
 function scribLines(x,X0,X1,Y,seed,h=4,col='#8A7AA8'){let X=X0,k=0;x.fillStyle=col;while(X<X1-8){const len=14+((Math.sin(seed*12.9898+k*78.233)*43758.5453)%1+1)%1*46;x.fillRect(X,Y,Math.min(len,X1-X),h);X+=len+9;k++}}
 
 /* THE CLOCK: cut times of the 29 shots (film seconds) = word starts of the real voice (align.json + .3 s) minus .02 s, on frames. */
-const TS=[0,1.54,3.50,4.63,6.43,7.97,9.27,10.30,11.13,14.17,17.37,19.10,20.30,21.97,23.10,25.67,26.93,29.13,31.00,32.97,35.20,36.43,39.13,43.73,45.77,48.80,50.07,53.80,56.23];
+const TS=[0,1.54,3.50,4.63,6.43,7.97,9.27,10.30,11.13,14.17,17.37,19.10,20.30,21.97,23.10,25.67,26.93,29.13,30.43,31.43,33.64,34.87,37.58,42.19,44.41,45.69,49.41,51.85,54.68];
 const CF=TS.map(t=>Math.round(t*30)).concat([1800]);
 const ST=i=>CF[i]/30,inS=(t,a,b)=>t>=ST(a)&&t<ST(b),out=i=>ST(i)-.32;
-const PLACE='TSDDSSDDDDDDDDDDDDDXXXCCPKKDM'; /* one letter per shot 0-28 (sound only) */
+const PLACE='TSDDSSDDDDDDDDDDDDDXXXCCKKPDM'; /* one letter per shot 0-28 (sound only) */
 
 // ---------- the cast ----------
 const CLB={skin:'#187E86',cloth:'#2A6F7A',hood:'#1A4D5A',hand:'#BFF2EE',face:'#16243C',leg:'#1A4D5A',shoe:'#17141F',finger:'#16243C'};
@@ -101,7 +102,7 @@ function drawDesk(t,sh,cam){const x=layer('board',cam),u=t-ST(sh),s=deskState(sh
  if(sh==11){for(let k=0;k<10;k++)flyCard(x,t,ST(11)+.02+k*.11,3+k*3,.3);for(let k=0;k<5;k++)ghost(x,t,ST(11)+.05+k*.22,.4)}
  if(sh==14){flyCard(x,t,ST(14)+.15,1,.45);ghost(x,t,ST(14)+.55,.9)}
  if(sh==16){for(let k=0;k<29;k++)flyCard(x,t,ST(16)+.1+k*.07,2+k,.33,[AXp-110,700])}
- if(sh==18){flyCard(x,t,ST(18)+.1,7,.4,[AXp-110,700]);const b=fin(t,ST(18)+.7,.5);if(b>0)bubbleLines(x,780,300,420,150,[1130,420],b)}
+ if(sh==18){flyCard(x,t,ST(18)+.0,7,.35,[AXp-110,700]);const b=fin(t,ST(18)+.35,.5);if(b>0)bubbleLines(x,780,300,420,150,[1130,420],b)}
  if(sh==27){}
  comp([['board',0]])}
 function bubbleLines(x,cx,cy,w,h,tip,u){x.save();x.translate(cx,cy);const sc=.85+.15*u;x.scale(sc,sc);x.translate(-cx,-cy);x.globalAlpha*=u;x.fillStyle=CREAM;x.strokeStyle=INKC;x.lineWidth=5;x.lineJoin='round';
@@ -163,22 +164,27 @@ function drawC(t,sh,cam){const x=layer('board',cam);bgDusk(x,.2,960,600);
   if(a2>.05)imp(x,'30',1230,BASE-CH*a2-44,76,AMB);if(b2>.05)imp(x,'ABOUT 4',1550,BASE-CH*(4.15/30)*b2-44,70,TEAL);}
  comp([['board',0]])}
 
-// ---------- the payoff split (shot 24) ----------
-function miniScene(x,l,tp,sc,t,o){x.save();x.beginPath();x.rect(l,tp,W*sc,H*sc);x.clip();x.translate(l,tp);x.scale(sc,sc);o.mini=true;deskWorld(x,t,o);x.restore();rr(x,l,tp,W*sc,H*sc,0,null,INKC,4)}
-function drawP(t,cam){const x=layer('board',cam);bgDusk(x,.2,960,560);const T=ST(24),a=fin(t,T+.05,.5),b=fin(t,T+.3,.5);
+// ---------- side by side + WHAT WE LEARNED (shot 26) ----------
+// drawn offscreen, then composited, so everything in it (the figures too) fades with the panel's alpha
+const MINI=document.createElement('canvas');MINI.width=W;MINI.height=H;
+function miniScene(x,l,tp,sc,t,o){const m=MINI.getContext('2d');m.setTransform(1,0,0,1,0,0);m.globalAlpha=1;m.clearRect(0,0,W,H);o.mini=true;deskWorld(m,t,o);
+ x.save();x.drawImage(MINI,l,tp,W*sc,H*sc);x.restore();rr(x,l,tp,W*sc,H*sc,0,null,INKC,4)}
+function drawP(t,cam){const x=layer('board',cam);bgDusk(x,.2,960,560);const T=ST(26),a=fin(t,T+.05,.5),b=fin(t,T+.3,.5);
  x.save();x.globalAlpha=a;rr(x,90,250,840,540,30,'#2A1F42',AMB,6);x.restore();x.save();x.globalAlpha=b;rr(x,990,250,840,540,30,'#2A1F42',TEAL,6);x.restore();
  x.save();x.globalAlpha=a;pill(x,300,300,200,56,AMB);txt(x,'BEFORE',300,303,34,'#1B1430','center','900');x.restore();
  x.save();x.globalAlpha=b;pill(x,1200,300,150,56,TEAL);txt(x,'NOW',1200,303,34,'#1B1430','center','900');x.restore();
  x.save();x.globalAlpha=a;miniScene(x,115,380,.3,t,{stack:true,pile:1,pileT0:-9,warm:.3});x.restore();
  x.save();x.globalAlpha=b;miniScene(x,1015,380,.3,t,{stack:true,box:1,smile:true,warm:.3});x.restore();
  meterBox(x,115+576+30,285,.58,30,AMB,a,false);meterBox(x,1015+576+30,285,.58,4.15,TEAL,b,false);
+ // top card WHAT WE LEARNED: sized from measureText, 90 px from the top edge, clear of the corner tag and 40 px above the panels
+ {const S='WHAT WE LEARNED',fs=84,w=impW(x,S,fs)+120,c=fin(t,T+.1,.6);if(c>0){x.save();x.translate(960,150);x.scale(.88+.12*c,.88+.12*c);x.globalAlpha=c;rr(x,-w/2,-60,w,120,40,'#2A1F42',AMB,6);imp(x,S,0,6,fs,AMB);x.restore()}}
  comp([['board',0]])}
 
-// ---------- the catch (shots 25, 26) ----------
+// ---------- the catch (shots 24 card, 25 clock) ----------
 function drawK(t,sh,cam){const x=layer('board',cam);bgDusk(x,.18,960,560);const T=ST(sh);
- if(sh==25){const c=fin(t,T+.1,.6);x.save();x.translate(960,430);x.scale(.85+.15*c,.85+.15*c);x.globalAlpha=c;rr(x,-640,-170,1280,340,60,'#2A1F42',AMB,8);imp(x,'THE CATCH',0,6,176,AMB);x.restore();
-  tagP(x,960,720,'CLAUDE · DEFAULT',TEAL,fin(t,T+.9,.55),58)}
- if(sh==26){const e=fin(t,T+.1,.6),p=seg(t,T+1.1,T+3.2),bx=lerp(1,.35,ease(p)),secs=Math.round(300*(1-p)),tm=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');
+ if(sh==24){const c=fin(t,T+.1,.6);x.save();x.translate(960,430);x.scale(.85+.15*c,.85+.15*c);x.globalAlpha=c;rr(x,-640,-170,1280,340,60,'#2A1F42',AMB,8);imp(x,'THE CATCH',0,6,176,AMB);x.restore();
+  tagP(x,960,720,'CLAUDE · DEFAULT',TEAL,fin(t,T+.6,.55),58)}
+ if(sh==25){const e=fin(t,T+.1,.6),p=seg(t,T+1.1,T+3.2),bx=lerp(1,.35,ease(p)),secs=Math.round(300*(1-p)),tm=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0');
   x.save();x.translate(650,480);x.scale(.88+.12*e,.88+.12*e);x.globalAlpha=e*bx;
   let g=x.createRadialGradient(0,0,40,0,0,520);g.addColorStop(0,'rgba(45,178,174,.4)');g.addColorStop(1,'rgba(45,178,174,0)');x.fillStyle=g;x.fillRect(-600,-300,1200,600);
   rr(x,-450,-190,900,380,34,'#0E3A44',TEAL,8);imp(x,'SAVED WORK',0,-95,84,'#BFF2EE');x.restore();
@@ -196,8 +202,14 @@ function drawMascot(t,sh,cam){const x=layer('board',cam);bgDusk(x,.35,620,560);
  const p={x:620,y:720,s:1.85,face:1,breath:t*2.2,noLegs:true,blink:blinkAt(t,BL),hands:{},showH:{},look:.05,lookY:0,brow:.45,mouth:.95,mouthW:30,tilt:.05};
  p.hands.r=[170+Math.sin(t*9)*12,-30+Math.sin(t*9)*36];p.showH.r=true;
  actor(x,'hero',HERO,p,cam);reading(x,p);
- const T0=ST(28)+.1,c=fin(t,T0,.55),pulse=1+.035*Math.sin((t-T0)*7);x.save();x.translate(1430,560);const sc=lerp(.7,1,c)*pulse;x.scale(sc,sc);x.globalAlpha=c;
+ const T0=ST(28)+.1,c=fin(t,T0,.55),pulse=1+.035*Math.sin((t-T0)*7);x.save();x.translate(1430,430);const sc=lerp(.7,1,c)*pulse;x.scale(sc,sc);x.globalAlpha=c;
  x.fillStyle=INKC;x.beginPath();x.roundRect(-300,-80,600,160,80);x.fill();pill(x,0,0,580,142,RED);x.fillStyle=CREAM;x.beginPath();x.moveTo(-235,-34);x.lineTo(-235,34);x.lineTo(-177,0);x.closePath();x.fill();txt(x,'Subscribe',60,5,78,CREAM,'center','800');x.restore();
+ // the comment button (speech bubble, amber, tail toward the mascot): same easing as Subscribe, eases in on the word "comment"; sized from measureText, clear of the bottom-right corner
+ {const S='COMMENT: WHAT NEXT?',fs=50,w=txt_w(x,S,fs,'900')+110,h=150,C0=ST(28)+1.7,cc=fin(t,C0,.55),pu=1+.035*Math.sin((t-C0)*7);
+  if(cc>0){x.save();x.translate(1430,700);const k=lerp(.7,1,cc)*pu;x.scale(k,k);x.globalAlpha=cc;
+   x.lineJoin='round';x.fillStyle=AMB;x.strokeStyle=INKC;x.lineWidth=8;x.beginPath();x.roundRect(-w/2,-h/2,w,h,h/2);x.fill();x.stroke();
+   x.beginPath();x.moveTo(-w/2+90,h/2-4);x.lineTo(-w/2+30,h/2+52);x.lineTo(-w/2+160,h/2-4);x.closePath();x.fill();x.stroke();x.fillRect(-w/2+98,h/2-12,54,14);
+   txt(x,S,0,4,fs,'#1B1430','center','900');x.restore()}}
  // no "Next" line: no next episode is decided (owner, 2026-11-23, lesson L24)
  comp([['board',0]])}
 
@@ -211,10 +223,10 @@ function meterBox(x,l,tp,k,v,col,a=1,title=true){if(a<=0)return;x.save();x.globa
  for(const n of [0,10,20,30]){const y=bot-ph*n/30;x.fillStyle='#C9B8E0';x.fillRect(tl-18*k,y-2*k,18*k,4*k);txt(x,String(n),tl-26*k,y,28*k,'#C9B8E0','right','900')}
  const fh=ph*clamp(v/30);if(fh>.5){x.save();x.beginPath();x.roundRect(tl,top,tw,ph,12*k);x.clip();x.fillStyle=col;x.fillRect(tl,bot-fh,tw,fh);x.fillStyle='rgba(255,255,255,.28)';x.fillRect(tl,bot-fh,tw,Math.min(6*k,fh));x.restore()}
  x.restore()}
-const MK=[[ST(4)+.05,0],[ST(5),21],[ST(5)+.55,30],[ST(6)+.02,30],[ST(6)+.55,0],[ST(9)+1.3,0],[ST(9)+2.0,1],[ST(10)+.8,1],[ST(10)+1.4,2],[ST(11),2],[ST(12),27],[ST(12)+.8,30],[ST(13),30],[ST(13)+.5,0],[ST(14)+.3,0],[ST(14)+.9,1],[ST(14)+1.2,1],[ST(14)+1.55,1.25],[ST(16)+.1,1.25],[ST(17),2.6],[ST(17)+1.7,4.15]];
+const MK=[[ST(4)+.05,0],[ST(5),21],[ST(5)+.55,30],[ST(6)+.02,30],[ST(6)+.55,0],[ST(9)+1.3,0],[ST(9)+2.0,1],[ST(10)+.8,1],[ST(10)+1.4,2],[ST(11),2],[ST(12),27],[ST(12)+.8,30],[ST(13),30],[ST(13)+.5,0],[ST(14)+.3,0],[ST(14)+.9,1],[ST(14)+1.2,1],[ST(14)+1.55,1.25],[ST(16)+.1,1.25],[ST(17),2.6],[ST(17)+1.1,4.15]];
 function meterOverlay(t,sh){if(!((sh>=4&&sh<=18)||sh==27))return;const a=sh==4?fin(t,ST(4),.5):1,col=t<ST(13)+.5&&sh<19?AMB:TEAL;meterBox(ctx,1560,170,1,sh==27?4.15:kf(t,MK),col,a)}
 /* a sliver for every card: small teal chips fly from the SAVED WORK box to the meter (shot 17) */
-function slivers(t){if(!inS(t,17,18))return;const f=kf(t,MK);for(let k=0;k<9;k++){const u=(t-(ST(17)+.1+k*.17))/.5;if(u<0||u>1)continue;const e=ease(u);const X=lerp(1360,1723,e),Y=lerp(700,890-460*clamp(f/30),e)-Math.sin(Math.PI*e)*90;ctx.save();ctx.globalAlpha=Math.min(1,u*6)*Math.min(1,(1-u)*5);ctx.fillStyle=TEAL;ctx.strokeStyle=INKC;ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(X-20,Y-6,40,12,5);ctx.fill();ctx.stroke();ctx.restore()}}
+function slivers(t){if(!inS(t,17,18))return;const f=kf(t,MK);for(let k=0;k<9;k++){const u=(t-(ST(17)+.1+k*.08))/.45;if(u<0||u>1)continue;const e=ease(u);const X=lerp(1360,1723,e),Y=lerp(700,890-460*clamp(f/30),e)-Math.sin(Math.PI*e)*90;ctx.save();ctx.globalAlpha=Math.min(1,u*6)*Math.min(1,(1-u)*5);ctx.fillStyle=TEAL;ctx.strokeStyle=INKC;ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(X-20,Y-6,40,12,5);ctx.fill();ctx.stroke();ctx.restore()}}
 
 // ---------- words on screen (screen space) ----------
 function card(t,a,b,X,y,s,col,size){const v=fin(t,a,.5)*(b?1-fin(t,b,.3):1);if(v<=0)return;ctx.save();ctx.font=`800 ${size}px Arial`;const w=ctx.measureText(s).width+size*2.2;ctx.translate(X,y);ctx.scale(.9+.1*v,.9+.1*v);ctx.translate(-X,-y);pill(ctx,X,y,w,size*2.2,'rgba(27,20,48,.88)',v);txt(ctx,s,X,y+2,size,col,'center','800',v);ctx.restore()}
@@ -248,16 +260,16 @@ function overlay(t,sh){ctx.setTransform(1,0,0,1,0,0);
  card(t,ST(9)+2.0,out(10),LX,LY,'FULL PRICE',AMB,50);
  card(t,ST(12)+.3,out(13),LX,LY,'30 PDFs PAID',AMB,50);
  card(t,ST(14)+.9,out(15),LX,LY,'+25% · FIRST QUESTION · DEFAULT',TEAL,42);
- card(t,ST(17)+.2,out(18),LX,LY,'ABOUT 1/10 EACH · MOST MODELS',TEAL,44);
- card(t,ST(18)+.5,out(19),LX,LY,'USUALLY STARTS SOONER',TEAL,46);
- card(t,ST(24)+.8,out(25),960,890,'SAME 30 QUESTIONS',CREAM,52);
+ card(t,ST(17)+.2,out(19),LX,LY,'ABOUT 1/10 EACH · MOST MODELS',TEAL,44); /* held through shot 18 (no voice, no card of its own) */
+ card(t,ST(26)+.8,out(27),960,890,'SAME 30 QUESTIONS',CREAM,52);
  if(inS(t,27,28)){const fo=1-fin(t,out(28),.3),dm=fin(t,ST(27)+.15,.5);ctx.save();ctx.globalAlpha=.22*dm;ctx.fillStyle='#0C0614';ctx.fillRect(0,0,W,H);ctx.restore();
-  const v=fin(t,ST(27)+.1,.5)*fo;if(v>0){ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.92)';ctx.beginPath();ctx.roundRect(W/2-550,108,1100,175,40);ctx.fill();ctx.restore();
-   txt(ctx,'Same book:',W/2,158,66,CREAM,'center','800',v);txt(ctx,'read once, reuse the work.',W/2,232,62,AMB,'center','800',fin(t,ST(27)+.6,.5)*fo)}}}
+  const v=fin(t,ST(27)+.1,.5)*fo;if(v>0){const S1='FULLY READ ONCE,',S2='NOT 30 TIMES',f1=78,f2=78;ctx.save();ctx.font=`800 ${f1}px Arial`;const w=Math.max(ctx.measureText(S1).width,ctx.measureText(S2).width)+140;ctx.restore();
+   ctx.save();ctx.globalAlpha=v;ctx.fillStyle='rgba(27,20,48,.92)';ctx.beginPath();ctx.roundRect(W/2-w/2,100,w,190,40);ctx.fill();ctx.restore();
+   txt(ctx,S1,W/2,153,f1,CREAM,'center','800',v);txt(ctx,S2,W/2,236,f2,AMB,'center','800',fin(t,ST(27)+.6,.5)*fo)}}}
 
 // ---------- cameras: a slow push on the flat board ----------
 const E=u=>ease(u),push=(a=1,b=1.04)=>u=>({x:960,y:540,z:lerp(a,b,E(u)),b:[0,0,0]});
-const CAM=[()=>({})].concat(Array.from({length:28},()=>push()));CAM[25]=push(1,1.08);CAM[26]=push(1,1.06);CAM[1]=push(1,1.08);CAM[19]=push(1,1.03);CAM[20]=push(1,1.03);CAM[21]=push(1,1.03);CAM[22]=push(1,1.1);CAM[23]=push(1,1.03);
+const CAM=[()=>({})].concat(Array.from({length:28},()=>push()));CAM[24]=push(1,1.08);CAM[25]=push(1,1.06);CAM[1]=push(1,1.08);CAM[19]=push(1,1.08);CAM[20]=push(1,1.03);CAM[21]=push(1,1.03);CAM[22]=push(1,1.1);CAM[23]=push(1,1.03);
 FILM={dur:60,cuts:CF,fadeIn:0,fadeOut:0,
  cam(s,u,t){return CAM[s](u,t)},
  draw(t,cam,s){const o=t+1e-6;t_g=o;
@@ -267,7 +279,7 @@ FILM={dur:60,cuts:CF,fadeIn:0,fadeOut:0,
 // ---------- sound events (the mix is in audio_mix.py): a soft brush on every cut, pops on cards and labels, page sounds ----------
 for(let i=1;i<CF.length-1;i++)say(ST(i),PLACE[i]!=PLACE[i-1]?'cut':'cut2');
 for(let k=0;k<30;k+=3)say(ST(3)+.05+k*.042+.35,'tick');
-for(const t of [ST(2)+.5,ST(2)+1.1,ST(9)+.55,ST(10)+.5,ST(14)+.55,ST(14)+1.55,ST(18)+.5,ST(19)+.2,ST(19)+1.0,ST(20)+.1,ST(20)+.35,ST(20)+.8,ST(21)+.1,ST(22)+.9,ST(22)+2.3,ST(23)+.4,ST(23)+.9,ST(25)+.1,ST(25)+.9,ST(26)+.1,ST(26)+1.5,ST(26)+2.2,ST(27)+.1,ST(28)+.1,ST(4)+.3,ST(6)+.3,ST(8)+.5,ST(9)+2.0,ST(12)+.3,ST(14)+.9,ST(17)+.2,ST(18)+.5,ST(24)+.8,ST(4)+.1])say(t,'tick');
+for(const t of [ST(2)+.5,ST(2)+1.1,ST(9)+.55,ST(10)+.5,ST(14)+.55,ST(14)+1.55,ST(18)+.35,ST(19)+.2,ST(19)+1.0,ST(20)+.1,ST(20)+.35,ST(20)+.8,ST(21)+.1,ST(22)+.9,ST(22)+2.3,ST(23)+.4,ST(23)+.9,ST(24)+.1,ST(24)+.6,ST(25)+.1,ST(25)+1.5,ST(25)+2.2,ST(26)+.1,ST(27)+.1,ST(28)+.1,ST(4)+.3,ST(6)+.3,ST(8)+.5,ST(9)+2.0,ST(12)+.3,ST(14)+.9,ST(17)+.2,ST(26)+.8,ST(4)+.1,ST(28)+1.7])say(t,'tick');
 for(const t of [ST(1)+.2,ST(1)+.7,ST(1)+1.2,ST(8)+.2,ST(8)+.8,ST(8)+1.4,ST(8)+2.0])say(t,'paper');
 for(const t of [ST(9)+.7,ST(10)+.45,ST(14)+.55,ST(11)+.05,ST(11)+.5,ST(11)+.95,ST(16)+.1,ST(16)+1.0,ST(12)+.3,ST(4)+.3,ST(4)+.7,ST(5)+.2])say(t,'slide');
-say(ST(15)+.25,'stamp');say(ST(25)+.1,'stamp');
+say(ST(15)+.25,'stamp');say(ST(24)+.1,'stamp');

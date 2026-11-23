@@ -96,7 +96,8 @@ The click is decided by the title and thumbnail together, and the first seconds 
   (each highlight move or new piece counts as a new shot for lesson L1); the proof is the maker's own number, then one bigger-scale example if the sources give one.
   The look stays ours (`docs/brand.md`): patterns from other channels, never their look.
 - **Payoff:** deliver what the hook promised, out loud, and say you are delivering it.
-- **Close:** the takeaway tied to the story, then one ask ("Subscribe for the next one.").
+- **Close (owner, lesson L32):** a conclusion that starts "So, what we learned:" and restates the before -> after on the counted example in one sentence
+  (this is also the payoff, said out loud), then the ask: "Want more? Subscribe, and comment what we should explain next." On screen: a "WHAT WE LEARNED" card, then the Subscribe button with a comment button.
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
 - **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 170 words, so the voice fits in 60 s at speed 1.2.
