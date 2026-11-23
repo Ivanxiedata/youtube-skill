@@ -42,6 +42,13 @@ No mistakes is a valid file: say so. The run's learn step turns these rows into 
 Rules learned from earlier runs (the learn step adds to this list; each names its lesson).
 - `build.py` reuses existing shot files: after any timing change, re-render the moved shots or the audit fails on stale frames (L18).
 - The music-to-voice gap is measured as mixed: `audio_kit.Mix.write` scales everything but the voice by 0.55 (-5.2 dB) (L19).
+  Never measure the stems: `Mix.write` normalises each file to -17 LUFS, so stem numbers are always equal. Measure music x 0.55 against the voice, once (L19, repeated).
+- WebFetch paraphrases pages with a small model: for any sentence you quote, `curl -sL` the page and strip the HTML (L20).
+- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 170 words, counted per beat while writing (L21).
+- Lay out new drawings by measuring: cards sized from `measureText` plus padding, 40 px from the frame edge and other labels, figures anchored to the tile bottom, effects drawn after what they sit on; after every re-render, look at the re-rendered shots' stills again (L22).
+- Panels and cards ease in on scale and alpha over at least 0.5 s (the audit counts a fast fade as a pop); a shot over 2 s with little motion gets a slow camera push to about 1.1 (L23).
+- Whoever writes captions, chapters and `upload.json` reads `claims.md` first: no chapter title or description line may say more than a narrower row allows; mark each narrower row with where it was fixed (L17, repeated).
+- The Subscribe card's wording is undecided (`docs/brand.md` wants the next episode's name, `docs/workflow.md` says "Next in 60 seconds"): note it under Blockers in `progress.md` for the owner (L24).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
