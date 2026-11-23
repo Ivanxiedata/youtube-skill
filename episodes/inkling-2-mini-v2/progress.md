@@ -1,7 +1,7 @@
 # inkling-2-mini-v2 progress
 
 ## Status
-steps 1-6 done: evaluation.md says ready to publish (0 must-fix, 2 should-fix); owner review next
+published: https://youtu.be/LHCAsGTzBMg (public, 2026-11-22); next: comments at 48 h, retention at 7 days
 
 ## Next
 1. Owner (step 7): pronunciation of "Inkling", "Qwen" (voiced "Kwen") and "Gemma" is for the owner's ears (earshot does not transcribe).
@@ -29,3 +29,4 @@ none
 - 2026-11-22 daily run: steps 1-3: research.md (v1's facts re-checked + waiting narrowing), brief.json, package.md, beats.md (hook 81, 32 shots), script.md, film/script.txt (draft voice 58.1 s, 172 words).
 - 2026-11-22 daily run: steps 4-5: film.js (32 shots), voice 58.29 s, audit ISSUES 0 on the first full build, video.mp4 60.000 s -17.1 LUFS / -3.8 dBTP, 77% of cuts with a sound within 1 frame, thumbnail, captions.srt (23 cues), chapters, upload.json; step 6 (judge) next.
 - 2026-11-22 daily run: step 6: judge says ready to publish (0 must-fix, 2 should-fix); owner review next.
+- 2026-11-23 published-records: was uploaded public on 2026-11-22 from a local checkout, https://youtu.be/LHCAsGTzBMg; published.json recorded now.
