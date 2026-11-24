@@ -1,0 +1,106 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.705,
+  "text": "Copilot Autopilot: you think AI stops when you stop typing, but one goal actually keeps your ten follow-ups moving until it needs your OK."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.205,
+  "end": 9.924,
+  "text": "Here's how."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.424,
+  "end": 14.38,
+  "text": "Before, in Copilot Chat, our example: a two-week supplier review."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 14.68,
+  "end": 16.23,
+  "text": "Ten follow-ups, ten prompts."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 16.53,
+  "end": 17.952,
+  "text": "In meetings, nothing moved."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 18.452,
+  "end": 22.667,
+  "text": "Now Autopilot, rolling out to Frontier customers: you give it one goal."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 22.967,
+  "end": 26.118,
+  "text": "It sends the follow-ups on its own, in Teams and Outlook."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 26.618,
+  "end": 32.188,
+  "text": "Like a plane's autopilot: you set the course, it flies, and it can check with you before key actions."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 32.688,
+  "end": 37.225,
+  "text": "It gets its bearings from your last thirty days of mail, meetings, chats and files."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 37.725,
+  "end": 43.523,
+  "text": "It has its own Entra Agent ID, in preview, and a named manager; IT can block it anytime."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.023,
+  "end": 51.336,
+  "text": "So, what we learned: in our example, ten follow-ups took ten prompts; now one goal, and it can check with you before key actions."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.836,
+  "end": 52.539,
+  "text": "Want more?"
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.839,
+  "end": 55.369,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

@@ -1,0 +1,80 @@
+{
+ "slug": "copilot-autopilot",
+ "tech": {
+  "id": "microsoft-autopilot",
+  "name": "Microsoft Autopilot (in the Copilot app; previously Scout)",
+  "released": "introduced 2026-09-25; rolling out to Frontier customers from 2026-11-17 (Ignite)",
+  "status": "rolling out in the Frontier program (needs Microsoft Copilot, Agent 365, usage-based billing); Entra Agent ID support in preview",
+  "one_line": "An always-on personal agent you give a name and a goal; it keeps the work moving across Teams, Outlook, chats and documents without waiting for a prompt, with its own Entra Agent ID and a named manager, and it can check with you before key actions."
+ },
+ "predecessor": {
+  "id": "copilot-chat",
+  "name": "Copilot Chat: quick answers and drafts, one prompt at a time; the next step waits for your next prompt (the scene and counted example are the episode's own)"
+ },
+ "claims": [
+  {
+   "text": "Autopilot began rolling out to Frontier customers on Nov 17, 2026 (Ignite)",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Autopilot was introduced Sep 25, 2026, previously called Scout; private preview at the end of September",
+   "source": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+  },
+  {
+   "text": "A trusted autonomous agent that is personal to you, always on, and working for you",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Shows up in Teams, Outlook, chats, channels and documents; you can @mention it like a colleague",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Watches Teams channels, follows up on emails, runs recurring work and manages a project without waiting for a prompt",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Microsoft's example: sets up and manages a full supplier review (schedule, workback plan, prep, meetings, follow-ups, reaching out to stakeholders)",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Each Autopilot has its own Microsoft Entra Agent ID and a named manager; IT can scope its access and block it anytime; actions logged under its own name",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Entra Agent ID support for Autopilot is in preview",
+   "source": "https://techcommunity.microsoft.com/blog/agent-365-blog/whats-new-in-microsoft-agent-365-ignite-2026/4571753"
+  },
+  {
+   "text": "You decide what work Autopilot takes on and it can check with you before key actions",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Works within existing permissions",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  },
+  {
+   "text": "Keeps moving your work forward 24x7 (CEO keynote)",
+   "source": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+  },
+  {
+   "text": "Give it a name, a role and a goal, and it goes to work, without waiting for a prompt; keeps working while you sleep",
+   "source": "https://blogs.microsoft.com/blog/2026/09/25/introducing-the-new-copilot-with-home-code-and-autopilot/"
+  },
+  {
+   "text": "Copilot Chat is for quick answers and drafts; Cowork does one task end to end when you ask; Autopilot keeps going in the background without being asked",
+   "source": "https://www.microsoft.com/en-us/copilot/features/autopilot"
+  },
+  {
+   "text": "Rolling out in the Frontier program for customers with Microsoft Copilot, Agent 365 and a usage-based billing policy; usage-based billing with Copilot Credits; final pricing before GA",
+   "source": "https://www.microsoft.com/en-us/copilot/features/autopilot"
+  },
+  {
+   "text": "Gets oriented on the last 30 days of email, meetings, chats and files you already have access to, without sending or changing anything",
+   "source": "https://www.microsoft.com/en-us/copilot/features/autopilot"
+  },
+  {
+   "text": "Our example (invented): a 2-week supplier review with 10 follow-ups = 10 prompts in Copilot Chat vs 1 goal for Autopilot, with 2 checks you approve",
+   "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"
+  }
+ ]
+}

@@ -1,0 +1,131 @@
+1
+00:00:00,500 --> 00:00:01,730
+Copilot Autopilot:
+
+2
+00:00:01,770 --> 00:00:04,360
+you think AI stops when you stop typing,
+
+3
+00:00:04,400 --> 00:00:09,222
+but 1 goal actually keeps your 10 follow-ups moving until it needs your OK.
+
+4
+00:00:09,705 --> 00:00:10,424
+Here's how.
+
+5
+00:00:10,924 --> 00:00:12,375
+Before, in Copilot Chat,
+
+6
+00:00:12,415 --> 00:00:13,177
+our example:
+
+7
+00:00:13,217 --> 00:00:14,880
+a two-week supplier review.
+
+8
+00:00:15,180 --> 00:00:15,995
+10 follow-ups,
+
+9
+00:00:16,035 --> 00:00:16,730
+10 prompts.
+
+10
+00:00:17,030 --> 00:00:17,654
+In meetings,
+
+11
+00:00:17,694 --> 00:00:18,452
+nothing moved.
+
+12
+00:00:18,952 --> 00:00:19,836
+Now Autopilot,
+
+13
+00:00:19,876 --> 00:00:21,914
+rolling out to Frontier customers:
+
+14
+00:00:21,954 --> 00:00:23,167
+you give it 1 goal.
+
+15
+00:00:23,467 --> 00:00:25,370
+It sends the follow-ups on its own,
+
+16
+00:00:25,410 --> 00:00:26,618
+in Teams and Outlook.
+
+17
+00:00:27,118 --> 00:00:28,497
+Like a plane's autopilot:
+
+18
+00:00:28,537 --> 00:00:29,600
+you set the course,
+
+19
+00:00:29,640 --> 00:00:30,178
+it flies,
+
+20
+00:00:30,218 --> 00:00:32,688
+and it can check with you before key actions.
+
+21
+00:00:33,188 --> 00:00:36,689
+It gets its bearings from your last 30 days of mail, meetings,
+
+22
+00:00:36,729 --> 00:00:37,725
+chats and files.
+
+23
+00:00:38,225 --> 00:00:40,180
+It has its own Entra Agent ID,
+
+24
+00:00:40,220 --> 00:00:40,990
+in preview,
+
+25
+00:00:41,030 --> 00:00:42,362
+and a named manager;
+
+26
+00:00:42,402 --> 00:00:44,023
+IT can block it anytime.
+
+27
+00:00:44,523 --> 00:00:45,711
+So, what we learned:
+
+28
+00:00:45,751 --> 00:00:46,660
+in our example,
+
+29
+00:00:46,700 --> 00:00:48,447
+10 follow-ups took 10 prompts;
+
+30
+00:00:48,487 --> 00:00:49,172
+now 1 goal,
+
+31
+00:00:49,212 --> 00:00:51,836
+and it can check with you before key actions.
+
+32
+00:00:52,336 --> 00:00:53,039
+Want more?
+
+33
+00:00:53,339 --> 00:00:55,869
+Subscribe, and comment what we should explain next.

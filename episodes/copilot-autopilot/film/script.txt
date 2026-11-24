@@ -1,0 +1,9 @@
+Copilot Autopilot: you think AI stops when you stop typing, but one goal actually keeps your ten follow-ups moving until it needs your OK.
+Here's how.
+Before, in Copilot Chat, our example: a two-week supplier review. Ten follow-ups, ten prompts. In meetings, nothing moved.
+Now Autopilot, rolling out to Frontier customers: you give it one goal. It sends the follow-ups on its own, in Teams and Outlook.
+Like a plane's autopilot: you set the course, it flies, and it can check with you before key actions.
+It gets its bearings from your last thirty days of mail, meetings, chats and files.
+It has its own Entra Agent ID, in preview, and a named manager; IT can block it anytime.
+So, what we learned: in our example, ten follow-ups took ten prompts; now one goal, and it can check with you before key actions.
+Want more? Subscribe, and comment what we should explain next.
