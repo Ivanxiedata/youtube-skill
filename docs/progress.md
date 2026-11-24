@@ -3,16 +3,18 @@
 Covers repo-level work: harness, `shared/`, `cmd/` (except `cmd/yt/<feature>.go`, which is the feature's), `scripts/`.
 
 ## Status
-in progress (ivan-voice): Episode 0 is published (public since 2026-11-21), made end to end with the skills in `AGENTS.md`; `upload` works against real YouTube; brand guide, lessons log and evaluator role are in place. No code yet for `shared/brief`, `episode`, `lineage`, `diagram`, `evaluate`, `feedback`.
+Episode 0 is published (public since 2026-11-21), made end to end with the skills in `AGENTS.md`; `upload` works against real YouTube; brand guide, lessons log and evaluator role are in place. No code yet for `shared/brief`, `episode`, `lineage`, `diagram`, `evaluate`, `feedback`.
 
 ## Next
-1. Owner decides: a name for the series and for the mascot (`docs/brand.md`, "Open").
-2. Update the draft specs with what Episode 0 answered (`episodes/deepseek-super-agent/progress.md`, "Answers for the specs"):
+1. Owner, before the next daily run: `gh secret set VOICE_KEY --repo Ivanxiedata/youtube-skill < ~/.config/youtube-skill/voice/key`.
+   Without it the episode job stops at "Unlock Ivan's voice". Then check the first run's voice: time per episode, and the 3 GB model cache.
+2. Owner decides: a name for the series and for the mascot (`docs/brand.md`, "Open").
+3. Update the draft specs with what Episode 0 answered (`episodes/deepseek-super-agent/progress.md`, "Answers for the specs"):
    `docs/specs/episode.md` (sections hook/before/new/why/takeaway/outro; word limits for a 2.9 words/s voice), `docs/specs/diagram.md` (emit draw data for `film.js`, not an SVG file).
-3. Land `shared/brief` (own PR, `docs/architecture.md`). Then one agent each: `episode`, `evaluate`, `feedback` (its `add`/`list`/`check` don't need `shared/brief`), `lineage`, `diagram`.
-4. Episode 1: a research step proposes a ranked shortlist, the owner picks; follow the skills table in `AGENTS.md`; fix the two should-fix rows of Episode 0's `evaluation.md` (sounds on the picture cuts, the synthetic-sounding voice).
-5. Publish the OAuth app so the upload sign-in stops expiring every 7 days (`upload/progress.md`, Next 2).
-6. `main` is fast-forwarded to `develop` when the owner says develop is done.
+4. Land `shared/brief` (own PR, `docs/architecture.md`). Then one agent each: `episode`, `evaluate`, `feedback` (its `add`/`list`/`check` don't need `shared/brief`), `lineage`, `diagram`.
+5. Episode 1: a research step proposes a ranked shortlist, the owner picks; follow the skills table in `AGENTS.md`; fix the two should-fix rows of Episode 0's `evaluation.md` (sounds on the picture cuts, the synthetic-sounding voice).
+6. Publish the OAuth app so the upload sign-in stops expiring every 7 days (`upload/progress.md`, Next 2).
+7. `main` is fast-forwarded to `develop` when the owner says develop is done.
 
 ## Blockers
 None. One skill decision is still open (see `skills.lock` notes): whether to restrict Deep-Research's `web-search-agent` (upstream: `model: opus`, all tools, reads untrusted web pages).
@@ -31,6 +33,8 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-21: `docs/workflow.md` replaces the skills table as the one standard for episodes (promise before script, full `/yt-script` shape, an independent judge, the weekly and after-publishing loops), because the owner approved the plan built from first principles and wanted all eleven youtube-agent skills used where they serve the goal.
 - 2026-11-21: The daily run commits episodes straight to `develop` (after `make check`) instead of opening PRs, because the owner asked for a full hand-off and Actions' token can't open PRs in this repo's settings; a failing check goes to a `daily/<slug>` branch and an issue instead.
 - 2026-11-21: The daily run uses the owner's Claude plan (`CLAUDE_CODE_OAUTH_TOKEN` from `claude setup-token`), not the API, and the settings live in `pipeline.yaml` so nothing is hard-coded in the workflow but the schedule.
+
+- 2026-11-24: episodes are voiced in Ivan's cloned voice (Chatterbox, exaggeration 1.2, cfg 0.3, one take per line), because the owner found Kokoro and the OpenVoice clone monotone and picked this sample by ear. The sample is in the public repo only encrypted (`docs/voice/ivan.wav.gpg`), because it is the owner's biometric voice; the owner chose encrypted-in-repo over a plain file or a private repo.
 
 ## Log
 - 2026-11-20 develop: harness built and reviewed (5 lenses); CI green; develop/main branch model.
@@ -60,3 +64,4 @@ None. One skill decision is still open (see `skills.lock` notes): whether to res
 - 2026-11-23 trace-builds: `pipeline-trace.py` counts builds from the whole command, not its first 90 characters (the first run with it said "Builds: 0" for 6 builds). First run with the learn job (45088535600, claude-meetings, dry run): 33.6 min, make+finish subagent 21.5 of it, no fix round; learn job 2 min, wrote L20-L24 and marked L14, L17, L19 repeated.
 - 2026-11-23 resume-maker: the prompt-caching run (45111631312) ended at 13 min with no video: the maker SendMessage'd its step-4 subagent (which runs in the background) and ended its turn; headless, nothing resumed it. The episode job now resumes the maker with `claude -p --continue` (at most twice) while `evaluation.md` is missing; episode.md Known traps: never SendMessage a subagent (L28).
 - 2026-11-23 cron-retest: no scheduled run ever fired (0 `schedule` events since 2026-11-22; workflow active, cron on develop = default branch). Cron moved to 12:43 UTC, workflow disabled and re-enabled to re-register the schedule, and a one-off test cron at 2026-11-23 18:34 UTC.
+- 2026-11-24 ivan-voice: `scripts/voice.py` (tts.py + Chatterbox in Ivan's voice), encrypted sample `docs/voice/ivan.wav.gpg`, CI installs and caches Chatterbox and decrypts with secret `VOICE_KEY` before the maker; docs (brand, voice, workflow, episode traps, evaluator: 150 words) and lesson L56. Tested locally: 3-line script, 13.9 s, 155 wpm; 4 CPU threads speak 4 s of audio in 16.6 s.

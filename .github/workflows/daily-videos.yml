@@ -125,7 +125,9 @@ jobs:
             .skills/browsers
             .skills/voice-models
             .skills/earshot-home
-          key: episode-tools-${{ runner.os }}-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh') }}
+            .skills/chatterbox-venv
+            .skills/hf
+          key: episode-tools-${{ runner.os }}-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh', 'scripts/voice.py') }}
       - name: Install the tools
         run: scripts/ci-setup.sh
       - name: Install Claude Code
@@ -141,6 +143,14 @@ jobs:
           mkdir -p ~/.config/youtube-skill
           printf '%s' "$CLIENT" > ~/.config/youtube-skill/client_secret.json
           printf '%s' "$TOKEN" > ~/.config/youtube-skill/token.json
+      - name: Unlock Ivan's voice
+        env:
+          VOICE_KEY: ${{ secrets.VOICE_KEY }}
+        run: |
+          [ -n "$VOICE_KEY" ] || { echo "::error::secret VOICE_KEY is missing: the voice sample docs/voice/ivan.wav.gpg can't be decrypted (docs/voice.md)"; exit 1; }
+          mkdir -m 700 "$RUNNER_TEMP/voice"
+          printf '%s' "$VOICE_KEY" | gpg --batch --quiet --passphrase-fd 0 --decrypt -o "$RUNNER_TEMP/voice/ivan.wav" docs/voice/ivan.wav.gpg
+          echo "VOICE_SAMPLE=$RUNNER_TEMP/voice/ivan.wav" >> "$GITHUB_ENV"
       - name: Make the episode (steps 1-6)
         env:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}

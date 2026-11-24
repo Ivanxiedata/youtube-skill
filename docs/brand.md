@@ -18,7 +18,7 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Structure | Title card, hook to the viewer, today's problem, the story, the side-by-side diagram, the takeaway, one call to action |
 | Takeaway card | The last line on screen in two lines: plain statement, then the amber punchline |
 | Call to action | A "So, what we learned:" conclusion, then spoken "Want more? Subscribe, and comment what we should explain next." with the red Subscribe button and a comment button; the next episode's name under them only when it is decided (owner, 2026-11-23, lessons L24, L32) |
-| Voice | Kokoro `am_michael`, speed 1.2; plain words; "you" in the first sentence |
+| Voice | Ivan's cloned voice (`scripts/voice.py`: Chatterbox, excited, strong intonation; `docs/voice.md`); plain words; "you" in the first sentence |
 | Music | One signature instrumental track, the same every episode, 16 dB under the voice: "Blue Sky" by Sergmusic (CC0, found through Openverse with `scripts/music.py`). A new track must be CC0 or CC BY, have no vocals (checked with earshot) and be credited in the description |
 
 ## Colours and type

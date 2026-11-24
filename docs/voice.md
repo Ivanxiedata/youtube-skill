@@ -27,4 +27,17 @@ It was the general's attention. And now, that general is you."
 
 ## My format
 60 seconds. No intro: the hook is the first sentence. Nobody on camera: a stickman mascot rendered from code,
-an AI voice, quiet instrumental music. One call to action, at the end. Details: `docs/brand.md`.
+Ivan's cloned voice (below), quiet instrumental music. One call to action, at the end. Details: `docs/brand.md`.
+
+## My voice (L56)
+Every episode is voiced in Ivan's cloned voice: `scripts/voice.py`, the stickman `tts.py` with Chatterbox (MIT, pinned in the script)
+speaking each script line in one take, exaggeration 1.2, cfg 0.3 (the owner's pick, 2026-11-24). About 155 words a minute, so about 150 words for 60 s.
+Chatterbox's Perth watermark stays on: the audio is marked as AI-made.
+
+Write for it, because the punctuation is the delivery: short lines, `!` on the punch, a real question with `?`,
+a one-word turn ("Nope."), `...` before the number that lands. Example:
+"Prompt caching! You think your 100-page PDF costs you once? / Nope. Without it, 30 questions cost you full price... 30 times!"
+
+The sample is Ivan's own voice. It lives encrypted in `docs/voice/ivan.wav.gpg` (AES-256; the repo is public), never as a plain file in git.
+The key: `~/.config/youtube-skill/voice/key` on the owner's Mac, and the GitHub secret `VOICE_KEY` for the daily run, which decrypts it outside the checkout.
+New machine: `python3 scripts/voice.py --install`, then copy the key file there yourself.
