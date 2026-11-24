@@ -1,0 +1,109 @@
+{
+ "slug": "riemann-claude-proof",
+ "style": "B (news presenter, 9:16, about 90 s; style.md)",
+ "tech": {
+  "id": "lean-checked-ai-proof",
+  "name": "An AI-assisted proof of the Riemann hypothesis, written in Lean and checked by machine",
+  "released": "announced 2026-11-20; certified by the Lean FRO and Mathlib Initiative 2026-11-21",
+  "status": "Lean proof certified correct; human understanding and write-up still in progress",
+  "one_line": "Levent Alpöge, working with Claude, released a 17-million-line Lean proof of the Riemann hypothesis; machines checked every step within a day, though no human can read it yet."
+ },
+ "predecessor": {
+  "id": "human-refereed-proof",
+  "name": "A proof checked by human experts reading it, which for a hard problem takes months or years"
+ },
+ "sections": {
+  "hook": {
+   "text": "I know the world moves fast. So you probably missed a huge AI breakthrough last week! On November 20th, a mathematician at Anthropic, working with Claude, released a proof of the Riemann hypothesis!",
+   "claims": [
+    {
+     "text": "Announced 20 November 2026 by Levent Alpöge, working with Claude.",
+     "source": "https://www.nature.com/articles/d41586-026-03812-7"
+    },
+    {
+     "text": "Certified correct 2026-11-21.",
+     "source": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+    }
+   ]
+  },
+  "huge": {
+   "text": "Riemann hypothesis, prime numbers, open since 1859, 167 years, a million-dollar prize.",
+   "claims": [
+    {
+     "text": "stumped mathematicians since 1859, concerns the distribution of prime numbers",
+     "source": "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+    },
+    {
+     "text": "Millennium Prize Problems, each carrying a USD 1 million award",
+     "source": "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+    }
+   ]
+  },
+  "shock": {
+   "text": "A mathematician at Anthropic, working with Claude, found a proof: 17 million lines of code.",
+   "claims": [
+    {
+     "text": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis",
+     "source": "https://www.nature.com/articles/d41586-026-03812-7"
+    },
+    {
+     "text": "a Lean library comprising 17 million lines of code",
+     "source": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+    }
+   ]
+  },
+  "checked": {
+   "text": "Written in Lean, where a computer checks every step; one day later certified correct.",
+   "claims": [
+    {
+     "text": "a programming language and proof assistant that checks mathematical reasoning step by step",
+     "source": "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+    },
+    {
+     "text": "We hereby certify that both the statement and the proof of the Riemann Hypothesis are correct.",
+     "source": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+    }
+   ]
+  },
+  "twist": {
+   "text": "The same day, a second, human-only proof appeared, still a draft.",
+   "claims": [
+    {
+     "text": "a proof that is all human, with no AI; Now it seems best to put out the current draft",
+     "source": "https://www.nature.com/articles/d41586-026-03812-7"
+    }
+   ]
+  },
+  "meaning": {
+   "text": "Nothing changes tomorrow; understanding why it works could take months or years.",
+   "claims": [
+    {
+     "text": "a process he said could take months or even years",
+     "source": "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+    }
+   ]
+  },
+  "real_change": {
+   "text": "AI built a proof too big for any human to read, and it can be trusted because machines checked it.",
+   "claims": [
+    {
+     "text": "extraordinarily long and difficult to read",
+     "source": "https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof"
+    },
+    {
+     "text": "checked by several proof checkers ... implemented in different programming languages",
+     "source": "https://leanprover-community.github.io/blog/posts/riemann-hypothesis/"
+    }
+   ]
+  },
+  "your_move": {
+   "text": "Ask what checks the AI's work: tests for code, sources for facts, a proof checker for math.",
+   "claims": []
+  },
+  "takeaway": {
+   "text": "When AI's work is too big to read, trust the checker. Subscribe and comment.",
+   "claims": []
+  }
+ },
+ "background": "Owner's A/B test: style B learned from an @harryspeaks_ reel (style.md). Reel claims dropped: Tao 2050 quote (unsourced), price forecasts (predictions)."
+}

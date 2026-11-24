@@ -1,0 +1,19 @@
+I know the world moves fast. So you probably missed a huge AI breakthrough last week!
+A mathematician at Anthropic, working with Claude, released a proof of the Riemann hypothesis!
+
+Riemann found special numbers that encode the primes, and predicted all the important ones sit on one line.
+Earlier work showed at least two thirds of a key set follow it. But most isn't all: one exception would sink it.
+A proof says every single one does.
+
+And the proof? seventeen million lines of code! Far too long for a person to read. So how do we know it's right?
+Two key checks. First: is it the right question? Two separate tools confirmed it proves exactly the standard statement.
+Second: is every step right? It's written in Lean, a proof language whose checker checks every single step.
+Several checkers by different people said yes; two are even proved unable to accept a false one, even if Lean's logic had a flaw. Certified correct!
+
+What does it mean?
+Certified doesn't mean understood. The checkers say it's true, not why. One mathematician says that could take months... or years.
+
+That's the real change: checking and understanding have come apart. AI helped find it. Machines checked it. Mathematicians still have to understand it, to build on its ideas.
+
+So, what we learned: a proven checker on the right question tells you it's right. Only understanding tells you why.
+Want more? Subscribe, and comment what we should explain next.

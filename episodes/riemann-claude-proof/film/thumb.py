@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+"""Render the episode thumbnail from thumb.js: thumb.py <out.png>. Run inside the venv `make skills` prints."""
+import base64, os, sys
+from pathlib import Path
+
+film = Path(__file__).resolve().parent
+sys.path.insert(0, str(film.parents[2] / ".claude/skills/stickman/scripts"))
+from common import browser_args, page_url  # noqa: E402
+from playwright.sync_api import sync_playwright  # noqa: E402
+
+out = Path(sys.argv[1]).resolve()
+os.chdir(film)
+with sync_playwright() as p:
+    b = p.chromium.launch(args=browser_args(False))
+    g = b.new_page(viewport={"width": 1920, "height": 1080})
+    g.on("pageerror", lambda e: print("PAGE ERROR", e))
+    g.goto(page_url("."))
+    g.wait_for_function("window.READY")
+    g.add_script_tag(path="thumb.js")
+    png = g.evaluate("()=>drawThumb()")
+    b.close()
+out.write_bytes(base64.b64decode(png.split(",")[1]))
+print(out, out.stat().st_size // 1024, "KB")

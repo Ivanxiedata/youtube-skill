@@ -1,0 +1,23 @@
+{
+  "title": "Claude Helped Prove the Riemann Hypothesis: 17M Lines",
+  "description": "You probably missed a huge AI breakthrough last week. A mathematician at Anthropic, working with Claude, released a proof of the Riemann hypothesis. Riemann hypothesis proof, Claude Riemann hypothesis, Lean proof Riemann hypothesis: here is what was claimed, how it was checked, and why checking is not the same as understanding. Explained in about 85 seconds.\n\nWhat happened: on November 20, 2026, Levent Alpöge, a mathematician at Anthropic, wrote that, working with Claude, he believed he had found a proof of the Riemann hypothesis. Riemann discovered that the distribution of primes is encoded in the zeta function's zeroes, and conjectured that, apart from some obvious but uninteresting cases, they all lie on one vertical line. Earlier work showed that at least 67.25% of a particular set of values follow the predicted pattern; the new claim, if correct, would establish that every one of them does. The proof is a Lean library of about 17 million lines of code, far too long for a person to read.\n\nHow it was checked: Lean is a programming language and proof assistant that checks mathematical reasoning step by step. The statement the library proves was compared with Mathlib's statement of the Riemann hypothesis using two independent tools, both confirming it is exactly that statement. The exported raw proof was also checked by several proof checkers, including some written by third parties. Two of them, con-leche and con-ron, come with a formal proof, relative to set theory, that they cannot accept a false proof. On November 21 the Lean FRO and the Mathlib Initiative certified that both the statement and the proof are correct.\n\nWhat it does not mean yet: the argument is extraordinarily long and difficult to read. One mathematician quoted by IBM (Lamzouri) says mathematicians would need to understand how it works before broadly accepting it, a process he said could take months or even years. Checking says it is right; understanding says why, and mathematicians still have to understand it to build on its ideas.\n\nWhat we learned (our summary, not a claim about the news): a checker proved sound, on the statement confirmed to be the right one, tells you a proof is correct. Only understanding tells you why.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nLean FRO and Mathlib Initiative, \"Lean verification of the Riemann Hypothesis\" (Nov 21, 2026): https://leanprover-community.github.io/blog/posts/riemann-hypothesis/\nMichael Rubinstein, University of Waterloo, \"Alpöge/Claude proof of the Generalized Riemann Hypothesis\": https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/\nNature news (Nov 20, 2026, updated Nov 23): https://www.nature.com/articles/d41586-026-03812-7\nIBM Think news, \"Anthropic mathematician claims AI helped solve a 167-year-old math mystery\": https://www.ibm.com/think/news/anthropic-claude-riemann-hypothesis-math-proof\n\nThe info cards, dots, paper stack, hourglass and subscribe button are our own drawings; the stickman presenter is a generic drawing, not any maker's artwork or logo.\nAnimation rendered from code. Voice: a clone of the channel owner's own voice, made with Chatterbox, an open-source text-to-speech model (the audio carries its AI watermark).\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#RiemannHypothesis #Claude #AIExplained",
+  "tags": [
+    "riemann hypothesis",
+    "riemann hypothesis proof",
+    "claude riemann hypothesis",
+    "lean proof riemann hypothesis",
+    "riemann hypothesis explained",
+    "claude math proof",
+    "anthropic claude",
+    "lean proof assistant",
+    "17 million lines of code",
+    "ai math proof",
+    "levent alpoge",
+    "millennium prize problems",
+    "prime numbers",
+    "machine checked proof",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}
