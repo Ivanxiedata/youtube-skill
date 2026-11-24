@@ -37,10 +37,13 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 12. Every claim in `script.md` and on screen traces to a source in `research.md` or `brief.json` (start from `claims.md`, step 3b). Must-fix for an unsourced claim or a wrong one.
    Must-fix (L17, repeated): chapter titles, the `upload.json` description and the thumbnail text say more than a `claims.md` row ruled narrower (e.g. "plan ready" where the claim is "plan written"); and every narrower or wrong row in `claims.md` notes where it was fixed.
    Must-fix (L26, repeated): any on-screen line or `upload.json` description sentence (any line, not only 1-2) that states a number, default or rate without the condition `research.md`'s narrowing list gives it (for which models, by default, at least), whether or not it has a `claims.md` row.
+   Must-fix (L26, repeated 2026-11-24): a chapter title, card, label or line that states the invented example's number without "our example" (or "our"), or a condition with its own date folded under another date; should-fix when a spoken number's condition shows on screen only after the number.
+   Must-fix (L17, repeated 2026-11-24): an on-screen label naming a product or agent a `claims.md` row rules out (a robot labelled "COPILOT" where the maker names no Copilot agent), or a source line in `upload.json` (article title, author) that no file in the episode holds.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
    Must-fix (L25, repeated): the NOW side does not show the same counted example reaching its outcome (an empty NOW panel beside a filled BEFORE one reads as "nothing happened").
+   Must-fix (L34, repeated): in any shot, a meter's number counts something other than the unit its label names (a "YOUR WAITS" meter ticking on a test run).
 
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.

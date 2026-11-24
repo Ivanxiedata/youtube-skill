@@ -67,6 +67,23 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Call stickman scripts by full path, `.claude/skills/stickman/scripts/<name>.py`; they are not on PATH (L35).
 - Set view state per shot in `film.js`, never as a range; check the BEFORE shots' stills against `beats.md` before the first build (L38).
 - `m.voice(..., at=)` in `audio_mix.py` uses the film clock's offset; never copy the example's value (L39).
+- Draft the first script at about 150 spoken words (spelled letters count one word each; "P Cs" is 2), not 170; a re-voice comes only after `wc -w` shows fewer words than the last voicing, since rephrasing does not shorten (L21, repeated).
+- Every layout check measures with the camera push applied and counts the corner tag as a neighbour (40 px from it); props reused from another shot or the example get measured again (L22, repeated).
+- A large bright element sliding across the frame is a pop however slow it moves; change the scene on a cut instead (L23, repeated).
+- Keep a list of every shot whose drawing or camera changed and pass all of them to `--shots`; check the list against the `film.js` diff before the build (L18, repeated).
+- After any `MUSIC_DB` change, measure the as-mixed gap again before the handback (L19, repeated).
+- Hooks: use the scorer's list words exactly ("cost", not "costs": it matches whole words) and keep the hook 9-24 words (brevity) before scoring (L33, repeated).
+- Stickman scripts are not executable: run them as `python3 .claude/skills/stickman/scripts/<name>.py` (L35, repeated).
+- Apply every part of a narrower `claims.md` row (each condition and each date), not only its suggested wording; mark the invented example "our example" in every line, card, chapter title and description sentence that states its number, and keep the source's unit and quantifier word for word ("inferences", "some") (L26, repeated).
+- Before the handback the maker reads every drawn label, chapter title, description sentence and source line against `claims.md` and `research.md`; source lines are copied from `research.md`, never written from memory (L17, repeated).
+- View state per shot includes the mini panels of the WHAT WE LEARNED card: they show the same state as the shot they recall (L38, repeated).
+- After every fetch, check the stripped text is the article; fetch press and Microsoft pages with a browser `-A` user agent; follow a summary's "original post" link; JavaScript-only docs are noted in `research.md` (L40).
+- Never pipe `tts.py` or `build.py` into `head`; `mkdir -p` the scratch folder, log there, read with `tail` (L41).
+- Wait on a long build with Monitor or a foreground call, never `sleep` (L42).
+- After a scripted edit, grep for the new text before moving on (L43).
+- A scratch script importing `audio_kit` exports `STICKMAN_SCRIPTS` first (L45).
+- `node --check film/film.js` after every edit, before any render (L49).
+- Look at a still of every shot before the first full build and fix layout in one round; a shot that fails twice is simplified, not tuned again (L50).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
