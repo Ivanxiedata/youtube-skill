@@ -24,3 +24,4 @@ none
 - 2026-11-21 topic-first-rule: lesson L14 (topic first) added.
 - 2026-11-22 pipeline-learn: new source `pipeline` and check value `pipeline` (the daily run's learn job); lessons L17-L19 added.
 - 2026-11-23 diagram-flow: lesson L25 (owner: the KodeKloud flow, in our brand).
+- 2026-11-24 content-gate: spec: new `check` value `gate` (a teaching rule the content gate checks, `docs/roles/content-gate.md`); `yt feedback check` must accept it when built.

@@ -12,7 +12,7 @@ and every episode is **better** than the last. Each step below exists for one of
 | Find | a topic people want, the words they search | impressions, search traffic |
 | Click | title and thumbnail as one promise | click-through rate |
 | Watch | the first seconds, then a reason to stay every few seconds | retention curve, average % viewed |
-| Understand | sourced claims, one clear before -> after | corrections in comments |
+| Understand | a main idea the viewer can say back (`lesson.md`, the content gate), sourced claims, one clear before -> after | corrections in comments |
 | Return | the same brand every time, a steady rhythm, a "next" | subscribers, returning viewers |
 | Get better | real numbers turned into rules | `docs/lessons.md` |
 
@@ -30,8 +30,12 @@ PER EPISODE                                                                 │
        ▼                                                                    │
   2 PROMISE   /yt-package: 10 titles -> top 3 + thumbnail text              │
        ▼      /yt-seo: the 3 searches it must win ─► package.md             │
+  2b LESSON   main idea, why it matters, 3 questions ─► lesson.md           │
+       ▼                                                                    │
   3 SCRIPT    /yt-script: hooks -> 3-s test -> turn -> beats [ON SCREEN]         │
        ▼      -> payoff said -> one ask ─► beats.md, script.md              │
+  3a GATE     fresh student + critic: does it teach? ─► gate.md (fail ─► 2b)│
+       ▼                                                                    │
   4 MAKE      stickman film + voice + thumbnail · Openverse music · earshot │
        ▼                                                                    │
   5 FINISH    /yt-chapters on captions.srt · /yt-seo description + tags     │
@@ -75,6 +79,13 @@ The click is decided by the title and thumbnail together, and the first seconds 
 - **Pass:** title at most 60 characters with the subject in the first 40; a number, name or date in it; besides the topic's name it repeats no thumbnail word
   (the topic's name may be in both, because search needs it in the title and the brand card carries it).
 
+### 2b Lesson plan (strong)
+Before any script: what will the viewer **learn**? Read every open `check: gate` lesson in `docs/lessons.md` first.
+- **Out:** `lesson.md` (template in `docs/roles/content-gate.md`): the main idea in one sentence (the insight that changes how the viewer thinks,
+  not the headline and not the mechanism), why it matters with its `research.md` row, the misconception it corrects, the 3 questions a viewer
+  can answer afterwards (each with its answer and the picture that teaches it), and what is left out on purpose.
+- The script (step 3) is written to teach exactly this; a line that serves none of the 3 questions is cut.
+
 ### 3 Script (strong)
 `/yt-script`, scaled to 60 seconds:
 - **Hook: one clear sentence the viewer can picture (lesson L16).** It names the topic and paints the viewer's moment from `package.md`,
@@ -101,6 +112,12 @@ The click is decided by the title and thumbnail together, and the first seconds 
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
 - **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 150 words, so the voice fits in 60 s (Ivan's voice speaks about 155 words a minute).
+
+### 3a Content gate (a fresh Sonnet student and a fresh strong critic; `docs/roles/content-gate.md`)
+- The writer writes `viewer.md` (only what the viewer hears and sees); the student reads only that, states the main idea and answers the 3 questions; the critic scores G1-G12 (must-fix blocks; should-fix is fixed when it fits).
+- **Out:** `gate.md`, first line `gate: pass (N should-fix)` or `gate: fail (N must-fix, M should-fix)`, each with a fix and a general rule.
+- **Pass:** no must-fix left. On fail, rewrite `lesson.md`/the script and run a fresh gate; at most 3 rounds, then the owner decides.
+  Copy every fail to `mistakes.md`; every rule becomes a `check: gate` lesson (in the daily run, the learn job writes it). Nothing is voiced before the gate passes.
 
 ### 3b Claim check (Sonnet, a fresh agent that did not write the script)
 - Every claim in `script.md`, the ON SCREEN lines of `beats.md` and the title and thumbnail, checked against the source itself (lesson L17).
