@@ -1,0 +1,72 @@
+{
+ "slug": "gemini-decisions-api",
+ "tech": {
+  "id": "gemini-decision-1",
+  "name": "Gemini Decisions API (model gemini-decision-1)",
+  "released": "2026-11-11, through the Gemini API in Google AI Studio; Google Cloud support coming soon",
+  "status": "available to developers; no-cost tier for prototyping",
+  "one_line": "Scores fixed options (yes/no, multiple choice 2-255, ordered rubric) instead of writing text: one input (text, images, audio, video, PDFs, up to 256K tokens) with up to 1,000 questions in one request, each answer with a confidence from 0 to 1; shared input billed once per request."
+ },
+ "predecessor": {
+  "id": "chat-model-written-answers",
+  "name": "Asking a chat model to write out each answer, one question per prompt, and parsing the words, with no number for how sure it was (the scene and the counted example are the episode's own)"
+ },
+ "claims": [
+  {
+   "text": "Gemini Decisions API, gemini-decision-1, launched Nov 11, 2026 via the Gemini API in Google AI Studio",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "One input across text, images, audio, video and PDFs (up to 256K tokens) with up to 1,000 independent questions",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Scores candidate options instead of generating answer text, returning probabilities and confidence scores; $0.10 per 1M input tokens, zero output tokens billed",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Yes/no, multiple choice and rubric questions mixed in one request",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Every answer includes a confidence score from 0 to 1 so code can route ambiguous cases to a fallback or human reviewer",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Multiple choice: 2 to 255 choices; rubric: ordered, starting at 0",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Example shared input: a scanned PDF claim with damage photos",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Shared input billed once per request no matter how many questions; each question adds its own instruction and criteria tokens",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Nearly 5x cheaper across the shared benchmark suite than Gemini 3.5 Flash-Lite with the Interactions API",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Lowest calibration error on Google's benchmark suite",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Gemini Notebook: up to 40% lower latency for everyday queries",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  },
+  {
+   "text": "Up to 1,000 questions in a single request (press confirmation)",
+   "source": "https://www.infoworld.com/article/4247774/googles-gemini-decisions-api-to-handle-up-to-1000-questions-per-request.html"
+  },
+  {
+   "text": "A confidence score alone does not establish that an assessment is trustworthy (analyst)",
+   "source": "https://www.infoworld.com/article/4247774/googles-gemini-decisions-api-to-handle-up-to-1000-questions-per-request.html"
+  },
+  {
+   "text": "Counted example (ours): 1 insurance claim, 20 questions; before 20 prompts sending the claim 20 times, now 1 call",
+   "source": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+  }
+ ]
+}

@@ -1,0 +1,98 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 10.777,
+  "text": "Gemini Decisions A P I: you think twenty questions about one insurance claim actually cost you twenty prompts, but one call picks all twenty answers, each with how sure it is."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 11.277,
+  "end": 11.996,
+  "text": "Here's how."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.296,
+  "end": 19.453,
+  "text": "Before, you asked a chat model one at a time: the claim sent twenty times, twenty essay answers, no number for how sure."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 19.953,
+  "end": 25.821,
+  "text": "Now your app sends the claim once with all twenty questions: yes or no, multiple choice, a score."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 26.121,
+  "end": 27.33,
+  "text": "Like one answer sheet."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 27.83,
+  "end": 30.434,
+  "text": "It doesn't write; it scores the options you gave it."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 30.734,
+  "end": 35.488,
+  "text": "Each answer gets a confidence, zero to one; unsure ones can go to a person."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.988,
+  "end": 39.307,
+  "text": "Up to a thousand questions per call, the claim sent once."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 39.607,
+  "end": 45.034,
+  "text": "Google's own benchmarks: nearly five times cheaper than Gemini three point five Flash-Lite."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 45.534,
+  "end": 52.473,
+  "text": "So, what we learned: in our example, twenty questions took twenty prompts; now one call, each answer with how sure it is."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.973,
+  "end": 53.675,
+  "text": "Want more?"
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 53.975,
+  "end": 56.506,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

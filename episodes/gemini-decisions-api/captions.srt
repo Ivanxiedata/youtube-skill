@@ -1,0 +1,103 @@
+1
+00:00:00,500 --> 00:00:02,190
+Gemini Decisions API:
+
+2
+00:00:02,630 --> 00:00:05,230
+you think 20 questions about 1 insurance claim
+
+3
+00:00:05,330 --> 00:00:07,070
+actually cost you 20 prompts,
+
+4
+00:00:07,480 --> 00:00:09,560
+but 1 call picks all 20 answers,
+
+5
+00:00:09,920 --> 00:00:11,277
+each with how sure it is.
+
+6
+00:00:11,777 --> 00:00:12,496
+Here's how.
+
+7
+00:00:12,796 --> 00:00:15,020
+Before, you asked a chat model one at a time:
+
+8
+00:00:15,640 --> 00:00:17,070
+the claim sent 20 times,
+
+9
+00:00:17,170 --> 00:00:18,320
+20 essay answers,
+
+10
+00:00:18,620 --> 00:00:19,953
+no number for how sure.
+
+11
+00:00:20,453 --> 00:00:23,070
+Now your app sends the claim once with all 20 questions:
+
+12
+00:00:23,690 --> 00:00:26,321
+yes or no, multiple choice, a score.
+
+13
+00:00:26,621 --> 00:00:27,830
+Like one answer sheet.
+
+14
+00:00:28,330 --> 00:00:30,934
+It doesn't write; it scores the options you gave it.
+
+15
+00:00:31,234 --> 00:00:33,910
+Each answer gets a confidence, 0 to 1;
+
+16
+00:00:34,270 --> 00:00:35,988
+unsure ones can go to a person.
+
+17
+00:00:36,488 --> 00:00:38,350
+Up to 1,000 questions per call,
+
+18
+00:00:38,660 --> 00:00:39,807
+the claim sent once.
+
+19
+00:00:40,107 --> 00:00:41,430
+Google's own benchmarks:
+
+20
+00:00:41,780 --> 00:00:45,534
+nearly 5 times cheaper than Gemini 3.5 Flash-Lite.
+
+21
+00:00:46,034 --> 00:00:46,800
+So, what we learned:
+
+22
+00:00:47,290 --> 00:00:49,890
+in our example, 20 questions took 20 prompts;
+
+23
+00:00:50,250 --> 00:00:51,100
+now 1 call,
+
+24
+00:00:51,280 --> 00:00:52,973
+each answer with how sure it is.
+
+25
+00:00:53,473 --> 00:00:54,175
+Want more?
+
+26
+00:00:54,475 --> 00:00:57,006
+Subscribe, and comment what we should explain next.

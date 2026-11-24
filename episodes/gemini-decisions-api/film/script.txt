@@ -1,0 +1,7 @@
+Gemini Decisions A P I: you think twenty questions about one insurance claim actually cost you twenty prompts, but one call picks all twenty answers, each with how sure it is.
+Here's how. Before, you asked a chat model one at a time: the claim sent twenty times, twenty essay answers, no number for how sure.
+Now your app sends the claim once with all twenty questions: yes or no, multiple choice, a score. Like one answer sheet.
+It doesn't write; it scores the options you gave it. Each answer gets a confidence, zero to one; unsure ones can go to a person.
+Up to a thousand questions per call, the claim sent once. Google's own benchmarks: nearly five times cheaper than Gemini three point five Flash-Lite.
+So, what we learned: in our example, twenty questions took twenty prompts; now one call, each answer with how sure it is.
+Want more? Subscribe, and comment what we should explain next.
