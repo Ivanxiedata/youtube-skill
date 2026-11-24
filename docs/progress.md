@@ -3,7 +3,7 @@
 Covers repo-level work: harness, `shared/`, `cmd/` (except `cmd/yt/<feature>.go`, which is the feature's), `scripts/`.
 
 ## Status
-Episode 0 is published (public since 2026-11-21), made end to end with the skills in `AGENTS.md`; `upload` works against real YouTube; brand guide, lessons log and evaluator role are in place. No code yet for `shared/brief`, `episode`, `lineage`, `diagram`, `evaluate`, `feedback`.
+in progress (content-gate): Episode 0 is published (public since 2026-11-21), made end to end with the skills in `AGENTS.md`; `upload` works against real YouTube; brand guide, lessons log and evaluator role are in place. No code yet for `shared/brief`, `episode`, `lineage`, `diagram`, `evaluate`, `feedback`.
 
 ## Next
 1. Owner, before the next daily run: `gh secret set VOICE_KEY --repo Ivanxiedata/youtube-skill < ~/.config/youtube-skill/voice/key`.
