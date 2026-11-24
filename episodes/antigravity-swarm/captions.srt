@@ -1,0 +1,35 @@
+1
+00:00:00,500 --> 00:00:09,767
+Antigravity Swarm: you think three separate files cost you three waits, but actually three agents code them at once, and usually another tests them before you look.
+
+2
+00:00:10,267 --> 00:00:11,292
+Here's what changed.
+
+3
+00:00:11,592 --> 00:00:17,640
+Before, one agent took users, orders and products in turn; after each, you ran the tests yourself.
+
+4
+00:00:18,140 --> 00:00:31,023
+Now, in preview, you type /swarm, and your chat becomes the coordinator: it gives each file its own worker, at the same time, plus, usually, a verifier that runs the tests and sends problems back to the coder.
+
+5
+00:00:31,523 --> 00:00:35,702
+They all talk on one shared board you can watch: questions, test results.
+
+6
+00:00:36,202 --> 00:00:41,232
+The catch: it works best when a task splits cleanly, and it uses your quota much faster.
+
+7
+00:00:41,732 --> 00:00:50,696
+So, what we learned: three files used to mean three waits; now, when the task splits, three agents take them at once, and usually a verifier tests first.
+
+8
+00:00:51,196 --> 00:00:51,898
+Want more?
+
+9
+00:00:52,198 --> 00:00:54,729
+Subscribe, and comment what we should explain next.

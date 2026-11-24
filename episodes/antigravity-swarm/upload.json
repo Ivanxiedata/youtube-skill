@@ -1,0 +1,23 @@
+{
+  "title": "Antigravity Swarm: Watch 3 Agents Code 3 Files at Once",
+  "description": "Antigravity Swarm explained in 60 seconds: since November 9, 2026, /swarm in Google Antigravity (preview; all plans, App and CLI; business and enterprise accounts since November 17, when their admin allows) turns your conversation into a coordinator that splits a coding task across named agents working at the same time.\nOur example is the 3 API files from Google's own docs. Before (our picture, not Google's numbers): one agent took them in turn and you ran the tests yourself, 3 waits; now 3 agents take one file each at once, usually a verifier runs the tests, and you watch them on one shared board. It works best when a task splits cleanly, and it uses your quota much faster.\n\nRead the maker's own page first: https://antigravity.google/docs/swarm\n\nChapters\n0:00 3 files, 3 waits before\n0:18 Preview: coordinator, usually a verifier\n0:36 The catch: when it splits\n\nThe story: one counted example, the maker's own. Google's docs show a /swarm prompt for three API handlers (users, orders and products): give each handler its own worker, add tests next to each, and have a verifier run the tests. Before, our picture (not Google's numbers, and not a speed claim): one agent in one conversation takes the three files in turn and you run the tests yourself after each, so we count 3 waits; the \"YOUR WAITS\" meter and the \"3 waits\" are our illustration, and Google gives no number for time saved. Now, in preview, when you run /swarm with a task, your current conversation becomes the coordinator: it names the swarm, splits the work into pieces that don't collide (for example one worker per file) and adds a named worker for each piece; the worker names @USERS, @ORDERS and @PRODUCTS in the video are ours. The coordinator usually adds a verifier for every two to four workers; the verifier reads the diffs, runs the tests and reports problems to the worker that wrote the code, which then fixes them. In our example you ask for the verifier. You still read the result. The workers post assignments, questions, diff summaries and test results on one shared message board, and in the Antigravity App you can watch it live in the Swarm pane.\n\nWho gets it: /swarm is in preview, available on all plans in the Antigravity App and the Antigravity CLI; on business and enterprise accounts when the organization admin allows it (opened to those accounts in v2.33.0, November 17, 2026). It first shipped in v2.31.0 on November 9, 2026.\n\nThe catch: Swarm works best when a task splits cleanly across separate files, packages or questions, or when you want a second agent to review and test the changes before you see them; it is not for any task. Every worker is its own agent, so a swarm uses quota much faster than a single conversation.\n\nWhat we learned: in our example, 3 files that meant 3 waits can, when the task splits, go to 3 agents at once, and usually a verifier tests first. Google gives no number for time saved.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nGoogle Antigravity docs, \"Swarm (/swarm)\": https://antigravity.google/docs/swarm\nAntigravity changelog, v2.31.0 (November 9, 2026) and v2.33.0 (November 17, 2026): https://antigravity.google/docs/changelog\nTestingCatalog, \"Google testing Agent Swarm mode for Antigravity\" (press, November 10, 2026): https://www.testingcatalog.com/google-testing-agent-swarm-mode-for-antigravity/\n\nThe desk, chef's hat, robots, file cards, shared board and the meter are invented pictures inside the maker's example, not the real Antigravity interface or logos. The robots and the cartoon people are generic drawings.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#AntigravitySwarm #GoogleAntigravity #AIExplained",
+  "tags": [
+    "antigravity swarm",
+    "antigravity swarm explained",
+    "google antigravity",
+    "antigravity /swarm",
+    "antigravity agents",
+    "antigravity multi agent",
+    "antigravity subagents",
+    "swarm mode coding agents",
+    "coding agents in parallel",
+    "ai coding agents",
+    "parallel coding agents",
+    "antigravity cli",
+    "antigravity app",
+    "ai coding explained",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

@@ -1,0 +1,7 @@
+Antigravity Swarm: you think three separate files cost you three waits, but actually three agents code them at once, and usually another tests them before you look.
+Here's what changed. Before, one agent took users, orders and products in turn; after each, you ran the tests yourself.
+Now, in preview, you type slash swarm, and your chat becomes the coordinator: it gives each file its own worker, at the same time, plus, usually, a verifier that runs the tests and sends problems back to the coder.
+They all talk on one shared board you can watch: questions, test results.
+The catch: it works best when a task splits cleanly, and it uses your quota much faster.
+So, what we learned: three files used to mean three waits; now, when the task splits, three agents take them at once, and usually a verifier tests first.
+Want more? Subscribe, and comment what we should explain next.

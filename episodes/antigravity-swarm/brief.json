@@ -1,0 +1,113 @@
+{
+ "slug": "antigravity-swarm",
+ "tech": {
+  "id": "antigravity-swarm",
+  "name": "Google Antigravity /swarm (Swarm)",
+  "released": "2026-11-09",
+  "status": "preview; all plans, Antigravity App and CLI (business and enterprise accounts when the admin allows); uses quota much faster than a single conversation",
+  "one_line": "/swarm turns your conversation into a coordinator that splits a task across named worker agents working at the same time, usually adds a verifier that runs the tests and reports problems to the worker that wrote the code, and has them all post on one shared board you can watch.",
+  "released_note": "v2.31.0 (App) November 9, 2026; business and enterprise accounts from v2.33.0, November 17, 2026, when the admin allows"
+ },
+ "predecessor": {
+  "id": "single-agent",
+  "name": "One agent in a single conversation working through the task (the default agent); our scene: you check and test each change yourself",
+  "source": "https://antigravity.google/docs/swarm"
+ },
+ "sections": {
+  "hook": {
+   "text": "Antigravity Swarm: you think 3 separate files cost you 3 waits, but actually 3 agents code them at once, and usually another tests them before you look.",
+   "claims": [
+    {
+     "text": "'runs a team of named agents that split your task, work on the pieces at the same time'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'when you want a second agent to review and test the changes before you see them'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "The 3 files are the maker's example: 'Add input validation to the three API handlers ... Give each handler its own worker ... have a verifier run npm test'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'The coordinator usually adds a @verifier for every two to four workers.'",
+     "source": "https://antigravity.google/docs/swarm"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's what changed. Before, one agent took users, orders and products in turn; after each, you ran the tests yourself.",
+   "claims": [
+    {
+     "text": "Our scene of the default single agent: 'For everyday coding and quick questions, prompt the default agent directly.' / 'a single conversation'; not a maker's claim about speed",
+     "source": "https://antigravity.google/docs/swarm"
+    }
+   ]
+  },
+  "new": {
+   "text": "Now, in preview, you type /swarm, and your chat becomes the coordinator: it gives each file its own worker, at the same time, plus, usually, a verifier that runs the tests and sends problems back to the coder. They all talk on one shared board you can watch: questions, test results.",
+   "claims": [
+    {
+     "text": "'Swarm is in preview.'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'your current conversation becomes the swarm's coordinator'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'adds a named worker for each piece' (one worker per file or per package)",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'The coordinator usually adds a @verifier for every two to four workers. The verifier reads the diffs, runs the tests, and reports problems to the worker that wrote the code, which then fixes them.'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'Assignments, questions between workers, diff summaries, and test results are posted to the shared board'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'Click it to open the live Swarm pane in the side panel.'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "v2.31.0, November 9, 2026: 'You can now use /swarm to coordinate multiple subagents over a message board to complete long-horizon tasks.'",
+     "source": "https://antigravity.google/docs/changelog"
+    }
+   ]
+  },
+  "why": {
+   "text": "The catch: it works best when a task splits cleanly, and it uses your quota much faster.",
+   "claims": [
+    {
+     "text": "'Use it when a task divides cleanly across separate files, packages, or questions'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'Every worker is its own agent, so a swarm uses quota much faster than a single conversation.'",
+     "source": "https://antigravity.google/docs/swarm"
+    },
+    {
+     "text": "'available on all plans across the Google Antigravity App and the Antigravity CLI (on business and enterprise accounts, when allowed by organization admin settings)'",
+     "source": "https://antigravity.google/docs/swarm"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "So, what we learned: 3 files used to mean 3 waits; now, when the task splits, 3 agents take them at once, and usually a verifier tests first.",
+   "claims": [
+    {
+     "text": "The 3 waits are our illustration, not a maker's number; the maker gives no speed-up or time saved",
+     "source": "https://antigravity.google/docs/swarm"
+    }
+   ]
+  }
+ },
+ "sources": [
+  "https://antigravity.google/docs/swarm",
+  "https://antigravity.google/docs/swarm.md",
+  "https://antigravity.google/docs/changelog",
+  "https://www.testingcatalog.com/google-testing-agent-swarm-mode-for-antigravity/"
+ ]
+}

@@ -1,0 +1,74 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 9.267,
+  "text": "Antigravity Swarm: you think three separate files cost you three waits, but actually three agents code them at once, and usually another tests them before you look."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.767,
+  "end": 10.792,
+  "text": "Here's what changed."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 11.092,
+  "end": 17.14,
+  "text": "Before, one agent took users, orders and products in turn; after each, you ran the tests yourself."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.64,
+  "end": 30.523,
+  "text": "Now, in preview, you type slash swarm, and your chat becomes the coordinator: it gives each file its own worker, at the same time, plus, usually, a verifier that runs the tests and sends problems back to the coder."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 31.023,
+  "end": 35.202,
+  "text": "They all talk on one shared board you can watch: questions, test results."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.702,
+  "end": 40.732,
+  "text": "The catch: it works best when a task splits cleanly, and it uses your quota much faster."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 41.232,
+  "end": 50.196,
+  "text": "So, what we learned: three files used to mean three waits; now, when the task splits, three agents take them at once, and usually a verifier tests first."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 50.696,
+  "end": 51.398,
+  "text": "Want more?"
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.698,
+  "end": 54.229,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]
