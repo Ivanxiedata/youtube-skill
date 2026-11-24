@@ -100,7 +100,7 @@ The click is decided by the title and thumbnail together, and the first seconds 
   (this is also the payoff, said out loud), then the ask: "Want more? Subscribe, and comment what we should explain next." On screen: a "WHAT WE LEARNED" card, then the Subscribe button with a comment button.
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
-- **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 170 words, so the voice fits in 60 s at speed 1.2.
+- **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 150 words, so the voice fits in 60 s (Ivan's voice speaks about 155 words a minute).
 
 ### 3b Claim check (Sonnet, a fresh agent that did not write the script)
 - Every claim in `script.md`, the ON SCREEN lines of `beats.md` and the title and thumbnail, checked against the source itself (lesson L17).
@@ -108,7 +108,7 @@ The click is decided by the title and thumbnail together, and the first seconds 
 - **Pass:** nothing narrower or wrong left; fix the words before anything is voiced or drawn.
 
 ### 4 Make (Sonnet; the strong model takes over a step that fails twice)
-- stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`tts.py ... --voice am_michael --speed 1.2 --no-align`),
+- stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align`: Ivan's voice, `docs/voice.md`),
   stills of every shot checked by eye first, then one full `build.py`; after that only `build.py ... --shots <n>` for the shots an audit names or a fix changed
   (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
 - Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button (with the next episode's name under it only when it is decided; otherwise nothing, lesson L24).

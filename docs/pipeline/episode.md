@@ -44,12 +44,12 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The music-to-voice gap is measured as mixed: `audio_kit.Mix.write` scales everything but the voice by 0.55 (-5.2 dB) (L19).
   Never measure the stems: `Mix.write` normalises each file to -17 LUFS, so stem numbers are always equal. Measure music x 0.55 against the voice, once (L19, repeated).
 - WebFetch paraphrases pages with a small model: for any sentence you quote, `curl -sL` the page and strip the HTML (L20).
-- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 170 words, counted per beat while writing (L21).
+- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 150 words, counted per beat while writing (L21).
 - Lay out new drawings by measuring: cards sized from `measureText` plus padding, 40 px from the frame edge and other labels, figures anchored to the tile bottom, effects drawn after what they sit on; after every re-render, look at the re-rendered shots' stills again (L22).
 - Panels and cards ease in on scale and alpha over at least 0.5 s (the audit counts a fast fade as a pop); a shot over 2 s with little motion gets a slow camera push to about 1.1 (L23).
 - Whoever writes captions, chapters and `upload.json` reads `claims.md` first: no chapter title or description line may say more than a narrower row allows; mark each narrower row with where it was fixed (L17, repeated).
 - The Subscribe card: the next episode's name under it only when it is decided; the daily run never knows it, so nothing under it, no "Next in 60 seconds" (owner, L24).
-- Time the voice, not the words (L21, repeated): this voice speaks about 2.8 words a second at speed 1.2, spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.4 s. Before the claim check, voice a draft of `film/script.txt` with `tts.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
+- Time the voice, not the words (L21, repeated): Ivan's voice speaks about 2.6 words a second (L56), spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.25 s (a blank line 0.6 s). Before the claim check, voice a draft of `film/script.txt` with `scripts/voice.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
 - Write `research.md`'s narrowing conditions into the first draft; after any claim fix to the hook or title, re-run `hookscore.py` and `title.py` (L26).
 - Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
 - Never `SendMessage` a finished subagent (it resumes in the background); start a new foreground Agent with a full brief.
@@ -78,7 +78,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Before the handback the maker reads every drawn label, chapter title, description sentence and source line against `claims.md` and `research.md`; source lines are copied from `research.md`, never written from memory (L17, repeated).
 - View state per shot includes the mini panels of the WHAT WE LEARNED card: they show the same state as the shot they recall (L38, repeated).
 - After every fetch, check the stripped text is the article; fetch press and Microsoft pages with a browser `-A` user agent; follow a summary's "original post" link; JavaScript-only docs are noted in `research.md` (L40).
-- Never pipe `tts.py` or `build.py` into `head`; `mkdir -p` the scratch folder, log there, read with `tail` (L41).
+- Never pipe `scripts/voice.py` or `build.py` into `head`; `mkdir -p` the scratch folder, log there, read with `tail` (L41).
 - Wait on a long build with Monitor or a foreground call, never `sleep` (L42).
 - After a scripted edit, grep for the new text before moving on (L43).
 - A scratch script importing `audio_kit` exports `STICKMAN_SCRIPTS` first (L45).
@@ -99,7 +99,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
-  Skills are under `.claude/skills/`. Always `tts.py ... --no-align`.
+  Skills are under `.claude/skills/`. The voice is always `.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align` (Ivan's voice, never Kokoro's `tts.py`); `VOICE_SAMPLE` is set. Never copy the voice sample anywhere.
 - Scratch files only under `$RUNNER_TEMP/{{SLUG}}/`.
 - Do not upload, do not commit, do not push: the workflow does those after you finish, using `evaluation.md`'s first line.
 
