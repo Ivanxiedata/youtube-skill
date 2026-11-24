@@ -1,0 +1,7 @@
+Claude Ship: you think one P R must cost you four stops, but A I actually tries the fixes and approves it, if your policy allows.
+Here's how. Before, an A I review only left comments. You stopped your next task for a failing check, a merge conflict, a comment, then chased someone to approve.
+Now, in beta, P R Steward works on all three while you keep coding, and notes what it changed.
+Then Claude Approvals reads your team's policy file, like a harbor rulebook: small routine boats it can stamp itself; risky ones can need people.
+Anthropic's Claude Code team, with Claude's review as one layer, more than doubled merged pull requests, June to September.
+So, what we learned: in our example, one pull request stopped you four times; now zero, if the fixes work and your policy allows.
+Want more? Subscribe, and comment what we should explain next.

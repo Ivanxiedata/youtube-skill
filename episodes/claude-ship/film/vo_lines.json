@@ -1,0 +1,82 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 7.895,
+  "text": "Claude Ship: you think one P R must cost you four stops, but A I actually tries the fixes and approves it, if your policy allows."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 8.395,
+  "end": 9.115,
+  "text": "Here's how."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.415,
+  "end": 11.826,
+  "text": "Before, an A I review only left comments."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.126,
+  "end": 17.947,
+  "text": "You stopped your next task for a failing check, a merge conflict, a comment, then chased someone to approve."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 18.447,
+  "end": 23.983,
+  "text": "Now, in beta, P R Steward works on all three while you keep coding, and notes what it changed."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 24.483,
+  "end": 32.932,
+  "text": "Then Claude Approvals reads your team's policy file, like a harbor rulebook: small routine boats it can stamp itself; risky ones can need people."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 33.432,
+  "end": 40.832,
+  "text": "Anthropic's Claude Code team, with Claude's review as one layer, more than doubled merged pull requests, June to September."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 41.332,
+  "end": 48.94,
+  "text": "So, what we learned: in our example, one pull request stopped you four times; now zero, if the fixes work and your policy allows."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 49.44,
+  "end": 50.143,
+  "text": "Want more?"
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 50.443,
+  "end": 52.973,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

@@ -1,0 +1,80 @@
+{
+ "slug": "claude-ship",
+ "tech": {
+  "id": "claude-ship",
+  "name": "Claude Ship (Code Review + PR Steward + Claude Approvals)",
+  "released": "2026-11-23, beta (PR Steward, Claude Approvals); Code Review generally available",
+  "status": "beta on Claude Team and Enterprise plans, GitHub repositories",
+  "one_line": "Agents that take a GitHub pull request through review, fixes and an approval decision: PR Steward works on failing checks, merge conflicts and review feedback; Claude Approvals can approve routine changes on its own when the team's policy file allows it."
+ },
+ "predecessor": {
+  "id": "ai-review-comments-only",
+  "name": "An AI review that only left comments: the developer fixed failing checks, conflicts and comments by hand, and every pull request waited for a person to approve it (the counted example is the episode's own)"
+ },
+ "claims": [
+  {
+   "text": "Claude Ship launched November 23, 2026, in beta: Claude can review pull requests, fix them, and approve the ones a team's policy allows",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Claude Ship = Code Review (generally available) + two new beta agents, PR Steward and Claude Approvals, taking a PR through review, fixes and an approval decision",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Before: the review comes back, you stop, dig back into the old code, push a fix, wait for the review again, then find someone to approve it",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Most teams want a person to approve every change",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "PR Steward jumps in on failing CI checks, merge conflicts and review feedback; it is designed not to approve or merge",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "PR Steward comments after every push with what it changed and how to undo it",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "PR Steward attempts to fix failing checks (when the cause is in code the PR touches) and resolve merge conflicts; you can start your next change while it works",
+   "source": "https://code.claude.com/docs/en/pr-steward"
+  },
+  {
+   "text": "Claude Approvals applies a policy file the team writes in the repo; Claude can approve routine changes on its own if the policy allows it, or require human sign-off",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "The policy can ask more people for risky changes and fewer for routine ones (billing code two people; test fixtures one once Code Review passes); file .claude/approvals.yml",
+   "source": "https://code.claude.com/docs/en/approvals"
+  },
+  {
+   "text": "Anthropic recommends observe-only mode first; the check blocks merges only where it is a required GitHub check",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Claude Ship uses AI and may miss bugs, security vulnerabilities, or other issues",
+   "source": "https://code.claude.com/docs/en/claude-ship"
+  },
+  {
+   "text": "On the Claude Code team, where Claude's review is one layer of a broader process, merged PRs more than doubled from June to September",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "A docs fix: Code Review found nothing blocking, a docs reviewer signed off, Claude Approvals passed, and it merged the same evening",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Available on Claude Team and Enterprise plans for GitHub repositories; not with Zero Data Retention, HIPAA configuration or customer-managed keys",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "Billed on tokens, so turning it on can add to costs",
+   "source": "https://claude.com/resources/articles/introducing-claude-ship"
+  },
+  {
+   "text": "TechCrunch confirms: an agent that can approve code changes automatically based on policies set by a development team",
+   "source": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+  }
+ ]
+}

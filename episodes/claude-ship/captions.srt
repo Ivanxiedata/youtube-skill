@@ -1,0 +1,95 @@
+1
+00:00:00,500 --> 00:00:04,160
+Claude Ship: you think 1 PR must cost you 4 stops,
+
+2
+00:00:04,200 --> 00:00:06,935
+but AI actually tries the fixes and approves it,
+
+3
+00:00:06,975 --> 00:00:08,395
+if your policy allows.
+
+4
+00:00:08,895 --> 00:00:09,615
+Here's how.
+
+5
+00:00:09,915 --> 00:00:12,326
+Before, an AI review only left comments.
+
+6
+00:00:12,626 --> 00:00:14,790
+You stopped your next task for a failing check,
+
+7
+00:00:14,830 --> 00:00:15,930
+a merge conflict,
+
+8
+00:00:15,970 --> 00:00:18,447
+a comment, then chased someone to approve.
+
+9
+00:00:18,947 --> 00:00:23,015
+Now, in beta, PR Steward works on all three while you keep coding,
+
+10
+00:00:23,055 --> 00:00:24,483
+and notes what it changed.
+
+11
+00:00:24,983 --> 00:00:27,715
+Then Claude Approvals reads your team's policy file,
+
+12
+00:00:27,755 --> 00:00:29,050
+like a harbor rulebook:
+
+13
+00:00:29,090 --> 00:00:31,680
+small routine boats it can stamp itself;
+
+14
+00:00:31,720 --> 00:00:33,432
+risky ones can need people.
+
+15
+00:00:33,932 --> 00:00:35,660
+Anthropic's Claude Code team,
+
+16
+00:00:35,700 --> 00:00:37,730
+with Claude's review as one layer,
+
+17
+00:00:37,770 --> 00:00:40,120
+more than doubled merged pull requests,
+
+18
+00:00:40,160 --> 00:00:41,332
+June to September.
+
+19
+00:00:41,832 --> 00:00:42,870
+So, what we learned:
+
+20
+00:00:42,910 --> 00:00:44,049
+in our example,
+
+21
+00:00:44,089 --> 00:00:46,175
+1 pull request stopped you 4 times;
+
+22
+00:00:46,215 --> 00:00:49,440
+now 0, if the fixes work and your policy allows.
+
+23
+00:00:49,940 --> 00:00:50,643
+Want more?
+
+24
+00:00:50,943 --> 00:00:53,473
+Subscribe, and comment what we should explain next.
