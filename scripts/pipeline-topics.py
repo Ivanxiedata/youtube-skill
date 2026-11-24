@@ -20,7 +20,7 @@ seen = set()
 for i, t in enumerate(topics):
     if not isinstance(t, dict):
         sys.exit(f"pipeline-topics: entry {i} is not an object")
-    for k in ("slug", "topic", "before", "sources"):
+    for k in ("slug", "topic", "before", "aha", "sources"):
         if not t.get(k):
             sys.exit(f"pipeline-topics: entry {i} has no {k}")
     s = t["slug"]
@@ -30,7 +30,7 @@ for i, t in enumerate(topics):
         sys.exit(f"pipeline-topics: slug {s!r} repeats an episode")
     if not all(isinstance(u, str) and u.startswith("https://") for u in t["sources"]):
         sys.exit(f"pipeline-topics: {s}: sources must be https URLs")
-    for k in ("topic", "before"):
+    for k in ("topic", "before", "aha"):
         t[k] = " ".join(str(t[k]).split())  # one line, for the prompt
     seen.add(s)
-print(json.dumps([{"slug": t["slug"], "topic": t["topic"], "before": t["before"], "sources": " ".join(t["sources"])} for t in topics], separators=(",", ":")))
+print(json.dumps([{"slug": t["slug"], "topic": t["topic"], "before": t["before"], "aha": t["aha"], "sources": " ".join(t["sources"])} for t in topics], separators=(",", ":")))

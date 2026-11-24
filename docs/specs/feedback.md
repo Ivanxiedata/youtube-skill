@@ -20,7 +20,7 @@ The owner, whose comments stop being lost in a chat. Agents starting an episode,
 ## Data
 `docs/lessons.md`, one row per lesson, newest last:
 `id | date | source | episode | lesson (what went wrong or worked) | rule (what to do from now on) | check | status`
-- `check`: `evaluate` (looked at on every scorecard), `brand` or `product` (written into that doc), `pipeline` (a process trap, written into "Known traps" in `docs/pipeline/episode.md`), or `none`.
+- `check`: `evaluate` (looked at on every scorecard), `brand` or `product` (written into that doc), `pipeline` (a process trap, written into "Known traps" in `docs/pipeline/episode.md`), `gate` (a teaching rule, checked by the content gate, `docs/roles/content-gate.md`), or `none`.
 - `status`: `open`, or `retired` with the reason.
 Seeded with the lessons from the owner's feedback on Episode 0.
 
