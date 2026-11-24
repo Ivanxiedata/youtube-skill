@@ -55,6 +55,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The Subscribe card: the next episode's name under it only when it is decided; the daily run never knows it, so nothing under it, no "Next in 60 seconds" (owner, L24).
 - Time the voice, not the words (L21, repeated): Ivan's voice speaks about 2.6 words a second (L56), spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.25 s (a blank line 0.6 s). Before the claim check, voice a draft of `film/script.txt` with `scripts/voice.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
 - Write `research.md`'s narrowing conditions into the first draft; after any claim fix to the hook or title, re-run `hookscore.py` and `title.py` (L26).
+- Ivan's voice can add a stray word at a line's end: measure each line's last 50 ms in `vo.wav`; re-voice any line louder than -28 dB there (L73).
 - Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
 - Never `SendMessage` a finished subagent (it resumes in the background); start a new foreground Agent with a full brief.
 - Every subagent runs with `run_in_background: false`; the session ends only when `video.mp4` exists and `evaluation.md` has its first line, or `evaluation.md` says why not (L28).
