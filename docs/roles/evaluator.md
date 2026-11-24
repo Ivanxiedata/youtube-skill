@@ -30,6 +30,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L14, repeated): the topic's name is not the first spoken words (a hook opening "Before, you'd ..." and naming the topic later fails).
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
+   Must-fix (L44, repeated 2026-11-24): a figure or multi-part prop that fades with `globalAlpha`, alone or inside an easing panel, so limbs or clothes show through each other.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
 11. Close (lesson L32): a "So, what we learned:" conclusion restating the before -> after on the counted example, then the ask to subscribe and comment what to explain next. Must-fix if there is no conclusion or no ask.
 
@@ -39,11 +40,14 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L26, repeated): any on-screen line or `upload.json` description sentence (any line, not only 1-2) that states a number, default or rate without the condition `research.md`'s narrowing list gives it (for which models, by default, at least), whether or not it has a `claims.md` row.
    Must-fix (L26, repeated 2026-11-24): a chapter title, card, label or line that states the invented example's number without "our example" (or "our"), or a condition with its own date folded under another date; should-fix when a spoken number's condition shows on screen only after the number.
    Must-fix (L17, repeated 2026-11-24): an on-screen label naming a product or agent a `claims.md` row rules out (a robot labelled "COPILOT" where the maker names no Copilot agent), or a source line in `upload.json` (article title, author) that no file in the episode holds.
+   Must-fix (L26, repeated 2026-11-24): an example from the docs (a policy value, a count) spoken or drawn as the rule without "example"; a source's list shortened (an item such as "meetings" dropped); a line in `research.md` or `upload.json` stating an inference no source says.
+   Must-fix (L17, repeated 2026-11-24): an `upload.json` sentence labelled "per <maker>" (or quoting the maker) that adds words the maker's quoted sentence in `research.md` lacks.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
    Must-fix (L25, repeated): the NOW side does not show the same counted example reaching its outcome (an empty NOW panel beside a filled BEFORE one reads as "nothing happened").
    Must-fix (L34, repeated): in any shot, a meter's number counts something other than the unit its label names (a "YOUR WAITS" meter ticking on a test run).
+   Must-fix (L34, repeated 2026-11-24): a meter's number that disagrees with what the shot draws (the route stops at 4, the meter shows 10), or a meter fix that hides the shot's point (a stall shown only by a tag, not on the picture).
 
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.

@@ -84,6 +84,18 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - A scratch script importing `audio_kit` exports `STICKMAN_SCRIPTS` first (L45).
 - `node --check film/film.js` after every edit, before any render (L49).
 - Look at a still of every shot before the first full build and fix layout in one round; a shot that fails twice is simplified, not tuned again (L50).
+- Before scoring any hook, check each draft has all four of the scorer's groups (you, a digit, a stakes word, a curiosity word: but, actually, until); write none missing one. Reading the lists alone still left 3-4 rounds in claude-ship and copilot-workspaces (L33, repeated).
+- Check stills at a shot's first frame and mid-entrance too, not only the middle: a desk or prop drawn over a figure while it enters is a layout fault; a highlight never matches the colour it sits on (cream on a cream sail) (L22, repeated).
+- A drawing that changes style (a scroll becoming a rulebook) cross-fades over at least 0.5 s, never switches in one frame (L23, repeated).
+- One sound pass, not two: never keep the example's `MUSIC_DB` (-15 gave 15.0 dB; start at -16) or its cut lead times (start brushes about 110-135 ms before the cut); after the first full build read `earshot timeline` and the as-mixed gap together and fix both in one audio-only remix. A cut within 200 ms before a voice line start gets a louder cut sound or moves into the pause (L47, L19, repeated: 2 remixes and 3 min each in claude-ship and copilot-autopilot).
+- Voice the first draft at about 140 spoken words with every condition already in its lines; copilot-workspaces voiced 148, 142 and 139 words before it ended near 55 s (L21, repeated).
+- `node --check` misses a call with a dropped argument (`bgDusk(...)` without `x`): right after the first `film.js` edit, render one still of one shot before the full stills run (L49, repeated).
+- Copy the episode's own `audio_mix.py` (music, no beds) over the scaffold's before the first `build.py`: the scaffold mixes room, rain and drone beds (L2, repeated).
+- `earshot sheet` writes `video_sheet.png` beside the video: run it on a copy in `$RUNNER_TEMP/{{SLUG}}/`, never in the episode folder (L15, repeated).
+- Take docs URLs from the maker's own links (docs nav, announcement post), never guessed from the product's name (L51).
+- Hand targets stay inside the rig's arm reach (about 199 units from the shoulder); every animated limb has a pose from the shot's first frame equal to its default; look at those first-frame and full-reach stills before the first full build (L52).
+- Caption break times come from `film/pauses.json`, never typed by hand (L53).
+- `build.py --out` takes a bare file name (written inside `film/`); an absolute path makes the audit decode 0 frames (L55).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
