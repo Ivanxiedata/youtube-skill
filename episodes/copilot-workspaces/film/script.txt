@@ -1,0 +1,8 @@
+Copilot Workspaces: you think AI teamwork must cost you copy-pastes, but in early access you and agents actually share one space, one goal.
+Here's how. Our example: a four-part team plan.
+Before, each of you asked Copilot alone, then pasted its answer in by hand. Four copy-pastes.
+Now, in an early-access Workspace, an agent drafts a part in the plan, and you review. You leave a comment; an agent picks it up.
+Microsoft says AI has mostly been single player. Workspaces makes it multiplayer: people and agents, one goal, shared context.
+It grew out of Copilot Notebooks, continues in Teams, and is in Frontier, Microsoft's early access.
+So, what we learned: in our example, four solo chats meant four copy-pastes; in one early-access Workspace, agents draft and you review.
+Want more? Subscribe, and comment what we should explain next.

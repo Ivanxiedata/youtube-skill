@@ -1,0 +1,147 @@
+1
+00:00:00,500 --> 00:00:01,751
+Copilot Workspaces:
+
+2
+00:00:01,791 --> 00:00:03,178
+you think AI teamwork
+
+3
+00:00:03,218 --> 00:00:04,944
+must cost you copy-pastes,
+
+4
+00:00:04,984 --> 00:00:06,507
+but in early access you
+
+5
+00:00:06,547 --> 00:00:08,816
+and agents actually share 1 space,
+
+6
+00:00:08,856 --> 00:00:09,292
+1 goal.
+
+7
+00:00:09,832 --> 00:00:10,511
+Here's how.
+
+8
+00:00:10,851 --> 00:00:11,619
+Our example:
+
+9
+00:00:11,659 --> 00:00:12,898
+a 4-part team plan.
+
+10
+00:00:13,438 --> 00:00:13,828
+Before,
+
+11
+00:00:13,868 --> 00:00:15,796
+each of you asked Copilot alone,
+
+12
+00:00:15,836 --> 00:00:17,887
+then pasted its answer in by hand.
+
+13
+00:00:18,227 --> 00:00:19,241
+4 copy-pastes.
+
+14
+00:00:19,781 --> 00:00:19,982
+Now,
+
+15
+00:00:20,022 --> 00:00:21,728
+in an early-access Workspace,
+
+16
+00:00:21,768 --> 00:00:22,751
+an agent drafts a
+
+17
+00:00:22,791 --> 00:00:23,775
+part in the plan,
+
+18
+00:00:23,815 --> 00:00:24,678
+and you review.
+
+19
+00:00:25,018 --> 00:00:26,058
+You leave a comment;
+
+20
+00:00:26,098 --> 00:00:27,192
+an agent picks it up.
+
+21
+00:00:27,732 --> 00:00:29,047
+Microsoft says AI has
+
+22
+00:00:29,087 --> 00:00:30,724
+mostly been single player.
+
+23
+00:00:31,064 --> 00:00:32,988
+Workspaces makes it multiplayer:
+
+24
+00:00:33,028 --> 00:00:35,566
+people and agents, 1 goal, shared context.
+
+25
+00:00:36,106 --> 00:00:38,232
+It grew out of Copilot Notebooks,
+
+26
+00:00:38,272 --> 00:00:39,480
+continues in Teams,
+
+27
+00:00:39,520 --> 00:00:40,727
+and is in Frontier,
+
+28
+00:00:40,767 --> 00:00:42,368
+Microsoft's early access.
+
+29
+00:00:42,908 --> 00:00:43,073
+So,
+
+30
+00:00:43,113 --> 00:00:44,165
+what we learned:
+
+31
+00:00:44,205 --> 00:00:45,188
+in our example,
+
+32
+00:00:45,228 --> 00:00:47,440
+4 solo chats meant 4 copy-pastes;
+
+33
+00:00:47,480 --> 00:00:49,351
+in 1 early-access Workspace,
+
+34
+00:00:49,391 --> 00:00:51,262
+agents draft and you review.
+
+35
+00:00:51,802 --> 00:00:52,465
+Want more?
+
+36
+00:00:52,805 --> 00:00:53,271
+Subscribe,
+
+37
+00:00:53,311 --> 00:00:55,295
+and comment what we should explain next.

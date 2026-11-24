@@ -1,0 +1,106 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 8.832,
+  "text": "Copilot Workspaces: you think AI teamwork must cost you copy-pastes, but in early access you and agents actually share one space, one goal."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 9.332,
+  "end": 10.051,
+  "text": "Here's how."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 10.351,
+  "end": 12.438,
+  "text": "Our example: a four-part team plan."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.938,
+  "end": 17.427,
+  "text": "Before, each of you asked Copilot alone, then pasted its answer in by hand."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 17.727,
+  "end": 18.781,
+  "text": "Four copy-pastes."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 19.281,
+  "end": 24.218,
+  "text": "Now, in an early-access Workspace, an agent drafts a part in the plan, and you review."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 24.518,
+  "end": 26.732,
+  "text": "You leave a comment; an agent picks it up."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 27.232,
+  "end": 30.264,
+  "text": "Microsoft says AI has mostly been single player."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 30.564,
+  "end": 35.106,
+  "text": "Workspaces makes it multiplayer: people and agents, one goal, shared context."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.606,
+  "end": 41.908,
+  "text": "It grew out of Copilot Notebooks, continues in Teams, and is in Frontier, Microsoft's early access."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 42.408,
+  "end": 50.802,
+  "text": "So, what we learned: in our example, four solo chats meant four copy-pastes; in one early-access Workspace, agents draft and you review."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.302,
+  "end": 52.005,
+  "text": "Want more?"
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.305,
+  "end": 54.835,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

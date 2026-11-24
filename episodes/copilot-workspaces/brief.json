@@ -1,0 +1,26 @@
+{
+ "slug": "copilot-workspaces",
+ "tech": {
+  "id": "copilot-workspaces",
+  "name": "Copilot Workspaces",
+  "released": "2026-11-17 at Microsoft Ignite 2026; available in Frontier (Microsoft's early access program)",
+  "status": "early access (Frontier) only; not generally available",
+  "one_line": "A shared space in the Copilot app, the evolution of Copilot Notebooks, where people and agents work toward a common goal with shared context: an agent drafts a section of a document and you review; you leave a comment and an agent picks it up; the collaboration continues in Microsoft Teams."
+ },
+ "predecessor": {
+  "id": "single-player-ai",
+  "name": "Single-player AI at work: each person chats with Copilot alone and copies its answer into a shared document by hand (Microsoft: 'mostly single player'; the copy-paste scene and the counted example are the episode's own); predecessor product: Copilot Notebooks"
+ },
+ "claims": [
+  {"text": "Until now, AI interactions have mostly been single player", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "Workspaces makes it a truly multiplayer experience, where people and agents drive towards a common goal, with shared context", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "Workspaces is the evolution of Copilot Notebooks", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "An agent drafts a section of a document, and you review", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "You leave a comment, and an agent picks it up", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "It is in the Copilot app; the collaboration continues in Microsoft Teams", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "Workspaces is now available in Frontier (announced Nov 17, 2026 at Ignite)", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"},
+  {"text": "Frontier gives early access to preview AI features before they're generally available; needs a Microsoft 365 Copilot license and the organisation's opt-in", "source": "https://adoption.microsoft.com/en-us/copilot/frontier-program/"},
+  {"text": "Nadella: from a single player world to a true multiplayer form factor, people, their agents and other people driving towards a common goal with shared context: Copilot Workspaces", "source": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"},
+  {"text": "Our example (invented): a 4-part team plan; before, 4 parts pasted in by hand from solo chats (4 copy-pastes); now agents draft in the plan and you review (0 copy-pastes). Microsoft gives no count", "source": "https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/"}
+ ]
+}

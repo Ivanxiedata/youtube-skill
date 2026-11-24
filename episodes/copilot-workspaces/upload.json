@@ -1,0 +1,21 @@
+{
+  "title": "Copilot Workspaces (Early Access): 1 Space for You + Agents",
+  "description": "Copilot Workspaces explained in 60 seconds: in early access (Microsoft's Frontier program) since Ignite, November 17, 2026, a shared space in the Copilot app where you and AI agents work toward one goal with shared context. An agent drafts a section, you review; you leave a comment and an agent picks it up.\nMicrosoft says AI interactions have mostly been single player until now. Our example: a 4-part team plan drafted in 4 solo chats meant 4 copy-pastes by hand; in one early-access Workspace, agents draft in the plan and you review. Workspaces is the evolution of Copilot Notebooks, and the work continues in Microsoft Teams.\n\nRead Microsoft's own post first: https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/\n\nChapters\n0:00 Early access: 1 space, 1 goal\n0:13 Our example: before vs now\n0:27 Multiplayer, Notebooks, Frontier\n0:42 What we learned\n\nThe story: a video game, single player vs multiplayer. One counted example of ours: a 4-part team plan written by a team of 4, one part each. In our example, before, each of you asked Copilot alone in your own chat and pasted its answer into the plan by hand: 4 solo chats, 4 copy-pastes. In our example, in an early-access Workspace, an agent drafts a part right in the plan, you review, you leave a comment and an agent picks it up: 0 copy-pastes in our example (Microsoft gives no number of copy-pastes or time saved).\n\nHow it works, per Microsoft (in early access): Copilot Workspaces is a shared space in the Copilot app, where your files, conversations, people and agents are all easily accessible. People and agents drive towards a common goal, with shared context. An agent drafts a section of a document, and you review: you stay the one who decides. You leave a comment, and an agent picks it up. Microsoft calls it the evolution of Copilot Notebooks, and the collaboration continues in Microsoft Teams. Microsoft's own words: \"Until now, AI interactions have mostly been single player.\"\n\nAvailability: Workspaces is in Frontier, Microsoft's early access program for AI features before they are generally available, announced at Microsoft Ignite on November 17, 2026. Per Microsoft's Frontier page, you need an organization that has opted into the Frontier program and a Microsoft 365 Copilot license. It is early access, not a general release.\n\nWhat we learned: in our example, 4 solo chats meant 4 copy-pastes; in 1 early-access Workspace, agents draft and you review.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nMicrosoft Copilot Blog, \"Copilot at Microsoft Ignite: Expanding what's possible with intelligence built for work\" (Nov 17, 2026): https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/\nMicrosoft Adoption, \"Microsoft Frontier Program\": https://adoption.microsoft.com/en-us/copilot/frontier-program/\n\nThe 4-part team plan, the 4 copy-pastes, the booths, the headset and the robot are our invented example and pictures; the robot and the cartoon people are generic drawings, not Microsoft's artwork or logos.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\n\"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#CopilotWorkspaces #MicrosoftCopilot #AIExplained",
+  "tags": [
+    "copilot workspaces",
+    "microsoft copilot workspaces",
+    "copilot workspaces early access",
+    "copilot workspaces agents",
+    "copilot workspaces frontier",
+    "microsoft frontier program",
+    "copilot notebooks",
+    "microsoft ignite 2026",
+    "copilot agents",
+    "multiplayer ai",
+    "copilot workspaces explained",
+    "microsoft 365 copilot",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}
