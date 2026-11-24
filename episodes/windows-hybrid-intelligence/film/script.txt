@@ -1,0 +1,11 @@
+Windows hybrid intelligence: you think sorting twenty files with Copilot will cost you forty steps, but actually, soon on Copilot plus P Cs, you never upload them yourself.
+Here's what changes.
+Today, many Copilot tasks run in the cloud.
+In our example, twenty files: twenty uploads, twenty moves, forty steps.
+Soon, on Copilot plus P Cs, with your permission, it reads them on your P C.
+You ask, say yes, and it sorts them: two steps.
+How? Windows picks, task by task: your P C, or the cloud when needed.
+Supported agents can run in a container limited to allowed files and networks.
+Copilot plus P Cs already run over two trillion local A I inferences a month.
+So, what we learned: our twenty files took forty steps; soon, on Copilot plus P Cs, two, with your permission.
+Want more? Subscribe, and comment what we should explain next.

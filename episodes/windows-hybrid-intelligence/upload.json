@@ -1,0 +1,23 @@
+{
+  "title": "Windows Hybrid Intelligence: 40 Steps to 2, Soon on Copilot+",
+  "description": "Windows hybrid intelligence explained in 60 seconds: announced October 7, 2026, Windows runs each AI task on your PC or in the cloud, and on Copilot+ PCs Copilot will use your files and act on your PC, with your permission (expected to begin rolling out in the coming months).\nOur example: sorting 20 files with Copilot. Today, 20 uploads and 20 moves: 40 steps; soon, on a Copilot+ PC, you ask and say yes: 2 steps. The 40 and 2 are our illustration, not Microsoft's numbers.\n\nRead the maker's own post first: https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/\n\nChapters\n0:00 Soon on Copilot+: fewer steps\n0:13 Our 40 steps, soon 2 on Copilot+\n0:30 Local or cloud, per task\n0:45 What we learned, soon\n\nThe story: one counted example, our own. You have 20 files in your Downloads folder and want them sorted into folders. Today, many Copilot tasks run in the cloud (press reports say some Copilot tasks currently depend heavily on cloud services; Microsoft's post does not describe the before). In our example that means 20 uploads and 20 moves: 40 steps. Soon, on Copilot+ PCs and with your permission, Copilot can understand relevant content on your PC, including files, and take action such as organizing files directly on your device. In our example you ask and say yes: 2 steps. The \"YOUR STEPS\" meter and the numbers 20, 40 and 2 are our illustration, not Microsoft's numbers.\n\nHow it works: with intelligent routing, powerful local models and a performant runtime, Windows lets work run in the right place for each task, local or cloud; the cloud is still used when needed. Copilot features powered by hybrid intelligence are expected to begin rolling out on Copilot+ PCs in the coming months; Windows Update is required, and availability and timing may vary by device, market and silicon platform. Separately, Microsoft Execution Containers (MXC) are generally available on Windows 11: for agents that support them, organizations can define which files and networks the agents can access, with the policies enforced at runtime. In the video, the container holds a generic agent, not a named product.\n\nThe proof is Microsoft's own number: across all Copilot+ PCs, over 2 trillion inferences are run locally per month, for search, imaging and video calls. Those are local AI inferences, not Copilot chats or tasks.\n\nWhat we learned: in our example, 20 files took 40 steps; soon, on Copilot+ PCs, with your permission, 2.\n\nWant more? Subscribe, and comment what we should explain next.\n\nSources\nMicrosoft, \"Building Windows for hybrid intelligence\", Pavan Davuluri (October 7, 2026): https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/\nMicrosoft Source EMEA, summary of the post (October 7, 2026): https://news.microsoft.com/source/emea/2026/10/building-windows-for-hybrid-intelligence/\nPetri (October 20, 2026), press: https://petri.com/microsoft-hybrid-intelligence-strategy-windows-ai/\nRedmondmag (October 7, 2026), press: https://redmondmag.com/articles/2026/10/07/microsoft-new-windows-strategy-pushes-ai-workloads.aspx\n\nThe desk, headset, robot, monitor, cloud, folders, file icons and the meter are invented pictures inside our example, not Windows' or Copilot's real interface or logos. The robot and the cartoon people are generic drawings.\nAnimation rendered from code. Voice by Kokoro, an open-source text-to-speech model.\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#WindowsHybridIntelligence #Copilot #AIExplained",
+  "tags": [
+    "windows hybrid intelligence",
+    "windows hybrid intelligence explained",
+    "windows hybrid intelligence copilot",
+    "copilot windows",
+    "copilot+ pc",
+    "copilot plus pc",
+    "copilot local ai",
+    "windows local ai",
+    "windows ai explained",
+    "microsoft execution containers",
+    "mxc windows 11",
+    "hybrid ai local and cloud",
+    "windows 11 ai features",
+    "copilot new features",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

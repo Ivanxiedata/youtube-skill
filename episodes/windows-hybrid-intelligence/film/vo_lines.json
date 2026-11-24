@@ -1,0 +1,106 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 10.955,
+  "text": "Windows hybrid intelligence: you think sorting twenty files with Copilot will cost you forty steps, but actually, soon on Copilot plus P Cs, you never upload them yourself."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 11.455,
+  "end": 12.608,
+  "text": "Here's what changes."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 13.108,
+  "end": 15.6,
+  "text": "Today, many Copilot tasks run in the cloud."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 16.1,
+  "end": 20.184,
+  "text": "In our example, twenty files: twenty uploads, twenty moves, forty steps."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 20.684,
+  "end": 25.608,
+  "text": "Soon, on Copilot plus P Cs, with your permission, it reads them on your P C."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 26.108,
+  "end": 28.609,
+  "text": "You ask, say yes, and it sorts them: two steps."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 29.109,
+  "end": 29.543,
+  "text": "How?"
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 29.843,
+  "end": 33.627,
+  "text": "Windows picks, task by task: your P C, or the cloud when needed."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 34.127,
+  "end": 38.386,
+  "text": "Supported agents can run in a container limited to allowed files and networks."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 38.886,
+  "end": 44.205,
+  "text": "Copilot plus P Cs already run over two trillion local A I inferences a month."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.705,
+  "end": 51.383,
+  "text": "So, what we learned: our twenty files took forty steps; soon, on Copilot plus P Cs, two, with your permission."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.883,
+  "end": 52.586,
+  "text": "Want more?"
+ },
+ {
+  "n": 12,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.886,
+  "end": 55.416,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

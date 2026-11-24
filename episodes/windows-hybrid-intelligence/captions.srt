@@ -1,0 +1,51 @@
+1
+00:00:00,500 --> 00:00:11,455
+Windows hybrid intelligence: you think sorting twenty files with Copilot will cost you forty steps, but actually, soon on Copilot+ PCs, you never upload them yourself.
+
+2
+00:00:11,955 --> 00:00:13,108
+Here's what changes.
+
+3
+00:00:13,608 --> 00:00:16,100
+Today, many Copilot tasks run in the cloud.
+
+4
+00:00:16,600 --> 00:00:20,684
+In our example, twenty files: twenty uploads, twenty moves, forty steps.
+
+5
+00:00:21,184 --> 00:00:26,108
+Soon, on Copilot+ PCs, with your permission, it reads them on your PC.
+
+6
+00:00:26,608 --> 00:00:29,109
+You ask, say yes, and it sorts them: two steps.
+
+7
+00:00:29,609 --> 00:00:30,043
+How?
+
+8
+00:00:30,343 --> 00:00:34,127
+Windows picks, task by task: your PC, or the cloud when needed.
+
+9
+00:00:34,627 --> 00:00:38,886
+Supported agents can run in a container limited to allowed files and networks.
+
+10
+00:00:39,386 --> 00:00:44,705
+Copilot+ PCs already run over two trillion local AI inferences a month.
+
+11
+00:00:45,205 --> 00:00:51,883
+So, what we learned: our twenty files took forty steps; soon, on Copilot+ PCs, two, with your permission.
+
+12
+00:00:52,383 --> 00:00:53,086
+Want more?
+
+13
+00:00:53,386 --> 00:00:55,916
+Subscribe, and comment what we should explain next.

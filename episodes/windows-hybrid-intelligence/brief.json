@@ -1,0 +1,99 @@
+{
+ "slug": "windows-hybrid-intelligence",
+ "tech": {
+  "id": "windows-hybrid-intelligence",
+  "name": "Windows hybrid intelligence",
+  "released": "2026-10-07 (announced)",
+  "status": "announced; Copilot features expected to begin rolling out on Copilot+ PCs in the coming months (Windows Update required; availability varies by device, market and silicon); Microsoft Execution Containers generally available on Windows 11",
+  "one_line": "Windows runs each AI task in the right place, on your PC or in the cloud; on Copilot+ PCs, with your permission, Copilot will use local context, take local actions and tap local models; supported agents run in Microsoft Execution Containers.",
+  "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+ },
+ "predecessor": {
+  "id": "cloud-copilot",
+  "name": "Copilot and chatbots working from the cloud on what you give them (some Copilot tasks currently depend heavily on cloud services)",
+  "source": "https://redmondmag.com/articles/2026/10/07/microsoft-new-windows-strategy-pushes-ai-workloads.aspx"
+ },
+ "sections": {
+  "hook": {
+   "text": "Windows hybrid intelligence: you think sorting 20 files with Copilot will cost you 40 steps, but actually, soon on Copilot+ PCs, you never upload them yourself.",
+   "claims": [
+    {
+     "text": "'With your permission, Copilot will be able to use local context from your PC, take action on your behalf, and tap into local models'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "'on Copilot+ PCs' / 'expected to begin rolling out on Copilot+ PCs in the coming months'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "20 files / 40 steps is our invented example inside 'organizing files'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    }
+   ]
+  },
+  "before": {
+   "text": "Here's what changes. Today, many Copilot tasks run in the cloud. In our example, twenty files: twenty uploads, twenty moves, forty steps.",
+   "claims": [
+    {
+     "text": "'some Copilot tasks that currently depend heavily on cloud services could eventually be handled locally'",
+     "source": "https://redmondmag.com/articles/2026/10/07/microsoft-new-windows-strategy-pushes-ai-workloads.aspx"
+    },
+    {
+     "text": "'Instead of sending every AI request to external services'",
+     "source": "https://petri.com/microsoft-hybrid-intelligence-strategy-windows-ai/"
+    },
+    {
+     "text": "20 uploads + 20 moves = 40 steps: our example",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    }
+   ]
+  },
+  "new": {
+   "text": "Soon, on Copilot+ PCs, with your permission, it reads them on your PC. You ask, say yes, and it sorts them: two steps.\nHow? Windows picks, task by task: your PC, or the cloud when needed. Supported agents can run in a container limited to allowed files and networks.",
+   "claims": [
+    {
+     "text": "'Local context. With your permission, Copilot can understand relevant content on your PC, including files and recent activity'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "'Local actions. Copilot can take action on your behalf across Windows, helping complete tasks like organizing files ... directly on your device.'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "'Windows lets work run in the right place for each task — local or cloud.' / 'combining it with cloud intelligence when needed'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "'Microsoft Execution Containers (MXC), becomes generally available on Windows 11, enabling organizations to define which files and networks agents can access, with those policies enforced at runtime.' 'Leading agents already support MXC'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    },
+    {
+     "text": "Summary of the announcement",
+     "source": "https://news.microsoft.com/source/emea/2026/10/building-windows-for-hybrid-intelligence/"
+    }
+   ]
+  },
+  "why": {
+   "text": "Copilot+ PCs already run over two trillion local AI inferences a month.",
+   "claims": [
+    {
+     "text": "'Across all Copilot+ PCs, over 2 trillion inferences are run locally per month, improving customers' experience across search, imaging, and video calls'",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    }
+   ]
+  },
+  "takeaway": {
+   "text": "So, what we learned: our twenty files took forty steps; soon, on Copilot+ PCs, two, with your permission.",
+   "claims": [
+    {
+     "text": "our example (40 vs 2); coming months; Copilot+ PCs; with your permission",
+     "source": "https://blogs.windows.com/windowsexperience/2026/10/07/building-windows-for-hybrid-intelligence/"
+    }
+   ]
+  },
+  "outro": {
+   "text": "Want more? Subscribe, and comment what we should explain next.",
+   "claims": []
+  }
+ }
+}
