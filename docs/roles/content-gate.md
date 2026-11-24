@@ -25,7 +25,7 @@ Only after that, it gets the 3 questions from `lesson.md` (questions only, not t
 It writes everything to `gate.md`'s student section; it does not grade itself.
 
 ## 2 Critic (strong)
-First, G0: if `viewer.md` holds anything the viewer wouldn't see (notes, lesson ids, rows, shot numbers), stop and return `gate: fail (viewer.md)`; nothing else is graded.
+First, G0: if `viewer.md` holds anything the viewer wouldn't see (notes, lesson ids, rows, shot numbers), or its spoken lines differ from `film/script.txt` (what the voice reads), stop and return `gate: fail (viewer.md)`; nothing else is graded.
 Reads everything above plus the student's answers. Grade the student's **whole** notes, not only its answers to the 3 questions.
 Tick every entry of `lesson.md`'s Lesson check against the script yourself; a wrong entry is the lesson it claims to meet, broken.
 **Count fixes, not rows:** one root cause (one line or one gap, fixed by one rewrite) is one must-fix or should-fix, listing every row it touches.
@@ -56,7 +56,9 @@ First line: `gate: pass (N should-fix)` or `gate: fail (N must-fix, M should-fix
 Pass when no must-fix is left.
 
 ## The loop
-The writer fixes `lesson.md`, the script and `viewer.md` (every must-fix, and every should-fix that fits), fills `lesson.md`'s **Lesson check**, then a **fresh** student and critic run again; at most 3 rounds, then the owner decides.
+The writer fixes `lesson.md`, the script and `viewer.md` (every must-fix, and every should-fix that fits), fills `lesson.md`'s **Lesson check**, then a **fresh** student and critic run again in **re-gate** mode:
+the critic gets the last `gate.md` and the lines that changed, re-checks every earlier fail and every changed line, and runs G1, G2, G3 and G10 in full;
+anything new elsewhere is a should-fix unless it breaks G1, G2, G10 or an open `check: gate` lesson (a fresh critic always finds something new; without this the gate never converges); at most 3 rounds, then the owner decides.
 Every must-fix and should-fix of every round is copied to `mistakes.md` (step `gate`) before the next round overwrites `gate.md`.
 Each **Rule** becomes a lesson: in a session, the writer adds it to `docs/lessons.md` with `check: gate` (or marks an open one `Repeated:`);
 in the daily run the learn job does it (`docs/pipeline/learn.md`). The writer reads every `check: gate` lesson before writing `lesson.md`, and the critic fails a repeat (G12).
