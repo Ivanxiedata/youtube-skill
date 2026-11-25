@@ -12,7 +12,7 @@ and every episode is **better** than the last. Each step below exists for one of
 | Find | a topic people want, the words they search | impressions, search traffic |
 | Click | title and thumbnail as one promise | click-through rate |
 | Watch | the first seconds, then a reason to stay every few seconds | retention curve, average % viewed |
-| Understand | sourced claims, one clear before -> after | corrections in comments |
+| Understand | a main idea the viewer can say back (`lesson.md`, the content gate), sourced claims, one clear before -> after | corrections in comments |
 | Return | the same brand every time, a steady rhythm, a "next" | subscribers, returning viewers |
 | Get better | real numbers turned into rules | `docs/lessons.md` |
 
@@ -30,11 +30,15 @@ PER EPISODE                                                                 │
        ▼                                                                    │
   2 PROMISE   /yt-package: 10 titles -> top 3 + thumbnail text              │
        ▼      /yt-seo: the 3 searches it must win ─► package.md             │
+  2b LESSON   main idea, why it matters, 3 questions ─► lesson.md           │
+       ▼                                                                    │
   3 SCRIPT    /yt-script: hooks -> 3-s test -> turn -> beats [ON SCREEN]         │
        ▼      -> payoff said -> one ask ─► beats.md, script.md              │
+  3a GATE     fresh student + critic: does it teach? ─► gate.md (fail ─► 2b)│
+       ▼                                                                    │
   4 MAKE      stickman film + voice + thumbnail · Openverse music · earshot │
        ▼                                                                    │
-  5 FINISH    /yt-chapters on captions.srt · /yt-seo description + tags     │
+  5 FINISH    captions.srt · /yt-seo description + tags (no chapters: Shorts)│
        ▼                                                                    │
   6 JUDGE     a fresh agent that did not make it ─► evaluation.md           │
        ├─ must-fix ──► back to 3 or 4                                       │
@@ -75,6 +79,13 @@ The click is decided by the title and thumbnail together, and the first seconds 
 - **Pass:** title at most 60 characters with the subject in the first 40; a number, name or date in it; besides the topic's name it repeats no thumbnail word
   (the topic's name may be in both, because search needs it in the title and the brand card carries it).
 
+### 2b Lesson plan (strong)
+Before any script: what will the viewer **learn**? Read every open `check: gate` lesson in `docs/lessons.md` first.
+- **Out:** `lesson.md` (template in `docs/roles/content-gate.md`): the main idea in one sentence (the insight that changes how the viewer thinks,
+  not the headline and not the mechanism), why it matters with its `research.md` row, the misconception it corrects, the 3 questions a viewer
+  can answer afterwards (each with its answer and the picture that teaches it), and what is left out on purpose.
+- The script (step 3) is written to teach exactly this; a line that serves none of the 3 questions is cut.
+
 ### 3 Script (strong)
 `/yt-script`, scaled to 60 seconds:
 - **Hook: one clear sentence the viewer can picture (lesson L16).** It names the topic and paints the viewer's moment from `package.md`,
@@ -102,13 +113,19 @@ The click is decided by the title and thumbnail together, and the first seconds 
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
 - **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 150 words, so the voice fits in 60 s (Ivan's voice speaks about 155 words a minute).
 
+### 3a Content gate (a fresh Sonnet student and a fresh strong critic; `docs/roles/content-gate.md`)
+- The writer writes `viewer.md` (only what the viewer hears and sees); the student reads only that, states the main idea and answers the 3 questions; the critic scores G1-G12 (must-fix blocks; should-fix is fixed when it fits).
+- **Out:** `gate.md`, first line `gate: pass (N should-fix)` or `gate: fail (N must-fix, M should-fix)`, each with a fix and a general rule.
+- **Pass:** no must-fix left. On fail, rewrite `lesson.md`/the script and run a fresh gate; at most 3 rounds, then the owner decides.
+  Copy every fail to `mistakes.md`; every rule becomes a `check: gate` lesson (in the daily run, the learn job writes it). Nothing is voiced before the gate passes.
+
 ### 3b Claim check (Sonnet, a fresh agent that did not write the script)
 - Every claim in `script.md`, the ON SCREEN lines of `beats.md` and the title and thumbnail, checked against the source itself (lesson L17).
 - **Out:** `claims.md`: claim | source and quoted sentence | holds, narrower or wrong.
 - **Pass:** nothing narrower or wrong left; fix the words before anything is voiced or drawn.
 
 ### 4 Make (Sonnet; the strong model takes over a step that fails twice)
-- stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align`: Ivan's voice, `docs/voice.md`),
+- stickman: `new_film.py`, then `scripts/film-9x16.sh film` (every film is vertical 1080 x 1920; layout and safe area: `docs/brand.md`), `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align`: Ivan's voice, `docs/voice.md`),
   stills of every shot checked by eye first, then one full `build.py`; after that only `build.py ... --shots <n>` for the shots an audit names or a fix changed
   (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
 - Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button (with the next episode's name under it only when it is decided; otherwise nothing, lesson L24).
@@ -119,10 +136,10 @@ The click is decided by the title and thumbnail together, and the first seconds 
 
 ### 5 Finish the package (Sonnet)
 - `captions.srt` from `film/vo_lines.json` (plus the voice offset).
-- `/yt-chapters`: `python3 .claude/skills/yt-chapters/chapters.py captions.srt`, then retitle each chapter as that section's promise in 3 to 5 words.
-- `/yt-seo`: description (first two lines = the 3 searches' words, then the link, then chapters, then the long version with sources and the music credit), up to 3 hashtags, at most 15 tags for spellings and tool names.
+- No chapters: Shorts don't show them (vertical only, `docs/brand.md`).
+- `/yt-seo`: description (first two lines = the 3 searches' words, then the link, then the long version with sources and the music credit), up to 3 hashtags, at most 15 tags for spellings and tool names.
 - **Out:** `upload.json`, `captions.srt`.
-- **Pass:** chapters valid per `chapters.py` (0:00 first, at least 3, each at least 10 s).
+- **Pass:** `upload.json` has no chapter lines.
 
 ### 6 Judge (strong, a fresh agent that did not make the episode)
 Follow `docs/roles/evaluator.md`. The rubric is the youtube-agent skills' published rules plus `docs/brand.md` and `docs/lessons.md`, not the maker's opinion.
@@ -164,10 +181,12 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
   a new lesson, or `Repeated:` on an open one plus a harder rule (a must-fix in `docs/roles/evaluator.md` or a line in "Known traps" of `docs/pipeline/episode.md`).
   It commits only those three files to `develop` after `make check`. The next run reads them before step 1.
 - **Watching a video:** each run keeps `video.mp4` and `thumbnail.png` for 30 days as a download on the run's page (Actions -> the run -> Artifacts); the video itself is never committed.
+  When the YouTube upload fails (e.g. the daily upload cap), `video.mp4`, `thumbnail.png`, `upload.json` and `captions.srt` are also copied to the owner's Google Drive folder (root_folder_id in `RCLONE_CONF`), `<slug>/` (no expiry; needs secret `RCLONE_CONF`).
 - **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing, or a topic you choose: a link or a sentence, which makes 1 video of it).
   From a terminal: `gh workflow run daily-videos -f topic=<link>`.
 - **One-time owner setup:** repo secrets `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`), `YOUTUBE_CLIENT_SECRET_JSON` and `YOUTUBE_TOKEN_JSON`
-  (the two files in `~/.config/youtube-skill/`), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
+  (the two files in `~/.config/youtube-skill/`), `RCLONE_CONF` (`rclone config create gdrive drive scope=drive root_folder_id=1kusSf3e7COpPf10ipWjsJylFVQtP_ijd`: full scope, because drive.file cannot write into a folder the owner made; root_folder_id keeps rclone inside it, then
+  `gh secret set RCLONE_CONF < ~/.config/rclone/rclone.conf`; without it the Drive copy is skipped with a warning), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
 
 ## Where we deviate from the skills, on purpose
 | Skill rule | Ours | Why |
@@ -175,5 +194,5 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
 | `/yt-package`: at most 3 words on the thumbnail, never repeat the title | The brand card "LEARN <TOPIC> IN 60 SECONDS"; only the topic's name may repeat | The owner's thumbnail rule (lessons L7, L8); checked readable at 160 px |
 | `/yt-script`: show the top two hooks | Also: the hook passes the 3-second test (the viewer's moment, plain words); the score is a check at 72, not a target of 100 | The owner's rule (2026-11-22, lesson L16; replaces "must score 100", which pushed hooks into jargon) |
 | `/yt-script`: the turn by 0:15-0:45 | By about 10 s; the topic in the first second (title card) | Our videos are 60 s; lesson L14 |
-| `/yt-plan`: three uploads a week including Shorts | Waits for the owner's hours and best day; no vertical Shorts yet | Our videos are 16:9; vertical versions are an open owner decision |
+| `/yt-plan`: three uploads a week including Shorts | Every video is a vertical Short (9:16) | The owner chose vertical only (2026-11-24) |
 | `/yt-edit` | Not used | It edits camera recordings; ours are rendered from code |

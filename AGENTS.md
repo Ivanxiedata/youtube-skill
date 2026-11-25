@@ -33,7 +33,7 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
 - Never commit or open a PR directly against `main`. No branch protection; these rules are on you.
 - **Agents never merge PRs.** The owner merges into develop when ci/check is green.
 - The one exception: the scheduled daily run (`.github/workflows/daily-videos.yml`) commits its own episodes, and its learn job the day's lessons
-  (`docs/lessons.md`, `docs/roles/evaluator.md`, `docs/pipeline/episode.md`), straight to `develop` after `make check` passes (`docs/workflow.md`, "The automated daily run").
+  (`docs/lessons.md`, `docs/roles/evaluator.md`, `docs/roles/content-gate.md`, `docs/pipeline/episode.md`), straight to `develop` after `make check` passes (`docs/workflow.md`, "The automated daily run").
 
 ## Workflow
 1. New task: `make worktree NAME=<slug>`, then `cd` there, `make setup`, `make status`, scaffold if needed (`make new-episode`, `make new-feature`), and claim (above). Work only in that worktree.
@@ -48,7 +48,7 @@ In CI it also fails a feature or episode whose newest code/spec commit is newer 
    Never force-push `develop`, `main` or anyone else's branch.
 6. After the owner merges your PR, from another checkout: `git worktree remove <dir>`, then `git branch -D <slug>` (`-D`: git can't tell a squash-merged branch is merged).
    `make status` lists local branches whose upstream is gone under "Stale local branches".
-7. Roles: when asked to review, judge or evaluate an episode, follow `docs/roles/reviewer.md`, `docs/roles/judge.md` or `docs/roles/evaluator.md` (step 6 of `docs/workflow.md`; never the agent that made the episode).
+7. Roles: when asked to review, judge or evaluate an episode, follow `docs/roles/reviewer.md`, `docs/roles/judge.md` or `docs/roles/evaluator.md`; the content gate before voicing: `docs/roles/content-gate.md` (step 6 of `docs/workflow.md`; never the agent that made the episode).
    The owner's feedback on an episode is a lesson: add a row to `docs/lessons.md` in the same session.
 8. Third-party skills: `make skills` installs the pinned ones into this worktree (`.claude/skills`, `.agents/skills`);
    each worktree runs it itself. Never install skills globally. Run the stickman scripts inside the venv `make skills` prints.

@@ -117,6 +117,10 @@ jobs:
         with:
           go-version-file: go.mod
           cache-dependency-path: go.sum
+      # ubuntu-latest's python3 is 3.14, and torch 2.6.0 (scripts/voice.py) has no 3.14 wheels
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
       - name: Restore models and browser
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -127,7 +131,7 @@ jobs:
             .skills/earshot-home
             .skills/chatterbox-venv
             .skills/hf
-          key: episode-tools-${{ runner.os }}-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh', 'scripts/voice.py') }}
+          key: episode-tools-${{ runner.os }}-py312-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh', 'scripts/voice.py') }}
       - name: Install the tools
         run: scripts/ci-setup.sh
       - name: Install Claude Code
@@ -156,6 +160,7 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           TOPIC: ${{ matrix.topic.topic }}
           BEFORE: ${{ matrix.topic.before }}
+          AHA: ${{ matrix.topic.aha }}
           SOURCES: ${{ matrix.topic.sources }}
           MODEL_MAKER: ${{ needs.plan.outputs.model_maker }}
           MODEL_WORKER: ${{ needs.plan.outputs.model_worker }}
@@ -164,7 +169,7 @@ jobs:
         run: |
           make new-episode NAME="$SLUG"
           mkdir -p "$RUNNER_TEMP/$SLUG"
-          python scripts/pipeline-prompt.py docs/pipeline/episode.md SLUG="$SLUG" TOPIC="$TOPIC" BEFORE="$BEFORE" SOURCES="$SOURCES" \
+          python scripts/pipeline-prompt.py docs/pipeline/episode.md SLUG="$SLUG" TOPIC="$TOPIC" BEFORE="$BEFORE" AHA="$AHA" SOURCES="$SOURCES" \
             MODEL_WORKER="$MODEL_WORKER" MODEL_JUDGE="$MODEL_JUDGE" MAX_FIX_ROUNDS="$ROUNDS" > "$RUNNER_TEMP/episode.txt"
           claude -p "$(cat "$RUNNER_TEMP/episode.txt")" --model "$MODEL_MAKER" --dangerously-skip-permissions --output-format stream-json --verbose \
             | python scripts/pipeline-trace.py "$RUNNER_TEMP/$SLUG/trace.jsonl" "episodes/$SLUG/trace.md"
@@ -209,6 +214,18 @@ jobs:
         env:
           PRIVACY: ${{ steps.gate.outputs.privacy }}
         run: go run ./cmd/yt upload "episodes/$SLUG" --privacy "$PRIVACY" --confirm
+      - name: Copy to Google Drive when the upload failed
+        # e.g. YouTube's daily upload cap; the artifact above expires after 30 days, Drive keeps it until it is uploaded by hand.
+        if: always() && steps.upload.outcome == 'failure'
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        run: |
+          [ -n "$RCLONE_CONF" ] || { echo "::warning::secret RCLONE_CONF is missing: not copied to Google Drive (docs/workflow.md)"; exit 0; }
+          sudo apt-get install -y -qq rclone >/dev/null
+          printf '%s' "$RCLONE_CONF" > "$RUNNER_TEMP/rclone.conf"
+          rclone --config "$RUNNER_TEMP/rclone.conf" copy "episodes/$SLUG" "gdrive:$SLUG" \
+            --include "/{video.mp4,thumbnail.png,upload.json,captions.srt}"
+          echo "::notice::copied to Google Drive: the not-uploaded folder, $SLUG/"
       - name: Save the episode
         if: always() && steps.gate.outputs.verdict != ''
         env:
@@ -265,4 +282,4 @@ jobs:
       - name: Save the lessons
         run: |
           make check TESTFLAGS=-short
-          scripts/pipeline-push.sh "Daily run: lessons from today's mistakes" docs/lessons.md docs/roles/evaluator.md docs/pipeline/episode.md
+          scripts/pipeline-push.sh "Daily run: lessons from today's mistakes" docs/lessons.md docs/roles/evaluator.md docs/roles/content-gate.md docs/pipeline/episode.md

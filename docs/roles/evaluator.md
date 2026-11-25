@@ -49,6 +49,9 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L34, repeated): in any shot, a meter's number counts something other than the unit its label names (a "YOUR WAITS" meter ticking on a test run).
    Must-fix (L34, repeated 2026-11-24): a meter's number that disagrees with what the shot draws (the route stops at 4, the meter shows 10), or a meter fix that hides the shot's point (a stall shown only by a tag, not on the picture).
 
+**Learn**
+13b. The video teaches `lesson.md`: its main idea is said out loud and each of the 3 questions is answered on screen and in words, as in the script that passed `gate.md`. Must-fix if a gate-passed answer was cut or changed in the make.
+
 **Brand and lessons**
 14. The elements of `docs/brand.md` "What repeats in every episode" are present: list each, present or missing.
 15. Each open lesson marked `check: evaluate` in `docs/lessons.md`: followed or not. Must-fix for a lesson broken again (its row says `Repeated:`).
@@ -59,7 +62,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 18. `earshot timeline video.mp4 --video video.mp4`: share of picture cuts with a sound on them. Should-fix below 50%.
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
    Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 150 words.
-20. `/yt-chapters`: chapters in `upload.json` pass `chapters.py` rules. Must-fix if invalid (they would not render).
+20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.
 
 ## Output
 `episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.
