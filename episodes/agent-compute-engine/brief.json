@@ -1,0 +1,76 @@
+{
+ "slug": "agent-compute-engine",
+ "tech": {
+  "id": "google-agent-compute-engine",
+  "name": "Agent Compute Engine (Google Cloud)",
+  "released": "announced 2026-10-22 (AGNTCon + MCPCon); already powers Gemini as an agent for work tasks",
+  "status": "customer preview in the coming months; not available to customers yet",
+  "one_line": "Gives every AI agent its own hardware-isolated computer (microVM) that holds no credentials: all traffic leaves through a gateway outside, which checks the user's delegation, the agent's and machine's identity and the company's rules, then adds the key to the request on the way out."
+ },
+ "predecessor": {
+  "id": "compute-engine-vm-service-account",
+  "name": "An agent on an ordinary cloud computer (a Compute Engine VM): programs on it use the machine's service account credentials and can fetch an access token from the metadata server, by default with all its scopes; safety then rests on the model ignoring hidden instructions"
+ },
+ "claims": [
+  {
+   "text": "Announced Oct 22, 2026; already powers Gemini as an agent for work tasks; available in preview in the coming months",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/"
+  },
+  {
+   "text": "Every AI agent gets its own hardware-isolated microVM with zero credentials held inside the sandbox",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "Google's example: an inbox agent reads an email with hidden text asking it to find API keys on the machine and send them; most of the time the model ignores it, sometimes it does not",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "Google could not rely on models ignoring every malicious instruction, so the sandbox holds no credentials",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "Design rule: assume an attacker controls everything inside the sandbox, and make sure they find nothing there to use",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "A microVM never holds user credentials, API keys, OAuth refresh tokens or cloud service account keys; even with full root compromise there are no secrets in the box to steal",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "All communication in and out of the microVM goes through a mediated external proxy; no standard network card",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "The gateway validates user delegation, agent identity and node identity, evaluates egress and data-loss-prevention policies, then inserts the backend credential as the request leaves",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "The sandbox never sees any credentials; the backend sees an auditable identity showing an agent acted for a specific user",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "The short-lived identity inside cannot call a backend API directly if stolen",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "An administrator decides what an agent can reach; all assets are protected by default",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  },
+  {
+   "text": "Service credentials are injected in egress outside the microVM",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/introducing-agent-compute-engine-and-expanded-agent-governance/"
+  },
+  {
+   "text": "On a Compute Engine VM, applications on the instance use the service account's credentials; the metadata server returns an access token, by default with all the account's scopes",
+   "source": "https://docs.cloud.google.com/compute/docs/access/authenticate-workloads"
+  },
+  {
+   "text": "Indirect prompt injection: hidden malicious instructions in emails, documents or calendar invites that instruct AI to exfiltrate user data",
+   "source": "https://security.googleblog.com/2025/06/mitigating-prompt-injection-attacks.html"
+  },
+  {
+   "text": "Our example (invented): 50 emails, 1 with a hidden line, 3 keys (email, files, calendar); before 3 keys a trick can find, now 0",
+   "source": "https://cloud.google.com/blog/topics/ai-infrastructure/agent-compute-engine-deep-dive"
+  }
+ ]
+}
