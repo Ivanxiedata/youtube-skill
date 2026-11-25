@@ -1,0 +1,12 @@
+Claude Fable five point two: you think safety must cost you a weaker model, but Anthropic says it's actually the same underlying model as Mythos five point two.
+Here's how: our example, ten requests.
+Before, with no checker strong enough, Mythos Preview went to a small group of cyber defenders and infrastructure providers. You got a weaker one.
+Now, a separate AI checker reads our requests first.
+Nine pass to the full model.
+One asks for attack code... blocked!
+In Claude apps, an older Opus model usually answers, and you're told.
+In Anthropic's early tests, five point two's checker blocked about fifty-five percent fewer requests than five point one's.
+So fewer requests leave the full model.
+So, what we learned: in our example, all ten once got a weaker model.
+Now nine reach the full model; in Claude apps, the checker usually sends the blocked one to older Opus.
+Want more? Subscribe, and comment what we should explain next.

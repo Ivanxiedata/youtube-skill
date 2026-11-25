@@ -1,0 +1,23 @@
+{
+  "title": "Claude Fable 5.2: Mythos 5.2 Underneath, Plus a Checker",
+  "description": "Claude Fable 5.2 vs Mythos 5.2 explained in 60 seconds: since November 9, 2026, Claude Fable 5.2 is the same underlying model as Claude Mythos 5.2, which is available to vetted organizations; Fable adds separate safety classifiers (another AI) that check every request.\nIn Claude apps, by default, most requests the classifiers block (like a request to build attack code) may instead be answered by an older Opus model (currently Opus 4.8 for cyber, Opus 5 for biology), with a notice. In Anthropic's early testing, Fable 5.2 had about 55% fewer blocks than Fable 5.1.\n\nAnthropic's own announcement first: https://www.anthropic.com/claude-fable-and-mythos-5-2\n\nOur example (invented, not a rate or a statistic): 10 requests. Before, in April 2026, the best model, Claude Mythos Preview, went only to a limited group of cyber defenders and critical software infrastructure providers, so in our example all 10 of your requests were answered by a weaker model. Now a separate AI checker (a classifier) reads our example's requests first: 9 reach the full model; the 1 that asks for attack code is blocked and, in Claude apps, by default, an older Opus model usually answers it, with a notice that the model switched. Some requests are blocked outright, with no fallback.\n\nAnthropic says Fable 5.2's cyber and biology safeguards are as robust as Fable 5.1's but produce fewer unnecessary blocks. The 55% is Anthropic's, from early testing across claude.ai, Claude Code and Cowork, and it counts blocks. The design (same underlying model, a checker, a fallback to an older Opus model) started with Fable 5 on June 9, 2026. The checks also review everything the model reads, such as memory, connector content, web search results and files.\n\nThe story: a restaurant counter. You are the diner with the napkin bib, the AI models are robot chefs, the checker is a gate. The 10 requests, the cooks and the pictures are our invented example, drawn from code; the robots are generic drawings, not Anthropic's artwork or logos.\n\nSources\nAnthropic, \"Introducing Claude Fable 5.2 and Claude Mythos 5.2\" (November 9, 2026): https://www.anthropic.com/claude-fable-and-mythos-5-2\nAnthropic, \"Claude Fable 5 and Claude Mythos 5\" (June 9, 2026): https://anthropic.com/news/claude-fable-5-mythos-5\nClaude Help Center, \"Why Claude switched models in your conversation with Fable models\": https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models\nClaude Help Center, \"Covered Models\": https://support.claude.com/en/articles/15425695-covered-models\nAnthropic, \"Project Glasswing\": https://www.anthropic.com/project/glasswing\n\nVoice: an AI clone of the creator's voice (Chatterbox, MIT license; the audio carries an AI watermark). Animation rendered from code.\n\"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#ClaudeFable #ClaudeMythos #AIExplained",
+  "tags": [
+    "claude fable 5.2",
+    "claude mythos 5.2",
+    "claude fable mythos",
+    "claude fable",
+    "claude mythos",
+    "claude fable 5.2 explained",
+    "claude mythos preview",
+    "anthropic fable",
+    "anthropic mythos",
+    "claude safety classifiers",
+    "claude opus fallback",
+    "claude fable 5.1",
+    "anthropic safeguards",
+    "claude model switched to opus",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

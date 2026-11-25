@@ -1,0 +1,98 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 0.0,
+  "end": 7.832,
+  "text": "Claude Fable five point two: you think safety must cost you a weaker model, but Anthropic says it's actually the same underlying model as Mythos five point two."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 8.082,
+  "end": 10.879,
+  "text": "Here's how: our example, ten requests."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 11.129,
+  "end": 19.126,
+  "text": "Before, with no checker strong enough, Mythos Preview went to a small group of cyber defenders and infrastructure providers. You got a weaker one."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 19.376,
+  "end": 22.31,
+  "text": "Now, a separate AI checker reads our requests first."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 22.56,
+  "end": 24.309,
+  "text": "Nine pass to the full model."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 24.559,
+  "end": 26.225,
+  "text": "One asks for attack code... blocked!"
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 26.475,
+  "end": 32.297,
+  "text": "In Claude apps, an older Opus model usually answers, and you're told."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 32.547,
+  "end": 38.305,
+  "text": "In Anthropic's early tests, five point two's checker blocked about fifty-five percent fewer requests than five point one's."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 38.555,
+  "end": 40.646,
+  "text": "So fewer requests leave the full model."
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 40.896,
+  "end": 44.939,
+  "text": "So, what we learned: in our example, all ten once got a weaker model."
+ },
+ {
+  "n": 10,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 45.189,
+  "end": 51.25,
+  "text": "Now nine reach the full model; in Claude apps, the checker usually sends the blocked one to older Opus."
+ },
+ {
+  "n": 11,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 51.5,
+  "end": 55.003,
+  "text": "Want more? Subscribe, and comment what we should explain next."
+ }
+]

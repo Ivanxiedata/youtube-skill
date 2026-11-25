@@ -1,0 +1,112 @@
+{
+ "slug": "claude-fable-mythos",
+ "tech": {
+  "id": "claude-fable-5-2",
+  "name": "Claude Fable 5.2 (and Claude Mythos 5.2)",
+  "released": "2026-11-09",
+  "status": "Fable 5.2 generally available; Mythos 5.2 limited to vetted organizations (Cyber and Life Sciences Verification Programs)",
+  "one_line": "Fable 5.2 and Mythos 5.2 are the same underlying model; Fable is the public one, where separate classifiers check every request and most flagged high-risk cyber or biology requests are answered by an older Opus model (Opus 4.8 for cyber, Opus 5 for biology) with a notice; in early testing Fable 5.2 had about 55% fewer blocks than Fable 5.1."
+ },
+ "predecessor": {
+  "id": "claude-mythos-preview",
+  "name": "Claude Mythos Preview (April 2026, Project Glasswing): the strongest model, released only to a limited group of cyber defenders and critical software infrastructure providers; everyone else used less capable models. The 10-request example is the episode's own."
+ },
+ "claims": [
+  {
+   "text": "Claude Fable and Claude Mythos are the same underlying model. Fable has strong cybersecurity and biology safeguards to guard against misuse, which allows us to make it available to all users.",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "Claude Mythos 5.2 is available to vetted organizations that work in these dual-use areas.",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "Claude Mythos 5.2: Limited availability, Limited access (approved partners); Claude Fable 5.2: Generally available (designated November 9, 2026)",
+   "source": "https://support.claude.com/en/articles/15425695-covered-models"
+  },
+  {
+   "text": "Fable 5 comes with a new set of classifiers: separate AI systems that detect potential misuse, including jailbreak attempts, and prevent the main model (in this case, Fable 5) from responding.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "Claude Fable 5.2, Fable 5.1, and Fable 5 run automated safety checks, or classifiers, on every user request.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "The checks also review everything the model reads, not just your latest message—including memory, content from connectors, web search results, and files",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "Fable 5.2 comes with safety classifiers that block high-risk cyber activities, including penetration testing, exploit generation, and binary-based vulnerability, as well as most tasks in research biology.",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "When a query is blocked, users will instead receive a response from Opus 4.8 for cybersecurity and Opus 5 for biology.",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "When requests are blocked, they may fall back to a non-Mythos model, currently Opus 5 for biology, chemistry, and life sciences requests, and for frontier LLM development requests, and Opus 4.8 for offensive cybersecurity technique requests.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "Offensive cybersecurity techniques, such as building exploits, malware, or attack tooling.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "Most user queries blocked by these safeguards on Fable models may instead receive a response from a less capable model (i.e., \"fallback\"), which can respond to these types of queries. Some requests, including those that try to extract the model's reasoning, are blocked with no fallback.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "The safeguards are designed to block access to Mythos-level capabilities.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "Without safeguards, Fable 5’s capabilities in areas like cybersecurity could be misused to cause serious damage.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "Automatic model switching is active by default in Claude apps and must be configured in the API. [...] You’ll see a notice explaining that the model switched, and the response will be labeled with the model that answered.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "You can switch back to Fable models anytime from the model picker.",
+   "source": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-models"
+  },
+  {
+   "text": "Based on early testing across claude.ai, Claude Code, and Cowork, we observed about 55% fewer blocks with Fable 5.2 compared with Fable 5.1—about 60% fewer in cybersecurity and 40% fewer in biology.",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "Fable 5.2’s cyber and biology safeguards are as robust as those of Fable 5.1 but produce fewer unnecessary blocks",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "our aim is to reduce false positives as we update and refine the safeguards after launch.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "In April we began Project Glasswing, releasing the first Mythos-class model (Claude Mythos Preview) to only a limited group of cyber defenders and critical software infrastructure providers.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "Fable 5’s capabilities exceed those of any model we’ve ever made generally available.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "It’s the same underlying model as Fable 5, but with the safeguards lifted in some areas. (Claude Mythos 5, published Jun 9, 2026)",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  },
+  {
+   "text": "Project Glasswing is an initiative to secure the world’s most critical software for the AI era. [...] our newest frontier model, Claude Mythos Preview.",
+   "source": "https://www.anthropic.com/project/glasswing"
+  },
+  {
+   "text": "Claude Fable 5.2 is available today on all platforms, including Amazon Web Services, Google Cloud, and Microsoft Azure. (November 9, 2026)",
+   "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  },
+  {
+   "text": "we hoped to eventually release Mythos-level capabilities to all our users, so long as we had developed new safeguards that were strong enough to reliably prevent misuse.",
+   "source": "https://anthropic.com/news/claude-fable-5-mythos-5"
+  }
+ ]
+}
