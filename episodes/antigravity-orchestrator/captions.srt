@@ -1,0 +1,154 @@
+1
+00:00:00,500 --> 00:00:02,082
+Antigravity's Orchestrator:
+
+2
+00:00:02,102 --> 00:00:03,905
+you think Gemini 4 Carbon must
+do every step?
+
+3
+00:00:03,925 --> 00:00:05,860
+Google says it can plan and
+review:
+
+4
+00:00:05,880 --> 00:00:07,100
+on its test,
+
+5
+00:00:07,120 --> 00:00:07,760
+success stays close,
+
+6
+00:00:07,780 --> 00:00:08,778
+for less quota.
+
+7
+00:00:09,028 --> 00:00:10,030
+Our example:
+
+8
+00:00:10,050 --> 00:00:12,104
+10 steps in Google's coding
+app.
+
+9
+00:00:12,354 --> 00:00:13,960
+Before, Carbon did all 10:
+
+10
+00:00:13,980 --> 00:00:15,877
+slow, burning your quota.
+
+11
+00:00:16,127 --> 00:00:17,645
+One cheap model for
+everything?
+
+12
+00:00:17,665 --> 00:00:19,268
+Google says it can break down.
+
+13
+00:00:19,518 --> 00:00:20,990
+Now Orchestrator,
+
+14
+00:00:21,010 --> 00:00:22,820
+in Google's example:
+
+15
+00:00:22,840 --> 00:00:23,730
+Carbon, a top model,
+
+16
+00:00:23,750 --> 00:00:25,650
+reads the code and plans.
+
+17
+00:00:25,900 --> 00:00:27,540
+Gemini 4 Hydrogen,
+
+18
+00:00:27,560 --> 00:00:28,337
+a faster model,
+
+19
+00:00:28,357 --> 00:00:29,069
+edits and tests.
+
+20
+00:00:29,319 --> 00:00:29,920
+Say a test fails twice:
+
+21
+00:00:29,940 --> 00:00:31,975
+Hydrogen hands back,
+
+22
+00:00:31,995 --> 00:00:33,115
+so the hard step stays with
+Carbon,
+
+23
+00:00:33,135 --> 00:00:34,086
+which fixes the plan.
+
+24
+00:00:34,336 --> 00:00:36,175
+Hydrogen carries on;
+
+25
+00:00:36,195 --> 00:00:37,832
+Carbon: 2 steps, not 10.
+
+26
+00:00:38,082 --> 00:00:39,625
+In Google's Terminal-Bench
+results,
+
+27
+00:00:39,645 --> 00:00:40,932
+versus Carbon, on average:
+
+28
+00:00:40,952 --> 00:00:41,955
+close to its success,
+
+29
+00:00:41,975 --> 00:00:43,450
+24% less quota,
+
+30
+00:00:43,470 --> 00:00:44,660
+19% faster.
+
+31
+00:00:44,910 --> 00:00:45,985
+So, what we learned:
+
+32
+00:00:46,005 --> 00:00:46,820
+in our example,
+
+33
+00:00:46,840 --> 00:00:48,795
+Carbon did 2 steps,
+
+34
+00:00:48,815 --> 00:00:49,975
+not 10; in Google's results,
+
+35
+00:00:49,995 --> 00:00:51,353
+close to its success.
+
+36
+00:00:51,603 --> 00:00:53,015
+Want more? Subscribe,
+
+37
+00:00:53,035 --> 00:00:55,943
+and comment what we should
+explain next.

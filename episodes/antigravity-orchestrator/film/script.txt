@@ -1,0 +1,11 @@
+Anti-gravity's Orchestrator: you think Gemini four Carbon must do every step? Google says it can plan and review: on its test, success stays close, for less quota.
+Our example: ten steps in Google's coding app.
+Before, Carbon did all ten: slow, burning your quota.
+One cheap model for everything? Google says it can break down.
+Now Orchestrator, in Google's example: Carbon, a top model, reads the code and plans.
+Gemini four Hydrogen, a faster model, edits and tests.
+Say a test fails twice: Hydrogen hands back, so the hard step stays with Carbon, which fixes the plan.
+Hydrogen carries on; Carbon: two steps, not ten.
+In Google's Terminal-Bench results, versus Carbon, on average: close to its success, twenty-four percent less quota, nineteen percent faster.
+So, what we learned: in our example, Carbon did two steps, not ten; in Google's results, close to its success.
+Want more? Subscribe, and comment what we should explain next.

@@ -1,0 +1,84 @@
+{
+ "slug": "antigravity-orchestrator",
+ "tech": {
+  "id": "antigravity-orchestrator",
+  "name": "Orchestrator in Google Antigravity (Gemini 4 Carbon planner + Gemini 4 Hydrogen executor)",
+  "released": "2026-11-12",
+  "status": "In the model selector for Google AI Pro (paid, or trials with eligible premium devices), Google AI Ultra and Gemini Enterprise; since Nov 18-20, 2026 the default planner on Pro/Ultra is Gemini 4 Neon, Carbon still selectable; Enterprise pairs only Carbon (High) with Hydrogen (High)",
+  "one_line": "Orchestrator pairs a top planner model (Gemini 4 Carbon at launch) with the faster Gemini 4 Hydrogen in one conversation: the planner explores the code and writes the plan, Hydrogen makes the edits and runs the tests, and on friction (e.g. a check that fails twice) hands back for the planner to repair the plan; on Terminal-Bench 4.1 Google reports near-Carbon task success with, on average, 24% less quota and 19% faster."
+ },
+ "predecessor": {
+  "id": "one-model-per-task",
+  "name": "One model for every step of the task: a frontier model on every step (slower loop, burns frontier quota) or a static router sending the whole task to the cheapest good-enough model (breaks down when later stages need more). The 10-step example is the episode's own."
+ },
+ "claims": [
+  {
+   "text": "Today, we’re rolling out Gemini 4 Hydrogen inside Google Antigravity alongside a new model dropdown option called Orchestrator, which pairs Hydrogen with our strongest models for long-horizon tasks, including Gemini 4 Carbon, in an optimized balance of quality, efficiency, and latency.",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "For everyday feature work and debugging inside a single session, running a frontier reasoning model with multiple parallel agents on every step of every routine task slows down your loop and burns frontier quota.",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "A common industry approach is to use a static “model router” that guesses task difficulty from your first prompt and routes the entire task to the cheapest model that is good enough to complete the task. Unfortunately, these start breaking down as agents become longer running, requiring different levels of complexity at different stages, often discovered as the task evolves.",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "For example, Carbon can start in a read-only phase to explore dependencies, resolve ambiguities, and build a concrete plan with explicit re-planning triggers. Hydrogen could then take over to write edits, update packages, and run tests. If Hydrogen hits friction, it would hand back to Carbon to inspect the state, repair the plan, and resume execution.",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "On Terminal-Bench 4.1, Orchestrator reached near-Carbon task success rates while, on average, consuming 24% less quota and completing 19% faster.",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "a larger orchestrator (planner) model plans and reviews the work, while a faster executor model carries out searches, file edits, builds, and tests.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "Each message you send starts with a read-only planning phase in which the planner explores the codebase, resolves ambiguities, and writes a concrete implementation plan, including the conditions that should trigger re-planning.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "If the executor runs into friction, such as a verification step that fails twice, an interface that behaves differently than expected, or a design choice the plan didn’t settle, it hands control back to the planner, which inspects the conversation state, repairs the plan, and hands execution back to the executor.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "On longer tasks, and whenever you send a message while the executor is working, the executor reports its progress to the planner, which checks what was done against the plan and then wraps up the completed task, continues the remaining steps, or updates the plan.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "These hand-offs happen automatically within a single response, so you don’t need to switch models manually between planning and execution.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "Orchestrator coordinates them automatically, so you get top-tier planning quality while finishing faster and using fewer tokens than running the planner alone.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "To run every step on a single model, select that model directly in the model selector.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "Orchestrator Model (planner) Explores the codebase, writes the plan, and reviews progress Gemini 4 Neon (default), Gemini 4 Carbon , Gemini 4 Argon , Claude Opus 5.5 Executor Model Searches, edits files, runs builds and tests Gemini 4 Hydrogen (default), Claude Sonnet 5.5",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "In Gemini Enterprise , Orchestrator only runs Gemini 4 Carbon (High) as the planner paired with Gemini 4 Hydrogen (High) as the executor; custom planner and executor selection is available on Google AI Pro and Google AI Ultra only.",
+   "source": "https://antigravity.google/docs/models"
+  },
+  {
+   "text": "Orchestrator is available in the model selector for Google AI Ultra and Google AI Pro subscribers, letting you pair Gemini 4 Hydrogen execution with frontier planning models. Enterprises can access both in Gemini for business .",
+   "source": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity"
+  },
+  {
+   "text": "Model launch · November 12, 2026 Gemini 4 Hydrogen ... alongside Orchestrator for dynamic multi-model planning and execution with Gemini 4 Carbon.",
+   "source": "https://antigravity.google/docs/changelog"
+  },
+  {
+   "text": "Gemini 4 Neon is now available on Google AI Ultra, Google AI Pro, and Gemini Enterprise, and it's the default model if you haven't chosen one, with four thinking levels and Orchestrator (Neon) for planning with Gemini 4 Neon and implementing with Gemini 4 Hydrogen. (November 18, 2026)",
+   "source": "https://antigravity.google/docs/changelog"
+  }
+ ]
+}
