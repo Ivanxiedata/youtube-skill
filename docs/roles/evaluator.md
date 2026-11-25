@@ -20,6 +20,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 2. Title and thumbnail as one promise: besides the topic's name, the title repeats no thumbnail word. Should-fix otherwise.
 3. Thumbnail at 160 px wide (shrink it and look): topic and promise readable, brand card used. Must-fix if unreadable.
 4. The 3 searches in `package.md`: their words are in the title and the first two description lines. Should-fix otherwise.
+   Must-fix (L37, repeated 2026-11-25): a search word (such as "vs") that is not in the title or description lines 1-2.
 
 **Watch (`/yt-script`)**
 5. Hook, the 3-second test (lesson L16): from the first spoken sentence alone, could someone who doesn't know the tech say what this video gives them?
@@ -28,9 +29,12 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 6. The first seconds do three things: confirm the title's promise, open a question the viewer can't close, show the payoff exists. Must-fix if the title's promise isn't confirmed.
 7. Topic first: title card from frame 0 and the topic's name in the first spoken sentence (lessons L14, L16). Must-fix.
    Must-fix (L14, repeated): the topic's name is not the first spoken words (a hook opening "Before, you'd ..." and naming the topic later fails).
+   Must-fix (L16, repeated 2026-11-25): the first spoken sentence is the topic's name alone (its own voice line); the name and the hook are one sentence, and the title card cuts on the measured pause inside it.
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
+   Must-fix (L1, repeated 2026-11-25): a shot over 5 s; split it with cuts (a mid-shot highlight is not a new shot). Should-fix when shots average over 3 s.
    Must-fix (L44, repeated 2026-11-24): a figure or multi-part prop that fades with `globalAlpha`, alone or inside an easing panel, so limbs or clothes show through each other.
+   Must-fix (L44, repeated 2026-11-25): a panel-entrance helper (such as `withIn()`) that eases alpha on a panel holding a figure; check every figure shot's mid-entrance still.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
 11. Close (lesson L32): a "So, what we learned:" conclusion restating the before -> after on the counted example, then the ask to subscribe and comment what to explain next. Must-fix if there is no conclusion or no ask.
 
@@ -41,6 +45,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L26, repeated 2026-11-24): a chapter title, card, label or line that states the invented example's number without "our example" (or "our"), or a condition with its own date folded under another date; should-fix when a spoken number's condition shows on screen only after the number.
    Must-fix (L17, repeated 2026-11-24): an on-screen label naming a product or agent a `claims.md` row rules out (a robot labelled "COPILOT" where the maker names no Copilot agent), or a source line in `upload.json` (article title, author) that no file in the episode holds.
    Must-fix (L26, repeated 2026-11-24): an example from the docs (a policy value, a count) spoken or drawn as the rule without "example"; a source's list shortened (an item such as "meetings" dropped); a line in `research.md` or `upload.json` stating an inference no source says.
+   Must-fix (L26, repeated 2026-11-25): a label or line added by a gate or claim fix (an inset, a stamp, a shortened line) that drops a list item, a condition or its date; and an "OUR EXAMPLE" label that appears after the numbers it marks.
    Must-fix (L17, repeated 2026-11-24): an `upload.json` sentence labelled "per <maker>" (or quoting the maker) that adds words the maker's quoted sentence in `research.md` lacks.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
@@ -60,9 +65,11 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 16. `earshot measure video.mp4`: -17 LUFS within 1, true peak under -1 dBTP. Should-fix outside.
 17. `earshot describe video.mp4`: a noise or hum tag is Must-fix; voice-over clear; music present.
 18. `earshot timeline video.mp4 --video video.mp4`: share of picture cuts with a sound on them. Should-fix below 50%.
+   Must-fix (L47, repeated 2026-11-25): a picture cut with no sound within 100 ms (shots sharing a PLACE letter still get a full cut brush).
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
    Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 150 words.
 20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.
+   Must-fix (L48, repeated 2026-11-25; L79): any label under 28 px at any frame (a ticket scaled down in flight counts), and the corner tag outside the safe area; should-fix for text under 44 px.
 
 ## Output
 `episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.

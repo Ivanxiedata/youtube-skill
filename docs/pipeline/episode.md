@@ -102,6 +102,17 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Hand targets stay inside the rig's arm reach (about 199 units from the shoulder); every animated limb has a pose from the shot's first frame equal to its default; look at those first-frame and full-reach stills before the first full build (L52).
 - Caption break times come from `film/pauses.json`, never typed by hand (L53).
 - `build.py --out` takes a bare file name (written inside `film/`); an absolute path makes the audit decode 0 frames (L55).
+- Start every full voicing with `run_in_background` (13 lines take over 10 min on CPU, past the foreground limit) and work on `lesson.md`/`package.md` meanwhile; wait with Monitor (L75).
+- Read the voice log with `grep line` or `tail -c 2000`, never `tail -n`: tqdm writes its progress bars as one huge line (L41, repeated).
+- After every gate fix round, re-read each changed word, new label and inset against `research.md`'s narrowing list before the claim check; a later trim for word count never drops an item from a source's list, and a claim fix carries its source's date (L26, repeated).
+- A camera push that keeps a shot alive is linear to at least 1.1, not eased to 1.05; a fix that adds seconds to a shot adds a cut or a moving thing, never static labels; move panels on a cut, never a 0.5 s slide across the frame (L23, repeated).
+- Plan shots per beat at 2-3 s, not one per voice line; a voice line over 4 s gets two shots (L1, repeated).
+- Before the first stills, measure stacked labels against the meter box with the camera push applied, and re-measure any inset or label enlarged in a fix round against every neighbour (L22, repeated).
+- The panel-entrance helper eases scale only when the panel holds a figure; grep `film.js` for `globalAlpha` around figure draws before the first build (L44, repeated).
+- Give every cut its full brush: shots sharing a PLACE letter get the light one, so give the shot after a cut its own letter; start cut2 leads at about 130 ms (L47, repeated).
+- The name and the hook are one voice line; cut the title card on the measured pause inside it, never by splitting the line (L16, repeated).
+- The corner tag goes inside the safe area (x 60-918, y 100-1536) at 44 px or more; never copy the example's position (L79).
+- Before the handback, check every `check: evaluate` lesson marked `Repeated:` and evaluator rows 7, 9, 12, 20 against the stills and `film/script.txt`; a judge round of repeats cost a 19-min fix round (L80).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
