@@ -214,6 +214,18 @@ jobs:
         env:
           PRIVACY: ${{ steps.gate.outputs.privacy }}
         run: go run ./cmd/yt upload "episodes/$SLUG" --privacy "$PRIVACY" --confirm
+      - name: Copy to Google Drive when the upload failed
+        # e.g. YouTube's daily upload cap; the artifact above expires after 30 days, Drive keeps it until it is uploaded by hand.
+        if: always() && steps.upload.outcome == 'failure'
+        env:
+          RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+        run: |
+          [ -n "$RCLONE_CONF" ] || { echo "::warning::secret RCLONE_CONF is missing: not copied to Google Drive (docs/workflow.md)"; exit 0; }
+          sudo apt-get install -y -qq rclone >/dev/null
+          printf '%s' "$RCLONE_CONF" > "$RUNNER_TEMP/rclone.conf"
+          rclone --config "$RUNNER_TEMP/rclone.conf" copy "episodes/$SLUG" "gdrive:youtube-skill/not-uploaded/$SLUG" \
+            --include "/{video.mp4,thumbnail.png,upload.json,captions.srt}"
+          echo "::notice::copied to Google Drive: youtube-skill/not-uploaded/$SLUG"
       - name: Save the episode
         if: always() && steps.gate.outputs.verdict != ''
         env:

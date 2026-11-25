@@ -181,10 +181,12 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
   a new lesson, or `Repeated:` on an open one plus a harder rule (a must-fix in `docs/roles/evaluator.md` or a line in "Known traps" of `docs/pipeline/episode.md`).
   It commits only those three files to `develop` after `make check`. The next run reads them before step 1.
 - **Watching a video:** each run keeps `video.mp4` and `thumbnail.png` for 30 days as a download on the run's page (Actions -> the run -> Artifacts); the video itself is never committed.
+  When the YouTube upload fails (e.g. the daily upload cap), `video.mp4`, `thumbnail.png`, `upload.json` and `captions.srt` are also copied to Google Drive, `youtube-skill/not-uploaded/<slug>/` (no expiry; needs secret `RCLONE_CONF`).
 - **Manual run:** Actions -> daily-videos -> Run workflow (optional video count, dry run that uploads nothing, or a topic you choose: a link or a sentence, which makes 1 video of it).
   From a terminal: `gh workflow run daily-videos -f topic=<link>`.
 - **One-time owner setup:** repo secrets `CLAUDE_CODE_OAUTH_TOKEN` (`claude setup-token`), `YOUTUBE_CLIENT_SECRET_JSON` and `YOUTUBE_TOKEN_JSON`
-  (the two files in `~/.config/youtube-skill/`), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
+  (the two files in `~/.config/youtube-skill/`), `RCLONE_CONF` (`rclone config create gdrive drive scope=drive.file`, then
+  `gh secret set RCLONE_CONF < ~/.config/rclone/rclone.conf`; without it the Drive copy is skipped with a warning), and the Google OAuth app published (in Testing its sign-in expires every 7 days).
 
 ## Where we deviate from the skills, on purpose
 | Skill rule | Ours | Why |

@@ -4,7 +4,7 @@
 
 enabled: true            # false = scheduled runs do nothing
 
-videos_per_day: 3        # 0-10; each video is its own parallel job
+videos_per_day: 1        # 0-10; each video is its own parallel job
 
 publish:
   when_ready: public     # a video the judge rates "ready to publish": public, unlisted or private
