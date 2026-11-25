@@ -117,6 +117,10 @@ jobs:
         with:
           go-version-file: go.mod
           cache-dependency-path: go.sum
+      # ubuntu-latest's python3 is 3.14, and torch 2.6.0 (scripts/voice.py) has no 3.14 wheels
+      - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12"
       - name: Restore models and browser
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
@@ -127,7 +131,7 @@ jobs:
             .skills/earshot-home
             .skills/chatterbox-venv
             .skills/hf
-          key: episode-tools-${{ runner.os }}-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh', 'scripts/voice.py') }}
+          key: episode-tools-${{ runner.os }}-py312-${{ hashFiles('skills.lock', 'scripts/ci-setup.sh', 'scripts/voice.py') }}
       - name: Install the tools
         run: scripts/ci-setup.sh
       - name: Install Claude Code
