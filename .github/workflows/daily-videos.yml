@@ -223,9 +223,9 @@ jobs:
           [ -n "$RCLONE_CONF" ] || { echo "::warning::secret RCLONE_CONF is missing: not copied to Google Drive (docs/workflow.md)"; exit 0; }
           sudo apt-get install -y -qq rclone >/dev/null
           printf '%s' "$RCLONE_CONF" > "$RUNNER_TEMP/rclone.conf"
-          rclone --config "$RUNNER_TEMP/rclone.conf" copy "episodes/$SLUG" "gdrive:youtube-skill/not-uploaded/$SLUG" \
+          rclone --config "$RUNNER_TEMP/rclone.conf" copy "episodes/$SLUG" "gdrive:$SLUG" \
             --include "/{video.mp4,thumbnail.png,upload.json,captions.srt}"
-          echo "::notice::copied to Google Drive: youtube-skill/not-uploaded/$SLUG"
+          echo "::notice::copied to Google Drive: the not-uploaded folder, $SLUG/"
       - name: Save the episode
         if: always() && steps.gate.outputs.verdict != ''
         env:
