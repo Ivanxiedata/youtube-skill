@@ -63,6 +63,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Colour or state changes (a block turning teal) cross-fade over at least 0.5 s, and busy per-frame motion (a page riffle) is slowed until the audit stops calling it a pop; a `film.js` reused from an earlier episode that never passed an audit gets the same rules before its first build (L23, repeated).
 - The thumbnail is laid out by measuring too: get the mascot's face box first and keep every held prop and label off it; make the main picture fill the frame before the first look (L22, repeated).
 - Find quotes in fetched pages with Python `str.find`, not `grep -o ".{0,N}..."` (grep here is ugrep and rejects long bounded repeats) (L29).
+- Every film is vertical: run `scripts/film-9x16.sh episodes/{{SLUG}}/film` right after `new_film.py`, and lay out for 1080 x 1920 inside the safe area (`docs/brand.md`); no chapters.
 - Scaffold `film/` with `new_film.py` before writing `film/script.txt`; the step-3 draft lives in `$RUNNER_TEMP/{{SLUG}}/` (L30).
 - `title.py` counts only digits and dates as the "number, date or name": a product name (Claude, Slack, Notion) never passes; put a digit in every title. Leave about 3 s of headroom in the first draft voice (end near 55 s), since claim fixes add words (L21, repeated).
 - Every line that states the feature carries its condition (hook, now line, takeaway, its card, description lines in `package.md`), not one line for all; re-read `research.md`'s narrowing list before writing `package.md`'s description lines (L26, repeated).

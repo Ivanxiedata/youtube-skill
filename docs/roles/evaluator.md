@@ -62,7 +62,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 18. `earshot timeline video.mp4 --video video.mp4`: share of picture cuts with a sound on them. Should-fix below 50%.
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
    Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 150 words.
-20. `/yt-chapters`: chapters in `upload.json` pass `chapters.py` rules. Must-fix if invalid (they would not render).
+20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.
 
 ## Output
 `episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.

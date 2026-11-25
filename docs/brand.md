@@ -10,7 +10,8 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 ## What repeats in every episode
 | Element | Rule |
 |---|---|
-| Format | 60 seconds; one new AI technology; told through one story everyone knows (history, a war, everyday life) |
+| Format | Vertical 9:16, 1080 x 1920 (YouTube Shorts; owner, 2026-11-24): every film, `scripts/film-9x16.sh` right after `new_film.py`. 60 seconds; one new AI technology; told through one story everyone knows (history, a war, everyday life) |
+| Safe area | Every word and key drawing inside x 60-918, y 100-1536: Shorts puts its buttons on the right 15% and the title on the bottom 20%. Text at least 44 px; pictures in the top ~60%, words under them |
 | Casting | Who gives orders and who takes them must never line up with skin tone. When the AI is a character that takes orders, draw it as visibly AI (a screen for a head); a story person standing in for the AI (a mechanic, a waiter) is fine if the cast's tones don't map to rank. Episode 0's Napoleon (cream) and Berthier (dark) break this rule |
 | Mascot | The hero from the stickman engine: round cream face, coral hoodie. Each episode he wears the story's costume (Episode 0: Napoleon's hat). Same face, new hat |
 | Corner tag | From the first frame to the last: "<Topic> · 60s", top-left, so a viewer who joins at any second knows the topic (Episode 0: `overlay()` in `film.js`) |

@@ -38,7 +38,7 @@ PER EPISODE                                                                 │
        ▼                                                                    │
   4 MAKE      stickman film + voice + thumbnail · Openverse music · earshot │
        ▼                                                                    │
-  5 FINISH    /yt-chapters on captions.srt · /yt-seo description + tags     │
+  5 FINISH    captions.srt · /yt-seo description + tags (no chapters: Shorts)│
        ▼                                                                    │
   6 JUDGE     a fresh agent that did not make it ─► evaluation.md           │
        ├─ must-fix ──► back to 3 or 4                                       │
@@ -125,7 +125,7 @@ Before any script: what will the viewer **learn**? Read every open `check: gate`
 - **Pass:** nothing narrower or wrong left; fix the words before anything is voiced or drawn.
 
 ### 4 Make (Sonnet; the strong model takes over a step that fails twice)
-- stickman: `new_film.py`, `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align`: Ivan's voice, `docs/voice.md`),
+- stickman: `new_film.py`, then `scripts/film-9x16.sh film` (every film is vertical 1080 x 1920; layout and safe area: `docs/brand.md`), `film.js` from `beats.md` (every beat's ON SCREEN), the voice (`.skills/chatterbox-venv/bin/python scripts/voice.py film film/script.txt --no-align`: Ivan's voice, `docs/voice.md`),
   stills of every shot checked by eye first, then one full `build.py`; after that only `build.py ... --shots <n>` for the shots an audit names or a fix changed
   (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
 - Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button (with the next episode's name under it only when it is decided; otherwise nothing, lesson L24).
@@ -136,10 +136,10 @@ Before any script: what will the viewer **learn**? Read every open `check: gate`
 
 ### 5 Finish the package (Sonnet)
 - `captions.srt` from `film/vo_lines.json` (plus the voice offset).
-- `/yt-chapters`: `python3 .claude/skills/yt-chapters/chapters.py captions.srt`, then retitle each chapter as that section's promise in 3 to 5 words.
-- `/yt-seo`: description (first two lines = the 3 searches' words, then the link, then chapters, then the long version with sources and the music credit), up to 3 hashtags, at most 15 tags for spellings and tool names.
+- No chapters: Shorts don't show them (vertical only, `docs/brand.md`).
+- `/yt-seo`: description (first two lines = the 3 searches' words, then the link, then the long version with sources and the music credit), up to 3 hashtags, at most 15 tags for spellings and tool names.
 - **Out:** `upload.json`, `captions.srt`.
-- **Pass:** chapters valid per `chapters.py` (0:00 first, at least 3, each at least 10 s).
+- **Pass:** `upload.json` has no chapter lines.
 
 ### 6 Judge (strong, a fresh agent that did not make the episode)
 Follow `docs/roles/evaluator.md`. The rubric is the youtube-agent skills' published rules plus `docs/brand.md` and `docs/lessons.md`, not the maker's opinion.
@@ -192,5 +192,5 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
 | `/yt-package`: at most 3 words on the thumbnail, never repeat the title | The brand card "LEARN <TOPIC> IN 60 SECONDS"; only the topic's name may repeat | The owner's thumbnail rule (lessons L7, L8); checked readable at 160 px |
 | `/yt-script`: show the top two hooks | Also: the hook passes the 3-second test (the viewer's moment, plain words); the score is a check at 72, not a target of 100 | The owner's rule (2026-11-22, lesson L16; replaces "must score 100", which pushed hooks into jargon) |
 | `/yt-script`: the turn by 0:15-0:45 | By about 10 s; the topic in the first second (title card) | Our videos are 60 s; lesson L14 |
-| `/yt-plan`: three uploads a week including Shorts | Waits for the owner's hours and best day; no vertical Shorts yet | Our videos are 16:9; vertical versions are an open owner decision |
+| `/yt-plan`: three uploads a week including Shorts | Every video is a vertical Short (9:16) | The owner chose vertical only (2026-11-24) |
 | `/yt-edit` | Not used | It edits camera recordings; ours are rendered from code |
