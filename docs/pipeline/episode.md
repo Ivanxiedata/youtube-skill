@@ -113,6 +113,20 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The name and the hook are one voice line; cut the title card on the measured pause inside it, never by splitting the line (L16, repeated).
 - The corner tag goes inside the safe area (x 60-918, y 100-1536) at 44 px or more; never copy the example's position (L79).
 - Before the handback, check every `check: evaluate` lesson marked `Repeated:` and evaluator rows 7, 9, 12, 20 against the stills and `film/script.txt`; a judge round of repeats cost a 19-min fix round (L80).
+- Give `run_in_background` the bare `voice.py` command with its log redirect; never `&` or `( ... ) &` inside it, or the task returns at once untracked (L75, repeated).
+- Stop a background voicing with TaskStop on its task (or `kill` its logged PID), check `pgrep -f scripts/voice.py` is empty, then delete or reuse its folder; `pkill -f voice.py` matches its own command line (L85).
+- After launching a background voicing, keep working in the same turn (lesson.md, package.md, the gate); a turn that ends with only a background task running ends the session (L28, repeated).
+- Voice the full script only after the claim check's fixes; every gate or claim fix names the words it cuts, and `wc -w film/script.txt` runs after each fix round (L21, repeated).
+- The hook's first sentence is what `hookscore.py` scores: after every gate or claim fix to the hook, re-score that sentence alone and keep its stakes word in it (L33, repeated).
+- In a fix round, `grep -rin "<phrase>" episodes/{{SLUG}}` for each phrase the judge or claim check ruled out and fix every hit, never only the quoted line; every card stating a number carries its condition in the same shot (L26, repeated).
+- Measure every new string with `measureText` before rendering; after adding a header or row, re-measure every neighbour gap with the push applied; place thumbnail props on a measured x line, never by eye (L22, repeated).
+- Push the whole board (wall, labels and stage), never a clipped part of it; place labels for the pushed frame (L23, repeated).
+- Start every scratch command that imports `audio_kit` with `export STICKMAN_SCRIPTS=.claude/skills/stickman/scripts;` (L45, repeated).
+- `cd "$RUNNER_TEMP/{{SLUG}}"` before any `earshot` command; passing a scratch path is not enough (L15, repeated).
+- With `--no-align`, `film/pauses.json` holds only the gaps between lines: break captions inside a line by syllable weight on a speech clock with the measured silences of `vo.wav` taken out, written once as a script (L53, repeated).
+- Never change `viewer.md` or `film/script.txt` between a gate round's student and its critic; queue the fix for the next round (L82).
+- After every edit to `upload.json`, print `len(description.encode())` and keep it under 4900 (L83).
+- Before build 1, look at first, middle and last stills of every shot with the push applied and fix them in one round; after build 1 run only `build.py --shots` with the changed shots and log each build's reason in `mistakes.md` (13 runs cost 34.8 min) (L86).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
