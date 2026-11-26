@@ -123,6 +123,17 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Push the whole board (wall, labels and stage), never a clipped part of it; place labels for the pushed frame (L23, repeated).
 - Start every scratch command that imports `audio_kit` with `export STICKMAN_SCRIPTS=.claude/skills/stickman/scripts;` (L45, repeated).
 - `cd "$RUNNER_TEMP/{{SLUG}}"` before any `earshot` command; passing a scratch path is not enough (L15, repeated).
+- Count line 1's spoken words before scoring any hook: at 2.6 words a second, 20 words is about 8 s; a hook over 20 words moves its condition to line 2 (L46, repeated).
+- When a ruling or judge fix rewords a phrase, grep its word stems, not its words (`grep -rinE "answers only|hand(ed|s) in" episodes/{{SLUG}}`), across every file including `research.md`, `brief.json`, `viewer.md`, `beats.md` and `upload.json`; paste the grep and its empty result in `progress.md`'s Log; the re-judge is the last round, so this sweep is the fix round's last step (L17, L26, repeated).
+- After every gate fix round, re-read each added word ("just text") against `research.md`'s narrowing list and its "our example" labels before the claim check (L26, repeated: 8 of 33 narrower in claude-sheets).
+- Each gate fix names the words it cuts so the script stays at least 3 words under the cap; `wc -w film/script.txt` after every round (L21, repeated).
+- Measure every hand target's distance from the shoulder (about 199 units) in `film.js` before build 1, typing hands included (L52, repeated).
+- Any label added or reworded by the gate (a meter tick text) is measured against its box with the push applied before build 1; the stills check covers every shot's push at its end value, edge items included (L22, repeated).
+- Tie a meter's state to the drawing it counts (same `fin()` timing as the tags it follows), never to the BEFORE/NOW tab (L34, repeated).
+- Start `MUSIC_DB` at -15 and, before build 1, mix the draft voice with the music once to set it so the as-mixed gap is 16 dB; -16 gave 18.0 dB on Ivan's voice in claude-sheets (L19, repeated).
+- Run repo scripts from the repo root by full path (`python3 scripts/music.py`, `python3 .claude/skills/stickman/scripts/build.py`), and read a script's `--help` before passing a new flag such as `--shots` (L35, repeated).
+- Budget the make and finish step at 20 min: one measured layout round before build 1, then only `--shots` rebuilds; the writer's still check runs before the handback, not after (L86, repeated: 21.7 of 71 min in claude-sheets).
+- Pick prop and costume colours from `docs/brand.md`'s palette while writing `beats.md`; red only on the sticker and Subscribe (L88).
 - With `--no-align`, `film/pauses.json` holds only the gaps between lines: break captions inside a line by syllable weight on a speech clock with the measured silences of `vo.wav` taken out, written once as a script (L53, repeated).
 - Never change `viewer.md` or `film/script.txt` between a gate round's student and its critic; queue the fix for the next round (L82).
 - After every edit to `upload.json`, print `len(description.encode())` and keep it under 4900 (L83).

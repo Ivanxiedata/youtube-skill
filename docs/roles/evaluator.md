@@ -53,12 +53,14 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L26, repeated 2026-11-26): a number on screen whose condition or "OUR EXAMPLE" label enters later than the number, even by a few frames; check the stills at the number's first frame.
    Must-fix (L17, repeated 2026-11-25): an `upload.json` sentence crediting the maker that drops any condition of the quoted sentence in `research.md` ("inside a single session", "with multiple parallel agents").
    Must-fix (L17, repeated 2026-11-26): a ruled-out phrase or its paraphrase in any other form (another tense, a summary list in `beats.md`, the writer's own words in `lesson.md`); grep the folder for the phrase's word stems, not its exact words.
+   Must-fix (L17, L26, repeated 2026-11-26, claude-sheets): a ruled-out phrase or analogy, by any stem ("answers only", "handed in", "hands in"), left anywhere but `claims.md` and `mistakes.md`: `research.md` ("Where the analogy stops" too), `brief.json`, `viewer.md`, `beats.md` (intro and cast list), `upload.json`; a source's list in any file not copied word for word from `research.md`'s quote.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
    Must-fix (L25, repeated): the NOW side does not show the same counted example reaching its outcome (an empty NOW panel beside a filled BEFORE one reads as "nothing happened").
    Must-fix (L34, repeated): in any shot, a meter's number counts something other than the unit its label names (a "YOUR WAITS" meter ticking on a test run).
    Must-fix (L34, repeated 2026-11-24): a meter's number that disagrees with what the shot draws (the route stops at 4, the meter shows 10), or a meter fix that hides the shot's point (a stall shown only by a tag, not on the picture).
+   Must-fix (L34, repeated 2026-11-26): a meter that changes before or after the thing it counts changes in the picture (boxes empty while the totals still have no fx tag; the tick before the last tag lands); check the stills at each counted item's first frame.
 
 **Learn**
 13b. The video teaches `lesson.md`: its main idea is said out loud and each of the 3 questions is answered on screen and in words, as in the script that passed `gate.md`. Must-fix if a gate-passed answer was cut or changed in the make.
@@ -80,6 +82,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L48, repeated 2026-11-25): a text helper whose default or `min:` is under 44 px (`lab()`, `fitSz`, `min:38`): set every minimum to 44 and cut words to fit.
    Must-fix (L48, repeated 2026-11-26): text that scales in from under 1.0 (a `panel(...,.8)` or `lab()` entrance easing the text); only the frame or card behind the text may scale.
    Must-fix (L83): the `upload.json` description over 5000 bytes (`len(description.encode())`); re-check after every edit, aim under 4900.
+   Must-fix (L88): a prop, costume or label in red `#E4493F` other than the promise sticker and the Subscribe button.
 
 ## Output
 `episodes/<slug>/evaluation.md`: the first line `ready to publish` or `not ready: N must-fix`, then Must fix, Should fix, Passed, Not evaluated.
