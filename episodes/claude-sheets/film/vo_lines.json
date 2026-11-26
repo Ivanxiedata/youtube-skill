@@ -1,0 +1,74 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 0.0,
+  "end": 5.948,
+  "text": "Claude Sheets, twenty twenty-six beta: you think checking A I numbers will cost you a redo, but actually formulas show how."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 6.198,
+  "end": 10.11,
+  "text": "Here's how, on our hiring budget: three teams, four quarters."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 10.36,
+  "end": 17.174,
+  "text": "Before, in our example, you pasted Claude's chat table into another tool: three totals, just text, no formulas."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 17.424,
+  "end": 21.221,
+  "text": "Checking meant redoing the math; Claude had no live access to your edits."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 21.471,
+  "end": 26.947,
+  "text": "Now, in the paid-plan beta, the spreadsheet stays in Claude; you both edit the same cells."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 27.197,
+  "end": 34.743,
+  "text": "Claude's formulas stay in the cells, so you can check how each number was calculated: if our total skipped a quarter, its formula shows it."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 34.993,
+  "end": 42.351,
+  "text": "Claude's edits are outlined as they land, so you see them; when it finishes, a card can undo just those edits, but only briefly."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 42.601,
+  "end": 49.207,
+  "text": "So, what we learned: pasted, our three totals hid their math; in the paid-plan beta, they're formulas you can check."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 49.457,
+  "end": 53.647,
+  "text": "Want more? Subscribe, and comment what we should explain next."
+ }
+]

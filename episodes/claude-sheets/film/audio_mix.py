@@ -1,0 +1,34 @@
+"""Sound mix for one film. build.py runs this inside the film folder.
+Edit the marked block only. Plants and EVENTS come from film.js, so sound stays on the picture's clock."""
+import json, os, sys
+sys.path.insert(0, os.environ["STICKMAN_SCRIPTS"])
+from audio_kit import Mix
+
+info = json.load(open("film.json"))
+m = Mix(info["dur"], seed=9)
+
+# ---- EDIT FROM HERE: set this from the sound brief ----
+SFX, MUSIC, VOICE = True, True, "vo.wav"
+VOICE_AT = .5      # the film clock starts the voice at 0.5 s: film time = voice time + .5 (film.js TS table)
+
+MUSIC_DB = -14     # -16 measured 18.0 dB as mixed (L19); -14 gives about 16
+VSTART = [l["start"] + VOICE_AT for l in json.load(open("vo_lines.json"))]   # film time of every voice line start
+# No room tone, drone or other noise beds (docs/lessons.md L2). Sampled effects only.
+if SFX:
+    for e in info["events"]:
+        t, k = e["t"], e["k"]
+        if k == "tick": m.tick(t, g=.05, pan=.2)                                      # a card or label pops in, a count
+        elif k == "pen": m.sfx("drawknife1", t, 2.2 + .25 * ((int(t * 10)) % 3), 6500, .05, -.2, .08)   # a pencil scratch on the paper
+        elif k == "paper": m.sfx("bookplace1", t, 1.1, 5000, .2, .2, .1)             # pages and sheets
+        elif k == "tock": m.sfx("metalclick", t, 1.5, 5000, .05, .3, .08)            # a chip lights
+        elif k == "slide": m.sfx("cloth3", t, 1.5, 5000, .16, .2, .15)               # a bar grows, the folder slides, cards glide
+        elif k == "stamp": m.sfx("impactwood-medium-001", t, .9, 3000, .16, 0, .1)   # a card lands
+        # the brush starts before the cut: the samples swell for 90-110 ms, and the swell should peak on the cut
+        elif k == "cut": m.sfx("cloth2", t - .125, 1, 3500, .26 if any(0 < v - t < .2 for v in VSTART) else .17, 0, .15)   # louder when a voice line starts within 200 ms after the cut               # a soft brush on a cut that changes place
+        elif k == "cut2": m.sfx("cloth4", t - .13, 1.15, 3500, .14, 0, .12)            # a lighter one on a cut inside a place
+if MUSIC:
+    m.music_file("music.mp3", gain_db=MUSIC_DB)   # "Blue Sky" by Sergmusic, CC0, found through Openverse: ../music.json (Blue Sky, Sergmusic, CC0)
+if VOICE:
+    m.voice(VOICE, at=VOICE_AT)
+# ---- TO HERE ----
+m.write("audio.wav")

@@ -1,0 +1,145 @@
+1
+00:00:00,500 --> 00:00:01,300
+Claude Sheets,
+
+2
+00:00:01,310 --> 00:00:02,360
+2026 beta:
+
+3
+00:00:02,370 --> 00:00:02,805
+you think checking
+
+4
+00:00:02,815 --> 00:00:04,800
+AI numbers will cost you a redo,
+
+5
+00:00:04,810 --> 00:00:06,448
+but actually formulas show how.
+
+6
+00:00:06,698 --> 00:00:07,310
+Here's how,
+
+7
+00:00:07,320 --> 00:00:09,345
+on our hiring budget:
+
+8
+00:00:09,355 --> 00:00:10,610
+three teams, four quarters.
+
+9
+00:00:10,860 --> 00:00:12,355
+Before, in our example,
+
+10
+00:00:12,365 --> 00:00:14,030
+you pasted Claude's chat table
+
+11
+00:00:14,040 --> 00:00:15,440
+into another tool:
+
+12
+00:00:15,450 --> 00:00:16,560
+three totals, just text,
+
+13
+00:00:16,570 --> 00:00:17,674
+no formulas.
+
+14
+00:00:17,924 --> 00:00:19,415
+Checking meant redoing the math;
+
+15
+00:00:19,425 --> 00:00:20,890
+Claude had no live access
+
+16
+00:00:20,900 --> 00:00:21,721
+to your edits.
+
+17
+00:00:21,971 --> 00:00:23,830
+Now, in the paid-plan beta,
+
+18
+00:00:23,840 --> 00:00:25,545
+the spreadsheet stays in Claude;
+
+19
+00:00:25,555 --> 00:00:27,447
+you both edit the same cells.
+
+20
+00:00:27,697 --> 00:00:29,430
+Claude's formulas stay in the cells,
+
+21
+00:00:29,440 --> 00:00:30,810
+so you can check how each number
+
+22
+00:00:30,820 --> 00:00:31,960
+was calculated:
+
+23
+00:00:31,970 --> 00:00:34,130
+if our total skipped a quarter,
+
+24
+00:00:34,140 --> 00:00:35,243
+its formula shows it.
+
+25
+00:00:35,493 --> 00:00:37,550
+Claude's edits are
+outlined as they land,
+
+26
+00:00:37,560 --> 00:00:38,535
+so you see them;
+
+27
+00:00:38,545 --> 00:00:39,925
+when it finishes,
+
+28
+00:00:39,935 --> 00:00:41,910
+a card can undo just those edits,
+
+29
+00:00:41,920 --> 00:00:42,851
+but only briefly.
+
+30
+00:00:43,101 --> 00:00:44,420
+So, what we learned:
+
+31
+00:00:44,430 --> 00:00:46,750
+pasted, our three totals
+hid their math;
+
+32
+00:00:46,760 --> 00:00:48,165
+in the paid-plan beta,
+
+33
+00:00:48,175 --> 00:00:49,707
+they're formulas you can check.
+
+34
+00:00:49,957 --> 00:00:50,740
+Want more?
+
+35
+00:00:50,750 --> 00:00:52,290
+Subscribe, and comment
+
+36
+00:00:52,300 --> 00:00:54,147
+what we should explain next.
