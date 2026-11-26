@@ -127,6 +127,14 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Never change `viewer.md` or `film/script.txt` between a gate round's student and its critic; queue the fix for the next round (L82).
 - After every edit to `upload.json`, print `len(description.encode())` and keep it under 4900 (L83).
 - Before build 1, look at first, middle and last stills of every shot with the push applied and fix them in one round; after build 1 run only `build.py --shots` with the changed shots and log each build's reason in `mistakes.md` (13 runs cost 34.8 min) (L86).
+- `stills.py` and `build.py`'s `contact_sheet.jpg` squeeze or crop 9:16 frames into 16:9 cells: render vertical stills at 540x960 per cell with the safe area drawn, and judge layout only from those (L87).
+- Never wait with `until ! pgrep -f "<pattern>"`: the loop's own command line matches and it runs into the 10-min background limit; wait on the task's notification, Monitor on its log's last line, or `kill -0 <logged PID>` (L85, repeated).
+- Re-time voice line 1 (name + hook) in a draft voicing after every gate or claim fix that adds words to it, before the full voicing; over 7.5 s, cut words then (a long line 1 after the full voicing moved every cut and cost a full re-render, 12 min) (L46, L86, repeated).
+- Count the draft per beat in spoken words (spelled letters one each, "G P T" is 3) before writing the next beat; stop the first draft at 140 (L21, repeated).
+- Before the first stills, centre titles on the safe area's centre (x 489), not the frame's (x 540), and measure every label against the mascot's face box and the frame's props; after moving any element, re-measure all its neighbours in the same edit (L22, repeated).
+- A shot never opens on an empty frame: panels and lanes on a cut are drawn at full alpha from the shot's first frame; ease in only what is added inside a shot (L23, repeated).
+- Labels and numbers that belong together (a panel's number and its "OUR EXAMPLE" label) share one entrance time; text is drawn at scale 1.0 from its first frame, and only the frame or card behind it scales (L26, L48, repeated).
+- The ruled-out phrase sweep greps word stems across every tense (`search(es|ed)? and th(inks|ought)`), the whole folder including `beats.md`'s "The parts, in one line each" list and `lesson.md`'s own paraphrases (L26, L17, repeated).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.

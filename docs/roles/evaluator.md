@@ -32,6 +32,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L16, repeated 2026-11-25): the first spoken sentence is the topic's name alone (its own voice line); the name and the hook are one sentence, and the title card cuts on the measured pause inside it.
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
    Must-fix (L46, repeated 2026-11-25): the first voice line runs past 8 s, or the turn sentence was cut for the word budget (cut words elsewhere, never the turn).
+   Must-fix (L46, repeated 2026-11-26): line 1 in `film/vo_lines.json` over 8 s after gate or claim fixes added words to the hook; check the final take's length, not the draft's.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
    Must-fix (L1, repeated 2026-11-25): a shot over 5 s; split it with cuts (a mid-shot highlight is not a new shot). Should-fix when shots average over 3 s.
    Must-fix (L44, repeated 2026-11-24): a figure or multi-part prop that fades with `globalAlpha`, alone or inside an easing panel, so limbs or clothes show through each other.
@@ -49,7 +50,9 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L26, repeated 2026-11-25): a label or line added by a gate or claim fix (an inset, a stamp, a shortened line) that drops a list item, a condition or its date; and an "OUR EXAMPLE" label that appears after the numbers it marks.
    Must-fix (L17, repeated 2026-11-24): an `upload.json` sentence labelled "per <maker>" (or quoting the maker) that adds words the maker's quoted sentence in `research.md` lacks.
    Must-fix (L26, repeated 2026-11-25): a card or label stating a number without its condition (whose result, which test, on average) in the same shot; a condition on another shot's panel does not count. And a phrase a judge or `claims.md` ruled out still anywhere in the episode folder: `grep -rin "<phrase>"` the folder, never only the quoted line.
+   Must-fix (L26, repeated 2026-11-26): a number on screen whose condition or "OUR EXAMPLE" label enters later than the number, even by a few frames; check the stills at the number's first frame.
    Must-fix (L17, repeated 2026-11-25): an `upload.json` sentence crediting the maker that drops any condition of the quoted sentence in `research.md` ("inside a single session", "with multiple parallel agents").
+   Must-fix (L17, repeated 2026-11-26): a ruled-out phrase or its paraphrase in any other form (another tense, a summary list in `beats.md`, the writer's own words in `lesson.md`); grep the folder for the phrase's word stems, not its exact words.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
@@ -75,6 +78,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.
    Must-fix (L48, repeated 2026-11-25; L79): any label under 28 px at any frame (a ticket scaled down in flight counts), and the corner tag outside the safe area; should-fix for text under 44 px.
    Must-fix (L48, repeated 2026-11-25): a text helper whose default or `min:` is under 44 px (`lab()`, `fitSz`, `min:38`): set every minimum to 44 and cut words to fit.
+   Must-fix (L48, repeated 2026-11-26): text that scales in from under 1.0 (a `panel(...,.8)` or `lab()` entrance easing the text); only the frame or card behind the text may scale.
    Must-fix (L83): the `upload.json` description over 5000 bytes (`len(description.encode())`); re-check after every edit, aim under 4900.
 
 ## Output
