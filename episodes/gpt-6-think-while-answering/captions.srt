@@ -1,0 +1,137 @@
+1
+00:00:00,500 --> 00:00:02,470
+GPT-6 in ChatGPT:
+
+2
+00:00:02,610 --> 00:00:03,920
+you think smarter answers
+
+3
+00:00:03,930 --> 00:00:05,520
+cost you a longer
+blank wait,
+
+4
+00:00:05,790 --> 00:00:07,068
+but actually it
+can start answering
+
+5
+00:00:07,078 --> 00:00:08,158
+before it's done thinking.
+
+6
+00:00:08,358 --> 00:00:09,170
+Here's how,
+
+7
+00:00:09,300 --> 00:00:11,268
+on one web-search question.
+
+8
+00:00:11,468 --> 00:00:13,210
+Before, it finished
+thinking first:
+
+9
+00:00:13,340 --> 00:00:14,610
+our 10-second wait...
+
+10
+00:00:14,790 --> 00:00:16,230
+then one block of text.
+
+11
+00:00:16,430 --> 00:00:18,093
+Now, it answers with what it
+
+12
+00:00:18,103 --> 00:00:18,870
+has so far,
+
+13
+00:00:19,000 --> 00:00:20,096
+keeps thinking, adds parts,
+
+14
+00:00:20,106 --> 00:00:22,810
+sometimes a chart
+or a calculator:
+
+15
+00:00:22,940 --> 00:00:23,980
+one answer, OpenAI says,
+
+16
+00:00:24,120 --> 00:00:25,149
+just as factual.
+
+17
+00:00:25,349 --> 00:00:27,300
+OpenAI says GPT-6,
+
+18
+00:00:27,520 --> 00:00:28,600
+on its Instant setting,
+
+19
+00:00:28,740 --> 00:00:31,880
+starts web-search answers
+44% sooner, on average,
+
+20
+00:00:32,030 --> 00:00:33,374
+than 5.6 Instant.
+
+21
+00:00:33,574 --> 00:00:35,200
+So thinking harder
+needn't delay the start:
+
+22
+00:00:35,330 --> 00:00:37,360
+in OpenAI's internal
+agent-task test,
+
+23
+00:00:37,400 --> 00:00:39,717
+GPT-6 on Extra High thinking
+
+24
+00:00:39,727 --> 00:00:42,337
+started as soon
+as 5.6 on Medium.
+
+25
+00:00:42,537 --> 00:00:43,880
+So, what we learned:
+
+26
+00:00:43,920 --> 00:00:45,770
+our 10-second web-search
+wait till it starts,
+
+27
+00:00:45,880 --> 00:00:47,490
+on 5.6 Instant,
+
+28
+00:00:47,550 --> 00:00:49,350
+becomes about 6 on GPT-6
+
+29
+00:00:49,360 --> 00:00:50,398
+Instant, parts still coming.
+
+30
+00:00:50,598 --> 00:00:51,390
+Want more?
+
+31
+00:00:51,490 --> 00:00:53,477
+Subscribe, and comment what
+
+32
+00:00:53,487 --> 00:00:54,964
+we should explain next.
+

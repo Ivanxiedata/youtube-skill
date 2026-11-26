@@ -1,0 +1,23 @@
+{
+  "title": "GPT-6 in ChatGPT Answers While It Still Thinks",
+  "description": "GPT-6 in ChatGPT answers while it still thinks, explained in 60 seconds: since October 7, 2026 (Free and Go from October 8; Enterprise per admin settings), ChatGPT's Chat tab can begin answering while it continues thinking or using tools, then add more findings without another prompt.\nFor questions that need web search, OpenAI says GPT-6 Instant starts answering 44% sooner, on average, than GPT-5.6 Instant; with Intelligent UI an answer can also include charts or a tool such as a calculator.\n\nOpenAI's announcement first: https://openai.com/index/gpt-6-for-everyone/\n\nOur example (illustration, not OpenAI's numbers): one web-search question. Before, on GPT-5.6 Instant, we count a 10-second wait until it starts answering, then one block of text. Now, on GPT-6 Instant, OpenAI's 44% sooner, on average, makes it about 6 seconds until it starts answering, and more parts keep coming while it still thinks. OpenAI gives no seconds: the 10 and the 6 are ours; the 44% is OpenAI's, for questions that need web search, and it is about when it starts answering, not when it finishes.\n\nWhat OpenAI says. On starting sooner: \"For questions that need web search, GPT-6 Instant starts answering 44% sooner, on average, than GPT-5.6 Instant.\" On thinking harder: \"In an internal evaluation of high-value, everyday agentic tasks, GPT-6 Extra High is able to begin answering in the same amount of time as GPT-5.6 Medium while achieving a better overall score than GPT-5.6 Extra High.\" That is one internal test; it says nothing about when the full answer ends.\n\nOn answering while it thinks: \"GPT-6 can also begin answering while it continues to think or use tools, then add more findings without another prompt. You can start reading before the full answer is ready.\" How it was trained: \"We trained it to take into account the user's waiting time and progressively compose an answer using its knowledge and findings up to that point. It learned to build answers across multiple partial responses, each adding useful information without unnecessary filler, while keeping the full answer as cohesive and factual as one written all at once.\" That is OpenAI's training goal.\n\nWhat an answer can include: \"With Intelligent UI, responses can include graphics, tappable buttons, forms, charts, and interactive experiences you can use directly in your conversation.\" \"It can choose the format automatically, and still use a simple text answer when that works best.\" \"Intelligent UI is available from Instant through Extra High reasoning. The Pro reasoning option continues to use GPT-6 Astra and doesn't support Intelligent UI.\"\n\nWhere and when (the release notes entry of October 7, 2026): \"The rollout starts globally today for Plus, Pro, Business, and Enterprise in the Chat tab, and expands to Free and Go starting tomorrow. Enterprise availability depends on workspace admin settings.\" \"The models powering Work and Codex aren't changing with this release.\" So: paid tiers October 7, Free and Go October 8, Enterprise depending on workspace admin settings; ChatGPT's Chat tab only.\n\nThe story: a diner. You are the diner with the napkin bib, ChatGPT is a robot chef with a screen for a head, the plates are the parts of the answer. The 10 seconds and the pictures are our invented example, drawn from code; the robots are generic drawings, not OpenAI's artwork or logos.\n\nSources\nOpenAI, \"GPT-6 and Intelligent UI for everyone\" (October 7, 2026): https://openai.com/index/gpt-6-for-everyone/\nOpenAI Help Center, \"ChatGPT release notes\", entry \"October 7, 2026: GPT-6 and Intelligent UI in ChatGPT\": https://help.openai.com/en/articles/6825453-chatgpt-release-notes\n\nVoice: an AI clone of the creator's voice (Chatterbox, MIT license; the audio carries an AI watermark). Animation rendered from code.\n\"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/. https://freesound.org/people/Sergmusic/sounds/639933, found through Openverse.\n\n#GPT6 #ChatGPT #AIExplained",
+  "tags": [
+    "gpt-6",
+    "gpt-6 chatgpt",
+    "gpt-6 in chatgpt",
+    "chatgpt answers while thinking",
+    "gpt-6 instant",
+    "gpt-6 explained",
+    "gpt-6 intelligent ui",
+    "chatgpt intelligent ui",
+    "gpt-6 vs gpt-5.6",
+    "chatgpt interleaved thinking",
+    "chatgpt thinking while answering",
+    "gpt-6 extra high",
+    "openai gpt-6",
+    "chatgpt new model",
+    "ai explained"
+  ],
+  "category_id": "28",
+  "made_for_kids": false
+}

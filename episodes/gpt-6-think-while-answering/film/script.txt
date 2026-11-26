@@ -1,0 +1,8 @@
+GPT six in ChatGPT: you think smarter answers cost you a longer blank wait, but actually it can start answering before it's done thinking.
+Here's how, on one web-search question.
+Before, it finished thinking first: our ten-second wait... then one block of text.
+Now, it answers with what it has so far, keeps thinking, adds parts, sometimes a chart or a calculator: one answer, OpenAI says, just as factual.
+OpenAI says GPT six, on its Instant setting, starts web-search answers forty-four percent sooner, on average, than five point six Instant.
+So thinking harder needn't delay the start: in OpenAI's internal agent-task test, GPT six on Extra High thinking started as soon as five point six on Medium.
+So, what we learned: our ten-second web-search wait till it starts, on five point six Instant, becomes about six on GPT six Instant, parts still coming.
+Want more? Subscribe, and comment what we should explain next.

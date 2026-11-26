@@ -1,0 +1,66 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 0.0,
+  "end": 7.608,
+  "text": "GPT six in ChatGPT: you think smarter answers cost you a longer blank wait, but actually it can start answering before it's done thinking."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 7.858,
+  "end": 10.718,
+  "text": "Here's how, on one web-search question."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 10.968,
+  "end": 15.68,
+  "text": "Before, it finished thinking first: our ten-second wait... then one block of text."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 15.93,
+  "end": 24.599,
+  "text": "Now, it answers with what it has so far, keeps thinking, adds parts, sometimes a chart or a calculator: one answer, OpenAI says, just as factual."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 24.849,
+  "end": 32.824,
+  "text": "OpenAI says GPT six, on its Instant setting, starts web-search answers forty-four percent sooner, on average, than five point six Instant."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 33.074,
+  "end": 41.787,
+  "text": "So thinking harder needn't delay the start: in OpenAI's internal agent-task test, GPT six on Extra High thinking started as soon as five point six on Medium."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 42.037,
+  "end": 49.848,
+  "text": "So, what we learned: our ten-second web-search wait till it starts, on five point six Instant, becomes about six on GPT six Instant, parts still coming."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 50.098,
+  "end": 54.414,
+  "text": "Want more? Subscribe, and comment what we should explain next."
+ }
+]

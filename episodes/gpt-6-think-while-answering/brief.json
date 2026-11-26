@@ -1,0 +1,92 @@
+{
+ "slug": "gpt-6-think-while-answering",
+ "tech": {
+  "id": "gpt-6-chatgpt",
+  "name": "GPT-6 in ChatGPT (interleaved thinking and answering, Intelligent UI)",
+  "released": "2026-10-07",
+  "status": "Rolling out in ChatGPT's Chat tab: Plus, Pro, Business, Enterprise from October 7, 2026; Free and Go from October 8; Enterprise depends on admin settings",
+  "one_line": "GPT-6 in ChatGPT can begin answering while it continues to think or use tools, adding findings in later parts without another prompt; for web-search questions GPT-6 Instant starts answering 44% sooner on average than GPT-5.6 Instant; Intelligent UI can answer with charts, buttons, forms or tools."
+ },
+ "predecessor": {
+  "id": "gpt-5-6",
+  "name": "GPT-5.6 and earlier reasoning models: users had to wait for the model to finish thinking before getting an answer, then got one answer. The 10-second example is the episode's own."
+ },
+ "claims": [
+  {
+   "text": "With GPT‑6, we're also making it possible for ChatGPT to begin answering while it continues to think. (row 1)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "With the introduction of reasoning models, users could get help with much harder problems, but had to wait for the model to finish thinking before getting an answer. (row 2)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "Now, ChatGPT can interleave thinking with answering. (row 3)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "We trained it to take into account the user's waiting time and progressively compose an answer using its knowledge and findings up to that point. It learned to build answers across multiple partial responses, each adding useful information without unnecessary filler, while keeping the full answer as cohesive and factual as one written all at once. (row 4)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "GPT-6 can also begin answering while it continues to think or use tools, then add more findings without another prompt. You can start reading before the full answer is ready. (row 5)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "For questions that need web search, GPT‑6 Instant starts answering 44% sooner, on average, than GPT‑5.6 Instant. (row 6)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "In an internal evaluation of high-value, everyday agentic tasks, GPT‑6 Extra High is able to begin answering in the same amount of time as GPT‑5.6 Medium while achieving a better overall score than GPT‑5.6 Extra High. (row 7)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "GPT‑6 also improves the quality of answers that require web search. It makes better decisions about when to look something up and more reliably finds information that supports its answer. (row 8)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "With Intelligent UI, responses can include graphics, tappable buttons, forms, charts, and interactive experiences you can use directly in your conversation. (row 9)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "You can also ask ChatGPT to create a tool for the task at hand, such as a calculator to explore how savings could grow, a bill splitter for dinner with friends, or a game you can play in the conversation. (row 10)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "The compiler allows the interface to appear progressively as the model generates it, without waiting for the entire response to be complete. (row 11)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "It can choose the format automatically, and still use a simple text answer when that works best. (row 12)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "Intelligent UI is available from Instant through Extra High reasoning. The Pro reasoning option continues to use GPT-6 Astra and doesn't support Intelligent UI. (row 13)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "The rollout starts globally today for Plus, Pro, Business, and Enterprise in the Chat tab, and expands to Free and Go starting tomorrow. Enterprise availability depends on workspace admin settings. (row 14)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "Plus, Pro, Business, and Enterprise use GPT-6 Sol; Free and Go use GPT-6 Luna. (row 15)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "The models powering Work and Codex aren't changing with this release. (row 16)",
+   "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+  },
+  {
+   "text": "There's still work ahead to improve the model's design judgment and expand what it can create (row 17)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "a new GPT‑6 model built for more than 1.2 billion people who use ChatGPT each week (row 18)",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  },
+  {
+   "text": "Our example (the episode's own, not OpenAI's): a 10-second wait until the answer starts becomes about 6 seconds at 44% sooner on average (10 x 0.56 = 5.6).",
+   "source": "https://openai.com/index/gpt-6-for-everyone/"
+  }
+ ]
+}
