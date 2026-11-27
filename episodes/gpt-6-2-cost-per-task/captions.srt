@@ -1,0 +1,112 @@
+1
+00:00:00,500 --> 00:00:02,872
+GPT-6.2 Astra model:
+
+2
+00:00:02,872 --> 00:00:04,234
+you pick by price
+
+3
+00:00:04,234 --> 00:00:05,982
+but how much text it uses
+
+4
+00:00:05,982 --> 00:00:07,253
+actually sets your cost.
+
+5
+00:00:07,753 --> 00:00:08,675
+Here's why:
+
+6
+00:00:08,675 --> 00:00:11,382
+a taxi fare is mostly rate times miles;
+
+7
+00:00:11,382 --> 00:00:12,596
+the route sets the miles.
+
+8
+00:00:13,096 --> 00:00:14,957
+Before, you'd compare the rate:
+
+9
+00:00:14,957 --> 00:00:15,932
+price per token,
+
+10
+00:00:15,932 --> 00:00:16,733
+a chunk of text,
+
+11
+00:00:16,733 --> 00:00:18,334
+assuming pricier meant better.
+
+12
+00:00:18,834 --> 00:00:20,237
+Now Astra's price per token
+
+13
+00:00:20,237 --> 00:00:23,810
+is at least 20% below GPT-6 Astra's.
+
+14
+00:00:24,110 --> 00:00:26,184
+Yet on one work test, OpenAI says,
+
+15
+00:00:26,184 --> 00:00:28,966
+it scored higher at under a third of the cost.
+
+16
+00:00:29,466 --> 00:00:31,948
+Like a driver who picks the best route:
+
+17
+00:00:31,948 --> 00:00:34,615
+OpenAI credits writing fewer tokens,
+
+18
+00:00:34,615 --> 00:00:35,702
+plus lower prices.
+
+19
+00:00:36,202 --> 00:00:37,915
+On one coding test, both at max,
+
+20
+00:00:37,915 --> 00:00:40,701
+OpenAI says the cheaper model, Sol,
+
+21
+00:00:40,701 --> 00:00:42,535
+nearly matched Astra's score
+
+22
+00:00:42,535 --> 00:00:44,034
+at about a fifth the cost.
+
+23
+00:00:44,534 --> 00:00:45,974
+So, what we learned:
+
+24
+00:00:45,974 --> 00:00:48,262
+price per token is the taxi's rate;
+
+25
+00:00:48,262 --> 00:00:50,286
+your cost is price times tokens:
+
+26
+00:00:50,286 --> 00:00:51,376
+compare cost per task.
+
+27
+00:00:51,876 --> 00:00:52,578
+Want more?
+
+28
+00:00:52,878 --> 00:00:55,404
+Subscribe, and comment what we should explain next.
+

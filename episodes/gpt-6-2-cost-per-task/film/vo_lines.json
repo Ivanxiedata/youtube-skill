@@ -1,0 +1,82 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 6.753,
+  "text": "G P T six point two Astra model: you pick by price but how much text it uses actually sets your cost."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 7.253,
+  "end": 12.096,
+  "text": "Here's why: a taxi fare is mostly rate times miles; the route sets the miles."
+ },
+ {
+  "n": 2,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 12.596,
+  "end": 17.834,
+  "text": "Before, you'd compare the rate: price per token, a chunk of text, assuming pricier meant better."
+ },
+ {
+  "n": 3,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 18.334,
+  "end": 23.31,
+  "text": "Now Astra's price per token is at least twenty percent below G P T six Astra's."
+ },
+ {
+  "n": 4,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 23.61,
+  "end": 28.466,
+  "text": "Yet on one work test, OpenAI says, it scored higher at under a third of the cost."
+ },
+ {
+  "n": 5,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 28.966,
+  "end": 35.202,
+  "text": "Like a driver who picks the best route: OpenAI credits writing fewer tokens, plus lower prices."
+ },
+ {
+  "n": 6,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 35.702,
+  "end": 43.534,
+  "text": "On one coding test, both at max, OpenAI says the cheaper model, Sol, nearly matched Astra's score at about a fifth the cost."
+ },
+ {
+  "n": 7,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 44.034,
+  "end": 50.876,
+  "text": "So, what we learned: price per token is the taxi's rate; your cost is price times tokens: compare cost per task."
+ },
+ {
+  "n": 8,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 51.376,
+  "end": 52.078,
+  "text": "Want more?"
+ },
+ {
+  "n": 9,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 52.378,
+  "end": 54.904,
+  "text": "Subscribe, and comment what we should explain next."
+ }
+]

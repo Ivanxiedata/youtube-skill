@@ -1,0 +1,23 @@
+{
+ "title": "GPT-6.2 Astra & Sol: Your AI Cost Is Price Times Tokens",
+ "description": "GPT-6.2 Astra and Sol (OpenAI, Nov 17, 2026), explained in 60 seconds with a taxi meter: your AI cost is price times tokens, so compare cost per task, not the price list.\nOpenAI says GPT-6.2 Astra's input and output token prices are 20% lower than GPT-6 Astra's (cached input 60% lower), yet on Agents' Last Exam it scored higher at less than a third of the cost, which it credits to better token efficiency plus a 20% discount on input and output tokens and a 60% discount on cached input; on FrontierCode 2.0 (both at max), GPT-6.2 Sol came within 0.5 points of GPT-6.2 Astra at about one-fifth the cost.\nThese are OpenAI's results on its own chosen tests; Decrypt reports independent tests rank Astra second behind Claude Fable 5.2, with no improvement in coding-agent performance.\n\nThe taxi picture: a fare is mostly rate times miles (NYC adds an initial charge, time charges in slow traffic and surcharges), and the route sets the miles. An AI bill works the same way: price per token is the rate, and the tokens a task uses are the miles; a token is a chunk of text a model reads or writes. The bill counts input, cached input and output tokens, each at its own rate.\nWhat OpenAI reports (its own tests, not guarantees for every task): GPT-6.2 Astra's input and output token prices are 20% lower than GPT-6 Astra's ($8 for input, $0.40 for cached input, $40 for output, per million tokens); on Agents' Last Exam, a test of multistep professional work, it scored higher at less than a third of the cost; OpenAI credits better token efficiency (fewer output tokens) plus the discounts. On FrontierCode 2.0, Cognition's coding test, GPT-6.2 Sol (GPT-6.1 Sol's rates: $2 for input, $0.10 for cached input, $10 for output per million tokens) came within 0.5 points of GPT-6.2 Astra at about one-fifth the cost, both at max.\nIn the video the example split of \"Book a taxi to the station\" into tokens is ours, and the taxis are a picture of two models: NYC has one regulated taxi rate.\n\nSources:\n- OpenAI, \"Introducing GPT-6.2 Astra and Sol\": https://openai.com/index/introducing-gpt-6-2-astra-sol\n- Decrypt, Jose Antonio Lanz, \"OpenAI's GPT 6.2 Astra Challenges Anthropic on Price, But Not Every Benchmark\", Nov 17, 2026: https://decrypt.co/383488/openai-gpt-6-2-astra-challenges-anthropic-price-but-not-every-benchmark\n- NYC Taxi and Limousine Commission, \"Taxi Fare\": https://www.nyc.gov/site/tlc/passengers/taxi-fare.page\n- NYC Taxi and Limousine Commission, \"Passenger Frequently Asked Questions\": https://www.nyc.gov/site/tlc/passengers/passenger-frequently-asked-questions.page\n\nMusic: \"Blue Sky.mp3\" by Sergmusic is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.\n\n#GPT62 #OpenAI #AIExplained",
+ "tags": [
+  "gpt-6.2 astra",
+  "gpt-6.2 sol",
+  "gpt-6.2",
+  "gpt-6.2 astra and sol",
+  "openai gpt-6.2",
+  "ai price per token",
+  "price per token",
+  "ai cost per task",
+  "token cost explained",
+  "ai tokens explained",
+  "openai astra",
+  "openai sol",
+  "gpt-6 astra",
+  "ai pricing explained",
+  "ai explained"
+ ],
+ "category_id": "28",
+ "made_for_kids": false
+}

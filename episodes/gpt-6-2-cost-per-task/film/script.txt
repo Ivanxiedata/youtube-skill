@@ -1,0 +1,8 @@
+G P T six point two Astra model: you pick by price but how much text it uses actually sets your cost.
+Here's why: a taxi fare is mostly rate times miles; the route sets the miles.
+Before, you'd compare the rate: price per token, a chunk of text, assuming pricier meant better.
+Now Astra's price per token is at least twenty percent below G P T six Astra's. Yet on one work test, OpenAI says, it scored higher at under a third of the cost.
+Like a driver who picks the best route: OpenAI credits writing fewer tokens, plus lower prices.
+On one coding test, both at max, OpenAI says the cheaper model, Sol, nearly matched Astra's score at about a fifth the cost.
+So, what we learned: price per token is the taxi's rate; your cost is price times tokens: compare cost per task.
+Want more? Subscribe, and comment what we should explain next.

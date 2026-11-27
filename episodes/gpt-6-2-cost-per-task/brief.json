@@ -1,0 +1,84 @@
+{
+ "slug": "gpt-6-2-cost-per-task",
+ "tech": {
+  "id": "gpt-6-2-astra-sol",
+  "name": "GPT-6.2 Astra and GPT-6.2 Sol (OpenAI)",
+  "released": "2026-11-17",
+  "status": "Available in ChatGPT Work and Codex (Plus, Pro, Enterprise, Edu) and the OpenAI API",
+  "one_line": "OpenAI's new frontier model (Astra) and everyday model (Sol), priced per million tokens and sold on cost per task: Astra's input and output token prices are 20% lower than GPT-6 Astra's, and on Agents' Last Exam, OpenAI says, it scored higher at less than a third of the cost, which OpenAI credits to better token efficiency plus a 20% discount on input and output tokens and a 60% discount on cached input; on FrontierCode 2.0, Sol came within 0.5 points of Astra at about one-fifth the cost (both at max). OpenAI's own results."
+ },
+ "predecessor": {
+  "id": "gpt-6-astra-gpt-6-1-sol",
+  "name": "GPT-6 Astra and GPT-6.1 Sol, picked by their price list (dollars per million tokens), assuming the cheaper rate means the cheaper job and the pricier model means better work."
+ },
+ "claims": [
+  {
+   "text": "GPT‑6.2 Astra , our new frontier model for your hardest projects, and GPT‑6.2 Sol , our efficient, versatile model for everyday work. (row 1)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "Both models deliver better results on demanding tasks with fewer output tokens, so you can get more done within your usage limits. (row 2, OpenAI's claim)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "On Agents’ Last Exam, which tests multistep professional work, GPT‑6.2 Astra sets a new high, scoring 5.2 points higher than GPT‑6 Astra at less than a third of the cost (row 3; one test, OpenAI's result)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "In the API, GPT‑6.2 Astra’s input and output token prices are 20% lower than GPT‑6 Astra’s, with a 60% discount on cached input ($8 for input, $0.40 for cached input, and $40 for output, all per million tokens). (row 5)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "GPT‑6.2 Sol carries forward GPT‑6.1 Sol’s rates of $2 for input, $0.10 for cached input, and $10 for output per million tokens. (row 6)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "GPT‑6.2 Astra costs significantly less per task than GPT‑6 Astra, driven by better token efficiency, a 20% discount on input and output tokens, and a deeper 60% discount on cached input tokens. (row 7)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "GPT‑6.2 Astra leads the models we tested, up 6.2 percentage points from GPT‑6 Astra while using 22% fewer output tokens. (row 8, OpenAI's internal GDPval v2)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "In Cognition’s FrontierCode 2.0, GPT‑6.2 Sol comes within 0.5 points of GPT‑6.2 Astra at about one-fifth the cost (both at max). (row 9)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "FrontierCode 2.0 evaluates whether changes to real codebases meet maintainers’ standards for merging. (row 9b)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "Tokens are the chunks of text models process and generate, so fewer tokens can mean a smaller bill even when the listed rates stay the same. (row 12)",
+   "source": "https://decrypt.co/383488/openai-gpt-6-2-astra-challenges-anthropic-price-but-not-every-benchmark"
+  },
+  {
+   "text": "Independent tests rank Astra second behind Anthropic's Claude Fable 5.2, with no improvement in coding-agent performance. (row 13)",
+   "source": "https://decrypt.co/383488/openai-gpt-6-2-astra-challenges-anthropic-price-but-not-every-benchmark"
+  },
+  {
+   "text": "Those are company claims, not guarantees for every assignment. (row 15)",
+   "source": "https://decrypt.co/383488/openai-gpt-6-2-astra-challenges-anthropic-price-but-not-every-benchmark"
+  },
+  {
+   "text": "OpenAI launched GPT-6.2 Astra and Sol on Tuesday (article dated Nov 17, 2026; row 16)",
+   "source": "https://decrypt.co/383488/openai-gpt-6-2-astra-challenges-anthropic-price-but-not-every-benchmark"
+  },
+  {
+   "text": "Starting today, GPT-6.2 Astra and Sol are available to all Plus, Pro, Enterprise, and Edu users in ChatGPT Work and Codex. (row 17)",
+   "source": "https://openai.com/index/introducing-gpt-6-2-astra-sol"
+  },
+  {
+   "text": "$3.00 initial charge. Plus 70 cents per 1/5 mile when traveling above 12mph or per 60 seconds in slow traffic or when the vehicle is stopped. (row S1, the story)",
+   "source": "https://www.nyc.gov/site/tlc/passengers/taxi-fare.page"
+  },
+  {
+   "text": "It is impossible to pre-calculate a fare, because the meter rate depends on traffic, construction, weather, and route to the destination. (row S2, the story)",
+   "source": "https://www.nyc.gov/site/tlc/passengers/passenger-frequently-asked-questions.page"
+  },
+  {
+   "text": "They must consult their 5-borough map to identify the best route to any destination within the 5 boroughs. (row S3, the story)",
+   "source": "https://www.nyc.gov/site/tlc/passengers/passenger-frequently-asked-questions.page"
+  }
+ ]
+}
