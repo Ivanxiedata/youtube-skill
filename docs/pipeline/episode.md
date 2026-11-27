@@ -23,6 +23,8 @@ Every open lesson in `docs/lessons.md` and every trap below is a rule for this e
   (it opens them), and writes `claims.md`: claim | source and quoted sentence | holds, narrower or wrong. Fix every narrower or wrong claim in the words now.
 - Steps 4-5 (make, finish): hand them to a subagent with the Agent tool, `model: "{{MODEL_WORKER}}"`, with a complete brief
   (the files to read, the gates, the traps below). Tell it to report every failed audit, failed command and redo in its handback. If it fails the same step twice, do that step yourself.
+  All picture and sound work runs on `{{MODEL_WORKER}}`, a re-voice or a fix round included: you never run `voice.py`, `stills-9x16.py` or `build.py` yourself (owner, 2026-11-27);
+  you read the worker's stills sheets, audit output and handback, and decide what it fixes next.
 - Step 6 (judge): a fresh subagent with the Agent tool, `model: "{{MODEL_JUDGE}}"`, that has not seen your work: give it only
   `docs/roles/evaluator.md` and the episode folder. It writes `evaluation.md`.
 - Must-fix rows: fix them (words: you; picture and sound: a `{{MODEL_WORKER}}` subagent), then a fresh judge in re-judge mode
@@ -30,7 +32,8 @@ Every open lesson in `docs/lessons.md` and every trap below is a rule for this e
 - If the topic's premise doesn't hold in the maker's own docs, stop: write `evaluation.md` with the first line `not ready: premise` and why.
 
 ## Building: render once, then only what changed
-- Stills first: `stills.py` at the middle of every shot, looked at against `beats.md` and the brand list, fixed until right. Then one full `build.py`.
+- Stills first: `.skills/venv/bin/python scripts/stills-9x16.py episodes/{{SLUG}}/film $RUNNER_TEMP/{{SLUG}}/stills` renders every shot's first, middle and last frame at 9:16 with the safe area drawn (never `stills.py`, L87).
+  Look at every sheet against `beats.md` and the brand list, fix every layout fault in that one round, re-render only the shots you changed (`--shots`), then one full `build.py`.
 - `build.py` reuses every shot file that exists. After the first build, re-render only what changed: `build.py film --out <name>.mp4 --shots <n> ...`.
   Audit issues: only the shots they name. A drawing change: only that shot. A voice change: copy `film/film.json` first;
   after the re-voice, every shot whose cut frames differ in the new `film.json` goes in `--shots` too (a moved cut is what made the stale-shot audit fail).
