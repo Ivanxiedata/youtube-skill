@@ -14,7 +14,7 @@ decide by the rules in this repo. You are in a fresh checkout of the latest `dev
 Follow `docs/workflow.md` steps 1 to 6 exactly; read `AGENTS.md`, `docs/brand.md`, `docs/lessons.md`, `docs/voice.md` and
 `docs/roles/evaluator.md` first, and use `episodes/deepseek-super-agent/` and the newest other episodes as worked examples.
 Every open lesson in `docs/lessons.md` and every trap below is a rule for this episode: the judge fails a lesson you repeat.
-- Steps 1-3 (research, promise, lesson plan, script): you do them yourself. Read every open `check: gate` lesson before writing `lesson.md`.
+- Steps 1-3 (research, promise, lesson plan, script): you do them yourself. In research, pick one real-life or historical story everyone knows whose mechanism matches the tech (a restaurant kitchen's head chef for an orchestrator, a court stenographer for captions), source its facts in `research.md` with where the analogy stops, and tell the before -> now contrast through it (content gate G13, L3). Read every open `check: gate` lesson before writing `lesson.md`.
 - Step 3a (content gate, before the claim check): a fresh student subagent, `model: "{{MODEL_WORKER}}"`, and then a fresh critic subagent, `model: "{{MODEL_JUDGE}}"`,
   per `docs/roles/content-gate.md`; you write `viewer.md` first; the student gets only that, never `lesson.md`. Fix and re-run fresh until `gate: pass`, at most 3 rounds;
   if it still fails, write `evaluation.md` with the first line `not ready: content gate` and stop. Copy every gate fail to `mistakes.md` (step `gate`) with its rule.

@@ -114,7 +114,7 @@ Before any script: what will the viewer **learn**? Read every open `check: gate`
 - **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 150 words, so the voice fits in 60 s (Ivan's voice speaks about 155 words a minute).
 
 ### 3a Content gate (a fresh Sonnet student and a fresh strong critic; `docs/roles/content-gate.md`)
-- The writer writes `viewer.md` (only what the viewer hears and sees); the student reads only that, states the main idea and answers the 3 questions; the critic scores G1-G12 (must-fix blocks; should-fix is fixed when it fits).
+- The writer writes `viewer.md` (only what the viewer hears and sees); the student reads only that, states the main idea and answers the 3 questions; the critic scores G1-G13 (must-fix blocks; should-fix is fixed when it fits).
 - **Out:** `gate.md`, first line `gate: pass (N should-fix)` or `gate: fail (N must-fix, M should-fix)`, each with a fix and a general rule.
 - **Pass:** no must-fix left. On fail, rewrite `lesson.md`/the script and run a fresh gate; at most 3 rounds, then the owner decides.
   Copy every fail to `mistakes.md`; every rule becomes a `check: gate` lesson (in the daily run, the learn job writes it). Nothing is voiced before the gate passes.
@@ -170,7 +170,8 @@ Watches and listens, then says "ship it". An agent then runs `yt upload <dir>` (
 ## The automated daily run
 `.github/workflows/daily-videos.yml` runs this whole workflow unattended every day on GitHub Actions, on the owner's Claude plan.
 - **Settings:** `pipeline.yaml` (videos per day, publish rules, models per role, timeouts, Claude Code version). Edit it and push to `develop`.
-  The run time is the `cron` line in the workflow file, the only setting GitHub requires there.
+  The run time is set on cron-job.org (owner's account, 13:00 UTC), which starts the workflow through `workflow_dispatch`;
+  GitHub's own `schedule` is off: it ran up to 9 hours late or not at all, and with both on there were 2 runs a day.
 - **Latest code:** every run checks out the latest `develop`, so merged changes are used from the next run on. Skills come from `skills.lock`.
 - **Flow:** the planner (`docs/pipeline/plan.md`) picks the day's topics (refreshing the `/yt-viral` study when it is old) -> one job per topic
   (`docs/pipeline/episode.md`) does steps 1-6 with the models in `pipeline.yaml` -> the judge's first line decides:
