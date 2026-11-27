@@ -17,10 +17,6 @@ pip install -q --upgrade pip
 pip install -q torch --index-url https://download.pytorch.org/whl/cpu
 pip install -q pyyaml numpy scipy pillow playwright imageio-ffmpeg kokoro-onnx yt-dlp ".skills/earshot[listen,measure,images]"
 
-# Ivan's voice (scripts/voice.py): Chatterbox in its own venv (its pins clash with the stickman venv); the model (3 GB) in HF_HOME.
-[ -x .skills/chatterbox-venv/bin/python ] || python3 scripts/voice.py --install >/dev/null
-export HF_HOME="$here/.skills/hf"
-
 export PLAYWRIGHT_BROWSERS_PATH="$here/.skills/browsers" STICKMAN_VOICE_DIR="$here/.skills/voice-models" EARSHOT_HOME="$here/.skills/earshot-home"
 playwright install --with-deps chromium >/dev/null
 earshot doctor --fetch >/dev/null
@@ -30,7 +26,6 @@ if [ -n "${GITHUB_ENV:-}" ]; then
 		echo "PLAYWRIGHT_BROWSERS_PATH=$PLAYWRIGHT_BROWSERS_PATH"
 		echo "STICKMAN_VOICE_DIR=$STICKMAN_VOICE_DIR"
 		echo "EARSHOT_HOME=$EARSHOT_HOME"
-		echo "HF_HOME=$HF_HOME"
 		echo "VIRTUAL_ENV=$here/.skills/venv"
 	} >>"$GITHUB_ENV"
 	echo "$here/.skills/venv/bin" >>"$GITHUB_PATH"

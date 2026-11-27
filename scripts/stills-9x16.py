@@ -5,7 +5,7 @@ brand safe area (x 60-918, y 100-1536, docs/brand.md) drawn. One row per shot, 4
     .skills/venv/bin/python scripts/stills-9x16.py <film> <out-prefix> [--shots 3 7 ...]
 
 Writes <out-prefix>_1.jpg, _2.jpg, ... (lesson L87: the skill's stills.py squeezes 9:16 frames into 16:9 cells).
-Shot times come from film/film.json's cuts, so it needs one `voice.py`/`new_film.py` pass first, not a build.
+Shot times come from film/film.json's cuts, so it needs one `tts.py`/`new_film.py` pass first, not a build.
 """
 import base64, io, json, sys
 from pathlib import Path
