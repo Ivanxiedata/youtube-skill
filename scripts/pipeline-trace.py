@@ -9,8 +9,15 @@ stream with arrival times in <raw.jsonl>, and writes <trace.md>: total time, tok
 with its time, the slowest calls, and how many builds and judges ran. trace.md holds tool names and the first words
 of each command only, never tool output, so nothing a tool printed (web pages, env) is committed.
 """
-import json, sys, time
+import json, re, sys, time
 
+
+
+def builds(inp):
+    """'full' or 'shots' when a tool call runs build.py, else None: a pgrep, grep or tail that only names it is no build (L86)."""
+    cmd = (inp or {}).get("command", "") if isinstance(inp, dict) else ""
+    m = re.search(r"python[0-9.]*\s+\S*build\.py\b[^;&|]*", cmd)
+    return None if not m else "shots" if "--shots" in m.group(0) else "full"
 
 def short(inp):
     for k in ("description", "command", "file_path", "pattern", "url", "prompt"):
@@ -32,7 +39,7 @@ def read(lines, raw, now=time.monotonic, update=lambda calls, result: None):
         for c in msg.get("content") if isinstance(msg.get("content"), list) else []:
             if c.get("type") == "tool_use":
                 call = {"id": c.get("id"), "name": c.get("name", "?"), "what": short(c.get("input")), "start": t, "end": None,
-                        "sub": bool(d.get("parent_tool_use_id")), "build": "build.py" in json.dumps(c.get("input"))}
+                        "sub": bool(d.get("parent_tool_use_id")), "build": builds(c.get("input"))}
                 calls.append(call)
                 open_[call["id"]] = call
                 print(f"[{t / 60:6.1f} min] {'  ' if call['sub'] else ''}{call['name']}: {call['what']}", flush=True)
@@ -51,7 +58,7 @@ def report(calls, result):
     total = (result.get("duration_ms") or 0) / 60000 or last / 60
     out = ["# Run trace", "", "Written by `scripts/pipeline-trace.py` from this episode's daily run. Times are minutes from the start.", "",
            f"- Total: {total:.1f} min, {result.get('num_turns', '?')} turns, ${result.get('total_cost_usd', 0) or 0:.2f} (list price; the run is on the owner's plan)",
-           f"- Builds (`build.py`): {sum(c['build'] for c in calls)}; judges (subagents with \"judge\" in the brief): "
+           f"- Builds (`build.py` runs): {sum(c['build'] == 'full' for c in calls)} full, {sum(c['build'] == 'shots' for c in calls)} --shots; judges (subagents with \"judge\" in the brief): "
            f"{sum(c['name'] in ('Agent', 'Task') and 'judge' in c['what'].lower() for c in calls)}",
            f"- Ended: {result.get('subtype', 'no result (killed or timed out)')}", "", "## Tokens per model", "",
            "| model | input | output | cache read | cache write | cost |", "|---|---|---|---|---|---|"]
@@ -80,7 +87,8 @@ def selftest():
     md = report(calls, res)
     assert [c["name"] for c in calls] == ["Bash", "Agent", "Read"], calls
     assert calls[0]["end"] - calls[0]["start"] == 60 and calls[2]["sub"], calls
-    assert "Total: 10.0 min" in md and "Builds (`build.py`): 1" in md and "judges" in md and ": 1" in md, md
+    assert builds({"command": "until ! pgrep -f build.py; do sleep 5; done"}) is None and builds({"command": "python3 build.py film --shots 7"}) == "shots"
+    assert "Total: 10.0 min" in md and "Builds (`build.py` runs): 1 full, 0 --shots" in md and "judges" in md and ": 1" in md, md
     assert "| claude-opus-5-5 | 10 | 2,000 |" in md and "SECRET" not in md, md
     assert "no result" in report([], {}), "a killed run still gets a report"
     print("ok")
