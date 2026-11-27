@@ -54,6 +54,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L17, repeated 2026-11-25): an `upload.json` sentence crediting the maker that drops any condition of the quoted sentence in `research.md` ("inside a single session", "with multiple parallel agents").
    Must-fix (L17, repeated 2026-11-26): a ruled-out phrase or its paraphrase in any other form (another tense, a summary list in `beats.md`, the writer's own words in `lesson.md`); grep the folder for the phrase's word stems, not its exact words.
    Must-fix (L17, L26, repeated 2026-11-26, claude-sheets): a ruled-out phrase or analogy, by any stem ("answers only", "handed in", "hands in"), left anywhere but `claims.md` and `mistakes.md`: `research.md` ("Where the analogy stops" too), `brief.json`, `viewer.md`, `beats.md` (intro and cast list), `upload.json`; a source's list in any file not copied word for word from `research.md`'s quote.
+   Must-fix (L17, L26, repeated 2026-11-27, claude-sheets-v2): a ruled-out phrase left by its stem without a suffix ("your math teacher" from "your math teacher's", "totals are formulas" from "they're formulas"), or a summary carried from an earlier episode (`research.md`'s "Our example", `brief.json` one_line) that states our example as a general fact or drops a card's condition ("If it shows"); `gate.md` lines quoting pre-claim wording need a note.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
@@ -75,8 +76,11 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 18. `earshot timeline video.mp4 --video video.mp4`: share of picture cuts with a sound on them. Should-fix below 50%.
    Must-fix (L47, repeated 2026-11-25): a picture cut with no sound within 100 ms (shots sharing a PLACE letter still get a full cut brush).
    Must-fix (L47, repeated 2026-11-25): `earshot timeline` not re-run after a `MUSIC_DB` change; a cut in the last 200 ms of a pause needs a louder brush.
+   Must-fix (L47, repeated 2026-11-27): a cut moved by arithmetic after a re-voice instead of placed on a measured pause or onset (more than 100 ms from one).
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
    Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 150 words.
+   Must-fix (L73, repeated 2026-11-27): any voice line whose last 50 ms in `vo.wav` is louder than -28 dB (a stray tail), even if the maker logged the measurement.
+   Must-fix (L52, L22, repeated 2026-11-27): a hand or held prop drawn before its arm is raised (a hand on the desk front at a shot's first frame); check every figure shot's first-frame still.
 20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.
    Must-fix (L48, repeated 2026-11-25; L79): any label under 28 px at any frame (a ticket scaled down in flight counts), and the corner tag outside the safe area; should-fix for text under 44 px.
    Must-fix (L48, repeated 2026-11-25): a text helper whose default or `min:` is under 44 px (`lab()`, `fitSz`, `min:38`): set every minimum to 44 and cut words to fit.

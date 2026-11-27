@@ -150,6 +150,14 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - A shot never opens on an empty frame: panels and lanes on a cut are drawn at full alpha from the shot's first frame; ease in only what is added inside a shot (L23, repeated).
 - Labels and numbers that belong together (a panel's number and its "OUR EXAMPLE" label) share one entrance time; text is drawn at scale 1.0 from its first frame, and only the frame or card behind it scales (L26, L48, repeated).
 - The ruled-out phrase sweep greps word stems across every tense (`search(es|ed)? and th(inks|ought)`), the whole folder including `beats.md`'s "The parts, in one line each" list and `lesson.md`'s own paraphrases (L26, L17, repeated).
+- Measure every voice line's last 50 ms right after the full voicing, before the make starts; a line over -28 dB is re-voiced then, never built on (built on in claude-sheets-v2, the re-voice moved 14 shots: 9 min, an 8.1-min rebuild) (L73, repeated).
+- Draw a hand and its prop only once its arm is up, and look at the first frame of every shot that shares the pattern, not only the one flagged; when a fix changes a mascot's scale or distance, re-time its arm moves (0.35 s became a 42 px jump) (L52, L22, repeated).
+- After a re-voice moves cuts, place each moved cut on a measured pause or onset from `pauses.json`, never shift it by the offset (L47, repeated).
+- A held card over a dimmed frame for more than 2 s grows or pushes slowly from its first frame (L23, repeated).
+- Scripted edits: one replace per target text, applied in an order where no replace rewrites another's target; assert each old text is found once before writing (L43, repeated).
+- A hook that gains a kind word at the gate drops a word in the same edit: keep line 1 at 20 spoken words or fewer (a 4-syllable year counts as 4) (L46, repeated).
+- When an episode copies files from an earlier one (cards, `research.md` "Our example", `brief.json` one_line), list the carried texts in `progress.md` and re-read each against this script's words and `claims.md` before the gate (L26, L76, repeated).
+- The claim-fix sweep greps each ruled-out phrase cut back to its noun stem ("your math teacher", "totals are formulas"), never the exact phrase or its possessive (L17, repeated).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
