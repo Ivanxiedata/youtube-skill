@@ -84,7 +84,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L47, repeated 2026-11-27): a cut moved by arithmetic after a re-voice instead of placed on a measured pause or onset (more than 100 ms from one).
    Must-fix (L47, repeated 2026-11-27, gpt-6-2-cost-per-task): a cut within 150 ms of a voice-line start with the light brush; check `earshot timeline` on every cut near a line start.
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
-   Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 170 words.
+   Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 125 words, or any line of `film/script.txt` is spoken faster than 3.2 words a second (measured in `vo_lines.json`; L92).
    Must-fix (L73, repeated 2026-11-27): any voice line whose last 50 ms in `vo.wav` is louder than -28 dB (a stray tail), even if the maker logged the measurement.
    Must-fix (L52, L22, repeated 2026-11-27): a hand or held prop drawn before its arm is raised (a hand on the desk front at a shot's first frame); check every figure shot's first-frame still.
 20. Format: `ffprobe video.mp4` is 1080x1920; every word and key drawing inside the safe area (`docs/brand.md`); `upload.json` has no chapters. Must-fix otherwise.

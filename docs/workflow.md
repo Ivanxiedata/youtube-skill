@@ -111,7 +111,7 @@ Before any script: what will the viewer **learn**? Read every open `check: gate`
   (this is also the payoff, said out loud), then the ask: "Want more? Subscribe, and comment what we should explain next." On screen: a "WHAT WE LEARNED" card, then the Subscribe button with a comment button.
 - **Out:** `beats.md` (the two hooks with panels and the formula, then a table: time, spoken line, ON SCREEN, purpose: hook/turn/beat/payoff/close),
   `script.md` (spoken text only, sections hook, before, new, why, takeaway, outro), `film/script.txt` (as spoken: numbers in words, names respelled for the voice).
-- **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 150-170 words, so the voice fits in 60 s (Kokoro `am_michael` at speed 1.2 speaks about 2.8 words a second).
+- **Pass:** the hook passes the 3-second test with no jargon and scores 72 or more; about 120-125 words, so the voice fits in 60 s with a pause at each beat change (L92) (Kokoro `am_michael` at speed 1.2 speaks about 2.8 words a second).
 
 ### 3a Content gate (a fresh Sonnet student and a fresh strong critic; `docs/roles/content-gate.md`)
 - The writer writes `viewer.md` (only what the viewer hears and sees); the student reads only that, states the main idea and answers the 3 questions; the critic scores G1-G13 (must-fix blocks; should-fix is fixed when it fits).
