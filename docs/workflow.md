@@ -130,7 +130,7 @@ Before any script: what will the viewer **learn**? Read every open `check: gate`
   (after a re-voice, also every shot whose cut frames moved in `film/film.json`: lesson L18), until the audit says `ISSUES 0`; copied to `video.mp4`.
 - Brand on screen (`docs/brand.md`): title card from frame 0, corner tag on every frame, takeaway card, Subscribe button (with the next episode's name under it only when it is decided; otherwise nothing, lesson L24).
 - Music: the signature track (`python scripts/music.py get efa007f6-a5fe-420c-a1a6-8d5dafa95005 film/music.mp3`, credit in `music.json`), about 16 dB under the voice.
-- Thumbnail: `film/thumb.js` + `film/thumb.py` from the brand template, checked at 160 px wide.
+- Thumbnail: `film/thumb.json` + `film/thumb_picture.js`, rendered with `scripts/thumbnail/render.py` (the brand template, `docs/brand.md`), checked at 160 px wide.
 - Listen: `earshot measure`, `describe`, `timeline --video`, `sheet`.
 - **Pass:** audit `ISSUES 0`; -17 LUFS within 1; no noise or hum tag; at most 60 s.
 

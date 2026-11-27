@@ -33,11 +33,14 @@ Every thumbnail and every opening restates it. If a video can't keep it, it isn'
 | Headlines | Impact, all caps. Labels: Arial Black |
 
 ## Thumbnail template
-Code: `episodes/deepseek-super-agent/film/thumb.js` (branch `ep-super-agent`); copy it and change the topic, the costume and the picture.
-1. **Promise, top right:** small "LEARN <WHOSE>" in off-white, the topic huge in amber, then the red sticker "IN 60 SECONDS", tilted, always the same.
-2. **Mascot, left:** large, in the episode's costume, confident, looking at the viewer.
-3. **Picture, bottom right:** one image of the lesson (Episode 0: the army of AI workers), darker than the mascot and the text.
-4. Readable at 160 px wide. Nothing that matters in the bottom-right corner, where YouTube puts the duration.
+One template for every episode, 1080 x 1920 (the films are Shorts): `scripts/thumbnail/template.js`, rendered by
+`.skills/venv/bin/python scripts/thumbnail/render.py episodes/<slug>` with the bundled Anton font (`scripts/thumbnail/`, OFL), so a CI render looks like a local one.
+An episode never draws its own layout. It gives only `film/thumb.json` (`{"learn": "LEARN GOOGLE'S", "topic": "Agent Compute Engine"}`; `learn` defaults to "LEARN")
+and `film/thumb_picture.js`: `thumbPicture(x)`, its one picture in a 620 x 620 box (reuse a shot's drawing from `film.js`), and `thumbCostume(x, m)`, the costume.
+1. **Promise, top:** "LEARN <WHOSE>" in off-white, the topic in amber as big as fits (1-3 lines), the red "IN 60 SECONDS" sticker under it.
+2. **Mascot, bottom left:** large, in the episode's costume, eyes on the viewer.
+3. **Picture, bottom right:** one image of the lesson, from the episode's story (product.md), darker than the mascot and the text; no words except a stamp-like label.
+4. Readable at 160 px wide. Nothing that matters below y 1640, where the Shorts title and view count sit.
 
 The viewer must be able to tell what they will learn. A hook that could sit on any video ("YOU'RE THE BOTTLENECK.") was rejected as generic;
 a diagram with labels was rejected as unattractive.
