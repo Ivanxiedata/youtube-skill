@@ -293,3 +293,17 @@ func TestThumbnailOnlySetsItOnThePublishedVideo(t *testing.T) {
 		t.Fatalf("thumbFor=%q inserts=%d report=%q, want the thumbnail on old42 and no new upload", f.thumbFor, f.inserts, out)
 	}
 }
+
+func TestAngleBracketsAreReplaced(t *testing.T) {
+	p := filepath.Join(t.TempDir(), metaFile)
+	if err := os.WriteFile(p, []byte(`{"title":"a <b>","description":"Settings > Artifacts"}`), 0o600); err != nil {
+		t.Fatal(err)
+	}
+	m, err := readMeta(p)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if m.Title != "a ‹b›" || m.Description != "Settings › Artifacts" {
+		t.Fatalf("got %q / %q", m.Title, m.Description)
+	}
+}

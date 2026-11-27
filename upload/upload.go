@@ -8,6 +8,7 @@ import (
 	"io"
 	"os"
 	"path/filepath"
+	"strings"
 	"time"
 )
 
@@ -179,6 +180,9 @@ func readMeta(path string) (meta, error) {
 	if err := dec.Decode(&m); err != nil {
 		return m, fmt.Errorf("%s: %w", path, err)
 	}
+	// YouTube rejects < and > in both (invalidDescription), but only after the video bytes are sent.
+	r := strings.NewReplacer("<", "‹", ">", "›")
+	m.Title, m.Description = r.Replace(m.Title), r.Replace(m.Description)
 	// YouTube's limits; it rejects longer values only after the bytes are sent.
 	switch {
 	case m.Title == "":
