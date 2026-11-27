@@ -1,7 +1,7 @@
 # upload progress
 
 ## Status
-`yt upload` works against real YouTube: Episode 0 is uploaded with captions and thumbnail, and the owner made it public in Studio on 2026-11-21. Open: app still in Testing (7-day sign-in), 3 unbuilt criteria.
+in progress (upload-angle-brackets): `yt upload` works against real YouTube: Episode 0 is uploaded with captions and thumbnail, and the owner made it public in Studio on 2026-11-21. Open: app still in Testing (7-day sign-in), 3 unbuilt criteria.
 
 ## Next
 1. Optional, owner's call: publish the OAuth app so the sign-in stops expiring every 7 days. In Google Auth Platform > Audience, "Publish app" stays greyed out with
