@@ -21,6 +21,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 3. Thumbnail at 160 px wide (shrink it and look): topic and promise readable, brand card used. Must-fix if unreadable.
 4. The 3 searches in `package.md`: their words are in the title and the first two description lines. Should-fix otherwise.
    Must-fix (L37, repeated 2026-11-25): a search word (such as "vs") that is not in the title or description lines 1-2.
+   Must-fix (L37, repeated 2026-11-27): a `package.md` note on where a search's words sit that misquotes the description ("price per token" where line 2 says "token prices"); re-read it after every claim fix.
 
 **Watch (`/yt-script`)**
 5. Hook, the 3-second test (lesson L16): from the first spoken sentence alone, could someone who doesn't know the tech say what this video gives them?
@@ -33,8 +34,10 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
 8. Turn: by about 10 s, one sentence saying what the video will do. No channel intro or subscribe pitch before it. Should-fix.
    Must-fix (L46, repeated 2026-11-25): the first voice line runs past 8 s, or the turn sentence was cut for the word budget (cut words elsewhere, never the turn).
    Must-fix (L46, repeated 2026-11-26): line 1 in `film/vo_lines.json` over 8 s after gate or claim fixes added words to the hook; check the final take's length, not the draft's.
+   Must-fix (L46, repeated 2026-11-27): line 1 over 20 spoken words (a gate's kind word such as "OpenAI's" added without a word dropped), whatever the draft timing said.
 9. Beats: one idea per beat, and something to look at on every beat (contact sheet, `beats.md`). Should-fix for a beat with nothing to look at.
    Must-fix (L1, repeated 2026-11-25): a shot over 5 s; split it with cuts (a mid-shot highlight is not a new shot). Should-fix when shots average over 3 s.
+   Must-fix (L1, repeated 2026-11-27): a shot spanning a voice span of two clauses; check every shot's length in the final `vo_lines.json` timing, not `beats.md`'s plan.
    Must-fix (L44, repeated 2026-11-24): a figure or multi-part prop that fades with `globalAlpha`, alone or inside an easing panel, so limbs or clothes show through each other.
    Must-fix (L44, repeated 2026-11-25): a panel-entrance helper (such as `withIn()`) that eases alpha on a panel holding a figure; check every figure shot's mid-entrance still.
 10. Payoff: the thing the hook promised is delivered, out loud. Must-fix if missing.
@@ -55,6 +58,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L17, repeated 2026-11-26): a ruled-out phrase or its paraphrase in any other form (another tense, a summary list in `beats.md`, the writer's own words in `lesson.md`); grep the folder for the phrase's word stems, not its exact words.
    Must-fix (L17, L26, repeated 2026-11-26, claude-sheets): a ruled-out phrase or analogy, by any stem ("answers only", "handed in", "hands in"), left anywhere but `claims.md` and `mistakes.md`: `research.md` ("Where the analogy stops" too), `brief.json`, `viewer.md`, `beats.md` (intro and cast list), `upload.json`; a source's list in any file not copied word for word from `research.md`'s quote.
    Must-fix (L17, L26, repeated 2026-11-27, claude-sheets-v2): a ruled-out phrase left by its stem without a suffix ("your math teacher" from "your math teacher's", "totals are formulas" from "they're formulas"), or a summary carried from an earlier episode (`research.md`'s "Our example", `brief.json` one_line) that states our example as a general fact or drops a card's condition ("If it shows"); `gate.md` lines quoting pre-claim wording need a note.
+   Must-fix (L17, L26, repeated 2026-11-27, gpt-6-2-cost-per-task): grep each ruled-out phrase by its bare stems ("know", "door"), not by the phrase ("knows the route", "door sign"); any hit outside `claims.md`, `mistakes.md`, `evaluation.md` and noted `gate*.md` fails.
 13. Before -> after is stated plainly and shown side by side (diagram), and the body sells the outcome: before = the viewer's pain as a scene,
    now = the same scene with the new tech, then how, then why it helps them. Must-fix if the viewer can't say what is new or what it does for them;
    should-fix if the tech is explained before the viewer's pain is shown.
@@ -62,6 +66,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L34, repeated): in any shot, a meter's number counts something other than the unit its label names (a "YOUR WAITS" meter ticking on a test run).
    Must-fix (L34, repeated 2026-11-24): a meter's number that disagrees with what the shot draws (the route stops at 4, the meter shows 10), or a meter fix that hides the shot's point (a stall shown only by a tag, not on the picture).
    Must-fix (L34, repeated 2026-11-26): a meter that changes before or after the thing it counts changes in the picture (boxes empty while the totals still have no fx tag; the tick before the last tag lands); check the stills at each counted item's first frame.
+   Must-fix (L38, L26, repeated 2026-11-27): a WHAT WE LEARNED mini panel that recalls a meter without the labels, test and base the recalled shot gives it (a bare "under a third" bar reads as the viewer's own saving).
 
 **Learn**
 13b. The video teaches `lesson.md`: its main idea is said out loud and each of the 3 questions is answered on screen and in words, as in the script that passed `gate.md`. Must-fix if a gate-passed answer was cut or changed in the make.
@@ -77,6 +82,7 @@ Every row: result, evidence (the tool output or the quoted line), and the fix if
    Must-fix (L47, repeated 2026-11-25): a picture cut with no sound within 100 ms (shots sharing a PLACE letter still get a full cut brush).
    Must-fix (L47, repeated 2026-11-25): `earshot timeline` not re-run after a `MUSIC_DB` change; a cut in the last 200 ms of a pause needs a louder brush.
    Must-fix (L47, repeated 2026-11-27): a cut moved by arithmetic after a re-voice instead of placed on a measured pause or onset (more than 100 ms from one).
+   Must-fix (L47, repeated 2026-11-27, gpt-6-2-cost-per-task): a cut within 150 ms of a voice-line start with the light brush; check `earshot timeline` on every cut near a line start.
 19. The stickman audit in the build log ends `ISSUES 0`; duration at most 60 s. Must-fix otherwise.
    Must-fix (L21, repeated): `film/vo_lines.json` or the voice runs past 60.0 s, or `script.md` is over about 170 words.
    Must-fix (L73, repeated 2026-11-27): any voice line whose last 50 ms in `vo.wav` is louder than -28 dB (a stray tail), even if the maker logged the measurement.

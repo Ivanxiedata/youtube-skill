@@ -157,6 +157,13 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - A hook that gains a kind word at the gate drops a word in the same edit: keep line 1 at 20 spoken words or fewer (a 4-syllable year counts as 4) (L46, repeated).
 - When an episode copies files from an earlier one (cards, `research.md` "Our example", `brief.json` one_line), list the carried texts in `progress.md` and re-read each against this script's words and `claims.md` before the gate (L26, L76, repeated).
 - The claim-fix sweep greps each ruled-out phrase cut back to its noun stem ("your math teacher", "totals are formulas"), never the exact phrase or its possessive (L17, repeated).
+- Shot 20-style recalls (WHAT WE LEARNED mini panels, a recalled meter) carry the recalled shot's bar labels, test name and base, or are dropped for a formula card; check them against `claims.md` before build 1 (L38, L26, repeated).
+- A draft-voicing subagent's brief says: run `tts.py` in the foreground or wait on Monitor in the same turn; a subagent that ends its turn on "waiting for the notification" kills the voicing (L28, repeated: died at line 2 of 10 in gpt-6-2-cost-per-task).
+- Before the first draft, list `research.md`'s narrowing items (each discount's real number, a regulated single rate, the source's exact "of the cost" vs "per task") and tick each in the script before the claim check; 9 of 37 were narrower in gpt-6-2-cost-per-task (L26, repeated).
+- Size a card added in a fix round against the shared background it sits on (taxis, roof plates) and every panel border at 40 px, with the push applied, before the `--shots` build (L22, repeated: two layout redos in one fix round).
+- Before build 1, measure meter row spacing and every label against its panel border in the stills; a second look after build 1 that re-spaces rows is a rebuild the budget doesn't have (L86, repeated: 22.7 min, 6 builds in gpt-6-2-cost-per-task).
+- A card that carries a shot's opening (a title or rate card) is drawn at full alpha in the shot's first-frame still; check every shot's first frame in the stills round, not only those with new panels (L23, repeated: shot 4 opened empty in gpt-6-2-cost-per-task).
+- Give a cut near a voice-line start the full brush before build 1, so no audio-only remix is needed (L47, repeated).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
