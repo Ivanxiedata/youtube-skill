@@ -1,0 +1,114 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 0.0,
+  "end": 4.166,
+  "text": "Many math teachers ask you to show your work, not just 1 answer."
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_michael",
+  "start": 4.466,
+  "end": 7.956,
+  "text": "But before Claude Sheets, how could you check an AI total?"
+ },
+ {
+  "n": 2,
+  "beat": 1,
+  "voice": "am_michael",
+  "start": 9.706,
+  "end": 12.609,
+  "text": "Showing your work can show where a mistake happened."
+ },
+ {
+  "n": 3,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 14.359,
+  "end": 19.487,
+  "text": "Before, in our example, you pasted a budget from Claude's chat into another tool."
+ },
+ {
+  "n": 4,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 19.987,
+  "end": 23.025,
+  "text": "Plain text: three totals, no work behind them."
+ },
+ {
+  "n": 5,
+  "beat": 2,
+  "voice": "am_michael",
+  "start": 23.525,
+  "end": 25.783,
+  "text": "To check one, you redid the math."
+ },
+ {
+  "n": 6,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 27.533,
+  "end": 31.763,
+  "text": "Now, Claude Sheets, a beta on paid plans, keeps the sheet in Claude."
+ },
+ {
+  "n": 7,
+  "beat": 3,
+  "voice": "am_michael",
+  "start": 32.263,
+  "end": 37.297,
+  "text": "Its totals can be formulas, and a formula shows how the number was calculated."
+ },
+ {
+  "n": 8,
+  "beat": 4,
+  "voice": "am_michael",
+  "start": 39.047,
+  "end": 41.763,
+  "text": "In our example, one total skips a quarter."
+ },
+ {
+  "n": 9,
+  "beat": 4,
+  "voice": "am_michael",
+  "start": 42.063,
+  "end": 44.038,
+  "text": "Its formula shows that right away."
+ },
+ {
+  "n": 10,
+  "beat": 5,
+  "voice": "am_michael",
+  "start": 45.788,
+  "end": 47.715,
+  "text": "So, plain totals hide the work."
+ },
+ {
+  "n": 11,
+  "beat": 5,
+  "voice": "am_michael",
+  "start": 48.015,
+  "end": 49.12,
+  "text": "Formulas show it."
+ },
+ {
+  "n": 12,
+  "beat": 6,
+  "voice": "am_michael",
+  "start": 50.87,
+  "end": 52.16,
+  "text": "Want the next one?"
+ },
+ {
+  "n": 13,
+  "beat": 6,
+  "voice": "am_michael",
+  "start": 52.461,
+  "end": 55.063,
+  "text": "Subscribe, and tell me what to explain next."
+ }
+]
