@@ -30,7 +30,7 @@ It was the general's attention. And now, that general is you."
 an AI voice (below), quiet instrumental music. One call to action, at the end. Details: `docs/brand.md`.
 
 ## My voice (L91)
-Every episode is voiced by Kokoro `am_michael` at speed 1.2 through the stickman skill's `tts.py` (about 2.8 words a second, so about 150-170 words for 60 s).
+Every episode is voiced by Kokoro `am_michael` at speed 1.2 through the stickman skill's `tts.py` (about 2.8 words a second while speaking). Write about 120-125 words for 60 s, so the picture can hold about 1.5 s at each beat change (L92).
 The owner tried a cloned voice with an excited delivery (Chatterbox, 2026-11-24) and went back to this one (2026-11-27): the tone stays calm.
 
 Write in a calm, conversational tone, like a friend explaining at a table: plain full sentences, a real question with `?` where it helps.

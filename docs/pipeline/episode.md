@@ -51,7 +51,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The music-to-voice gap is measured as mixed: `audio_kit.Mix.write` scales everything but the voice by 0.55 (-5.2 dB) (L19).
   Never measure the stems: `Mix.write` normalises each file to -17 LUFS, so stem numbers are always equal. Measure music x 0.55 against the voice, once (L19, repeated).
 - WebFetch paraphrases pages with a small model: for any sentence you quote, `curl -sL` the page and strip the HTML (L20).
-- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 170 words, counted per beat while writing (L21).
+- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 125 words, counted per beat while writing (L21, L92).
 - Lay out new drawings by measuring: cards sized from `measureText` plus padding, 40 px from the frame edge and other labels, figures anchored to the tile bottom, effects drawn after what they sit on; after every re-render, look at the re-rendered shots' stills again (L22).
 - Panels and cards ease in on scale and alpha over at least 0.5 s (the audit counts a fast fade as a pop); a shot over 2 s with little motion gets a slow camera push to about 1.1 (L23).
 - Whoever writes captions, chapters and `upload.json` reads `claims.md` first: no chapter title or description line may say more than a narrower row allows; mark each narrower row with where it was fixed (L17, repeated).
@@ -76,7 +76,9 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Call stickman scripts by full path, `.claude/skills/stickman/scripts/<name>.py`; they are not on PATH (L35).
 - Set view state per shot in `film.js`, never as a range; check the BEFORE shots' stills against `beats.md` before the first build (L38).
 - `m.voice(..., at=)` in `audio_mix.py` uses the film clock's offset; never copy the example's value (L39).
-- Draft the first script at about 150 spoken words (spelled letters count one word each; "P Cs" is 2), not 170; a re-voice comes only after `wc -w` shows fewer words than the last voicing, since rephrasing does not shorten (L21, repeated).
+- Pace (owner, L92: the old pace was too fast, so the start and end were confusing): the story comes first, before any claim about the tech; one idea per line, and no line over 3.2 words a second;
+  no new feature after the payoff (it goes in the description); the recap repeats the story's words, not new jargon; the picture holds about 1.5 s at each beat change while the voice pauses (a blank line in `film/script.txt`).
+- Draft the first script at about 120 spoken words (spelled letters count one word each; "P Cs" is 2), never over 125; a re-voice comes only after `wc -w` shows fewer words than the last voicing, since rephrasing does not shorten (L21, repeated).
 - Every layout check measures with the camera push applied and counts the corner tag as a neighbour (40 px from it); props reused from another shot or the example get measured again (L22, repeated).
 - A large bright element sliding across the frame is a pop however slow it moves; change the scene on a cut instead (L23, repeated).
 - Keep a list of every shot whose drawing or camera changed and pass all of them to `--shots`; check the list against the `film.js` diff before the build (L18, repeated).
