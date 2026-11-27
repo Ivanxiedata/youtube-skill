@@ -1,6 +1,6 @@
-Your teacher never took 1 answer without the work. But before Claude Sheets, how could you check an AI total?
+Many math teachers ask you to show your work, not just 1 answer. But before Claude Sheets, how could you check an AI total?
 
-Showing your work shows where a mistake happened.
+Showing your work can show where a mistake happened.
 
 Before, in our example, you pasted a budget from Claude's chat into another tool.
 Plain text: three totals, no work behind them.

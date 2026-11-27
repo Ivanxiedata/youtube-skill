@@ -51,12 +51,12 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - The music-to-voice gap is measured as mixed: `audio_kit.Mix.write` scales everything but the voice by 0.55 (-5.2 dB) (L19).
   Never measure the stems: `Mix.write` normalises each file to -17 LUFS, so stem numbers are always equal. Measure music x 0.55 against the voice, once (L19, repeated).
 - WebFetch paraphrases pages with a small model: for any sentence you quote, `curl -sL` the page and strip the HTML (L20).
-- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 125 words, counted per beat while writing (L21, L92).
+- Check the gate before drafting: titles need a number, date or name (`title.py` `no-number`); the script stops at about 125 words, counted per beat while writing (L21, L94).
 - Lay out new drawings by measuring: cards sized from `measureText` plus padding, 40 px from the frame edge and other labels, figures anchored to the tile bottom, effects drawn after what they sit on; after every re-render, look at the re-rendered shots' stills again (L22).
 - Panels and cards ease in on scale and alpha over at least 0.5 s (the audit counts a fast fade as a pop); a shot over 2 s with little motion gets a slow camera push to about 1.1 (L23).
 - Whoever writes captions, chapters and `upload.json` reads `claims.md` first: no chapter title or description line may say more than a narrower row allows; mark each narrower row with where it was fixed (L17, repeated).
 - The Subscribe card: the next episode's name under it only when it is decided; the daily run never knows it, so nothing under it, no "Next in 60 seconds" (owner, L24).
-- Time the voice, not the words (L21, repeated): Kokoro `am_michael` at speed 1.2 speaks about 2.8 words a second (L91), spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.4 s. Before the claim check, voice a draft of `film/script.txt` with `tts.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
+- Time the voice, not the words (L21, repeated): Kokoro `am_michael` at speed 1.0 speaks about 3 words a second (L91, L94), spelled letters count one word each, and every line gap in `film/script.txt` adds about 0.4 s. Before the claim check, voice a draft of `film/script.txt` with `tts.py` into `$RUNNER_TEMP/{{SLUG}}/` and cut until it ends under 58 s, so the claim check runs once on the final words.
 - Write `research.md`'s narrowing conditions into the first draft; after any claim fix to the hook or title, re-run `hookscore.py` and `title.py` (L26).
 - Search folders with `grep -r`, and cap any command reading fetched pages with `| head -c 4000` (L27).
 - Never `SendMessage` a finished subagent (it resumes in the background); start a new foreground Agent with a full brief.
@@ -76,7 +76,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Call stickman scripts by full path, `.claude/skills/stickman/scripts/<name>.py`; they are not on PATH (L35).
 - Set view state per shot in `film.js`, never as a range; check the BEFORE shots' stills against `beats.md` before the first build (L38).
 - `m.voice(..., at=)` in `audio_mix.py` uses the film clock's offset; never copy the example's value (L39).
-- Pace (owner, L92: the old pace was too fast, so the start and end were confusing): the story comes first, before any claim about the tech; one idea per line, and no line over 3.2 words a second;
+- Pace (owner, L94: the old pace was too fast, so the start and end were confusing): the story comes first, before any claim about the tech; one idea per line, and no line over 3.2 words a second;
   no new feature after the payoff (it goes in the description); the recap repeats the story's words, not new jargon; the picture holds about 1.5 s at each beat change while the voice pauses (a blank line in `film/script.txt`).
 - Draft the first script at about 120 spoken words (spelled letters count one word each; "P Cs" is 2), never over 125; a re-voice comes only after `wc -w` shows fewer words than the last voicing, since rephrasing does not shorten (L21, repeated).
 - Every layout check measures with the camera push applied and counts the corner tag as a neighbour (40 px from it); props reused from another shot or the example get measured again (L22, repeated).
@@ -169,7 +169,7 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
-  Skills are under `.claude/skills/`. The voice is always `.skills/venv/bin/python .claude/skills/stickman/scripts/tts.py film film/script.txt --voice am_michael --speed 1.2 --no-align` (`docs/voice.md`).
+  Skills are under `.claude/skills/`. The voice is always `.skills/venv/bin/python .claude/skills/stickman/scripts/tts.py film film/script.txt --voice am_michael --speed 1.0 --no-align`, then `.skills/venv/bin/python scripts/slow-lines.py film` (slows alone any line still over 3.2 words a second, L94) (`docs/voice.md`).
 - Scratch files only under `$RUNNER_TEMP/{{SLUG}}/`.
 - Do not upload, do not commit, do not push: the workflow does those after you finish, using `evaluation.md`'s first line.
 

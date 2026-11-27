@@ -1,4 +1,23 @@
-# Claims: claude-sheets-v2 (workflow step 3b)
+# Claims: claude-sheets-v3 (the slower re-cut of claude-sheets-v2)
+
+## v3 spoken lines (2026-11-27), each against the same sources [A] [B] [P] and the v2 rows below
+| # | v3 line | source / v2 row | verdict |
+|---|---|---|---|
+| v1 | "Many math teachers ask you to show your work, not just 1 answer." | [P] "Many math teachers ask their students to show their work" (row 3 fix kept: "many", not "your teacher") | holds |
+| v2 | "But before Claude Sheets, how could you check an AI total?" | a question, no claim; [A] "moving the output over to another tool" | holds |
+| v3 | "Showing your work can show where a mistake happened." | [P] "Showing work can help you figure out where you made a mistake." (row 4 fix kept: "can") | holds |
+| v4 | "Before, in our example, you pasted a budget from Claude's chat into another tool." | row 5 ([A]), labelled "our example" | holds |
+| v5 | "Plain text: three totals, no work behind them." | row 6 (ours) | holds (ours) |
+| v6 | "To check one, you redid the math." | row 7 (ours, follows "in our example") | holds (ours) |
+| v7 | "Now, Claude Sheets, a beta on paid plans, keeps the sheet in Claude." | row 9 ([A] "can stay in Claude", "available on all paid plans"; beta) | holds |
+| v8 | "Its totals can be formulas, and a formula shows how the number was calculated." | rows 11, 16 ([B] "Formulas stay in the cells, so you can see and check how each number was calculated"); "can be", not "are" | holds |
+| v9 | "In our example, one total skips a quarter. Its formula shows that right away." | row 12 (ours, =SUM(Q1:Q3)) | holds (ours) |
+| v10 | "So, plain totals hide the work. Formulas show it." | rows 6, 11; recap of our example | holds |
+| v11 | Labels: "ANSWERS ONLY", "TOTAL ?", "THE WRONG STEP CAN SHOW", "BEFORE · OUR EXAMPLE", "NO FORMULA", "PAID PLANS", "SKIPPED Q4", "HIDES / SHOWS THE WORK" | as v1-v10; "CAN SHOW" per row 4 | holds |
+Dropped from v2 (no longer said or shown): rows 1, 2, 8, 10, 13, 14, 17, 18 (title card, edits outlined, the undo card). The description keeps them, quoted from [B].
+
+## The v2 table (kept for its sources and fixes)
+### claude-sheets-v2 (workflow step 3b)
 
 Checked 2026-11-27 by a claim checker that did not write the script, against the three sources themselves (not research.md's quotes):
 - [A] https://claude.com/resources/articles/sheets-whiteboards-data (dated "November 10, 2026")
