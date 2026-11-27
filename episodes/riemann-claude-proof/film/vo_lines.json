@@ -1,0 +1,114 @@
+[
+ {
+  "n": 0,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 0.0,
+  "end": 5.011,
+  "text": "I know the world moves fast. So you probably missed a huge AI breakthrough last week!"
+ },
+ {
+  "n": 1,
+  "beat": 0,
+  "voice": "am_ivan",
+  "start": 5.261,
+  "end": 10.029,
+  "text": "A mathematician at Anthropic, working with Claude, released a proof of the Riemann hypothesis!"
+ },
+ {
+  "n": 2,
+  "beat": 1,
+  "voice": "am_ivan",
+  "start": 10.629,
+  "end": 16.423,
+  "text": "Riemann found special numbers that encode the primes, and predicted all the important ones sit on one line."
+ },
+ {
+  "n": 3,
+  "beat": 1,
+  "voice": "am_ivan",
+  "start": 16.673,
+  "end": 23.373,
+  "text": "Earlier work showed at least two thirds of a key set follow it. But most isn't all: one exception would sink it."
+ },
+ {
+  "n": 4,
+  "beat": 1,
+  "voice": "am_ivan",
+  "start": 23.623,
+  "end": 25.551,
+  "text": "A proof says every single one does."
+ },
+ {
+  "n": 5,
+  "beat": 2,
+  "voice": "am_ivan",
+  "start": 26.151,
+  "end": 33.302,
+  "text": "And the proof? seventeen million lines of code! Far too long for a person to read. So how do we know it's right?"
+ },
+ {
+  "n": 6,
+  "beat": 2,
+  "voice": "am_ivan",
+  "start": 33.552,
+  "end": 40.363,
+  "text": "Two key checks. First: is it the right question? Two separate tools confirmed it proves exactly the standard statement."
+ },
+ {
+  "n": 7,
+  "beat": 2,
+  "voice": "am_ivan",
+  "start": 40.613,
+  "end": 46.128,
+  "text": "Second: is every step right? It's written in Lean, a proof language whose checker checks every single step."
+ },
+ {
+  "n": 8,
+  "beat": 2,
+  "voice": "am_ivan",
+  "start": 46.378,
+  "end": 53.938,
+  "text": "Several checkers by different people said yes; two are even proved unable to accept a false one, even if Lean's logic had a flaw. Certified correct!"
+ },
+ {
+  "n": 9,
+  "beat": 3,
+  "voice": "am_ivan",
+  "start": 54.538,
+  "end": 55.487,
+  "text": "What does it mean?"
+ },
+ {
+  "n": 10,
+  "beat": 3,
+  "voice": "am_ivan",
+  "start": 55.737,
+  "end": 62.229,
+  "text": "Certified doesn't mean understood. The checkers say it's true, not why. One mathematician says that could take months... or years."
+ },
+ {
+  "n": 11,
+  "beat": 4,
+  "voice": "am_ivan",
+  "start": 62.829,
+  "end": 73.157,
+  "text": "That's the real change: checking and understanding have come apart. AI helped find it. Machines checked it. Mathematicians still have to understand it, to build on its ideas."
+ },
+ {
+  "n": 12,
+  "beat": 5,
+  "voice": "am_ivan",
+  "start": 73.757,
+  "end": 79.44,
+  "text": "So, what we learned: a proven checker on the right question tells you it's right. Only understanding tells you why."
+ },
+ {
+  "n": 13,
+  "beat": 5,
+  "voice": "am_ivan",
+  "start": 79.69,
+  "end": 82.681,
+  "text": "Want more? Subscribe, and comment what we should explain next."
+ }
+]
