@@ -1,7 +1,7 @@
 # agent-compute-engine progress
 
 ## Status
-portrait opacity fix complete: shots 2 and 3 rebuilt, 1080x1920, 56.000 s, audit ISSUES 0; judge M1 pocket show-through corrected and 3x stills inspected; voice unchanged; no commit, push or upload
+published 2026-11-27: https://youtu.be/GtNrlw3TqlA (public, 9:16, 56.0 s); first headless-planned episode through the content gate; judged ready to publish (evaluation.md)
 
 ## Next
 1. Independent re-judge of the corrected picture against portrait round 3 M1 in `evaluation.md`; this fix is maker verification, not a new judge verdict.
@@ -41,3 +41,4 @@ none for the requested picture fix; publishing still needs the independent re-ju
 - 2026-11-24: converted to 9:16 with Codex; rebuilt 20 shots then only 9 motion-flagged shots; audit ISSUES 0, 56.000 s, 1080x1920, 7,798,935 bytes; captions retimed, chapter lines removed, final voice hashes unchanged; no commit, push or upload.
 
 - 2026-11-24 opacity fix: corrected portrait round 3 M1 in film.js; robot/pockets flattened with opaque unfolding linings, remaining multipart alpha groups fixed; exact 3x transition stills and 717 baseline/current samples checked; rebuilt only shots 2 and 3, audit ISSUES 0, copied byte-identical 1080x1920 56.000 s video; voice/words unchanged. Separate research M2 and independent re-judge remain outside this picture-only task.
+- 2026-11-27 agent-compute-engine: uploaded public after YouTube's daily upload limit cleared, https://youtu.be/GtNrlw3TqlA; published.json committed.
