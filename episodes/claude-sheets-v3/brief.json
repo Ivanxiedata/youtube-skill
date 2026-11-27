@@ -1,0 +1,112 @@
+{
+ "slug": "claude-sheets-v2",
+ "tech": {
+  "id": "claude-sheets",
+  "name": "Claude Sheets",
+  "released": "2026-11-10",
+  "status": "Beta on paid plans (Pro, Max, Ultra, Team, Enterprise); on by default on Team, off by default on Enterprise until it's turned on in Organization settings > Artifacts",
+  "one_line": "A spreadsheet inside Claude that you and Claude edit in the same cells; Claude can add tabs, write formulas that work across tabs, apply formatting and conditional formatting, and add dropdowns, checkboxes, and charts; formulas stay in the cells so you can check how each number was calculated; each Claude edit is outlined as it lands; when Claude finishes, a card says what Claude updated, and if it shows Undo, it takes back only that change; the card goes away a few seconds after you're back in the sheet, or as soon as you work in the cells."
+ },
+ "predecessor": {
+  "id": "claude-chat-output",
+  "name": "Claude's output in chat, moved by hand into another tool or program where Claude didn't have live access to follow progress and changes. Our example (the episode's own, not Anthropic's): a pasted hiring budget whose 3 team totals are just text with no formula, like homework with only the answers (an analogy for our pasted table)."
+ },
+ "claims": [
+  {
+   "text": "Claude Sheets is a spreadsheet built into Claude. Ask for a tracker, budget, or model, and Claude builds a working sheet that you, your team, and Claude can edit together. (row 1)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Claude Sheets is available in beta on Pro, Max, Ultra, Team, and Enterprise plans. It's on by default on Team plans. On Enterprise plans, it's off by default until it's turned on in Organization settings > Artifacts. (row 2)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Today we're launching Claude Whiteboards and Claude Sheets in beta ... These are available on all paid plans. (November 10, 2026; row 2b)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "A sheet is an artifact that you and Claude edit in the same cells. Claude can add tabs, write formulas that work across tabs, apply formatting and conditional formatting, and add dropdowns, checkboxes, and charts. (row 3)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Formulas stay in the cells, so you can see and check how each number was calculated. (row 4)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "When Claude changes a sheet, each edit is outlined as it lands, so you can see what changed. (row 5)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "It can edit in the cells, outlining each new edit so you can track changes. (row 5)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "When Claude finishes, a card says what Claude updated. If it shows 'Undo,' select it to take back only that change. The card goes away a few seconds after you're back in the sheet, or as soon as you work in the cells. After that, use Version history to restore an earlier version, which also removes edits made after it. (row 6)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Working with Claude on a project often meant moving the output over to another tool or program, where Claude didn't have live access to follow progress and changes. (row 7)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "Now, your documents, boards, sheets, and dashboards can stay in Claude, with access for your team to continue editing together. (row 8)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "Claude can now generate spreadsheets with tabs, formulas, formatting, and drop-downs, often from just a prompt like asking for a campaign tracker or a hiring budget. (row 9)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "'Make a hiring budget by team and quarter.' (example prompt; row 10)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Select cells and ask Claude about them, like 'Why is this total higher than last month?' (row 11)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Type in cells, write formulas, and format your data yourself. Claude Sheets includes over 250 functions. (row 12)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Select a cell that shows an error, then select 'Fix with Claude.' Select 'Keep' or 'Discard' when you see the fix. (row 13)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "For now, sheets have simple spreadsheet functionality, but we are working on adding more. (row 15)",
+   "source": "https://claude.com/resources/articles/sheets-whiteboards-data"
+  },
+  {
+   "text": "To download a sheet, export it as an .xlsx or CSV file. (row 16)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Excel features not supported: Macros, VBA, Power Query, DAX, and print layout. Sheets can't pull live data from connected apps. (row 17)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Claude Sheets counts toward your plan's usage limits, like the rest of your work with Claude. (row 18)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Web, desktop, Claude for iOS, and Claude for Android. (platforms; row 20)",
+   "source": "https://support.claude.com/en/articles/18324300"
+  },
+  {
+   "text": "Many math teachers ask their students to show their work or to write a sentence or two explaining their thinking. (story, row S1)",
+   "source": "https://www.library.pima.gov/blogs/post/why-showing-your-work-works/"
+  },
+  {
+   "text": "Showing work can help you figure out where you made a mistake. Seeing how a learner solved a problem helps a teacher, tutor, or caregiver know what the learner does or does not understand. (story, row S2)",
+   "source": "https://www.library.pima.gov/blogs/post/why-showing-your-work-works/"
+  },
+  {
+   "text": "If Mica only writes down the final answer, the teacher might assume that Mica doesn't know how to multiply two-digit numbers. But if Mica shows his work or explains the steps he took, the teacher will see that Mica knows how to multiply but just mixed up two digits. (story, row S3)",
+   "source": "https://www.library.pima.gov/blogs/post/why-showing-your-work-works/"
+  },
+  {
+   "text": "Her picture or diagram would probably have helped her realize that she skipped an important step by not subtracting the number of students absent from 126. (story, row S4)",
+   "source": "https://www.library.pima.gov/blogs/post/why-showing-your-work-works/"
+  }
+ ]
+}

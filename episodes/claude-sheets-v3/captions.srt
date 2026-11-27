@@ -1,0 +1,91 @@
+1
+00:00:00,500 --> 00:00:01,859
+Your teacher never took 1
+
+2
+00:00:01,859 --> 00:00:03,166
+answer without the work.
+
+3
+00:00:03,466 --> 00:00:05,351
+But before Claude Sheets, how could
+
+4
+00:00:05,351 --> 00:00:06,556
+you check an AI total?
+
+5
+00:00:08,306 --> 00:00:09,315
+Showing your work shows
+
+6
+00:00:09,315 --> 00:00:10,409
+where a mistake happened.
+
+7
+00:00:12,159 --> 00:00:14,208
+Before, in our example, you pasted a
+
+8
+00:00:14,208 --> 00:00:16,699
+budget from Claude's chat into another tool.
+
+9
+00:00:17,199 --> 00:00:18,656
+Plain text: three totals,
+
+10
+00:00:18,656 --> 00:00:19,832
+no work behind them.
+
+11
+00:00:20,332 --> 00:00:21,978
+To check one, you redid the math.
+
+12
+00:00:23,728 --> 00:00:25,549
+Now, Claude Sheets, a beta on paid
+
+13
+00:00:25,549 --> 00:00:27,318
+plans, keeps the sheet in Claude.
+
+14
+00:00:27,818 --> 00:00:29,751
+Its totals can be formulas, and a
+
+15
+00:00:29,751 --> 00:00:32,309
+formula shows how the number was calculated.
+
+16
+00:00:34,059 --> 00:00:35,140
+In our example, one
+
+17
+00:00:35,140 --> 00:00:36,383
+total skips a quarter.
+
+18
+00:00:36,683 --> 00:00:38,441
+Its formula shows that right away.
+
+19
+00:00:40,191 --> 00:00:41,958
+So, plain totals hide the work.
+
+20
+00:00:42,258 --> 00:00:43,211
+Formulas show it.
+
+21
+00:00:44,961 --> 00:00:45,954
+Want the next one?
+
+22
+00:00:46,254 --> 00:00:47,430
+Subscribe, and tell me
+
+23
+00:00:47,430 --> 00:00:48,555
+what to explain next.
