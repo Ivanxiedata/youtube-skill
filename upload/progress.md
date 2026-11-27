@@ -41,3 +41,4 @@ None.
 - 2026-11-21 upload-feature: second real run (`--again`): video and captions uploaded; the thumbnail was refused (403, channel not verified for custom thumbnails) and reported without failing the run; the error now says how to fix it.
 - 2026-11-21 upload-feature: `yt upload <dir> --thumbnail` added (11 tests) and used: thumbnail set on Episode 0 after the owner verified the channel.
 - 2026-11-21 upload-audit-facts: Next and Blockers corrected after PRs #2-#4 merged: the audit is not blocking (Episode 0 is public), the channel is verified, the 7-day sign-in and the audit form are two separate things.
+- 2026-11-27 upload-angle-brackets: claude-sheets-v2 (judged ready) failed upload with `invalidDescription`: "Organization settings > Artifacts". readMeta now sends `<` `>` as `‹` `›` in title and description; spec line + TestAngleBracketsAreReplaced.
