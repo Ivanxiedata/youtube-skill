@@ -1,0 +1,116 @@
+{
+ "slug": "claude-dreaming",
+ "tech": {
+  "id": "claude-dreams",
+  "name": "Dreams (dreaming) in Claude Managed Agents (Anthropic)",
+  "released": "2026-11-06 (Anthropic's post; the docs show no launch date)",
+  "status": "Research preview in Claude Managed Agents (Claude API, beta header dreaming-2026-04-21, access on request)",
+  "one_line": "A dream reads an existing memory store alongside 1 to 100 past session transcripts and writes a new, reorganized store (duplicates merged, stale or contradicted entries replaced with the latest value, new insights surfaced); the input store is never modified, so you review the new one and use or discard it. In Anthropic's Pokemon test, a dream caught a wrong note and rewrote it, and Claude went back into the cave and reached the next city."
+ },
+ "predecessor": {
+  "id": "agent-memory-notes",
+  "name": "Agent memory notes written one local write at a time during sessions and read by later sessions as they are: a store piles up duplicates, contradictions and stale entries, and a wrong note can be read and trusted (in Anthropic's Pokemon test, the uncorrected note dropped Claude back onto the earlier route three times)."
+ },
+ "claims": [
+  {
+   "text": "\"Let Claude review past sessions to curate an agent’s memory and surface new insights.\" (row 1: What a dream is)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"Managed Agents Status Research preview\" (page header: \"Dreams Feature of Managed Agents\") / \"Dreams are in research preview Request access\" (row 2: Status: research preview, in Managed Agents)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"Agents write to their memory stores as they work, but these writes are local and incremental: over many sessions a memory store accumulates duplicates, contradictions, and stale entries.\" (row 3: Before: notes pile up)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"A dream reads an existing memory store alongside past session transcripts, then produces a new, reorganized memory store: duplicates merged, stale or contradicted entries replaced with the latest value, and new insights surfaced.\" (row 4: What a dream does (the full list))",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"The input store is never modified, so you can review the output and discard it if you don’t like the result.\" (row 5: The old store stays)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"1 to 100 sessions: past transcripts Claude mines for patterns and insights to fold into the output.\" (row 6: How many sessions)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"Dreams run asynchronously and typically take minutes to a few hours, driven by the number of input transcripts.\" / \"Dreams are billed at standard API token rates for the model you select\" (row 7: How long, what it costs)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"attach it to future sessions as a memory_store resource in place of (or alongside) the input memory store\" (row 8: Use or discard the new store)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/dreams"
+  },
+  {
+   "text": "\"Each Managed Agents session starts with a fresh context by default. When a session ends, any state the agent built up is gone. Memory stores let the agent carry information across sessions\" (row 9: Sessions start fresh; memory carries over)",
+   "source": "https://platform.claude.com/docs/en/managed-agents/memory"
+  },
+  {
+   "text": "\"By “agent memory,” we mean knowledge that Claude gains from experience—including interactions with users and tasks it’s been assigned—and that it retains between sessions, saved as context it can read later.\" (row 10: Memory is what Claude saved itself)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Since Claude writes to memory based on what it judges to be salient in-session, a note that’s wrong from the start or that drifts as the environment changes can be read, and trusted, by Claude in a later session.\" (row 11: Why a note can be wrong)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Dreaming gives Claude a way to test its notes against the original transcripts\" / \"The transcript gave Claude a ground truth to validate its memory against.\" (row 12: The transcript is the check)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"At one point, Claude wrote down (incorrectly) that the PokéCenter was on the east side.\" (row 13: Pokémon: the wrong note)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Near the entrance is a trap: a one-way ledge that drops the player onto the route they came from, with no clear way to climb back up.\" (row 14: Pokémon: the ledge)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"In the run with the uncorrected note, Claude dropped back onto that earlier route three times.\" / \"The run ended without Claude ever reaching Cerulean City.\" (row 15: Pokémon: without the fix, three times)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"We ran dreaming on the memory folder that contained the wrong location for the PokéCenter: Claude checked the note against the session transcript, caught its error, and rewrote it.\" (row 16: Pokémon: the dream fixed the note)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"With the corrected memory note, Claude went straight back into Mt. Moon and eventually reached Cerulean City.\" / \"Dreaming corrects the memory, and Claude goes back into the cave and reaches the next city.\" (row 17: Pokémon: with the fix, the next city)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"We also evaluated Claude’s ability to play Pokémon Red , a game that challenges Claude to navigate complex long-horizon tasks\" / \"We saw a positive example of this when Claude played Pokémon using Managed Agents with a mounted directory for its memories.\" (row 18: It is a test Anthropic ran)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Researchers at Letta and UC Berkeley proposed sleep-time compute as a way for models to use idle time between interactions to reorganize their existing context.\" (row 19: Between sessions (the idea's origin))",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"As we sleep, and during quiet rest , the hippocampus replays our recent experiences.\" / \"This process is often called dreaming\" (row 20: The name)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Dreaming is one way to fix these mistakes (Figure 8), but it requires compute.\" (row 21: Not free, not total)",
+   "source": "https://anthropic.com/research/components-of-agent-memory"
+  },
+  {
+   "text": "\"Sessions with auto memory on , up to the first 200 lines or 25KB of MEMORY.md\" (row 22: Claude Code's own memory loads a small index)",
+   "source": "https://code.claude.com/docs/en/memory"
+  },
+  {
+   "text": "\"you may need to treat lecture notes as a 'first draft' that you can rewrite later as part of your review strategy.\" (row S1: Story: class notes are a first draft)",
+   "source": "https://www.fit.edu/student-success-support-center/resources/note-taking-strategies/"
+  },
+  {
+   "text": "\"Go through your notes after class while the material is still fresh.\" / \"If you recorded lectures or have video lectures, go to those parts of the lecture you made a note to review.\" (row S2: Story: after class, go back to the recording)",
+   "source": "https://sites.duke.edu/learningstematduke/what-do-i-do-after-class/"
+  },
+  {
+   "text": "\"Have you taken time to fill in gaps with the structure and detail you need?\" (row S3: Story: fill the gaps)",
+   "source": "https://sites.duke.edu/learningstematduke/what-do-i-do-after-class/"
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+Claude dreaming, Anthropic's memory cleanup: you never check A I agents' notes, but why can one wrong note cost you?
+Here's why: class notes, scribbled fast. One wrong line, and the mistake repeats.
+
+An agent's memory is notes it wrote itself.
+In Anthropic's Pokemon test, Claude kept trusting one wrong note: three drops back the way it came.
+
+Good students fix theirs from the recording.
+Dreaming, a research preview in the Claude Managed Agents service, does that.
+Claude rereads past sessions beside its notes, and writes a clean copy.
+Note fixed, Claude reached the next city, Anthropic says.
+
+So, what we learned: notes can be wrong; rereading turned the test's three drops into the next city.
+Want more? Subscribe, and comment what we should explain next.
