@@ -166,6 +166,9 @@ Rules learned from earlier runs (the learn step adds to this list; each names it
 - Before build 1, measure meter row spacing and every label against its panel border in the stills; a second look after build 1 that re-spaces rows is a rebuild the budget doesn't have (L86, repeated: 22.7 min, 6 builds in gpt-6-2-cost-per-task).
 - A card that carries a shot's opening (a title or rate card) is drawn at full alpha in the shot's first-frame still; check every shot's first frame in the stills round, not only those with new panels (L23, repeated: shot 4 opened empty in gpt-6-2-cost-per-task).
 - Give a cut near a voice-line start the full brush before build 1, so no audio-only remix is needed (L47, repeated).
+- Before `str.find` on a fetched page, collapse the stripped text to letters, digits and single spaces (icon glyphs sit between words), and search the quote collapsed the same way; a quote not found is re-quoted from the collapsed text, never as read on screen (L29, repeated).
+- Write the body beat by beat against a per-beat word budget that sums to about 120 (`wc -w` after each beat); claude-dreaming drafted the whole body three times (147, 134, 127) before 125 (L21, repeated).
+- A gate fix round ends with a grep of `lesson.md` for every word cut from `film/script.txt` that round (`git diff --word-diff` on the script lists them); fix every hit before the next student run, since the gate allows only 3 rounds (L74, repeated).
 
 ## Environment
 - Tools are installed; never pip install. The venv is on `PATH`; `PLAYWRIGHT_BROWSERS_PATH`, `STICKMAN_VOICE_DIR` and `EARSHOT_HOME` are set.
